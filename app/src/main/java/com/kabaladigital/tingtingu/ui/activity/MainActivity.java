@@ -114,8 +114,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Check whether this app was set as the default dialer
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            //Do something for android Q  and above versions
             Utilities.checkDefaultDialer(this);
         }
+        else{
+            //do something below Q android 7,8,9
+            Utilities.checkDefaultDialer_2(this);
+        }
+
+
+
         // Check for intents from others apps
         checkIncomingIntent();
 

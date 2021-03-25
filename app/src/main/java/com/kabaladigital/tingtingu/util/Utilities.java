@@ -80,7 +80,8 @@ Utilities {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    public static boolean checkDefaultDialer(Activity activity) {
+    public static boolean checkDefaultDialer(Activity activity)
+    {
         String packageName = activity.getApplication().getPackageName();
         try {
             if (!activity.getSystemService(TelecomManager.class).getDefaultDialerPackage().equals(packageName)) {
@@ -97,6 +98,38 @@ Utilities {
             return false;
         }
     }
+
+
+
+
+
+
+    public static boolean checkDefaultDialer_2(Activity activity)
+    {
+        String packageName = activity.getApplication().getPackageName();
+        try {
+            if (!activity.getSystemService(TelecomManager.class).getDefaultDialerPackage().equals(packageName)) {
+                // Prompt the user with a dialog to select this app to be the default phone app
+                 Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER)
+                       .putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, packageName);
+                activity.startActivityForResult(intent, DEFAULT_DIALER_RC);
+                //RoleManager rm = (RoleManager) activity.getSystemService(Context.ROLE_SERVICE);
+                //activity.startActivityForResult(rm.createRequestRoleIntent(RoleManager.ROLE_DIALER), DEFAULT_DIALER_RC);
+                //RoleManager roleManager = (RoleManager) activity.getSystemService(Context.ROLE_SERVICE);
+                //Intent intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_DIALER);
+                //startActivityForResult(Intent, CHANGE_DEFAULT_DIALER_CODE); // you need to define CHANGE_DEFAULT_DIALER as a static final int
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+
+
+
 
     public static boolean checkDefaultDialerOnly(Activity activity) {
         String packageName = activity.getApplication().getPackageName();
