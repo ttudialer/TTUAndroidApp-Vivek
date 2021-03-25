@@ -1,0 +1,747 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.kabaladigital.tingtingu"
+4    android:versionCode="8"
+5    android:versionName="v0.0.8" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:6:5-79
+11-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:6:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:7:5-67
+12-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:7:22-64
+13    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+13-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:8:5-75
+13-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:8:22-72
+14    <uses-permission android:name="android.permission.CALL_PHONE" />
+14-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:9:5-69
+14-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:9:22-66
+15    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+15-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:10:5-75
+15-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:10:22-72
+16    <uses-permission android:name="android.permission.READ_CONTACTS" />
+16-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:11:5-72
+16-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:11:22-69
+17    <!-- <uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
+18    <uses-permission android:name="android.permission.SEND_SMS" />
+18-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:13:5-67
+18-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:13:22-64
+19    <uses-permission android:name="android.permission.VIBRATE" />
+19-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:14:5-66
+19-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:14:22-63
+20    <uses-permission android:name="android.permission.WAKE_LOCK" />
+20-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:15:5-68
+20-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:15:22-65
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:16:5-80
+21-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:16:22-77
+22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+22-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:17:5-81
+22-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:17:22-78
+23    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+23-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:18:5-72
+23-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:18:22-69
+24    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+24-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:19:5-71
+24-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:19:22-68
+25    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+25-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:20:5-80
+25-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:20:22-77
+26    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+26-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:21:5-81
+26-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:21:22-78
+27    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+27-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:28:5-77
+27-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:28:22-74
+28    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+28-->[me.aflak.libraries:fingerprint:2.5.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\62cd248109c43e1b5c6864de667a5f3b\jetified-fingerprint-2.5.3\AndroidManifest.xml:11:5-74
+28-->[me.aflak.libraries:fingerprint:2.5.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\62cd248109c43e1b5c6864de667a5f3b\jetified-fingerprint-2.5.3\AndroidManifest.xml:11:22-71
+29    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+29-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:5-110
+29-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:26:22-107
+30    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+30-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:26:5-82
+30-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:26:22-79
+31
+32    <application
+32-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:23:5-184:19
+33        android:name="com.kabaladigital.tingtingu.App"
+33-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:24:9-55
+34        android:allowBackup="false"
+34-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:25:9-36
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.1.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\6f1e28fbe5ef91f26fe059bb71a2e19f\core-1.1.0\AndroidManifest.xml:24:18-86
+36        android:extractNativeLibs="false"
+37        android:icon="@mipmap/ic_launcher"
+37-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:26:9-43
+38        android:label="@string/app_name"
+38-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:27:9-41
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:28:9-54
+40        android:supportsRtl="true"
+40-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:29:9-35
+41        android:theme="@style/AppTheme"
+41-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:30:9-40
+42        android:usesCleartextTraffic="true"
+42-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:31:9-44
+43        android:windowSoftInputMode="adjustResize" >
+43-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:32:9-51
+44        <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity" />
+44-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:34:9-97
+44-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:34:19-95
+45        <activity
+45-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:36:9-39:52
+46            android:name="com.kabaladigital.tingtingu.ui.activity.EndCallActivity"
+46-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:37:13-83
+47            android:launchMode="singleInstance"
+47-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:38:13-48
+48            android:screenOrientation="portrait" />
+48-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:39:13-49
+49        <activity
+49-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:41:9-44:15
+50            android:name="com.kabaladigital.tingtingu.ui.activity.MainActivity"
+50-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:42:13-80
+51            android:exported="true" />
+51-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:43:13-36
+52        <activity
+52-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:46:9-122:20
+53            android:name="com.kabaladigital.tingtingu.ui.activity.LoginActivity"
+53-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:47:13-81
+54            android:label="@string/app_name"
+54-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:48:13-45
+55            android:launchMode="singleInstance"
+55-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:49:13-48
+56            android:screenOrientation="portrait" >
+56-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:50:13-49
+57            <intent-filter>
+57-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:51:13-57:29
+58                <action android:name="android.intent.action.MAIN" />
+58-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:52:17-69
+58-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:52:25-66
+59
+60                <category android:name="android.intent.category.DEFAULT" />
+60-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+60-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:55:17-77
+61-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:55:27-74
+62                <category android:name="android.intent.category.BROWSABLE" />
+62-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:17-78
+62-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:27-75
+63            </intent-filter>
+64
+65            <!-- For receiving intents -->
+66            <intent-filter>
+66-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:60:13-68:29
+67                <action android:name="android.intent.action.SEND" />
+67-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:61:17-69
+67-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:61:25-66
+68
+69                <category android:name="android.intent.category.DEFAULT" />
+69-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+69-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+70
+71                <data android:scheme="terms" />
+71-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+71-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:23-45
+72                <data android:scheme="privacy" />
+72-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+72-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:23-45
+73                <data android:mimeType="image/*" />
+73-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+73-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:67:23-49
+74            </intent-filter>
+75            <intent-filter>
+75-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:69:13-75:29
+76                <action android:name="android.intent.action.SEND" />
+76-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:61:17-69
+76-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:61:25-66
+77
+78                <category android:name="android.intent.category.DEFAULT" />
+78-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+78-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+79
+80                <data android:mimeType="text/plain" />
+80-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+80-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:67:23-49
+81            </intent-filter>
+82            <intent-filter>
+82-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:76:13-82:29
+83                <action android:name="android.intent.action.SEND_MULTIPLE" />
+83-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:77:17-78
+83-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:77:25-75
+84
+85                <category android:name="android.intent.category.DEFAULT" />
+85-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+85-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+86
+87                <data android:mimeType="image/*" />
+87-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+87-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:67:23-49
+88            </intent-filter>
+89
+90            <!-- From Google's Dialer App -->
+91            <intent-filter>
+91-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:85:13-93:29
+92                <action android:name="android.intent.action.DIAL" />
+92-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:17-69
+92-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:25-66
+93
+94                <category android:name="android.intent.category.DEFAULT" />
+94-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+94-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+95                <category android:name="android.intent.category.BROWSABLE" />
+95-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:17-78
+95-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:27-75
+96
+97                <data android:mimeType="vnd.android.cursor.item/phone" />
+97-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+97-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:67:23-49
+98                <data android:mimeType="vnd.android.cursor.item/person" />
+98-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+98-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:67:23-49
+99            </intent-filter>
+100            <intent-filter>
+100-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:94:13-101:29
+101                <action android:name="android.intent.action.DIAL" />
+101-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:17-69
+101-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:25-66
+102
+103                <category android:name="android.intent.category.DEFAULT" />
+103-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+103-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+104                <category android:name="android.intent.category.BROWSABLE" />
+104-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:17-78
+104-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:27-75
+105
+106                <data android:scheme="voicemail" />
+106-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+106-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:23-45
+107            </intent-filter>
+108            <intent-filter>
+108-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:102:13-106:29
+109                <action android:name="android.intent.action.DIAL" />
+109-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:17-69
+109-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:25-66
+110
+111                <category android:name="android.intent.category.DEFAULT" />
+111-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+111-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+112            </intent-filter>
+113            <intent-filter>
+113-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:107:13-115:29
+114                <action android:name="android.intent.action.VIEW" />
+114-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:108:17-69
+114-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:108:25-66
+115                <action android:name="android.intent.action.DIAL" />
+115-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:17-69
+115-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:86:25-66
+116
+117                <category android:name="android.intent.category.DEFAULT" />
+117-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+117-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+118                <category android:name="android.intent.category.BROWSABLE" />
+118-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:17-78
+118-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:27-75
+119
+120                <data android:scheme="tel" />
+120-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:17-48
+120-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:65:23-45
+121            </intent-filter>
+122            <intent-filter>
+122-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:116:13-121:29
+123                <action android:name="android.intent.action.CALL_BUTTON" />
+123-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:117:17-76
+123-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:117:25-73
+124
+125                <category android:name="android.intent.category.DEFAULT" />
+125-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:17-76
+125-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:54:27-73
+126                <category android:name="android.intent.category.BROWSABLE" />
+126-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:17-78
+126-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:56:27-75
+127            </intent-filter>
+128        </activity>
+129        <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
+129-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:124:9-112
+129-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:124:19-109
+130        <activity
+130-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:125:9-129:47
+131            android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
+131-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:126:13-87
+132            android:label="@string/activity_ongoing_call"
+132-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:127:13-58
+133            android:screenOrientation="portrait"
+133-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:128:13-49
+134            android:theme="@style/AppTheme" />
+134-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:129:13-44
+135
+136        <service
+136-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:131:9-141:19
+137            android:name="com.kabaladigital.tingtingu.service.CallService"
+137-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:132:13-75
+138            android:permission="android.permission.BIND_INCALL_SERVICE" >
+138-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:133:13-72
+139            <meta-data
+139-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:134:13-136:40
+140                android:name="android.telecom.IN_CALL_SERVICE_UI"
+140-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:135:17-66
+141                android:value="true" />
+141-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:136:17-37
+142
+143            <intent-filter>
+143-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:138:13-140:29
+144                <action android:name="android.telecom.InCallService" />
+144-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:139:17-72
+144-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:139:25-69
+145            </intent-filter>
+146        </service>
+147
+148        <receiver android:name="com.kabaladigital.tingtingu.listener.NotificationActionReceiver" >
+148-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:143:9-148:20
+148-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:143:19-97
+149            <intent-filter>
+149-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:144:13-147:29
+150                <action android:name="ANSWER" />
+150-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:145:17-49
+150-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:145:25-46
+151                <action android:name="HANGUP" />
+151-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:146:17-49
+151-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:146:25-46
+152            </intent-filter>
+153        </receiver>
+154
+155        <meta-data
+155-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:150:9-152:57
+156            android:name="preloaded_fonts"
+156-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:151:13-43
+157            android:resource="@array/preloaded_fonts" />
+157-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:152:13-54
+158        <meta-data
+159            android:name="firebase_crashlytics_collection_enabled"
+159-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:155:13-67
+160            android:value="true" /> <!-- Kotlin Classes Deceleration -->
+160-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:156:13-60
+161
+162        <receiver
+162-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:160:9-169:20
+163            android:name="com.kabaladigital.tingtingu.service.MyBroadCastReceiver"
+163-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:161:13-83
+164            android:directBootAware="true"
+164-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:162:13-43
+165            android:enabled="true"
+165-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:163:13-35
+166            android:exported="true" >
+166-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:164:13-36
+167            <intent-filter>
+167-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:165:13-168:29
+168                <action android:name="android.intent.action.BOOT_COMPLETED" />
+168-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:166:17-79
+168-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:166:25-76
+169                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+169-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:167:17-86
+169-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:167:25-83
+170            </intent-filter>
+171        </receiver>
+172
+173        <service
+173-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:171:9-175:41
+174            android:name="com.kabaladigital.tingtingu.service.MyService"
+174-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:172:13-73
+175            android:enabled="true"
+175-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:173:13-35
+176            android:exported="false"
+176-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:174:13-37
+177            android:process=":remote" />
+177-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:175:13-38
+178        <service
+178-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:177:9-183:19
+179            android:name="com.kabaladigital.tingtingu.service.MyFirebaseMessagingService"
+179-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:178:13-63
+180            android:exported="false" >
+180-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:179:13-37
+181            <intent-filter>
+181-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:180:13-182:29
+182                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+182-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:181:17-78
+182-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:181:25-75
+183            </intent-filter>
+184        </service>
+185
+186        <provider
+186-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:31:9-37:35
+187            android:name="androidx.work.impl.WorkManagerInitializer"
+187-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:32:13-69
+188            android:authorities="com.kabaladigital.tingtingu.workmanager-init"
+188-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:33:13-68
+189            android:directBootAware="false"
+189-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:34:13-44
+190            android:exported="false"
+190-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:35:13-37
+191            android:multiprocess="true" />
+191-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:36:13-40
+192
+193        <service
+193-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:39:9-44:35
+194            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+194-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:40:13-88
+195            android:directBootAware="false"
+195-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:41:13-44
+196            android:enabled="@bool/enable_system_alarm_service_default"
+196-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:42:13-72
+197            android:exported="false" />
+197-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:43:13-37
+198        <service
+198-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:45:9-51:35
+199            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+199-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:46:13-84
+200            android:directBootAware="false"
+200-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:47:13-44
+201            android:enabled="@bool/enable_system_job_service_default"
+201-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:48:13-70
+202            android:exported="true"
+202-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:49:13-36
+203            android:permission="android.permission.BIND_JOB_SERVICE" />
+203-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:50:13-69
+204        <service
+204-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:52:9-57:35
+205            android:name="androidx.work.impl.foreground.SystemForegroundService"
+205-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:53:13-81
+206            android:directBootAware="false"
+206-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:54:13-44
+207            android:enabled="@bool/enable_system_foreground_service_default"
+207-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:55:13-77
+208            android:exported="false" />
+208-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:56:13-37
+209
+210        <receiver
+210-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:59:9-64:35
+211            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+211-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:60:13-88
+212            android:directBootAware="false"
+212-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:61:13-44
+213            android:enabled="true"
+213-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:62:13-35
+214            android:exported="false" />
+214-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:63:13-37
+215        <receiver
+215-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:65:9-75:20
+216            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+216-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:66:13-106
+217            android:directBootAware="false"
+217-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:67:13-44
+218            android:enabled="false"
+218-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:68:13-36
+219            android:exported="false" >
+219-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:69:13-37
+220            <intent-filter>
+220-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:71:13-74:29
+221                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+221-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:72:17-87
+221-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:72:25-84
+222                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+222-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:73:17-90
+222-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:73:25-87
+223            </intent-filter>
+224        </receiver>
+225        <receiver
+225-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:76:9-86:20
+226            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+226-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:77:13-104
+227            android:directBootAware="false"
+227-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:78:13-44
+228            android:enabled="false"
+228-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:79:13-36
+229            android:exported="false" >
+229-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:80:13-37
+230            <intent-filter>
+230-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:82:13-85:29
+231                <action android:name="android.intent.action.BATTERY_OKAY" />
+231-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:83:17-77
+231-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:83:25-74
+232                <action android:name="android.intent.action.BATTERY_LOW" />
+232-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:84:17-76
+232-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:84:25-73
+233            </intent-filter>
+234        </receiver>
+235        <receiver
+235-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:87:9-97:20
+236            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+236-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:88:13-104
+237            android:directBootAware="false"
+237-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:89:13-44
+238            android:enabled="false"
+238-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:90:13-36
+239            android:exported="false" >
+239-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:91:13-37
+240            <intent-filter>
+240-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:93:13-96:29
+241                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+241-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:94:17-83
+241-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:94:25-80
+242                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+242-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:95:17-82
+242-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:95:25-79
+243            </intent-filter>
+244        </receiver>
+245        <receiver
+245-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:98:9-107:20
+246            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+246-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:99:13-103
+247            android:directBootAware="false"
+247-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:100:13-44
+248            android:enabled="false"
+248-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:101:13-36
+249            android:exported="false" >
+249-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:102:13-37
+250            <intent-filter>
+250-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:104:13-106:29
+251                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+251-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:105:17-79
+251-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:105:25-76
+252            </intent-filter>
+253        </receiver>
+254        <receiver
+254-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:108:9-119:20
+255            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+255-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:109:13-88
+256            android:directBootAware="false"
+256-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:110:13-44
+257            android:enabled="false"
+257-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:111:13-36
+258            android:exported="false" >
+258-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:112:13-37
+259            <intent-filter>
+259-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:114:13-118:29
+260                <action android:name="android.intent.action.BOOT_COMPLETED" />
+260-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:166:17-79
+260-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:166:25-76
+261                <action android:name="android.intent.action.TIME_SET" />
+261-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:116:17-73
+261-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:116:25-70
+262                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+262-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:117:17-81
+262-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:117:25-78
+263            </intent-filter>
+264        </receiver>
+265        <receiver
+265-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:120:9-129:20
+266            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+266-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:121:13-99
+267            android:directBootAware="false"
+267-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:122:13-44
+268            android:enabled="@bool/enable_system_alarm_service_default"
+268-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:123:13-72
+269            android:exported="false" >
+269-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:124:13-37
+270            <intent-filter>
+270-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:126:13-128:29
+271                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+271-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:127:17-98
+271-->[androidx.work:work-runtime:2.3.4] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f71bd151ef7141c7c6f5924efa0cb755\work-runtime-2.3.4\AndroidManifest.xml:127:25-95
+272            </intent-filter>
+273        </receiver>
+274        <receiver
+274-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:29:9-33:20
+275            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+275-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:30:13-85
+276            android:enabled="true"
+276-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:31:13-35
+277            android:exported="false" >
+277-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:32:13-37
+278        </receiver>
+279
+280        <service
+280-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:35:9-38:40
+281            android:name="com.google.android.gms.measurement.AppMeasurementService"
+281-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:36:13-84
+282            android:enabled="true"
+282-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:37:13-35
+283            android:exported="false" />
+283-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:38:13-37
+284        <service
+284-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:39:9-43:72
+285            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+285-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:40:13-87
+286            android:enabled="true"
+286-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:41:13-35
+287            android:exported="false"
+287-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:42:13-37
+288            android:permission="android.permission.BIND_JOB_SERVICE" />
+288-->[com.google.android.gms:play-services-measurement:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d6bb9c8b6033bc163e04902e653a2cad\jetified-play-services-measurement-18.0.0\AndroidManifest.xml:43:13-69
+289        <!--
+290             FirebaseMessagingService performs security checks at runtime,
+291             but set to not exported to explicitly avoid allowing another app to call it.
+292        -->
+293        <service
+293-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:28:9-35:19
+294            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+294-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:29:13-82
+295            android:directBootAware="true"
+295-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:30:13-43
+296            android:exported="false" >
+296-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:31:13-37
+297            <intent-filter android:priority="-500" >
+297-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:180:13-182:29
+298                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+298-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:181:17-78
+298-->C:\Workspace\D\DialerProject\TTUAndroidApp-Vivek\app\src\main\AndroidManifest.xml:181:25-75
+299            </intent-filter>
+300        </service>
+301        <service
+301-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:36:9-42:19
+302            android:name="com.google.firebase.components.ComponentDiscoveryService"
+302-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:37:13-84
+303            android:directBootAware="true"
+303-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:35:13-43
+304            android:exported="false" >
+304-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:38:13-37
+305            <meta-data
+305-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:39:13-41:85
+306                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+306-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:40:17-119
+307                android:value="com.google.firebase.components.ComponentRegistrar" />
+307-->[com.google.firebase:firebase-messaging:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\cb5cf7b64c11f40224309e9659d86998\jetified-firebase-messaging-21.0.1\AndroidManifest.xml:41:17-82
+308            <meta-data
+308-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:32:13-34:85
+309                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+309-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:33:17-96
+310                android:value="com.google.firebase.components.ComponentRegistrar" />
+310-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:34:17-82
+311            <meta-data
+311-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\77f50c63aa0f27711155732487bb1154\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:30:13-32:85
+312                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+312-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\77f50c63aa0f27711155732487bb1154\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:31:17-139
+313                android:value="com.google.firebase.components.ComponentRegistrar" />
+313-->[com.google.android.gms:play-services-measurement-api:18.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\77f50c63aa0f27711155732487bb1154\jetified-play-services-measurement-api-18.0.0\AndroidManifest.xml:32:17-82
+314            <meta-data
+314-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f8b24c976af4872ef2d0b73458a7c484\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:18:13-20:85
+315                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+315-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f8b24c976af4872ef2d0b73458a7c484\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:19:17-115
+316                android:value="com.google.firebase.components.ComponentRegistrar" />
+316-->[com.google.firebase:firebase-crashlytics:17.3.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f8b24c976af4872ef2d0b73458a7c484\jetified-firebase-crashlytics-17.3.0\AndroidManifest.xml:20:17-82
+317            <meta-data
+317-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\c172cbac8d587832beec393b0e9b0fbe\jetified-firebase-installations-16.3.5\AndroidManifest.xml:18:13-20:85
+318                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+318-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\c172cbac8d587832beec393b0e9b0fbe\jetified-firebase-installations-16.3.5\AndroidManifest.xml:19:17-127
+319                android:value="com.google.firebase.components.ComponentRegistrar" />
+319-->[com.google.firebase:firebase-installations:16.3.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\c172cbac8d587832beec393b0e9b0fbe\jetified-firebase-installations-16.3.5\AndroidManifest.xml:20:17-82
+320            <meta-data
+320-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d371f66be38764125503ad5c5806287d\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:28:13-30:85
+321                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+321-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d371f66be38764125503ad5c5806287d\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:29:17-115
+322                android:value="com.google.firebase.components.ComponentRegistrar" />
+322-->[com.google.firebase:firebase-datatransport:17.0.10] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\d371f66be38764125503ad5c5806287d\jetified-firebase-datatransport-17.0.10\AndroidManifest.xml:30:17-82
+323            <!--
+324                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+325                clients to use it as well, by defining this registrar in their own core/common library.
+326            -->
+327            <meta-data
+327-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:43:13-45:85
+328                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+328-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:44:17-121
+329                android:value="com.google.firebase.components.ComponentRegistrar" />
+329-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:45:17-82
+330        </service>
+331
+332        <receiver
+332-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:37:9-44:20
+333            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+333-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:38:13-78
+334            android:exported="true"
+334-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:39:13-36
+335            android:permission="com.google.android.c2dm.permission.SEND" >
+335-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:40:13-73
+336            <intent-filter>
+336-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:41:13-43:29
+337                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+337-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:42:17-81
+337-->[com.google.firebase:firebase-iid:21.0.1] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\1f703bf8b9780b4b146812bb8d73b470\jetified-firebase-iid-21.0.1\AndroidManifest.xml:42:25-78
+338            </intent-filter>
+339        </receiver>
+340
+341        <provider
+341-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:26:9-31:39
+342            android:name="com.google.firebase.provider.FirebaseInitProvider"
+342-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:27:13-77
+343            android:authorities="com.kabaladigital.tingtingu.firebaseinitprovider"
+343-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:28:13-72
+344            android:directBootAware="true"
+344-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:29:13-43
+345            android:exported="false"
+345-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:30:13-37
+346            android:initOrder="100" />
+346-->[com.google.firebase:firebase-common:19.5.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\29c6d72e20cb483b28559e21aae9e1dd\jetified-firebase-common-19.5.0\AndroidManifest.xml:31:13-36
+347
+348        <activity
+348-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\168f58bd070bb742742a94be27493e83\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+349            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+349-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\168f58bd070bb742742a94be27493e83\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+350            android:exported="false"
+350-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\168f58bd070bb742742a94be27493e83\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+351            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+351-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\168f58bd070bb742742a94be27493e83\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+352
+353        <meta-data
+353-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3d52494fdf37b577046bc373d2aa0137\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+354            android:name="com.google.android.gms.version"
+354-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3d52494fdf37b577046bc373d2aa0137\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+355            android:value="@integer/google_play_services_version" />
+355-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3d52494fdf37b577046bc373d2aa0137\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+356
+357        <service
+357-->[androidx.room:room-runtime:2.2.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\a8d99d80c816425e9bacef6ac27c3236\room-runtime-2.2.3\AndroidManifest.xml:25:9-27:40
+358            android:name="androidx.room.MultiInstanceInvalidationService"
+358-->[androidx.room:room-runtime:2.2.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\a8d99d80c816425e9bacef6ac27c3236\room-runtime-2.2.3\AndroidManifest.xml:26:13-74
+359            android:exported="false" />
+359-->[androidx.room:room-runtime:2.2.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\a8d99d80c816425e9bacef6ac27c3236\room-runtime-2.2.3\AndroidManifest.xml:27:13-37
+360
+361        <provider
+361-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\0328499acf619923b7e72f8d73fb98c7\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+362            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+362-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\0328499acf619923b7e72f8d73fb98c7\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+363            android:authorities="com.kabaladigital.tingtingu.lifecycle-process"
+363-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\0328499acf619923b7e72f8d73fb98c7\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+364            android:exported="false"
+364-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\0328499acf619923b7e72f8d73fb98c7\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+365            android:multiprocess="true" />
+365-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\0328499acf619923b7e72f8d73fb98c7\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+366
+367        <service
+367-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+368            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+368-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+369            android:exported="false" >
+369-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+370            <meta-data
+370-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+371                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+371-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+372                android:value="cct" />
+372-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\f921716c0e2033867a8781f5ed47897f\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+373        </service>
+374        <service
+374-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:26:9-30:19
+375            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+375-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:27:13-117
+376            android:exported="false"
+376-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:28:13-37
+377            android:permission="android.permission.BIND_JOB_SERVICE" >
+377-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:29:13-69
+378        </service>
+379
+380        <receiver
+380-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:32:9-34:40
+381            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+381-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:33:13-132
+382            android:exported="false" />
+382-->[com.google.android.datatransport:transport-runtime:2.2.5] C:\Users\INDIA\.gradle\caches\transforms-2\files-2.1\3c3e4eab612ff9ef404091d1fa453199\jetified-transport-runtime-2.2.5\AndroidManifest.xml:34:13-37
+383    </application>
+384
+385</manifest>

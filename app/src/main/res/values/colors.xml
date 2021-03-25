@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="colorScreenBackground">#FFFFFF</color>
+    <color name="colordth">#FC005C</color>
+
+    <color name="color_primary_light">@color/white</color>
+    <color name="color_primary_dark">@color/grey_850</color>
+    <color name="color_primary_amoled">@color/black</color>
+
+    <color name="color_accent_green">#47A799</color>
+    <color name="color_accent_pink">#EC134E</color>
+
+    <color name="icon_active_light">#3D3D3D</color>
+    <color name="icon_active_dark">#FFFFFF</color>
+
+    <color name="color_pink">#ef007e</color>
+    <color name="color_blue">#1e37e9</color>
+
+    <!-- Blacks -->
+    <color name="black">#000000</color>
+    <color name="semi_black">#DA000000</color>
+
+    <color name="soft_black">#3D3D3D</color>
+    <color name="soft_shadow">#CCCCCC</color>
+
+    <color name="color_line">#C3C3C3</color>
+
+    <!-- Whites -->
+    <color name="white">#ffffff</color>
+    <color name="semi_white">#DAFFFFFF</color>
+
+    <color name="blue">#0039FF</color>
+    <color name="darkblue">#1B3FC9</color>
+
+    <!-- Greys -->
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_dark">#949494</color>
+
+    <color name="grey_800">#424242</color>
+
+    <color name="grey_850">#303030</color>
+    <color name="semi_grey_850">#DA303030</color>
+
+    <!-- Green -->
+    <color name="green_phone">#66bb6a</color>
+    <color name="green_phone_70_trans">#B366BB6A</color>
+    <color name="green_phone_semi_trans">#8066BB6A</color>
+    <color name="green_phone_light">#BFDBC0</color>
+
+    <!-- Red -->
+    <color name="red_phone">#ef5350</color>
+    <color name="red_phone_70_trans">#B3EF5350</color>
+    <color name="red_phone_semi_trans">#80EF5350</color>
+    <color name="red_phone_light">#ECD9D9</color>
+    <color name="matt_red">#EE716F</color>
+
+    <!-- Background Colors-->
+    <color name="ongoing_call_color">@color/green_phone_semi_trans</color>
+    <color name="ended_call_color">@color/red_phone_semi_trans</color>
+    <color name="incoming_call_color_1">@color/green_phone_semi_trans</color>
+    <color name="incoming_call_color_2">@color/red_phone_semi_trans</color>
+
+    <color name="dialpad_text">#388E3C</color>
+
+    <color name="selector_color">
+        <item android:color="?attr/colorAccent" />
+        <item android:color="@color/white" android:state_selected="true" />
+    </color>
+
+    <!--Provide by TTU team-->
+    <color name="incoming_call_status_text">#4ee064</color>
+
+    <color name="call_action_button">#43dc5a</color>
+
+    <color name="recharge_in_process">#FFC107</color>
+
+
+    <color name="ongoing_call_button_background">#545454</color>
+</resources>

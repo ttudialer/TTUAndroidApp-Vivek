@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                   
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.fragment.InviteFriendFragment" android:tag="layout/invite_friend_fragment_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:id="@+id/tv_refer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/refer"
+            android:textColor="@color/blue"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_toStartOf="@id/tv_and_text"/>
+
+        <TextView
+            android:id="@+id/tv_and_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/green_phone"
+            android:textSize="32sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_earn_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/earn"
+            android:textColor="@color/color_accent_pink"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@id/tv_and_text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_invite_friend_referral_copy"
+            android:layout_below="@id/tv_earn_text">
+
+            <RelativeLayout
+                android:id="@+id/layout_invite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="26dp"
+                android:paddingLeft="26dp"
+                android:layout_gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_you"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/ic_refer_you"/>
+
+                <TextView
+                    android:id="@+id/tv_u"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/you"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/iv_you"/>
+
+                <TextView
+                    android:id="@+id/tv_you"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@id/iv_you"/>
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="30dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/tv_u"
+                    android:background="@drawable/ic_refer_down_arrow"/>
+
+                <ImageView
+                    android:id="@+id/iv_friend"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@id/iv_arrow"
+                    android:background="@drawable/ic_refer_friend"/>
+
+                <TextView
+                    android:id="@+id/tv_ur_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/your_friend"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/iv_friend"/>
+
+                <TextView
+                    android:id="@+id/tv_friend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/iv_arrow"
+                    android:layout_toEndOf="@id/iv_friend"/>
+
+                <TextView
+                    android:id="@+id/tv_refer_day_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/tv_ur_friend"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_invite_friend_referral_copy"
+            android:layout_above="@id/layout_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_content_copy_blue_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/black"
+                android:text="@string/your_referral_code_is"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_referal_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_share"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_btn_otp"
+                android:text="@string/share_your_referral_code"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginEnd="5dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/iv_share"/>
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_share"
+                android:backgroundTint="@color/blue"
+                android:padding="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"/>
+
+
+            <TextView
+                android:id="@+id/txt_appinfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:padding="1dp"
+                android:layout_marginTop="35dp"
+                android:layout_below="@+id/btn_share"
+                android:text="version code 4"
+                android:textColor="#5d6079"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+         

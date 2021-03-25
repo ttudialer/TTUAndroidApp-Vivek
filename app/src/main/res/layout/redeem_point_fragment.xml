@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorScreenBackground"
+        tools:context=".ui.fragment.recharge.RedeemPointFragment">
+
+        <include
+            android:id="@+id/layout_wb"
+            layout="@layout/layout_wallet_balance"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:textAllCaps="false"
+            android:clickable="false"
+            android:background="@color/colorLightGrey"
+            android:text="@string/redeem_ption_option"
+            android:textSize="18sp"
+            android:paddingStart="16dp"
+            android:textAlignment="textStart"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:id="@+id/radioGroup_reedem">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prepaid_mobile_recharge"
+                android:id="@+id/radioBtn_mobile_recharge"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioBtn_dth_recharge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dth_recharge"
+                android:checked="false"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_redeem_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_btn_otp"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom"
+                android:textSize="18sp"
+                android:text="@string/redeem_continue" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</layout>

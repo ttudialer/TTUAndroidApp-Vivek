@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/operatorHomeFragment">
+
+    <fragment
+        android:id="@+id/operatorHomeFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.OperatorHomeFragment"
+        android:label="operator_home_fragment"
+        tools:layout="@layout/operator_home_fragment" >
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_inviteFriendFragment"
+            app:destination="@id/inviteFriendFragment"
+            app:popUpTo="@+id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_earnedPointHistoryFragment"
+            app:destination="@id/earnedPointHistoryFragment"
+            app:popUpTo="@+id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_reedemPointFragment"
+            app:destination="@id/reedemPointFragment"
+            app:popUpTo="@+id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:popUpTo="@+id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_memberShipFragment"
+            app:destination="@id/memberShipFragment"
+            app:popUpTo="@id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment"
+            app:popUpTo="@id/operatorHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inviteFriendFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.InviteFriendFragment"
+        android:label="invite_friend_fragment"
+        tools:layout="@layout/invite_friend_fragment" />
+    <fragment
+        android:id="@+id/earnedPointHistoryFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointHistoryFragment"
+        android:label="earned_point_history_fragment"
+        tools:layout="@layout/earned_point_history_fragment" >
+        <action
+            android:id="@+id/action_earnedPointHistoryFragment_to_earnedPointCreditHistoryFragment"
+            app:destination="@id/earnedPointCreditHistoryFragment"
+            app:popUpTo="@+id/earnedPointHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reedemPointFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.RedeemPointFragment"
+        android:label="reedem_point_fragment"
+        tools:layout="@layout/redeem_point_fragment" >
+        <action
+            android:id="@+id/action_reedemPointFragment_to_rechargeHistoryFragment"
+            app:destination="@id/rechargeHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rechargeFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.MobileRechargeFragment"
+        android:label="recharge_fragment"
+        tools:layout="@layout/mobile_recharge_fragment" >
+        <action
+            android:id="@+id/action_rechargeFragment_to_dthProcessRechargeFragment"
+            app:destination="@id/dthProcessRechargeFragment" />
+        <action
+            android:id="@+id/action_rechargeFragment_to_operatorSelectFragment2"
+            app:destination="@id/operatorSelectFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/earnedPointCreditHistoryFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointCreditHistoryFragment"
+        android:label="earned_point_credit_history_fragment"
+        tools:layout="@layout/earned_point_credit_history_fragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_profileStep2Fragment2"
+            app:destination="@id/profileStep2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.SettingFragment"
+        android:label="setting_fragment"
+        tools:layout="@layout/setting_fragment" />
+    <fragment
+        android:id="@+id/dthRechargeFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment"
+        android:label="dth_recharge_fragment"
+        tools:layout="@layout/dth_recharge_fragment" >
+        <action
+            android:id="@+id/action_dthRechargeFragment_to_dthProcessRechargeFragment"
+            app:destination="@id/dthProcessRechargeFragment" />
+        <action
+            android:id="@+id/action_dthRechargeFragment_to_operatorSelectFragment2"
+            app:destination="@id/operatorSelectFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/dthProcessRechargeFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.DthProcessRechargeFragment"
+        android:label="dth_process_recharge_fragment"
+        tools:layout="@layout/dth_process_recharge_fragment" />
+    <fragment
+        android:id="@+id/profileStep2Fragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.profile.ProfileStep2Fragment"
+        android:label="ProfileStep2Fragment" >
+        <action
+            android:id="@+id/action_profileStep2Fragment_to_profileChooseMultiLanguageFragment"
+            app:destination="@id/profileChooseMultiLanguageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileChooseMultiLanguageFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.profile.ProfileChooseMultiLanguageFragment"
+        android:label="profile_choose_multi_language_fragment"
+        tools:layout="@layout/profile_choose_multi_language_fragment" />
+    <fragment
+        android:id="@+id/memberShipFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.MemberShipFragment"
+        android:label="member_ship_fragment"
+        tools:layout="@layout/member_ship_fragment" />
+    <fragment
+        android:id="@+id/rechargeHistoryFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment"
+        android:label="RechargeHistoryFragment" >
+        <action
+            android:id="@+id/action_rechargeHistoryFragment_to_dthRechargeFragment"
+            app:destination="@id/dthRechargeFragment" />
+        <action
+            android:id="@+id/action_rechargeHistoryFragment_to_rechargeFragment"
+            app:destination="@id/rechargeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorSelectFragment2"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.OperatorSelectFragment"
+        android:label="OperatorSelectFragment" />
+    <fragment
+        android:id="@+id/surveyFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.SurveyFragment"
+        android:label="fragment_survey"
+        tools:layout="@layout/fragment_survey" />
+</navigation>

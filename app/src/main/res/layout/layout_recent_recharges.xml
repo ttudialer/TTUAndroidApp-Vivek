@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/jioicon"/>
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arushi Tanwar"
+            android:layout_marginStart="12dp"
+            android:layout_toRightOf="@id/img_icon"
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/tv_amount_or_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recharge of \u20B9 done on 28 Jan 2020"
+            android:layout_marginStart="12dp"
+            android:layout_toRightOf="@id/img_icon"
+            android:layout_below="@+id/tv_number"
+            android:textColor="@color/grey_dark"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Process"
+            android:layout_marginStart="12dp"
+            android:layout_toRightOf="@id/img_icon"
+            android:layout_below="@+id/tv_amount_or_Date"
+            android:textColor="@color/grey_dark"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+</layout>

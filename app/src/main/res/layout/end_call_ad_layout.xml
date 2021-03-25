@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/layout_end_call_ad"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/btn_close_ad"
+            android:elevation="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_cancel"
+            android:tint="@color/white"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+
+        <ImageView
+            android:id="@+id/iv_full_screen_end_call_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ad_full_screen"/>
+
+    </RelativeLayout>
+
+</layout>

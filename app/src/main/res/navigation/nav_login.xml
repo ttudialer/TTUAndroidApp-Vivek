@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_login"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.SplashScreenFragment"
+        android:label="splash"
+        tools:layout="@layout/splash_screen_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_chooseLanguageFragment"
+            app:destination="@id/chooseLanguageFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_operatorDetailFragment"
+            app:destination="@id/operatorDetailFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_registrationStep2Fragment2"
+            app:destination="@id/registrationStep2Fragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseLanguageFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseLanguageFragment"
+        android:label="choose_language_fragment"
+        tools:layout="@layout/choose_language_fragment" >
+        <action
+            android:id="@+id/action_chooseLanguageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_chooseLanguageFragment_to_membershipMessageFragment"
+            app:destination="@id/membershipMessageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_enterOTPFragment"
+            app:destination="@id/enterOTPFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterOTPFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.EnterOtpFragment"
+        android:label="enter_ot_fragment"
+        tools:layout="@layout/enter_ot_fragment" >
+        <action
+            android:id="@+id/action_enterOTPFragment_to_operatorDetailFragment"
+            app:destination="@id/operatorDetailFragment" />
+        <action
+            android:id="@+id/action_enterOTPFragment_to_operatorHomeFragment2"
+            app:destination="@id/operatorHomeFragment2"
+            app:popUpTo="@+id/enterOTPFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorSelectFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.OperatorSelectFragment"
+        android:label="operator_select_fragment"
+        tools:layout="@layout/operator_select_fragment" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.RegistrationFragment"
+        android:label="registration_fragment"
+        tools:layout="@layout/registration_fragment" >
+        <action
+            android:id="@+id/action_registrationFragment_to_congoRegistrartionFragment"
+            app:destination="@id/congoRegistrartionFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_registrationStep2Fragment2"
+            app:destination="@id/registrationStep2Fragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorDetailFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.OperatorDetailFragment"
+        android:label="operator_detail_fragment"
+        tools:layout="@layout/operator_detail_fragment" >
+        <action
+            android:id="@+id/action_operatorDetailFragment_to_operatorSelectFragment"
+            app:destination="@id/operatorSelectFragment"
+            app:popUpTo="@+id/operatorDetailFragment" />
+        <action
+            android:id="@+id/action_operatorDetailFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@+id/operatorDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congoRegistrartionFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.CongoRegistrartionFragment"
+        android:label="congo_registrartion_fragment"
+        tools:layout="@layout/congo_registrartion_fragment" />
+    <fragment
+        android:id="@+id/chooseMultiLanguageFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseMultiLanguageFragment"
+        android:label="choose_multi_language_fragment"
+        tools:layout="@layout/choose_multi_language_fragment" >
+        <action
+            android:id="@+id/action_chooseMultiLanguageFragment_to_registrationStep2Fragment2"
+            app:destination="@id/registrationStep2Fragment2"
+            app:popUpTo="@id/chooseMultiLanguageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationStep2Fragment2"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.RegistrationStep2Fragment"
+        android:label="registration_step2_fragment"
+        tools:layout="@layout/registration_step2_fragment" >
+        <action
+            android:id="@+id/action_registrationStep2Fragment2_to_chooseMultiLanguageFragment"
+            app:destination="@id/chooseMultiLanguageFragment"
+            app:popUpTo="@id/registrationStep2Fragment2" />
+        <action
+            android:id="@+id/action_registrationStep2Fragment2_to_congoRegistrartionFragment"
+            app:destination="@id/congoRegistrartionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/operatorHomeFragment2"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.OperatorHomeFragment"
+        android:label="operator_home_fragment"
+        tools:layout="@layout/operator_home_fragment" />
+    <fragment
+        android:id="@+id/membershipMessageFragment"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.login.MembershipMessageFragment"
+        android:label="MembershipMessageFragment" >
+        <action
+            android:id="@+id/action_membershipMessageFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+</navigation>
