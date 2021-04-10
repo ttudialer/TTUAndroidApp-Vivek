@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <array name="choose_ages">
+        <item>Age</item>
+        <item>Below 18</item>
+        <item>18-25</item>
+        <item>25-30</item>
+        <item>30-35</item>
+        <item>35-50</item>
+    </array>
+    <array name="choose_city">
+        <item>शहर</item>
+        <item>New Delhi</item>
+        <item>Hisar</item>
+        <item>Chandigarh</item>
+        <item>Meerut</item>
+        <item>Fazalpur</item>
+    </array>
+    <array name="choose_education">
+        <item>शिक्षा चुनें</item>
+        <item>गैर मीट्रिक</item>
+        <item>मीट्रिक</item>
+        <item>इंटर</item>
+        <item>स्नातक</item>
+        <item>स्नातकोत्तर</item>
+        <item>अन्य</item>
+    </array>
+    <array name="choose_gender">
+        <item>लिंग</item>
+        <item>पुरुष</item>
+        <item>महिला</item>
+    </array>
+    <array name="choose_profession">
+        <item>Choose profession</item>
+        <item>Student</item>
+        <item>Businessman</item>
+        <item>Politician</item>
+        <item>Private employee</item>
+        <item>Govt. employee</item>
+        <item>Others</item>
+    </array>
+    <array name="choose_state">
+        <item>राज्य</item>
+        <item>New Delhi</item>
+        <item>Haryana</item>
+        <item>Punjab</item>
+        <item>Jammu and Kashmir</item>
+        <item>Uttar Pradesh</item>
+        <item>Mumbai</item>
+        <item>Gujrat</item>
+        <item>Goa</item>
+        <item>Kerala</item>
+        <item>Andhra pradesh</item>
+        <item>Himachal Pradesh</item>
+        <item>Rajasthan</item>
+        <item>Tamilnadu</item>
+    </array>
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"होम पेज पर जाएं"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"ऊपर जाएं"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"ज़्यादा विकल्प"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"हो गया"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"कोई एप्‍लिकेशन चुनें"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"बंद"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"चालू"</string>
+    <string msgid="1302280443949172191" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="1324831542140195728" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="8362206064229013510" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="8341180395196749340" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4792426091847145555" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="7643535737296831317" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="8126296154200614004" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2378550843553983978" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="9002602288060866689" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="1351762916121158029" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"खोजा जा रहा है…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"क्‍वेरी साफ़ करें"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"सर्च क्वेरी"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"सर्च करें"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"आवाज़ सर्च"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"इसके साथ शेयर करें"</string>
+    <string msgid="3300176832234831527" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> के साथ शेयर करें"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"छोटा करें"</string>
+    <string name="about_bugs_desc">Report any issues or request new features on our GitHub page.</string>
+    <string name="about_bugs_title">Report Bugs</string>
+    <string name="about_changelog_title">Changelog</string>
+    <string name="about_donate_desc">If you think we deserve to get paid for our work, leave a few dollars here.</string>
+    <string name="about_donate_title">Donate</string>
+    <string name="about_email_title">Write an Email</string>
+    <string name="about_ido_title">Ido Fang Bentov</string>
+    <string name="about_rate_desc">If you like the app, leave a positive feedback.</string>
+    <string name="about_rate_title">Rate</string>
+    <string name="about_roei_title">Roei Edri</string>
+    <string name="about_source_title">Github Source</string>
+    <string name="about_support_title">Support</string>
+    <string name="about_version_title">Version</string>
+    <string msgid="6241458715391513061" name="accessibility_fingerprint_dialog_help_area">"सहायता का मैसेज दिखाने की जगह"</string>
+    <string name="action_answer">Answer</string>
+    <string name="action_answer_call_timer">Answer in</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_hangup">Hang Up</string>
+    <string name="action_reject_call_timer">Reject in</string>
+    <string name="action_send_sms">Reject and send SMS</string>
+    <string name="action_settings">Settings</string>
+    <string name="active_call_notification_text">Is calling...</string>
+    <string name="activity_about">About</string>
+    <string name="activity_ongoing_call">Ongoing Call</string>
+    <string name="activity_settings">Settings</string>
+    <string name="after_days_membership_upgrade"> दिनों के बाद TTU (टी टी यू) आपकी सदस्यता को प्रीमियम सदस्यता में बदल देगा </string>
+    <string name="amp"> और </string>
+    <string name="answer_timer_indicator">Answering in</string>
+    <string name="app_bug_reporting_url">https://github.com/Chooloo/call_manage/issues</string>
+    <string name="app_name">TingTingU</string>
+    <string name="app_source_url">https://github.com/Chooloo/call_manage</string>
+    <string name="arg_list_id">list_id</string>
+    <string name="basic_membership_details">बेसिक सदस्यता विवरण</string>
+    <string name="benefit_of_premium_membership">प्रीमियम सदस्यता का लाभ</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="change_language_for_ttu_application">टी टी यू (TTU) एप के लिए भाषा बदलें</string>
+    <string name="change_mobile_operator">मोबाइल ऑपरेटर बदलें</string>
+    <string name="change_plan_type_prepaid_postpaid">प्लान का प्रकार बदले (प्रीपेड/पोस्टपेड)</string>
+    <string name="channel_description">On Going Call</string>
+    <string name="channel_name">notification</string>
+    <string name="choose_done">ठीक है</string>
+    <string name="choose_lang">भाषा चुनें</string>
+    <string name="choose_language">Choose Language / भाषा चुनें</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"चालू करें"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"जब तक आप Google Play सेवाएं चालू नहीं करते, <ns1:g id="APP_NAME">%1$s</ns1:g> काम नहीं करेगा."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play सेवाएं चालू करें"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"इंस्टॉल करें"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो आपके डिवाइस में उपलब्ध नहीं हैं."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Google Play सेवाएं इंस्टॉल करें"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Google Play सेवाएं उपलब्ध हैं"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Google Play सेवाओं से जुड़ी गड़बड़ी"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> को Google Play सेवाओं के साथ समस्या आ रही है. कृपया फिर से कोशिश करें."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा, जो आपके डिवाइस पर काम नहीं करती हैं."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"अपडेट करें"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> तब तक नहीं चलेगा जब तक आप Google Play सेवाओं को अपडेट नहीं करते."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Google Play सेवाओं को अपडेट करें"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> उन Google Play सेवाओं के बिना नहीं चलेगा जो अभी अपडेट हो रही हैं."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Google Play सेवाओं के नए वर्शन की ज़रूरत है. यह जल्द ही अपने आप अपडेट हो जाएगा."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"फ़ोन पर खोलें"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"साइन इन करें"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Google के ज़रिए साइन इन करें"</string>
+    <string name="company">BlackCoffer</string>
+    <string name="daily_point_credit">दैनिक क्रेडिट अंक</string>
+    <string name="date">दिनांक</string>
+    <string name="days">दिन</string>
+    <string msgid="7497355367608150274" name="default_error_msg">"अनजान गड़बड़ी"</string>
+    <string name="dialog_changelog_title">Changelog</string>
+    <string name="dialog_columns_info">Enter the columns\' indices where the following contacts\' fields are in:</string>
+    <string name="dialog_folder_up">Up</string>
+    <string name="dialog_long_click_cgroup_title">What would you like to do?</string>
+    <string name="dialpad_0_letters">+</string>
+    <string name="dialpad_0_number">0</string>
+    <string name="dialpad_1_letters">Voicmail</string>
+    <string name="dialpad_1_number">1</string>
+    <string name="dialpad_2_letters">ABC</string>
+    <string name="dialpad_2_number">2</string>
+    <string name="dialpad_3_letters">DEF</string>
+    <string name="dialpad_3_number">3</string>
+    <string name="dialpad_4_letters">GHI</string>
+    <string name="dialpad_4_number">4</string>
+    <string name="dialpad_5_letters">JKL</string>
+    <string name="dialpad_5_number">5</string>
+    <string name="dialpad_6_letters">MNO</string>
+    <string name="dialpad_6_number">6</string>
+    <string name="dialpad_7_letters">PQRS</string>
+    <string name="dialpad_7_number">7</string>
+    <string name="dialpad_8_letters">TUV</string>
+    <string name="dialpad_8_number">8</string>
+    <string name="dialpad_9_letters">WXYZ</string>
+    <string name="dialpad_9_number">9</string>
+    <string name="dialpad_pound_letters"/>
+    <string name="dialpad_pound_number">#</string>
+    <string name="dialpad_star_letters"/>
+    <string name="dialpad_star_number">*</string>
+    <string name="donation_link">https://github.com/Chooloo/call_manage/blob/master/README.md#support</string>
+    <string name="dth_recharge">डी टी एच (DTH) रिचार्ज</string>
+    <string name="earn">" कमाएँ"</string>
+    <string name="empty_cgroups_desc">You can try to add something</string>
+    <string name="empty_cgroups_title">Nothing here… yet</string>
+    <string name="empty_contact_desc"/>
+    <string name="empty_contact_title">No contact matching search query found</string>
+    <string name="empty_recents_desc"/>
+    <string name="empty_recents_title">No recent calls</string>
+    <string name="error_column_index">Must be a valid integer</string>
+    <string name="error_name">Must be a non empty string</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"बेहतर सेटिंग"</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"अन्य"</string>
+    <string msgid="5354590751262189738" name="fingerprint_dialog_touch_sensor">"फ़िंगरप्रिंट सेंसर को छुएं"</string>
+    <string msgid="3976825677335166260" name="fingerprint_error_hw_not_available">"फ़िंगरप्रिंट हार्डवेयर मौजूद नहीं है."</string>
+    <string msgid="1176237289575184578" name="fingerprint_error_hw_not_present">"इस डिवाइस में फ़िंगरप्रिंट सेंसर नहीं है"</string>
+    <string msgid="3350805046152877040" name="fingerprint_error_no_fingerprints">"कोई फ़िंगरप्रिंट रजिस्टर नहीं किया गया है."</string>
+    <string msgid="3421037373085129417" name="fingerprint_error_user_canceled">"उपयोगकर्ता ने फिंगरप्रिंट की पुष्टि की कार्रवाई रद्द कर दी है."</string>
+    <string name="fingerprint_message">Log in using your biometric credential</string>
+    <string msgid="5491287833813257925" name="fingerprint_not_recognized">"पहचान नहीं हो पाई"</string>
+    <string name="fingerprint_title">Biometric login</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_name_column">Name column</string>
+    <string name="hint_number_column">Number column</string>
+    <string name="hint_path">Path</string>
+    <string name="hint_phone_number">phone number</string>
+    <string name="invite_friend_postpaid">Postpaid Friend-Rs. 25 in his wallet</string>
+    <string name="invite_friend_prepaid">Prepaid Friend-4 days  data</string>
+    <string name="invite_friend_signup">Invite a friend to sign up</string>
+    <string name="invite_wallet">You will get Rs.35 in you wallet and your friend will get below benifit.</string>
+    <string name="login_btn_otp">सहमत और आगे बढ़ें</string>
+    <string name="login_mob">आपका मोबाइल नंबर</string>
+    <string name="login_otp_statement">हम आपको अपना फ़ोन नंबर सत्यापित करने के लिए SMS द्वारा वन टाइम
+        पासवर्ड (OTP) भेजेंगे </string>
+    <string name="login_privacypolicy">पंजीकरण करते ही मैं गोपनीयता नीति और उपयोग की शर्तों से सहमत हूं </string>
+    <string name="loging_refercode">रेफ़रल कोड दर्ज करें यदि आपके पास कोई भी है तो </string>
+    <string name="membership_basic">बेसिक सदस्यता</string>
+    <string name="membership_premium">प्रीमियम सदस्यता</string>
+    <string name="membership_trail_message_one">"यदि आप एक नए उपयोगकर्ता हैं तो कृपया ध्यान दें कि वर्तमान में TTU दैनिक क्रेडिट लाभ कार्यक्रम प्रदान नहीं कर रहा है। हालाँकि, आप अभी भी एप्लिकेशन इंस्टॉल कर सकते हैं और ट्रायल के आधार पर सभी TTU सुविधाओं का आनंद ले सकते हैं। TTU स्वचालित रूप से आपकी सदस्यता को प्राथमिकता पर अपग्रेड कर देगा जब स्कीम फिर से शुरू होगी जिसके बाद आप दैनिक क्रेडिट पॉइंट अर्जित करना शुरू करेंगे</string>
+    <string name="membership_trail_message_two">(* यदि आप पहले से ही TTU सदस्य हैं तो उपरोक्त संदेश को अनदेखा करें)"</string>
+    <string name="membership_trial">ट्रायल सदस्यता</string>
+    <string name="message_for_trial_membership">ट्रायल सदस्यता के लिए संदेश</string>
+    <string name="name_unknown">Unknown</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"वापस जाएं"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"नेविगेशन पैनल खोलें"</string>
+    <string name="new_dth_recharge">नया डी टी एच (DTH) रिचार्ज करें</string>
+    <string name="new_prepaid_recharge">नया प्रीपेड मोबाइल रिचार्ज करें</string>
+    <string name="operator_btn">आगे बढ़ें</string>
+    <string name="operator_change">ऑपरेटर बदलें</string>
+    <string name="operator_home_point">अंक</string>
+    <string name="operator_home_redeem_point">अंक भुनाएं</string>
+    <string name="operator_home_wallet_balance">वॉलेट बैलेंस</string>
+    <string name="operator_postpaid">पोस्टपेड</string>
+    <string name="operator_prepaid">प्रीपेड </string>
+    <string name="operator_select">एक ऑपरेटर का चयन करें</string>
+    <string name="operator_statement">कृपया मुफ्त रिचार्ज लाभ प्राप्त करने के लिए ऑपरेटर विवरण प्रदान करें</string>
+    <string name="otp_enter_statement">आपके पास भेजा गया 4 अंकों का कोड दर्ज करें</string>
+    <string name="otp_resend_btn">ओटीपी पुनः भेजें </string>
+    <string name="otp_tv_resend">ओटीपी पुनः भेजें </string>
+    <string name="password_message">Log in with your password</string>
+    <string name="password_title">Password Login</string>
+    <string name="please_enter_a_number">Please enter a number first</string>
+    <string name="points">" अंक"</string>
+    <string name="points_credit">क्रेडिट अंक</string>
+    <string name="points_debit">डेबिट अंक</string>
+    <string name="postpaid_plan">पोस्टपेड योजना</string>
+    <string name="pref_answer_call_timer_default_value">10</string>
+    <string name="pref_answer_call_timer_key">answer_call_timer</string>
+    <string name="pref_answer_call_timer_title">Answer call timer</string>
+    <string name="pref_app_theme_default_value">light;pink</string>
+    <string name="pref_app_theme_key">app_theme</string>
+    <string name="pref_app_theme_title">App Theme</string>
+    <string name="pref_category_call">Call</string>
+    <string name="pref_category_look_and_feel">Look and Feel</string>
+    <string name="pref_category_noise">Noise</string>
+    <string name="pref_category_pages">Pages</string>
+    <string name="pref_category_scurity">Security</string>
+    <string name="pref_daily_threshold_value">daily_threshold</string>
+    <string name="pref_default_page_default_value">1</string>
+    <string name="pref_default_page_key">default_page</string>
+    <string name="pref_default_page_title">Default page</string>
+    <string name="pref_is_biometric_key">is_biometric</string>
+    <string name="pref_is_biometric_title">Use Biometrics</string>
+    <string name="pref_is_first_instance_key">first_instance</string>
+    <string name="pref_is_language_selected_key">is_language_selected</string>
+    <string name="pref_is_login_key">is_login</string>
+    <string name="pref_is_no_vibrate_key">is_no_vibrate</string>
+    <string name="pref_is_no_vibrate_title">Vibrate?</string>
+    <string name="pref_is_operator_detail_filled_key">is_operator_detail_filled</string>
+    <string name="pref_is_otp_verify_key">is_otp_verify</string>
+    <string name="pref_is_registered_age_value">registered_age_value</string>
+    <string name="pref_is_registered_city_value">registered_city_value</string>
+    <string name="pref_is_registered_gender_value">registered_gender_value</string>
+    <string name="pref_is_registered_key">is_registered</string>
+    <string name="pref_is_registered_name_value">registered_name_value</string>
+    <string name="pref_is_registered_pincode">registered_pincod</string>
+    <string name="pref_is_registered_state_value">registered_state_value</string>
+    <string name="pref_is_registered_step_one_key">is_registered_step_one</string>
+    <string name="pref_is_registered_step_two_education_value">registered_step_two_education</string>
+    <string name="pref_is_registered_step_two_email_value">registered_step_two_email</string>
+    <string name="pref_is_registered_step_two_key">is_registered_step_two</string>
+    <string name="pref_is_registered_step_two_language_value">registered_step_two_language</string>
+    <string name="pref_is_registered_step_two_profession_value">registered_step_two_profession</string>
+    <string name="pref_is_silent_key">is_silent</string>
+    <string name="pref_is_silent_title">Silent</string>
+    <string name="pref_language_selected_key">language_selected</string>
+    <string name="pref_last_version_key">last_version</string>
+    <string name="pref_recharge_select_dth_operator_name">recharge_select_dth_operator</string>
+    <string name="pref_recharge_select_operator_name">recharge_select_operator</string>
+    <string name="pref_refer_code_key">refer_code</string>
+    <string name="pref_referee_points">refereePoints</string>
+    <string name="pref_referrer_points">referrerPoints</string>
+    <string name="pref_referrer_reward_days">referrerRewardDays</string>
+    <string name="pref_reject_call_timer_default_value">10</string>
+    <string name="pref_reject_call_timer_key">end_call_timer</string>
+    <string name="pref_reject_call_timer_title">End call timer</string>
+    <string name="pref_user_mobile_number_circle_key">user_mobile_number_circle</string>
+    <string name="pref_user_mobile_number_key">user_mobile_number</string>
+    <string name="pref_user_mobile_number_operator_key">user_mobile_number_operator</string>
+    <string name="pref_user_mobile_number_operator_name">user_mobile_number_operator</string>
+    <string name="pref_user_mobile_number_type_key">user_mobile_number_type</string>
+    <string name="pref_user_selected_language_key">user_selected_language</string>
+    <string name="pref_user_token_value">user_token_value</string>
+    <string name="pref_user_user_id">user_user_id</string>
+    <string name="prepaid_mobile_recharge">प्रीपेड मोबाइल रिचार्ज</string>
+    <string name="prepaid_plan">प्रीपेड योजना</string>
+    <string name="proceed_to_recharge">रिचार्ज करने के लिए आगे बढ़ें </string>
+    <string name="recent_dth_recharge_list">पुराने डी टी एच (DTH) रिचार्ज सूची</string>
+    <string name="recent_prepaid_recharge_list">पुराने प्रीपेड मोबाइल रिचार्ज सूची</string>
+    <string name="recharge_enter_mobile_no">मोबाइल नंबर दर्ज करें</string>
+    <string name="redeem_available_wallet_balance">वॉलेट बैलेंस</string>
+    <string name="redeem_continue">आगे बढ़ें</string>
+    <string name="redeem_ption_option">अंकों को भुनाने के लिए एक विकल्प चुनें</string>
+    <string name="redeem_rs_symbol">\u20B9</string>
+    <string name="refer">रेफ़र करें </string>
+    <string name="reg_age">आयु</string>
+    <string name="reg_basic_updated">बेसिक प्रोफ़ाइल अपडेट करें</string>
+    <string name="reg_city">शहर</string>
+    <string name="reg_email">ईमेल (वैकल्पिक)</string>
+    <string name="reg_fullname">पूरा नाम</string>
+    <string name="reg_gender">लिंग</string>
+    <string name="reg_lang">भाषा (पढ़ और समझ सकते है) </string>
+    <string name="reg_mob">आप मोबाइल नंबर</string>
+    <string name="reg_next">आगे</string>
+    <string name="reg_optional_update">ऑप्शनल प्रोफाइल अपडेट करें</string>
+    <string name="reg_pincode">पिन कोड</string>
+    <string name="reg_professin">पेशा (वैकल्पिक)</string>
+    <string name="reg_provide">बाद में प्रदान करें</string>
+    <string name="reg_regist_now">अभी पंजीकरण करें</string>
+    <string name="reg_state">राज्य</string>
+    <string name="registration">पंजीकरण</string>
+    <string name="registration_congo">सफल \n पंजीकरण \n के लिए \n बधाई!</string>
+    <string name="registration_congo_btn_later">बाद में ओपन करेंं</string>
+    <string name="registration_congo_btn_now">अभी ओपन करे</string>
+    <string name="reject_timer_indicator">Call ends in</string>
+    <string msgid="146198913615257606" name="search_menu_title">"सर्च"</string>
+    <string name="share_your_referral_code">अपने रेफरल कोड को साझा करें</string>
+    <string name="splash_screen_bottom">VIEW ADS AND EARN MONEY \n विज्ञापन देखें और पैसा कमाएँ</string>
+    <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="status_call_active">Call in progress</string>
+    <string name="status_call_dialing">Dialing…</string>
+    <string name="status_call_disconnected">Call ended</string>
+    <string name="status_call_holding">Call On Hold</string>
+    <string name="status_call_incoming">Incoming Call…</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="support_email">aditya.dhiman@blackcoffer.com</string>
+    <string name="temporary_disable_services">अस्थायी रूप से टी टी यू (TTU)को बंद करें</string>
+    <string name="transaction_detail">लेन-देन का विवरण</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"बंद"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"चालू"</string>
+    <string name="you">आप</string>
+    <string name="your_active_days_with_ttu">TTU(टी टी यू) के साथ आपके सक्रिय दिन</string>
+    <string name="your_friend">आपका दोस्त</string>
+    <string name="your_referral_code_is">आपका रेफरल कोड है </string>
+</resources>

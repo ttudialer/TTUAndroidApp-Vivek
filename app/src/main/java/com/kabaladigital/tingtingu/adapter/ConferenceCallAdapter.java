@@ -3,6 +3,7 @@ package com.kabaladigital.tingtingu.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.telecom.Call;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,13 +52,21 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
         holder.tvTime.setText(returnStatus(call.getState()));
         Contact callerContact = CallManager.getDisplayContact(context,call);
 
-        if (!callerContact.getName().isEmpty()) {
-            holder.tvNameNumber.setText(callerContact.getName());
-            if (callerContact.getPhotoUri() != null) {
-                holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
+        try{
+            if (!callerContact.getName().isEmpty()) {
+                holder.tvNameNumber.setText(callerContact.getName());
+
+                if (callerContact.getPhotoUri() != null) {
+                    holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
+                }
+            } else {
+
+                holder.tvNameNumber.setText("Incoming Call");
             }
-        } else {
-            holder.tvNameNumber.setText("Error while getting Name or Number");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
         }
 
         holder.ivHold.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +81,8 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
 
     @Override
     public int getItemCount() {
+
+        Log.d("sizeinadp",""+calls.size());
         return calls.size();
     }
 
@@ -121,6 +132,21 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
                 break;
         }
         return statusTextRes;
+    }
+
+
+    public void demotest(int position)
+    {
+        Log.d("arrsize",""+calls.size());
+        calls.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, calls.size());
+
+        //calls.remove(0);
+        //conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
+        //binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+
+        //conferenceCallAdapter.notifyDataSetChanged();
     }
 }
 

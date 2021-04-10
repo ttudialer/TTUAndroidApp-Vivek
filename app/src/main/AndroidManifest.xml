@@ -20,6 +20,8 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
 
     <application
         android:name="com.kabaladigital.tingtingu.App"
@@ -123,11 +125,17 @@
         </activity>
 
         <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
+
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
             android:label="@string/activity_ongoing_call"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:allowTaskReparenting="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:permission="android.permission.USE_SIP"
+            android:taskAffinity=""/>
 
         <service
             android:name="com.kabaladigital.tingtingu.service.CallService"
@@ -166,6 +174,8 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+
             </intent-filter>
         </receiver>
 

@@ -28,6 +28,7 @@ import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
+import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
 import com.kabaladigital.tingtingu.util.Installation;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
         Installation.id(this);
@@ -310,4 +315,54 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
 }
