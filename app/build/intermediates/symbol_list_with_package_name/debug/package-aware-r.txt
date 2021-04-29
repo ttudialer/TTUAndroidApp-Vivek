@@ -1440,6 +1440,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable conference_call
 drawable contactlist
 drawable d2h
 drawable default_background
@@ -1617,6 +1618,8 @@ font google_sans_regular
 id ALT
 id CTRL
 id FUNCTION
+id IB_expanded_answer
+id IB_expanded_end
 id META
 id SHIFT
 id SYM
@@ -1932,6 +1935,7 @@ id image_operator
 id image_operator_home
 id image_photo
 id image_placeholder
+id image_view_expanded
 id img_icon
 id img_operator
 id incoming_call_layout
@@ -2228,6 +2232,7 @@ id text_send_sms
 id text_status
 id text_stopwatch
 id text_timer_indicator
+id text_view_expanded
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -2270,6 +2275,7 @@ id tv_change_plan_type
 id tv_change_plan_type_sub_heading
 id tv_choose_language
 id tv_company
+id tv_counter
 id tv_daily_count
 id tv_date_time
 id tv_days
@@ -2481,6 +2487,7 @@ layout layout_selector_operator
 layout layout_survey_list
 layout layout_wallet_balance
 layout list_conference_call
+layout list_conference_call_2
 layout list_group
 layout list_reject_message
 layout login_fragment
@@ -2516,6 +2523,7 @@ layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
 layout notification_action_tombstone
+layout notification_expanded
 layout notification_media_action
 layout notification_media_cancel_action
 layout notification_template_big_media

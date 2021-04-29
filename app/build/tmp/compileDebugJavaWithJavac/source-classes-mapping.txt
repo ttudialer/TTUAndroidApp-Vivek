@@ -254,7 +254,6 @@ com/kabaladigital/tingtingu/databinding/RegistrationStep2FragmentBinding.java
  com.kabaladigital.tingtingu.databinding.RegistrationStep2FragmentBinding
 com/kabaladigital/tingtingu/adapter/ConferenceCallAdapter.java
  com.kabaladigital.tingtingu.adapter.ConferenceCallAdapter
- com.kabaladigital.tingtingu.adapter.ConferenceCallAdapter$1
  com.kabaladigital.tingtingu.adapter.ConferenceCallAdapter$ViewHolder
 com/kabaladigital/tingtingu/ui/fragment/recharge/MobileRechargeFragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.MobileRechargeFragmentDirections
@@ -319,6 +318,7 @@ com/kabaladigital/tingtingu/ui/fragment/InviteFriendFragment.java
  com.kabaladigital.tingtingu.ui.fragment.InviteFriendFragment
  com.kabaladigital.tingtingu.ui.fragment.InviteFriendFragment$1
  com.kabaladigital.tingtingu.ui.fragment.InviteFriendFragment$2
+ com.kabaladigital.tingtingu.ui.fragment.InviteFriendFragment$3
 com/kabaladigital/tingtingu/database/dao/CampaignAdsDao.java
  com.kabaladigital.tingtingu.database.dao.CampaignAdsDao
 com/kabaladigital/tingtingu/databinding/LoginFragmentBinding.java
@@ -472,6 +472,7 @@ com/kabaladigital/tingtingu/networking/DeviceCheckRepository.java
 com/kabaladigital/tingtingu/ui/fragment/login/LoginFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment$1
+ com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment$2
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment$myClickableSpan
 com/kabaladigital/tingtingu/models/ChildObject.java
  com.kabaladigital.tingtingu.models.ChildObject

@@ -18,17 +18,11 @@ import java.lang.Override;
 public class DialpadFragment_ViewBinding implements Unbinder {
   private DialpadFragment target;
 
-  private View view7f0a00dc;
+  private View view7f0a00de;
 
-  private View view7f0a009c;
+  private View view7f0a009e;
 
-  private View view7f0a009f;
-
-  private View view7f0a0160;
-
-  private View view7f0a0161;
-
-  private View view7f0a0162;
+  private View view7f0a00a1;
 
   private View view7f0a0163;
 
@@ -44,9 +38,15 @@ public class DialpadFragment_ViewBinding implements Unbinder {
 
   private View view7f0a0169;
 
+  private View view7f0a016a;
+
   private View view7f0a016b;
 
-  private View view7f0a016a;
+  private View view7f0a016c;
+
+  private View view7f0a016e;
+
+  private View view7f0a016d;
 
   @UiThread
   public DialpadFragment_ViewBinding(final DialpadFragment target, View source) {
@@ -55,7 +55,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.digits_edit_text, "field 'mDigits' and method 'onDigitsClick'");
     target.mDigits = Utils.castView(view, R.id.digits_edit_text, "field 'mDigits'", DigitsEditText.class);
-    view7f0a00dc = view;
+    view7f0a00de = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -64,7 +64,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.button_call, "field 'mCallButton' and method 'call'");
     target.mCallButton = Utils.castView(view, R.id.button_call, "field 'mCallButton'", ImageView.class);
-    view7f0a009c = view;
+    view7f0a009e = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -73,7 +73,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.button_delete, "field 'mDelButton', method 'delNum', and method 'delAllNum'");
     target.mDelButton = Utils.castView(view, R.id.button_delete, "field 'mDelButton'", ImageView.class);
-    view7f0a009f = view;
+    view7f0a00a1 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -89,7 +89,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     target.mNumbersTable = Utils.findRequiredViewAsType(source, R.id.dialpad, "field 'mNumbersTable'", TableLayout.class);
     target.mDialpadView = Utils.findRequiredViewAsType(source, R.id.dialpad_view, "field 'mDialpadView'", DialpadView.class);
     view = Utils.findRequiredView(source, R.id.key_0, "method 'addChar' and method 'addPlus'");
-    view7f0a0160 = view;
+    view7f0a0163 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -103,7 +103,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.key_1, "method 'addChar' and method 'startVoiceMail'");
-    view7f0a0161 = view;
+    view7f0a0164 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -117,30 +117,6 @@ public class DialpadFragment_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.key_2, "method 'addChar'");
-    view7f0a0162 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.addChar(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.key_3, "method 'addChar'");
-    view7f0a0163 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.addChar(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.key_4, "method 'addChar'");
-    view7f0a0164 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.addChar(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.key_5, "method 'addChar'");
     view7f0a0165 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -148,7 +124,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.key_6, "method 'addChar'");
+    view = Utils.findRequiredView(source, R.id.key_3, "method 'addChar'");
     view7f0a0166 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -156,7 +132,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.key_7, "method 'addChar'");
+    view = Utils.findRequiredView(source, R.id.key_4, "method 'addChar'");
     view7f0a0167 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -164,7 +140,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.key_8, "method 'addChar'");
+    view = Utils.findRequiredView(source, R.id.key_5, "method 'addChar'");
     view7f0a0168 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -172,7 +148,7 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.key_9, "method 'addChar'");
+    view = Utils.findRequiredView(source, R.id.key_6, "method 'addChar'");
     view7f0a0169 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -180,7 +156,15 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
-    view = Utils.findRequiredView(source, R.id.key_star, "method 'addChar'");
+    view = Utils.findRequiredView(source, R.id.key_7, "method 'addChar'");
+    view7f0a016a = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.addChar(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.key_8, "method 'addChar'");
     view7f0a016b = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
@@ -188,8 +172,24 @@ public class DialpadFragment_ViewBinding implements Unbinder {
         target.addChar(p0);
       }
     });
+    view = Utils.findRequiredView(source, R.id.key_9, "method 'addChar'");
+    view7f0a016c = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.addChar(p0);
+      }
+    });
+    view = Utils.findRequiredView(source, R.id.key_star, "method 'addChar'");
+    view7f0a016e = view;
+    view.setOnClickListener(new DebouncingOnClickListener() {
+      @Override
+      public void doClick(View p0) {
+        target.addChar(p0);
+      }
+    });
     view = Utils.findRequiredView(source, R.id.key_hex, "method 'addChar'");
-    view7f0a016a = view;
+    view7f0a016d = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -211,24 +211,18 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     target.mNumbersTable = null;
     target.mDialpadView = null;
 
-    view7f0a00dc.setOnClickListener(null);
-    view7f0a00dc = null;
-    view7f0a009c.setOnClickListener(null);
-    view7f0a009c = null;
-    view7f0a009f.setOnClickListener(null);
-    view7f0a009f.setOnLongClickListener(null);
-    view7f0a009f = null;
-    view7f0a0160.setOnClickListener(null);
-    view7f0a0160.setOnLongClickListener(null);
-    view7f0a0160 = null;
-    view7f0a0161.setOnClickListener(null);
-    view7f0a0161.setOnLongClickListener(null);
-    view7f0a0161 = null;
-    view7f0a0162.setOnClickListener(null);
-    view7f0a0162 = null;
+    view7f0a00de.setOnClickListener(null);
+    view7f0a00de = null;
+    view7f0a009e.setOnClickListener(null);
+    view7f0a009e = null;
+    view7f0a00a1.setOnClickListener(null);
+    view7f0a00a1.setOnLongClickListener(null);
+    view7f0a00a1 = null;
     view7f0a0163.setOnClickListener(null);
+    view7f0a0163.setOnLongClickListener(null);
     view7f0a0163 = null;
     view7f0a0164.setOnClickListener(null);
+    view7f0a0164.setOnLongClickListener(null);
     view7f0a0164 = null;
     view7f0a0165.setOnClickListener(null);
     view7f0a0165 = null;
@@ -240,9 +234,15 @@ public class DialpadFragment_ViewBinding implements Unbinder {
     view7f0a0168 = null;
     view7f0a0169.setOnClickListener(null);
     view7f0a0169 = null;
-    view7f0a016b.setOnClickListener(null);
-    view7f0a016b = null;
     view7f0a016a.setOnClickListener(null);
     view7f0a016a = null;
+    view7f0a016b.setOnClickListener(null);
+    view7f0a016b = null;
+    view7f0a016c.setOnClickListener(null);
+    view7f0a016c = null;
+    view7f0a016e.setOnClickListener(null);
+    view7f0a016e = null;
+    view7f0a016d.setOnClickListener(null);
+    view7f0a016d = null;
   }
 }

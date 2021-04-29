@@ -29,6 +29,7 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
     private List<Call> calls = new ArrayList<>();
     private Context context;
     private OngoingCallActivity ongoingCallActivity;
+    int count = 2;
 
 
     public ConferenceCallAdapter(List<Call> calls, Context context, OngoingCallActivity ongoingCallActivity) {
@@ -41,7 +42,7 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
     @Override
     public ConferenceCallAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.list_conference_call, viewGroup, false);
+                .inflate(R.layout.list_conference_call_2, viewGroup, false);
         return new ConferenceCallAdapter.ViewHolder(itemView);
     }
 
@@ -53,15 +54,24 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
         Contact callerContact = CallManager.getDisplayContact(context,call);
 
         try{
-            if (!callerContact.getName().isEmpty()) {
-                holder.tvNameNumber.setText(callerContact.getName());
-
+            /*if (!callerContact.getName().isEmpty())
+            {
+                //holder.tvNameNumber.setText(callerContact.getName());
+                holder.tvNameNumber.setText("Count"+ calls.size());
                 if (callerContact.getPhotoUri() != null) {
                     holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
                 }
             } else {
 
-                holder.tvNameNumber.setText("Incoming Call");
+                //holder.tvNameNumber.setText("Incoming Call");
+            }*/
+
+            holder.tvNameNumber.setText("Conference Call");
+            holder.tv_counter.setText(String.valueOf(count+" "+"Person Added"));
+
+
+            if (callerContact.getPhotoUri() != null) {
+                holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
             }
         }
         catch (Exception ex)
@@ -69,26 +79,28 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
             ex.printStackTrace();
         }
 
-        holder.ivHold.setOnClickListener(new View.OnClickListener() {
+        /*holder.ivHold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ongoingCallActivity.endCall(position);
 //                CallManager.sCalls.get(position).disconnect();
             }
-        });
+        });*/
 
     }
 
     @Override
     public int getItemCount() {
 
-        Log.d("sizeinadp",""+calls.size());
-        return calls.size();
+        //Log.d("sizeinadp",""+calls.size());
+       // Log.d("count->",""+count);
+
+        return 1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvNameNumber, tvTime;
+        TextView tvNameNumber, tvTime,tv_counter;
         CircleImageView circleImageView;
         ImageView imageView, ivHold;
         FrameLayout frameLayout;
@@ -98,11 +110,12 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
             super(itemView);
             tvNameNumber = itemView.findViewById(R.id.tv_name_number);
             tvTime = itemView.findViewById(R.id.tv_time);
+            tv_counter= itemView.findViewById(R.id.tv_counter);
             circleImageView = itemView.findViewById(R.id.image_photo);
             imageView = itemView.findViewById(R.id.image_placeholder);
             frameLayout = itemView.findViewById(R.id.frameLayout);
 
-            ivHold = itemView.findViewById(R.id.iv_end);
+            //ivHold = itemView.findViewById(R.id.iv_end);
         }
     }
 
@@ -135,17 +148,16 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
     }
 
 
-    public void demotest(int position)
+    public void demotest()
     {
-        Log.d("arrsize",""+calls.size());
-        calls.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, calls.size());
-
+        if(count<=0){
+        }else{
+        notifyDataSetChanged();
+        }
+        count = count -1;
         //calls.remove(0);
         //conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
         //binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
-
         //conferenceCallAdapter.notifyDataSetChanged();
     }
 }

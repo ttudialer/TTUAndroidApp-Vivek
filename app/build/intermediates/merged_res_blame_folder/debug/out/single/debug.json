@@ -344,6 +344,10 @@
         "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\layout\\fragment_recharge_history.xml"
     },
     {
+        "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\drawable_conference_call.png.flat",
+        "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\drawable\\conference_call.png"
+    },
+    {
         "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\drawable_green_circle.xml.flat",
         "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\drawable\\green_circle.xml"
     },
@@ -414,6 +418,10 @@
     {
         "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_koli_sad.xml.flat",
         "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\drawable\\ic_koli_sad.xml"
+    },
+    {
+        "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_conference_call_2.xml.flat",
+        "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\layout\\list_conference_call_2.xml"
     },
     {
         "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_arrow_forward_black_24dp.xml.flat",
@@ -902,6 +910,10 @@
     {
         "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\layout_earned_list_item.xml.flat",
         "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\layout\\earned_list_item.xml"
+    },
+    {
+        "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_expanded.xml.flat",
+        "source": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\src\\main\\res\\layout\\notification_expanded.xml"
     },
     {
         "merged": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_image_6.png.flat",

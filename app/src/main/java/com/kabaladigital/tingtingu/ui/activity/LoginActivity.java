@@ -30,7 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         Utilities.setUpLocale(this);
 
 
-        Log.d("state$$$", ""+CallManager.getState());
+        //Log.d("state$$$", ""+CallManager.getState());
+
+
 
         if(CallManager.getState() == 4)
         {
@@ -56,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         GetStateCityFromJson.getCityStateData(this);
+
+
     }
 
     @Override

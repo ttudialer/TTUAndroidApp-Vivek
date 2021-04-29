@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.KeyguardManager;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -32,6 +33,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -76,6 +78,7 @@ import com.kabaladigital.tingtingu.util.VideoManager;
 import com.kabaladigital.tingtingu.viewmodels.OnGoingCallViewModel;
 import com.kabaladigital.tingtingu.viewmodels.SharedDialViewModel;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -182,6 +185,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     NotificationManager mNotificationManager;
 
     List<Call> calls;
+
+    int flag=1;
 
 
 
@@ -371,7 +376,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
         //Listen for call state changes
         CallManager.registerCallback(mCallback);
         updateUI(CallManager.getState());
@@ -421,8 +425,10 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 {
                     Call ActiveCall = null;
                     Call holdCall = null;
-                    for (int i=0;i<CallManager.sCalls.size();i++){
-                        if (CallManager.sCalls.get(i).getState() == Call.STATE_ACTIVE){
+                    for (int i=0;i<CallManager.sCalls.size();i++)
+                    {
+                        if (CallManager.sCalls.get(i).getState() == Call.STATE_ACTIVE)
+                        {
                             ActiveCall = CallManager.sCalls.get(i);
                         }
                         if (CallManager.sCalls.get(i).getState() == Call.STATE_HOLDING){
@@ -434,6 +440,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     binding.ongoingCallLayout.buttonMerge.setColorFilter(ContextCompat.getColor(this, R.color.grey_dark));
                     binding.ongoingCallLayout.buttonSwap.setEnabled(false);
                     binding.ongoingCallLayout.buttonSwap.setColorFilter(ContextCompat.getColor(this, R.color.grey_dark));
+
+                    flag=2;
                 }
             case R.id.btn_answer:
                 activateCall();
@@ -546,27 +554,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         Toast.makeText(ctx,""+isfalse,Toast.LENGTH_LONG).show();
         Log.d("flagval",""+isfalse);
 
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     private void addCallAction() {
@@ -778,7 +766,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 inProgressCallAdData = null;
             }
         }else {
-//            switchToCallingUI();
+            //switchToCallingUI();
             UpdateScreenElements(Call.STATE_DISCONNECTING);
         }
 
@@ -988,12 +976,15 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         }
         if (state == Call.STATE_DISCONNECTED)
         {
-            Log.d("size",""+CallManager.sCalls.size());
-            if (CallManager.sCalls.size() > 1){
+            //Log.d("size",""+CallManager.sCalls.size());
+            if (CallManager.sCalls.size() > 1)
+            {
                 binding.overlaySendSms.overlaySendSms.setVisibility(View.GONE);
-//                showConference();
-            }else {
+//               showConference();
+            }
+            else  {
                 endCall();
+
             }
         }
         if (state == Call.STATE_RINGING){
@@ -1228,7 +1219,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 Log.i("ConferenceCallStatus", String.valueOf(CallManager.sCalls.get(i).getState()));
 
                 boolean a = CallManager.sCalls.get(i).getChildren().size() == 0;
-                if (a){
+                if (a)
+                {
                     if (CallManager.sCalls.get(i).getState()==Call.STATE_RINGING
                             || CallManager.sCalls.get(i).getState()==Call.STATE_DIALING
                             || CallManager.sCalls.get(i).getState()==Call.STATE_ACTIVE
@@ -1237,6 +1229,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                         calls.add(CallManager.sCalls.get(i));
                     }
                 }
+
                 /*else if (!a && CallManager.sCalls.get(i).getState()==Call.STATE_ACTIVE){
                     calls.clear();
                     calls =(CallManager.sCalls.get(i).getChildren());
@@ -1247,21 +1240,23 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             if (calls.size()==1){
                 UpdateScreenElements(calls.get(0).getState());
             }
-            else if (calls.size()>0){
+            else if (calls.size()>0)
+            {
 
                 CallManager.sCalls.get(0).registerCallback(mCallback);
                 CallManager.sCalls.get(1).registerCallback(mCallback);
 
-                binding.ongoingCallLayout.rvCalls.setVisibility(View.VISIBLE);
-
-                conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
-                Log.d("before", ""+calls.size());
-
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-                binding.ongoingCallLayout.rvCalls.setLayoutManager(mLayoutManager);
-                binding.ongoingCallLayout.rvCalls.setItemAnimator(new DefaultItemAnimator());
-
-                binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+                if(flag==2){
+                    binding.ongoingCallLayout.rvCalls.setVisibility(View.VISIBLE);
+                    conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
+                    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+                    binding.ongoingCallLayout.rvCalls.setLayoutManager(mLayoutManager);
+                    binding.ongoingCallLayout.rvCalls.setItemAnimator(new DefaultItemAnimator());
+                    binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+                }
+                else{
+                    Log.d("else","else");
+                }
 
                 // Hide SMS View
                 binding.overlaySendSms.overlaySendSms.setVisibility(View.GONE);
@@ -1287,6 +1282,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 mCallTimeHandler.sendEmptyMessage(TIME_START);
                 InProgressCallStartTime = sdf.format(new Date());
                 changeAd();
+
+
 
 
             }
@@ -1470,13 +1467,13 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    public class Callback extends Call.Callback {
+    public class Callback extends Call.Callback
+    {
 
         @Override
         public void onStateChanged(Call call, int state) {
             /*
               Call states:
-
               1   = Call.STATE_DIALING
               2   = Call.STATE_RINGING
               3   = Call.STATE_HOLDING
@@ -1489,6 +1486,12 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
              */
             super.onStateChanged(call, state);
             Timber.i("State changed: %s", state);
+
+
+
+
+
+
             updateUI(state);
 //            if (CallManager.sCalls.size()>1){
 //                showConference();
@@ -1499,7 +1502,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         public void onCallDestroyed(Call call) {
             super.onCallDestroyed(call);
             if (CallManager.sCall != null){
-                Log.d("size++++", ""+inCallServiceInstance.getCalls().size());
+                //Log.d("size++++", ""+inCallServiceInstance.getCalls().size());
+                //conferenceCallAdapter.demotest();
+
 
                 if (inCallServiceInstance.getCalls().size()>0)
                 {
@@ -1511,7 +1516,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                                 CallManager.sCall = inCallServiceInstance.getCalls().get(i);
                                 UpdateScreenElements(Call.STATE_ACTIVE);
                                 break;
-
                         }
                     }
                 }
@@ -1520,13 +1524,15 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     endCall();
                 }
 
-                if (CallManager.sCall.getState() == Call.STATE_RINGING || CallManager.sCall.getState() == Call.STATE_DISCONNECTED){
+                if (CallManager.sCall.getState() == Call.STATE_RINGING || CallManager.sCall.getState() == Call.STATE_DISCONNECTED)
+                {
                     if (CallManager.sCalls.size()<2){
                         UpdateScreenElements(Call.STATE_DISCONNECTED);
                     }else {
                         UpdateScreenElements(Call.STATE_ACTIVE);
                     }
                 }
+                
             }
         }
 
@@ -1534,6 +1540,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         public void onConferenceableCallsChanged(Call call, List<Call> conferenceableCalls) {
             super.onConferenceableCallsChanged(call, conferenceableCalls);
             call.registerCallback(mCallback);
+
             showConference();
         }
     }
@@ -1566,51 +1573,86 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     // -- Notification -- //
     public void createNotification() {
-
+        RemoteViews remoteViews = new RemoteViews(ctx.getPackageName(), R.layout.notification_expanded);
+        
         Contact callerContact = CallManager.getDisplayContact(this);
         String callerName = callerContact.getName();
-        Log.d("name",""+callerName);
+        Log.d("name",callerName);
+
         if (callerName.equals("")){
             callerName = callerContact.getMainPhoneNumber();
         }
+
+        remoteViews.setTextViewText(R.id.text_view_expanded, callerName);
 
         Intent touchNotification = new Intent(this, OngoingCallActivity.class);
         touchNotification.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, touchNotification, 0);
 
         // Answer Button Intent
-        Intent answerIntent = new Intent(this, NotificationActionReceiver.class);
-        answerIntent.setAction(ACTION_ANSWER);
-        answerIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
-        PendingIntent answerPendingIntent = PendingIntent.getBroadcast(this, 0, answerIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                Intent answerIntent = new Intent(this, NotificationActionReceiver.class);
+                answerIntent.setAction(ACTION_ANSWER);
+                answerIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+                PendingIntent answerPendingIntent = PendingIntent.getBroadcast(this, 0, answerIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // Hangup Button Intent
-        Intent hangupIntent = new Intent(this, NotificationActionReceiver.class);
-        hangupIntent.setAction(ACTION_HANGUP);
-        hangupIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
-        PendingIntent hangupPendingIntent = PendingIntent.getBroadcast(this, 1, hangupIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                Intent hangupIntent = new Intent(this, NotificationActionReceiver.class);
+                hangupIntent.setAction(ACTION_HANGUP);
+                hangupIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+                PendingIntent hangupPendingIntent = PendingIntent.getBroadcast(this, 1, hangupIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
 
         mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.tingtingu_logo)
-                .setContentTitle(callerName)
-                .setContentText(mStateText)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.colordth))
-                .setContentIntent(pendingIntent)
-                .setOngoing(true)
-                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                        .setShowActionsInCompactView(0, 1))
-                .setAutoCancel(false);
+        .setSmallIcon(R.drawable.tingtingu_logo)
+        .setContentTitle(callerName)
+        .setContentText(mStateText)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.green_phone))
+        .setColorized(true)
+        .setContentIntent(pendingIntent)
+        .setOngoing(true)
+        /*.setStyle(new androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle()
+                .setShowActionsInCompactView(0, 1)
+        )*/
+        .setContent(remoteViews)
+        //.setCustomBigContentView(remoteViews)
+        .setAutoCancel(false);
+
+
+        remoteViews.setOnClickPendingIntent(R.id.IB_expanded_answer,answerPendingIntent);
+        remoteViews.setOnClickPendingIntent(R.id.IB_expanded_end,hangupPendingIntent);
+
+
 
         // Adding the action buttons
-        mBuilder.addAction(R.drawable.ic_call_black_24dp, getString(R.string.action_answer), answerPendingIntent);
-        mBuilder.addAction(R.drawable.ic_call_end_black_24dp, getString(R.string.action_hangup), hangupPendingIntent);
+        //mBuilder.addAction(R.drawable.ic_call_black_24dp, getString(R.string.action_answer), answerPendingIntent);
+        //mBuilder.addAction(R.drawable.ic_call_end_black_24dp, getString(R.string.action_hangup), hangupPendingIntent);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
         notificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-    }
 
+                /*NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                RemoteViews expandedView = new RemoteViews(getPackageName(),
+                        R.layout.notification_expanded);
+                expandedView.setImageViewResource(R.id.image_view_expanded, R.drawable.tinglogo1);
+                expandedView.setTextViewText(R.id.text_view_expanded, callerName);
+                Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ttu_only_logo)
+                        .setCustomContentView(expandedView)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.colordth))
+                        .setColorized(true)
+                        .setContentIntent(pendingIntent)
+                        .setOngoing(true)
+                        .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
+                                .setShowActionsInCompactView(0, 1))
+                        .setAutoCancel(false)
+                        .build();
+                expandedView.setOnClickPendingIntent(R.id.IB_expanded_answer,answerPendingIntent);
+                expandedView.setOnClickPendingIntent(R.id.IB_expanded_end,hangupPendingIntent);
+                notificationManager.notify(NOTIFICATION_ID, notification);*/
+
+    }
     /**
      * Creates the notification channel
      * Which allows and manages the displaying of the notification
@@ -1985,4 +2027,15 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         });
 
     }
+
+    public void deleteAppData() {
+        try {
+            // clearing app data
+            String packageName = getApplicationContext().getPackageName();
+            Runtime runtime = Runtime.getRuntime();
+            runtime.exec("pm clear "+packageName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } }
 }
