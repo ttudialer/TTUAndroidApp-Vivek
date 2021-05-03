@@ -1,10 +1,14 @@
 package com.kabaladigital.tingtingu.ui.activity;
 
 import android.app.AlarmManager;
+import android.app.DownloadManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     String mIntentType;
 
     ActivityMainBinding binding;
+    DownloadManager downloadManager;
 
     public static final String MESSAGE_STATUS = "MainActivity";
 
@@ -101,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("Firebase_token", token);
                     }
                 });
+
+        //downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+
+        //download();
 
         //Notification
 //        ShowNotificationAd.createNotification(this);
@@ -189,6 +198,19 @@ public class MainActivity extends AppCompatActivity {
                 , 15*60*1000
                 , pendingIntent);
     }
+
+    /*private void download() {
+        Uri Download_Uri = Uri.parse("https://storage.googleapis.com/ttu-production/ProfileAdv/1619779642670-Tik-tok.mp4");
+        DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+        request.setAllowedOverRoaming(false);
+        request.setTitle("TTUPROFILE" + "9350043415" + ".mp4");
+        request.setDescription("TTUPROFILE" + "9350043415" + ".mp4");
+        request.setVisibleInDownloadsUi(true);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"  + "/" + "9350043415" + ".mp4");
+        long refid = downloadManager.enqueue(request);
+    }*/
+
 
 
     @Override
