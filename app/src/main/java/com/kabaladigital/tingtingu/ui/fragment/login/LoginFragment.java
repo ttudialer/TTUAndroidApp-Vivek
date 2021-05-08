@@ -3,6 +3,7 @@ package com.kabaladigital.tingtingu.ui.fragment.login;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -19,6 +20,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
+import com.android.installreferrer.api.InstallReferrerClient;
+import com.android.installreferrer.api.InstallReferrerStateListener;
+import com.android.installreferrer.api.ReferrerDetails;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.databinding.LoginFragmentBinding;
 import com.kabaladigital.tingtingu.networking.RequestFormatter;
@@ -34,10 +39,18 @@ public class LoginFragment extends Fragment {
     private LoginViewModel mViewModel;
     private String langType;
 
+    // variable for install referer client.
+    InstallReferrerClient referrerClient;
+    // creating an empty string for our referer.
+    String refrer = "";
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.login_fragment, container, false);
+        // on below line we are building our install referrer client and building it.
+        referrerClient = InstallReferrerClient.newBuilder(getContext()).build();
+
 
         ((LoginActivity)getActivity()).showHideLogo(View.GONE);
 
@@ -66,12 +79,88 @@ public class LoginFragment extends Fragment {
                 if (binding.etMobileNumber.getText().toString().length() != 10){
                     Toast.makeText(getContext(), "Enter Valid mobile number", Toast.LENGTH_SHORT).show();
                 } else {
-                    submitMobileNumberAndCode(binding.etMobileNumber.getText().toString());
+                   submitMobileNumberAndCode(binding.etMobileNumber.getText().toString());
+                    referfunction();
                 }
             }
         });
 
         return binding.getRoot();
+    }
+
+    private void referfunction() {
+        // on below line we are starting its connection.
+        referrerClient.startConnection(new InstallReferrerStateListener()
+        {
+            @Override
+            public void onInstallReferrerSetupFinished(int responseCode) {
+                // this method is called when install referer setup is finished.
+                switch (responseCode) {
+                    // we are using switch case to check the response.
+                    case InstallReferrerClient.InstallReferrerResponse.OK:
+                        // this case is called when the status is OK and
+                        ReferrerDetails response = null;
+                        try {
+                            // on below line we are getting referrer details
+                            // by calling get install referrer.
+                            response = referrerClient.getInstallReferrer();
+
+                            // on below line we are getting referrer url.
+                            String referrerUrl = response.getInstallReferrer();
+                            referrerUrl = referrerUrl +"/"+"456scorich";
+
+                            // on below line we are getting referrer click time.
+                            long referrerClickTime = response.getReferrerClickTimestampSeconds();
+
+                            // on below line we are getting app install time
+                            long appInstallTime = response.getInstallBeginTimestampSeconds();
+
+                            // on below line we are getting our time when
+                            // user has used our apps instant experience.
+                            boolean instantExperienceLaunched = response.getGooglePlayInstantParam();
+
+                            // on below line we are getting our
+                            // apps install referrer.
+                            refrer = response.getInstallReferrer();
+
+                            // on below line we are setting all detail to our text view.
+                            //refrerTV.setText("Referrer is : \n" + referrerUrl + "\n" + "Referrer Click Time is : " + referrerClickTime + "\nApp Install Time : " + appInstallTime);
+                            String str =  "Referrer is : \n" + referrerUrl + "\n" + "Referrer Click Time is : " + referrerClickTime + "\nApp Install Time : " + appInstallTime;
+
+                            Bundle params = new Bundle();
+                            params.putString("Referrer",str);
+                            FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(getActivity());
+                            firebaseAnalytics.logEvent("referapi",params);
+
+
+                        } catch (RemoteException e) {
+                            // handling error case.
+                            e.printStackTrace();
+                        }
+                        break;
+                    case InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED:
+                        // API not available on the current Play Store app.
+                        //Toast.makeText(getActivity(), "Feature not supported..", Toast.LENGTH_SHORT).show();
+                        break;
+                    case InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE:
+                        // Connection couldn't be established.
+                        //Toast.makeText(getActivity(), "Fail to establish connection", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onInstallReferrerServiceDisconnected() {
+                // Try to restart the connection on the next request to
+                // Google Play by calling the startConnection() method.
+                //Toast.makeText(getActivity(), "Service disconnected..", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
     }
 
 

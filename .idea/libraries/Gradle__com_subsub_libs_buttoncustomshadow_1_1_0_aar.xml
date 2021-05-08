@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <component name="libraryTable">
   <library name="Gradle: com.subsub.libs:buttoncustomshadow:1.1.0@aar">
     <CLASSES>
@@ -13,4 +14,18 @@
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.subsub.libs/buttoncustomshadow/1.1.0/2ccacec5fdabb3e0466def1d194d36e373c3c374/buttoncustomshadow-1.1.0-sources.jar!/" />
     </SOURCES>
   </library>
+=======
+<component name="libraryTable">
+  <library name="Gradle: com.subsub.libs:buttoncustomshadow:1.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dc18860c6c32d236a4ddf6d14b291cf/jetified-buttoncustomshadow-1.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dc18860c6c32d236a4ddf6d14b291cf/jetified-buttoncustomshadow-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dc18860c6c32d236a4ddf6d14b291cf/jetified-buttoncustomshadow-1.1.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.subsub.libs/buttoncustomshadow/1.1.0/2ccacec5fdabb3e0466def1d194d36e373c3c374/buttoncustomshadow-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 </component>

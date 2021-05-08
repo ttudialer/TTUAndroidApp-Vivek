@@ -1,12 +1,26 @@
 package com.kabaladigital.tingtingu.ui.activity;
 
 import android.app.AlarmManager;
+import android.app.DownloadManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+<<<<<<< HEAD
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+=======
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 import android.os.SystemClock;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -16,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,10 +44,18 @@ import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.database.DataRepository;
 import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
+<<<<<<< HEAD
 import com.kabaladigital.tingtingu.models.ContactUploadModel;
+=======
+import com.kabaladigital.tingtingu.models.ProfileAdv;
+import com.kabaladigital.tingtingu.models.ProfileResponse;
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 import com.kabaladigital.tingtingu.networking.ApiClient;
+import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
+import com.kabaladigital.tingtingu.service.SharesPreference;
+import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
 import com.kabaladigital.tingtingu.util.Installation;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
@@ -40,8 +63,16 @@ import com.kabaladigital.tingtingu.util.Utilities;
 
 import org.json.JSONObject;
 
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.util.Date;
+=======
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 import java.util.Random;
 
 import okhttp3.MultipartBody;
@@ -49,6 +80,8 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.google.firebase.crashlytics.internal.Logger.TAG;
 
@@ -63,14 +96,29 @@ public class MainActivity extends AppCompatActivity {
     String mIntentType;
 
     ActivityMainBinding binding;
+<<<<<<< HEAD
+=======
+    DownloadManager downloadManager_2;
+    ArrayList<Long> list = new ArrayList<>();
+    private Uri Download_Uri;
+    private long refid;
+    Context ctx = MainActivity.this;
+
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     public static final String MESSAGE_STATUS = "MainActivity";
     DataRepository repository;
+
+    private DownloadManager downloadManager;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        registerReceiver(onComplete,
+                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         Installation.id(this);
         setSupportActionBar(binding.toolbarMainActivity);
@@ -112,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+<<<<<<< HEAD
         String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
         String _DBtime=   PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
         if(_ctime.equalsIgnoreCase(_DBtime)==false) {
@@ -121,6 +170,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }).start();
         }
+=======
+        //downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+
+
+        getprofile();
+
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         //Notification
 //        ShowNotificationAd.createNotification(this);
 //        ShowNotificationAd.createImageWithCallNotification(this);
@@ -208,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 , pendingIntent);
     }
 
+<<<<<<< HEAD
     private void uploadContact(JsonObject contactListObj){
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
@@ -230,6 +287,87 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+=======
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void download() {
+        //ArrayList<String>phone_no_arr = new ArrayList<>();
+
+        for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
+        {
+            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
+            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
+            //String path = String.valueOf(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE/"  + "/" + phone_no + ".mp4");
+            //String path = String.valueOf(ctx.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE"  + "/" + phone_no + ".mp4"));
+            //Log.d("path",path);
+
+           /* Download_Uri = Uri.parse(url);
+            DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+            request.setAllowedOverRoaming(false);
+            request.setTitle("TTUPROFILE" + phone_no + ".mp4");
+            request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+            request.setVisibleInDownloadsUi(true);
+            request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/"   + phone_no + ".mp4");
+            refid = downloadManager_2.enqueue(request);
+            Log.e("OUTNM", "" + refid);
+            list.add(refid);*/
+
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+    public void getprofile()
+    {
+        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
+        call.enqueue(new Callback<ProfileResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if (response.body()!= null)
+                    {
+                        SharesPreference.saveprofile(getApplicationContext(),response.body());
+                        download();
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
     private void ReadContactDetailsJson() {
 
@@ -407,6 +545,81 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+        unregisterReceiver(onComplete);
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(CallManager.getState() == 4)
+        {
+            startActivity(new Intent(this, OngoingCallActivity.class));
+        }
+
+    }
+
+
+    BroadcastReceiver onComplete = new BroadcastReceiver()
+    {
+
+        public void onReceive(Context ctxt, Intent intent) {
+            long referenceId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+            Log.e("IN", "" + referenceId);
+            list.remove(referenceId);
+            if (list.isEmpty())
+            {
+                Log.e("INSIDE", "" + referenceId);
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setContentTitle("TTU")
+                                .setContentText("All Download completed");
+                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.notify(455, mBuilder.build());
+            }
+        }
+    };
 
 
 }

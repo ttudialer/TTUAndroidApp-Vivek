@@ -38,6 +38,7 @@ public abstract class RedeemPointFragmentBinding extends ViewDataBinding {
     super(_bindingComponent, _root, _localFieldCount);
     this.btnRedeemContinue = btnRedeemContinue;
     this.layoutWb = layoutWb;
+    setContainedBinding(this.layoutWb);
     this.radioBtnDthRecharge = radioBtnDthRecharge;
     this.radioBtnMobileRecharge = radioBtnMobileRecharge;
     this.radioGroupReedem = radioGroupReedem;

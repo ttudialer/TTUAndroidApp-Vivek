@@ -1,0 +1,49 @@
+{
+    "logs": [
+        {
+<<<<<<< HEAD:app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-v16.json
+            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\6f1e28fbe5ef91f26fe059bb71a2e19f\\core-1.1.0\\res\\values-v16\\values-v16.xml",
+=======
+            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/79233539411d067511287ac58235a26a/core-1.1.0/res/values-v16/values-v16.xml",
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd:app/build/intermediates/blame/res/debug/multi-v2/values-v16.json
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+<<<<<<< HEAD:app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-v16.json
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\dfe8f88acfd80aaf3bdd275b32c747eb\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
+=======
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/bd12ccfb55932d2c6702cdc0dfad2143/appcompat-1.0.2/res/values-v16/values-v16.xml",
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd:app/build/intermediates/blame/res/debug/multi-v2/values-v16.json
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}

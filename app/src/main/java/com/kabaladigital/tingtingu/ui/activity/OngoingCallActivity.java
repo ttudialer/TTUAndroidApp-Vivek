@@ -2,7 +2,9 @@ package com.kabaladigital.tingtingu.ui.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.KeyguardManager;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,15 +13,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import android.os.PowerManager;
+import android.os.RemoteException;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.VideoProfile;
@@ -29,6 +36,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,6 +70,7 @@ import com.kabaladigital.tingtingu.models.Caller_Id;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.ui.fragment.DialpadFragment;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
@@ -72,13 +82,18 @@ import com.kabaladigital.tingtingu.util.VideoManager;
 import com.kabaladigital.tingtingu.viewmodels.OnGoingCallViewModel;
 import com.kabaladigital.tingtingu.viewmodels.SharedDialViewModel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Pattern;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -94,7 +109,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     private ActivityOngoingCallBinding binding;
     private OnGoingCallViewModel mViewModel;
-    private ConferenceCallAdapter conferenceCallAdapter;
+    public static ConferenceCallAdapter conferenceCallAdapter;
 
     // Finals
     private static final long END_CALL_MILLIS = 300000;
@@ -175,6 +190,13 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     NotificationCompat.Builder mBuilder;
     NotificationManager mNotificationManager;
 
+    List<Call> calls;
+
+    int flag=1;
+
+
+
+
 //    @Nullable ViewGroup mCurrentOverlay = null;
 
     private BottomSheetBehavior sheetBehavior;
@@ -193,9 +215,14 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     CountDownTimer inProgressCounter;
 
+    public static Activity activity ;
+
+    Context ctx = OngoingCallActivity.this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activity = OngoingCallActivity.this;
 
         // This activity needs to show even if the screen is off or locked
         Window window = getWindow();
@@ -230,7 +257,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         sheetBehavior = BottomSheetBehavior.from(binding.overlaySendSms.overlaySendSms);
 
         // Audio Manager
-        mAudioManager = (AudioManager) getApplicationContext().getSystemService(AUDIO_SERVICE);
+        mAudioManager = (AudioManager) activity.getSystemService(Context.AUDIO_SERVICE);
 
         createNotificationChannel();
         createNotification();
@@ -239,6 +266,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         if (CallManager.sCalls.size()<=2){
             displayInformation();
         }
+
 
 
         // Initiate PowerManager and WakeLock (turn screen on/off according to distance from face)
@@ -324,6 +352,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         binding.ongoingCallLayout.buttonMerge.setOnClickListener(this);
         binding.ongoingCallLayout.rejectBtn.setOnClickListener(this);
 
+
+        //showAd_2();
+
     }
 
 
@@ -356,17 +387,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
         //Listen for call state changes
-        try {
-            CallManager.registerCallback(mCallback);
-            updateUI(CallManager.getState());
-        } catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
-
+        CallManager.registerCallback(mCallback);
+        updateUI(CallManager.getState());
     }
 
     @Override
@@ -411,11 +434,12 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             case R.id.button_merge:
                 if (binding.ongoingCallLayout.buttonMerge.isEnabled())
                 {
-                   try{
                     Call ActiveCall = null;
                     Call holdCall = null;
-                    for (int i=0;i<CallManager.sCalls.size();i++){
-                        if (CallManager.sCalls.get(i).getState() == Call.STATE_ACTIVE){
+                    for (int i=0;i<CallManager.sCalls.size();i++)
+                    {
+                        if (CallManager.sCalls.get(i).getState() == Call.STATE_ACTIVE)
+                        {
                             ActiveCall = CallManager.sCalls.get(i);
                         }
                         if (CallManager.sCalls.get(i).getState() == Call.STATE_HOLDING){
@@ -427,11 +451,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     binding.ongoingCallLayout.buttonMerge.setColorFilter(ContextCompat.getColor(this, R.color.grey_dark));
                     binding.ongoingCallLayout.buttonSwap.setEnabled(false);
                     binding.ongoingCallLayout.buttonSwap.setColorFilter(ContextCompat.getColor(this, R.color.grey_dark));
-                   }
-                   catch (Exception ex)
-                   {
-                       ex.printStackTrace();
-                   }
+
+                    flag=2;
                 }
             case R.id.btn_answer:
                 activateCall();
@@ -441,20 +462,19 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 if (!callStatus.equals("Picked")){
                     callEndTime = sdf.format(new Date());
                 }
+                cancelNotification();
                 endCallWithButton();
                 break;
             case R.id.btn_reject:
                 endCallWithButton();
                 break;
             case R.id.button_mute:
-
                 Utilities.toggleViewActivation(view);
-                if(mAudioManager == null)
-                {
-                    mAudioManager = (AudioManager) getApplicationContext().getSystemService(AUDIO_SERVICE);
-                }
                 mAudioManager.setMicrophoneMute(view.isActivated());
-
+                if(!mAudioManager.isMicrophoneMute()){
+                    //Toast.makeText(ctx,"hardware does not support",Toast.LENGTH_SHORT).show();
+                    Log.d("Mute","Hardware Not Supported");
+                }
                 break;
             case R.id.button_speaker:
                 Utilities.toggleViewActivation(view);
@@ -515,6 +535,39 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //        }
     }
 
+
+    private void setMicMuted(boolean state){
+        mAudioManager.setMicrophoneMute(state);
+        //mAudioManager.setMode(AudioManager.MODE_NORMAL);
+
+        //mAudioManager.setMode(AudioManager.RINGER_MODE_SILENT);
+       // mAudioManager.setStreamVolume(1,0,0);
+       // mAudioManager.setSpeakerphoneOn(true);
+
+        /*mAudioManager. setStreamMute(mAudioManager.STREAM_VOICE_CALL,true);
+        mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, 00, 0);
+        mAudioManager.adjustVolume(AudioManager.ADJUST_LOWER,AudioManager.FLAG_PLAY_SOUND);
+        mAudioManager.setMicrophoneMute(true);
+        mAudioManager.setMode(AudioManager.MODE_NORMAL);
+        mAudioManager.abandonAudioFocus(null);*/
+
+        /*try {
+            Intent buttonUp = new Intent(Intent.ACTION_MEDIA_BUTTON);
+            buttonUp.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_HEADSETHOOK));
+            getBaseContext().sendOrderedBroadcast(buttonUp, "android.permission.CALL_PRIVILEGED");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }*/
+
+        boolean isfalse = mAudioManager.isMicrophoneMute();
+        Toast.makeText(ctx,""+isfalse,Toast.LENGTH_LONG).show();
+        Log.d("flagval",""+isfalse);
+
+    }
+
+
     private void addCallAction() {
         List<Intent> callAppList = new ArrayList<Intent>();
         Intent callIntent = new Intent();
@@ -557,10 +610,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //            imageButton.setColorFilter(ContextCompat.getColor(this, R.color.white));
 //    }
 
-    private void activateCall()
-    {
-        try{
-            if (CallManager.sCalls.size()>1 && CallManager.getState() == Call.STATE_RINGING){
+    private void activateCall() {
+        if (CallManager.sCalls.size()>1 && CallManager.getState() == Call.STATE_RINGING){
             String[] colors = {"Put in progress call on hold & Answer", "Merge", "End in progress call & Answer"};
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -602,11 +653,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         }else {
             CallManager.answer();
         }
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
     }
 
     private void endCallWithButton(){
@@ -620,16 +666,10 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
         if (CallManager.sCalls.size()>1){
 
-            try{
-                for (int i=0;i<CallManager.sCalls.size();i++){
+            for (int i=0;i<CallManager.sCalls.size();i++){
                 if (CallManager.sCalls.get(i).getState() == Call.STATE_RINGING || CallManager.sCalls.get(i).getState() == Call.STATE_DIALING){
                     isRinging = true;
                 }
-               }
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
             }
             if (!isRinging){
                 for (int i=0;i<CallManager.sCalls.size();i++){
@@ -646,7 +686,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         }
     }
 
-    private void endCall() {
+    public void endCall() {
         if(inProgressCounter  != null){
             inProgressCounter.cancel();
         }
@@ -737,10 +777,22 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 inProgressCallAdData = null;
             }
         }else {
-//            switchToCallingUI();
+            //switchToCallingUI();
             UpdateScreenElements(Call.STATE_DISCONNECTING);
         }
+
     }
+
+
+
+
+
+
+
+
+
+
+
 
     public void endCall(int pos) {
         if (CallManager.sCalls.size()>1){
@@ -827,8 +879,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     private void displayInformation() {
         // Display the information about the caller
 
-       try{
-            if (CallManager.getState()==Call.STATE_DIALING){
+        if (CallManager.getState()==Call.STATE_DIALING){
 
         }
 
@@ -914,17 +965,12 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //                binding.ongoingCallLayout.textStatus.setVisibility(View.INVISIBLE);
 //            }
 //        }
-       }
-       catch (Exception ex)
-       {
-           ex.printStackTrace();
-       }
 
     }
 
 
 
-    //          1   = Call.STATE_DIALING
+    //              1   = Call.STATE_DIALING
 //              2   = Call.STATE_RINGING
 //              3   = Call.STATE_HOLDING
 //              4   = Call.STATE_ACTIVE
@@ -935,15 +981,21 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //              11  = Call.STATE_PULLING_CALL
 //              12  = Call.STATE_END_ALL
     private void UpdateScreenElements(int state) {
+
         if (state == 12){
             endCall();
         }
-        if (state == Call.STATE_DISCONNECTED){
-            if (CallManager.sCalls.size()>1){
+        if (state == Call.STATE_DISCONNECTED)
+        {
+            //Log.d("size",""+CallManager.sCalls.size());
+            if (CallManager.sCalls.size() > 1)
+            {
                 binding.overlaySendSms.overlaySendSms.setVisibility(View.GONE);
-//                showConference();
-            }else {
+//               showConference();
+            }
+            else  {
                 endCall();
+
             }
         }
         if (state == Call.STATE_RINGING){
@@ -1146,8 +1198,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             binding.ongoingCallLayout.buttonAddCall.setVisibility(View.GONE);
 
 //            if (CallManager.sCalls.size()>1){
-                binding.ongoingCallLayout.buttonMerge.setVisibility(View.VISIBLE);
-                binding.ongoingCallLayout.buttonSwap.setVisibility(View.VISIBLE);
+            binding.ongoingCallLayout.buttonMerge.setVisibility(View.VISIBLE);
+            binding.ongoingCallLayout.buttonSwap.setVisibility(View.VISIBLE);
 //                binding.ongoingCallLayout.buttonHold.setVisibility(View.VISIBLE);
 //            }
 //        moveRejectButtonToMiddle();
@@ -1169,55 +1221,53 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    private void showConference()
+    public void showConference()
     {
-        if (CallManager.sCalls.size()>1 ) {
-            List<Call> calls = new ArrayList<>();
+        if (CallManager.sCalls.size()>1 )
+        {
+            calls = new ArrayList<>();
             for (int i=0;i<CallManager.sCalls.size();i++){
                 Log.i("ConferenceCallStatus", String.valueOf(CallManager.sCalls.get(i).getState()));
+
                 boolean a = CallManager.sCalls.get(i).getChildren().size() == 0;
-                if (a){
-                    try{
-                        if (CallManager.sCalls.get(i).getState()==Call.STATE_RINGING
+                if (a)
+                {
+                    if (CallManager.sCalls.get(i).getState()==Call.STATE_RINGING
                             || CallManager.sCalls.get(i).getState()==Call.STATE_DIALING
                             || CallManager.sCalls.get(i).getState()==Call.STATE_ACTIVE
                             || CallManager.sCalls.get(i).getState()==Call.STATE_HOLDING ){
+
                         calls.add(CallManager.sCalls.get(i));
                     }
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.printStackTrace();
-                    }
-
                 }
-//                else if (!a && CallManager.sCalls.get(i).getState()==Call.STATE_ACTIVE){
-//                    calls.clear();
-//                    calls =(CallManager.sCalls.get(i).getChildren());
-//                    break;
-//                }
+
+                /*else if (!a && CallManager.sCalls.get(i).getState()==Call.STATE_ACTIVE){
+                    calls.clear();
+                    calls =(CallManager.sCalls.get(i).getChildren());
+                    break;
+                }*/
             }
 
             if (calls.size()==1){
-               try {
-                   UpdateScreenElements(calls.get(0).getState());
-               }
-               catch (Exception ex)
-               {
-                   ex.printStackTrace();
-               }
+                UpdateScreenElements(calls.get(0).getState());
             }
-            else if (calls.size()>0){
+            else if (calls.size()>0)
+            {
 
                 CallManager.sCalls.get(0).registerCallback(mCallback);
                 CallManager.sCalls.get(1).registerCallback(mCallback);
 
-                binding.ongoingCallLayout.rvCalls.setVisibility(View.VISIBLE);
-                conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
-                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-                binding.ongoingCallLayout.rvCalls.setLayoutManager(mLayoutManager);
-                binding.ongoingCallLayout.rvCalls.setItemAnimator(new DefaultItemAnimator());
-                binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+                if(flag==2){
+                    binding.ongoingCallLayout.rvCalls.setVisibility(View.VISIBLE);
+                    conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
+                    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+                    binding.ongoingCallLayout.rvCalls.setLayoutManager(mLayoutManager);
+                    binding.ongoingCallLayout.rvCalls.setItemAnimator(new DefaultItemAnimator());
+                    binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+                }
+                else{
+                    Log.d("else","else");
+                }
 
                 // Hide SMS View
                 binding.overlaySendSms.overlaySendSms.setVisibility(View.GONE);
@@ -1243,9 +1293,16 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 mCallTimeHandler.sendEmptyMessage(TIME_START);
                 InProgressCallStartTime = sdf.format(new Date());
                 changeAd();
+
+
+
+
             }
         }
     }
+
+
+
 
 
     /**
@@ -1270,9 +1327,11 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 }
                 if (CallManager.sCalls.size()<2){
                     statusTextRes = R.string.status_call_disconnected;
+
                 }else {
                     statusTextRes = R.string.status_call_active;
                 }
+
                 break;
             case Call.STATE_RINGING: // Incoming
                 statusTextRes = R.string.status_call_incoming;
@@ -1419,13 +1478,13 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    public class Callback extends Call.Callback {
+    public class Callback extends Call.Callback
+    {
 
         @Override
         public void onStateChanged(Call call, int state) {
             /*
               Call states:
-
               1   = Call.STATE_DIALING
               2   = Call.STATE_RINGING
               3   = Call.STATE_HOLDING
@@ -1438,6 +1497,12 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
              */
             super.onStateChanged(call, state);
             Timber.i("State changed: %s", state);
+
+
+
+
+
+
             updateUI(state);
 //            if (CallManager.sCalls.size()>1){
 //                showConference();
@@ -1448,50 +1513,37 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         public void onCallDestroyed(Call call) {
             super.onCallDestroyed(call);
             if (CallManager.sCall != null){
-                if (inCallServiceInstance.getCalls().size()>0){
+                //Log.d("size++++", ""+inCallServiceInstance.getCalls().size());
+                //conferenceCallAdapter.demotest();
+
+
+                if (inCallServiceInstance.getCalls().size()>0)
+                {
                     for (int i=0;i<inCallServiceInstance.getCalls().size();i++)
                     {
+                        if (inCallServiceInstance.getCalls().get(i).getState() == Call.STATE_ACTIVE){
 
-                        try{
-                            if (inCallServiceInstance.getCalls().get(i).getState() == Call.STATE_ACTIVE)
-                            {
-
-                                inCallServiceInstance.getCalls().get(i).getDetails().getCallProperties();
+                            inCallServiceInstance.getCalls().get(i).getDetails().getCallProperties();
                                 CallManager.sCall = inCallServiceInstance.getCalls().get(i);
                                 UpdateScreenElements(Call.STATE_ACTIVE);
-
-
                                 break;
-                            }
                         }
-                        catch (Exception ex)
-                        {
-                            ex.printStackTrace();
-                        }
-
-
-
                     }
                 }
 
-                try{
-
-                    if (CallManager.sCalls.size() == 2 && CallManager.sCalls.get(0).getState() == Call.STATE_DISCONNECTED && CallManager.sCalls.get(1).getDetails().getCallProperties() == Call.Details.PROPERTY_CONFERENCE){
+                if (CallManager.sCalls.size() == 2 && CallManager.sCalls.get(0).getState() == Call.STATE_DISCONNECTED && CallManager.sCalls.get(1).getDetails().getCallProperties() == Call.Details.PROPERTY_CONFERENCE){
                     endCall();
                 }
 
-                if (CallManager.sCall.getState() == Call.STATE_RINGING || CallManager.sCall.getState() == Call.STATE_DISCONNECTED){
+                if (CallManager.sCall.getState() == Call.STATE_RINGING || CallManager.sCall.getState() == Call.STATE_DISCONNECTED)
+                {
                     if (CallManager.sCalls.size()<2){
                         UpdateScreenElements(Call.STATE_DISCONNECTED);
                     }else {
                         UpdateScreenElements(Call.STATE_ACTIVE);
                     }
                 }
-                }
-                catch (Exception ex)
-                {
-                    ex.printStackTrace();
-                }
+                
             }
         }
 
@@ -1499,6 +1551,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         public void onConferenceableCallsChanged(Call call, List<Call> conferenceableCalls) {
             super.onConferenceableCallsChanged(call, conferenceableCalls);
             call.registerCallback(mCallback);
+
             showConference();
         }
     }
@@ -1531,49 +1584,87 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     // -- Notification -- //
     public void createNotification() {
-
+        RemoteViews remoteViews = new RemoteViews(ctx.getPackageName(), R.layout.notification_expanded);
+        
         Contact callerContact = CallManager.getDisplayContact(this);
         String callerName = callerContact.getName();
+
+        Log.d("name",callerName);
+
         if (callerName.equals("")){
             callerName = callerContact.getMainPhoneNumber();
         }
+
+        remoteViews.setTextViewText(R.id.text_view_expanded, callerName);
 
         Intent touchNotification = new Intent(this, OngoingCallActivity.class);
         touchNotification.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, touchNotification, 0);
 
         // Answer Button Intent
-        Intent answerIntent = new Intent(this, NotificationActionReceiver.class);
-        answerIntent.setAction(ACTION_ANSWER);
-        answerIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
-        PendingIntent answerPendingIntent = PendingIntent.getBroadcast(this, 0, answerIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                Intent answerIntent = new Intent(this, NotificationActionReceiver.class);
+                answerIntent.setAction(ACTION_ANSWER);
+                answerIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+                PendingIntent answerPendingIntent = PendingIntent.getBroadcast(this, 0, answerIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         // Hangup Button Intent
-        Intent hangupIntent = new Intent(this, NotificationActionReceiver.class);
-        hangupIntent.setAction(ACTION_HANGUP);
-        hangupIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
-        PendingIntent hangupPendingIntent = PendingIntent.getBroadcast(this, 1, hangupIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                Intent hangupIntent = new Intent(this, NotificationActionReceiver.class);
+                hangupIntent.setAction(ACTION_HANGUP);
+                hangupIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
+                PendingIntent hangupPendingIntent = PendingIntent.getBroadcast(this, 1, hangupIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
 
         mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.tingtingu_logo)
-                .setContentTitle(callerName)
-                .setContentText(mStateText)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.colordth))
-                .setContentIntent(pendingIntent)
-                .setOngoing(true)
-                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                        .setShowActionsInCompactView(0, 1))
-                .setAutoCancel(false);
+        .setSmallIcon(R.drawable.tingtingu_logo)
+        .setContentTitle(callerName)
+        .setContentText(mStateText)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.green_phone))
+        .setColorized(true)
+        .setContentIntent(pendingIntent)
+        .setOngoing(true)
+        /*.setStyle(new androidx.media.app.NotificationCompat.DecoratedMediaCustomViewStyle()
+                .setShowActionsInCompactView(0, 1)
+        )*/
+        .setContent(remoteViews)
+        //.setCustomBigContentView(remoteViews)
+        .setAutoCancel(false);
+
+
+        remoteViews.setOnClickPendingIntent(R.id.IB_expanded_answer,answerPendingIntent);
+        remoteViews.setOnClickPendingIntent(R.id.IB_expanded_end,hangupPendingIntent);
+
+
 
         // Adding the action buttons
-        mBuilder.addAction(R.drawable.ic_call_black_24dp, getString(R.string.action_answer), answerPendingIntent);
-        mBuilder.addAction(R.drawable.ic_call_end_black_24dp, getString(R.string.action_hangup), hangupPendingIntent);
+        //mBuilder.addAction(R.drawable.ic_call_black_24dp, getString(R.string.action_answer), answerPendingIntent);
+        //mBuilder.addAction(R.drawable.ic_call_end_black_24dp, getString(R.string.action_hangup), hangupPendingIntent);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(NOTIFICATION_ID, mBuilder.build());
-    }
 
+                /*NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                RemoteViews expandedView = new RemoteViews(getPackageName(),
+                        R.layout.notification_expanded);
+                expandedView.setImageViewResource(R.id.image_view_expanded, R.drawable.tinglogo1);
+                expandedView.setTextViewText(R.id.text_view_expanded, callerName);
+                Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                        .setSmallIcon(R.drawable.ttu_only_logo)
+                        .setCustomContentView(expandedView)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setColor(ContextCompat.getColor(OngoingCallActivity.this, R.color.colordth))
+                        .setColorized(true)
+                        .setContentIntent(pendingIntent)
+                        .setOngoing(true)
+                        .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
+                                .setShowActionsInCompactView(0, 1))
+                        .setAutoCancel(false)
+                        .build();
+                expandedView.setOnClickPendingIntent(R.id.IB_expanded_answer,answerPendingIntent);
+                expandedView.setOnClickPendingIntent(R.id.IB_expanded_end,hangupPendingIntent);
+                notificationManager.notify(NOTIFICATION_ID, notification);*/
+
+    }
     /**
      * Creates the notification channel
      * Which allows and manages the displaying of the notification
@@ -1600,6 +1691,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     public void cancelNotification() {
         String ns = this.NOTIFICATION_SERVICE;
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(ns);
+        Log.d("noti1",""+EXTRA_NOTIFICATION_ID);
+        Log.d("noti2",""+NOTIFICATION_ID);
+
         notificationManager.cancel(NOTIFICATION_ID);
     }
 
@@ -1618,20 +1712,11 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     @Override
     protected void onResume() {
         super.onResume();
+        if (CallManager.sCalls.size()>1 && CallManager.getState() == Call.STATE_RINGING){
+            CallManager.registerCallback(mCallback);
+            showIncomingCall();
 
-        try{
-            if (CallManager.sCalls.size()>1 && CallManager.getState() == Call.STATE_RINGING){
-                CallManager.registerCallback(mCallback);
-                showIncomingCall();
-
-            }
         }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
-
         if (videoType==1){
             binding.ongoingCallLayout.videoPlaceholder.seekTo(stopTime);
             binding.ongoingCallLayout.videoPlaceholder.start();
@@ -1654,9 +1739,36 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    private void showAd(Caller_Id callerId){
+    private void showAd(Caller_Id callerId)
+    {
 
-        CampaignAdsPlayOrder campaignAdsPlayOrderList;
+        Contact callerContact = CallManager.getDisplayContact(this);
+        //Log.d("incomingno",callerContact.getMainPhoneNumber());
+        String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
+        //Log.d("phone", phone_no);
+
+        String path_video = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".mp4";
+        String path_img = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".jpg";
+
+        File vidFile = new  File(path_video);
+        File imgFile = new  File(path_img);
+
+        if(vidFile.exists())
+        {
+            //video file to show
+            VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
+                ,this,false,path_video);
+            videoType = 1;
+        }
+        else if(imgFile.exists())
+        {
+            //image file show when incoming call
+            ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                    ,path_img,ctx);
+
+        }
+
+        /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
         // Get Ad Camp
         if (callerId == null){
             campaignAdsPlayOrderList = mRepository.getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming","4");
@@ -1689,8 +1801,72 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
             binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
             ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
-        }
+        }*/
+
     }
+
+
+
+
+
+    private void showAd_2()
+    {
+        String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
+        String path = String.valueOf(ctx.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE/"  + "/" + phone_no + ".mp4"));
+
+        File imgFile = new  File(path);
+        if(imgFile.exists()){
+            //Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            //ImageView myImage = (ImageView) findViewById(R.id.imageviewTest);
+            //myImage.setImageBitmap(myBitmap);
+            //ImageManager.setIncomingCallImageAd()
+
+            VideoManager.play43IncomingAd_2(binding.incomingCallLayout.videoPlaceholder
+                    ,this,false,path);
+            videoType = 1;
+
+        }
+
+        /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
+        // Get Ad Camp
+        if (callerId == null){
+            campaignAdsPlayOrderList = mRepository.getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming","4");
+        }else {
+            campaignAdsPlayOrderList = mRepository.getIncomingCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming Caller","4",callerId.getEmployeeData().getClientName());
+        }
+
+        if (campaignAdsPlayOrderList!=null){
+            incomingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+
+            // Show Video Ad or Full Screen Video Ad or Image Ad
+            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("4:3")){
+                VideoManager.play43IncomingAd(binding.incomingCallLayout.videoPlaceholder
+                        ,this,false,incomingCallAdData);
+                videoType = 1;
+            }
+            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("Full Screen")) {
+                VideoManager.playFullScreenIncomingAd(binding.incomingCallLayout.videoFullscreenPlaceholder
+                        ,this,false,incomingCallAdData);
+                videoType = 2;
+            }
+            if (incomingCallAdData.getAdType().equals("Image")) {
+                VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
+            }
+
+            mRepository.updatePlayCount(incomingCallAdData.getCampId());
+        } else {
+            VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
+            binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+            ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
+        }*/
+
+
+
+    }
+
+
 
     private void switchView(){
         // Stop Full Screen Video
@@ -1739,57 +1915,74 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
     private void changeAd(){
-        CampaignAdsPlayOrder campaignAdsPlayOrderList = mRepository
-                .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
-                        ,"InProgress","4");
+        try{
 
-        if (campaignAdsPlayOrderList!=null) {
-            inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+            CampaignAdsPlayOrder campaignAdsPlayOrderList = mRepository
+                    .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
+                            ,"InProgress","4");
 
-            InProgressCampStartTime = sdf.format(new Date());
+            if (campaignAdsPlayOrderList!=null) {
+                inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
 
-            // Show Video Ad or Full Screen Video Ad or Image Ad
-            if (inProgressCallAdData.getAdType().equals("Video")){
+                InProgressCampStartTime = sdf.format(new Date());
 
-                binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
-                binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
+                // Show Video Ad or Full Screen Video Ad or Image Ad
+                if (inProgressCallAdData.getAdType().equals("Video")){
 
-                VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
-                        ,this,false,inProgressCallAdData);
-            }
 
-            if (inProgressCallAdData.getAdType().equals("Image")) {
+                    try {
+                        binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
+                        binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
+
+                        VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
+                                , this, false, inProgressCallAdData);
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+
+
+                }
+
+                if (inProgressCallAdData.getAdType().equals("Image")) {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+
+                    VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                    ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
+                            , inProgressCallAdData);
+                }
+
+                inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        Log.i("Time", String.valueOf(millisUntilFinished));
+                    }
+                    @Override
+                    public void onFinish() {
+                        InProgressCampEndTime = sdf.format(new Date());
+                        addInProgressLog();
+                        changeAd();
+                    }
+                };
+                inProgressCounter.start();
+
+                mRepository.updatePlayCount(inProgressCallAdData.getCampId());
+
+            }else {
                 binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-                binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
 
-                VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
-                        , inProgressCallAdData);
+                //Set Image Ad
+                binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                ImageManager.setImageAd(binding
+                        .ongoingCallLayout.adImagePlaceholder);
             }
 
-            inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    Log.i("Time", String.valueOf(millisUntilFinished));
-                }
-                @Override
-                public void onFinish() {
-                    InProgressCampEndTime = sdf.format(new Date());
-                    addInProgressLog();
-                    changeAd();
-                }
-            };
-            inProgressCounter.start();
-
-            mRepository.updatePlayCount(inProgressCallAdData.getCampId());
-
-        }else {
-            binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-
-            //Set Image Ad
-            binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-            ImageManager.setImageAd(binding
-                    .ongoingCallLayout.adImagePlaceholder);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
         }
     }
 
@@ -1937,4 +2130,39 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         });
 
     }
+
+
+
+
+    public void deleteAppData() {
+        try {
+            // clearing app data
+            String packageName = getApplicationContext().getPackageName();
+            Runtime runtime = Runtime.getRuntime();
+            runtime.exec("pm clear "+packageName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } }
+
+    public String phoeNumberWithOutCountryCode(String phoneNumberWithCountryCode) {
+        String str_getMOBILE = "";
+        if(phoneNumberWithCountryCode.startsWith("+"))
+        {
+            if(phoneNumberWithCountryCode.length()==13)
+            {
+              str_getMOBILE=phoneNumberWithCountryCode.substring(3);
+            }
+            else if(phoneNumberWithCountryCode.length()==14)
+            {
+              str_getMOBILE=phoneNumberWithCountryCode.substring(4);
+            }
+        }
+        return  str_getMOBILE;
+    }
+
+
+
+
+
 }

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kabaladigital.tingtingu"
-    android:versionCode="8"
-    android:versionName="v0.0.8" >
+    android:versionCode="10"
+    android:versionName="v0.0.10.1" >
 
     <uses-sdk
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
@@ -24,6 +25,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<<<<<<< HEAD
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -33,6 +35,9 @@
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+=======
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
@@ -59,14 +64,26 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize" >
-        <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity" />
+        <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="https://tingtingu.page.link"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.EndCallActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+        </activity>
         <activity
             android:name="com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview"
             android:exported="true" />
@@ -153,8 +170,13 @@
         <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
+            android:allowTaskReparenting="false"
+            android:excludeFromRecents="true"
             android:label="@string/activity_ongoing_call"
+            android:launchMode="singleTask"
+            android:permission="android.permission.USE_SIP"
             android:screenOrientation="portrait"
+            android:taskAffinity=""
             android:theme="@style/AppTheme" />
         <activity
             android:name="com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo"
@@ -179,6 +201,16 @@
             </intent-filter>
         </receiver>
 
+        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
+
+        <receiver
+            android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -194,6 +226,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
             </intent-filter>
         </receiver>
 
@@ -388,6 +421,9 @@
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"

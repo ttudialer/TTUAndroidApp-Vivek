@@ -1,6 +1,7 @@
 package com.kabaladigital.tingtingu;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
@@ -15,6 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
 
 
         if(BuildConfig.DEBUG){

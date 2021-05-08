@@ -10,7 +10,9 @@ import com.kabaladigital.tingtingu.models.LibraryAddModel;
 import com.kabaladigital.tingtingu.models.MemberShipTypeModel;
 import com.kabaladigital.tingtingu.models.MobileDetailModel;
 import com.kabaladigital.tingtingu.models.MobileInfoModel;
+import com.kabaladigital.tingtingu.models.ProfileAdv;
 import com.kabaladigital.tingtingu.models.ProfileInformationModel;
+import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.models.RechargeHistoryModel;
 import com.kabaladigital.tingtingu.models.RechargeModel;
 import com.kabaladigital.tingtingu.models.RewardModel;
@@ -30,6 +32,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -70,13 +73,21 @@ public interface ApiInterface {
 //    @GET("incomingCall/getincomingcall")
 //    Call<IncomingCallDataModel> getAdData();
 
-    @Headers("Content-Type: application/json")
-    @GET("user/adv")
-    Call<List<AllCampaignModel>> getAdData();
 
     @Headers("Content-Type: application/json")
     @GET("user/adv")
     Call<AllCampaignModel> getAdDatas();
+
+
+
+    @Headers("Content-Type: application/json")
+    @GET("user/adv")
+    Call<List<AllCampaignModel>> getAdData();
+
+
+    @Headers("Content-Type: application/json")
+    @GET("user/adv")
+    Call<ProfileResponse> getProfile_new();
 
     @Headers("Content-Type: application/json")
     @GET("user/profile")

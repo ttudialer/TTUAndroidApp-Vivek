@@ -49,7 +49,9 @@ import java.util.Locale;
 
 import timber.log.Timber;
 
+import static android.Manifest.permission.ACCESS_NOTIFICATION_POLICY;
 import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.MODIFY_AUDIO_SETTINGS;
 import static android.Manifest.permission.READ_CONTACTS;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.SEND_SMS;
@@ -61,7 +63,7 @@ Utilities {
 
     public static final int DEFAULT_DIALER_RC = 11;
     public static final int PERMISSION_RC = 10;
-    public static final String[] MUST_HAVE_PERMISSIONS = {CALL_PHONE, READ_CONTACTS, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE};
+    public static final String[] MUST_HAVE_PERMISSIONS = {CALL_PHONE, READ_CONTACTS, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE,MODIFY_AUDIO_SETTINGS,ACCESS_NOTIFICATION_POLICY};
     public static final String[] OPTIONAL_PERMISSIONS = {SEND_SMS};
 
     public static Locale sLocale;
@@ -108,7 +110,8 @@ Utilities {
     {
         String packageName = activity.getApplication().getPackageName();
         try {
-            if (!activity.getSystemService(TelecomManager.class).getDefaultDialerPackage().equals(packageName)) {
+            if (!activity.getSystemService(TelecomManager.class).getDefaultDialerPackage().equals(packageName))
+            {
                 // Prompt the user with a dialog to select this app to be the default phone app
                  Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER)
                        .putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, packageName);
@@ -119,6 +122,11 @@ Utilities {
                 //Intent intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_DIALER);
                 //startActivityForResult(Intent, CHANGE_DEFAULT_DIALER_CODE); // you need to define CHANGE_DEFAULT_DIALER as a static final int
                 return false;
+            }
+            else{
+                Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER)
+                        .putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, packageName);
+                activity.startActivityForResult(intent, DEFAULT_DIALER_RC);
             }
             return true;
         } catch (Exception e) {

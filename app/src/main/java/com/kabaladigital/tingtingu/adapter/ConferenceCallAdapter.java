@@ -3,6 +3,7 @@ package com.kabaladigital.tingtingu.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.telecom.Call;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
     private List<Call> calls = new ArrayList<>();
     private Context context;
     private OngoingCallActivity ongoingCallActivity;
+    int count = 2;
 
 
     public ConferenceCallAdapter(List<Call> calls, Context context, OngoingCallActivity ongoingCallActivity) {
@@ -40,7 +42,7 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
     @Override
     public ConferenceCallAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.list_conference_call, viewGroup, false);
+                .inflate(R.layout.list_conference_call_2, viewGroup, false);
         return new ConferenceCallAdapter.ViewHolder(itemView);
     }
 
@@ -51,33 +53,54 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
         holder.tvTime.setText(returnStatus(call.getState()));
         Contact callerContact = CallManager.getDisplayContact(context,call);
 
-        if (!callerContact.getName().isEmpty()) {
-            holder.tvNameNumber.setText(callerContact.getName());
+        try{
+            /*if (!callerContact.getName().isEmpty())
+            {
+                //holder.tvNameNumber.setText(callerContact.getName());
+                holder.tvNameNumber.setText("Count"+ calls.size());
+                if (callerContact.getPhotoUri() != null) {
+                    holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
+                }
+            } else {
+
+                //holder.tvNameNumber.setText("Incoming Call");
+            }*/
+
+            holder.tvNameNumber.setText("Conference Call");
+            holder.tv_counter.setText(String.valueOf(count+" "+"Person Added"));
+
+
             if (callerContact.getPhotoUri() != null) {
                 holder.circleImageView.setImageURI(Uri.parse(callerContact.getPhotoUri()));
             }
-        } else {
-            holder.tvNameNumber.setText("Error while getting Name or Number");
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
         }
 
-        holder.ivHold.setOnClickListener(new View.OnClickListener() {
+        /*holder.ivHold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ongoingCallActivity.endCall(position);
 //                CallManager.sCalls.get(position).disconnect();
             }
-        });
+        });*/
 
     }
 
     @Override
     public int getItemCount() {
-        return calls.size();
+
+        //Log.d("sizeinadp",""+calls.size());
+       // Log.d("count->",""+count);
+
+        return 1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvNameNumber, tvTime;
+        TextView tvNameNumber, tvTime,tv_counter;
         CircleImageView circleImageView;
         ImageView imageView, ivHold;
         FrameLayout frameLayout;
@@ -87,11 +110,12 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
             super(itemView);
             tvNameNumber = itemView.findViewById(R.id.tv_name_number);
             tvTime = itemView.findViewById(R.id.tv_time);
+            tv_counter= itemView.findViewById(R.id.tv_counter);
             circleImageView = itemView.findViewById(R.id.image_photo);
             imageView = itemView.findViewById(R.id.image_placeholder);
             frameLayout = itemView.findViewById(R.id.frameLayout);
 
-            ivHold = itemView.findViewById(R.id.iv_end);
+            //ivHold = itemView.findViewById(R.id.iv_end);
         }
     }
 
@@ -121,6 +145,20 @@ public class ConferenceCallAdapter extends RecyclerView.Adapter<ConferenceCallAd
                 break;
         }
         return statusTextRes;
+    }
+
+
+    public void demotest()
+    {
+        if(count<=0){
+        }else{
+        notifyDataSetChanged();
+        }
+        count = count -1;
+        //calls.remove(0);
+        //conferenceCallAdapter = new ConferenceCallAdapter(calls, this, OngoingCallActivity.this);
+        //binding.ongoingCallLayout.rvCalls.setAdapter(conferenceCallAdapter);
+        //conferenceCallAdapter.notifyDataSetChanged();
     }
 }
 

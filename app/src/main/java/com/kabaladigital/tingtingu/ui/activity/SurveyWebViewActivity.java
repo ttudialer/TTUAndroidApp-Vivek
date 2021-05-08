@@ -4,12 +4,18 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageButton;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.dynamiclinks.DynamicLink;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
@@ -29,6 +35,8 @@ public class SurveyWebViewActivity extends AppCompatActivity {
         if (extras != null) {
             surveyId = extras.getString("survey_id");
         }
+
+        createlink();
 
 
         String surveyUrl = URL1+"userSurvey?surveyId="
@@ -66,4 +74,66 @@ public class SurveyWebViewActivity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
+
+
+    public void createlink()
+    {
+        Log.e("main","createlink");
+        DynamicLink dynamicLink = FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLink(Uri.parse("http://ifresh.co.in/"))
+                .setDomainUriPrefix("tingtingu.page.link")
+                // Open links with this app on Android
+                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder().build())
+                // Open links with com.example.ios on iOS
+                //.setIosParameters(new DynamicLink.IosParameters.Builder("com.example.ios").build())
+                .buildDynamicLink();
+
+        Uri dynamicLinkUri = dynamicLink.getUri();
+
+        Log.e("main", ""+dynamicLink.getUri());
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, dynamicLink.getUri().toString());
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+
+        /*Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setLongLink(dynamicLink.getUri())
+                .buildShortDynamicLink()
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Short link created
+                        Uri shortLink = task.getResult().getShortLink();
+                        Uri flowchartLink = task.getResult().getPreviewLink();
+
+                        Log.e("main_short","short link"+ shortLink);
+
+
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, shortLink.toString());
+                        sendIntent.setType("text/plain");
+
+                        Intent shareIntent = Intent.createChooser(sendIntent, null);
+                        startActivity(shareIntent);
+
+                    } else {
+                        Log.e("main_short_ex","short link"+ task.getException());
+                        //Toast.makeText(getContext(), ""+task.getException(), Toast.LENGTH_SHORT).show();
+                        // Error
+                        // ...
+                    }
+                });
+         */
+
+
+
+    }
+
+
+
+
 }

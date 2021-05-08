@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.telecom.Call;
 import android.telecom.VideoProfile;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -137,7 +138,9 @@ public class CallManager {
      * @param callback the callback to register
      */
     public static void registerCallback(OngoingCallActivity.Callback callback) {
-        if (sCall == null) return;
+        if (sCall == null)
+            return;
+
         for (int i=0;i<sCalls.size();i++){
             sCalls.get(i).registerCallback(callback);
         }

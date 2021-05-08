@@ -29,7 +29,11 @@
             android:id="@+id/rv_calls"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
+<<<<<<< HEAD
             android:layout_height="180dp"
+=======
+            android:layout_height="240dp"
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
             android:elevation="1dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="parent"
@@ -131,12 +135,21 @@
         <VideoView
             android:id="@+id/video_placeholder"
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
+=======
+            android:layout_height="180dp"
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
+<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@+id/text_caller_number"
+=======
+            app:layout_constraintTop_toBottomOf="@+id/rv_calls"
+
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
             app:layout_constraintBottom_toTopOf="@+id/button_hold"/>
 
         <ImageView

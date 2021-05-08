@@ -130,10 +130,13 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/google_sans_regular</item>
     </array>
+<<<<<<< HEAD
     <attr format="reference" name="SpinKitViewStyle"/>
     <attr format="color" name="ad_marker_color"/>
     <attr format="dimension" name="ad_marker_width"/>
     <attr format="dimension" name="bar_height"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>
     <attr format="enum" name="barrierDirection">
         <enum name="left" value="0"/>
@@ -147,7 +150,10 @@
     <attr format="reference" name="bottomNavigationStyle"/>
     <attr format="reference" name="bottomSheetDialogTheme"/>
     <attr format="reference" name="bottomSheetStyle"/>
+<<<<<<< HEAD
     <attr format="color" name="buffered_color"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <attr format="reference" name="cardViewStyle"/>
     <attr format="boolean" name="chainUseRtl"/>
     <attr format="reference" name="chipGroupStyle"/>
@@ -157,7 +163,10 @@
     <attr format="reference" name="constraintSet"/>
     <attr format="string" name="constraint_referenced_ids"/>
     <attr format="reference" name="content"/>
+<<<<<<< HEAD
     <attr format="reference" name="controller_layout_id"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <attr format="reference" name="coordinatorLayoutStyle"/>
     <attr format="reference" name="dialogBackgroundColor"/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -165,7 +174,10 @@
         <enum name="gone" value="0"/>
         <enum name="invisible" value="1"/>
     </attr>
+<<<<<<< HEAD
     <attr format="integer" name="fastforward_increment"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <attr name="floatingActionButtonStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="reference" name="hideMotionSpec"/>
@@ -331,6 +343,7 @@
     <attr format="color" name="md_widget_color"/>
     <attr format="reference" name="navigationViewStyle"/>
     <attr format="reference" name="overlayColor"/>
+<<<<<<< HEAD
     <attr format="color" name="played_ad_marker_color"/>
     <attr format="color" name="played_color"/>
     <attr format="reference" name="recyclerViewStyle"/>
@@ -367,6 +380,14 @@
     <enum name="spherical_gl_surface_view" value="3"/>
     <enum name="video_decoder_gl_surface_view" value="4"/>
   </attr>
+=======
+    <attr format="color" name="rippleColor"/>
+    <attr format="color|reference" name="scrimBackground"/>
+    <attr format="reference" name="secondaryAccentColor"/>
+    <attr format="reference" name="showMotionSpec"/>
+    <attr format="color" name="strokeColor"/>
+    <attr format="dimension" name="strokeWidth"/>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <attr format="reference" name="tabStyle"/>
     <attr format="reference" name="textAppearanceBody1"/>
     <attr format="reference" name="textAppearanceBody2"/>
@@ -382,10 +403,14 @@
     <attr format="reference" name="textAppearanceSubtitle1"/>
     <attr format="reference" name="textAppearanceSubtitle2"/>
     <attr format="reference" name="textInputStyle"/>
+<<<<<<< HEAD
     <attr format="integer" name="time_bar_min_update_interval"/>
     <attr format="string" name="title"/>
     <attr format="dimension" name="touch_target_height"/>
     <attr format="color" name="unplayed_color"/>
+=======
+    <attr format="string" name="title"/>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_allow_stacked_button_bar">false</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
@@ -408,8 +433,11 @@
     <color name="background_material_light">@color/material_grey_50</color>
     <color name="biometric_error_color">#ff5722</color>
     <color name="black">#000000</color>
+<<<<<<< HEAD
     <color name="black75">#15161A</color>
     <color name="black_65">#1E1F24</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="blue">#0039FF</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -417,10 +445,13 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
+<<<<<<< HEAD
     <color name="browser_actions_bg_grey">#F5F5F5</color>
     <color name="browser_actions_divider_color">#1E000000</color>
     <color name="browser_actions_text_color">#DE000000</color>
     <color name="browser_actions_title_color">#646464</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="call_action_button">#43dc5a</color>
@@ -446,6 +477,7 @@
     <color name="color_primary_dark">@color/grey_850</color>
     <color name="color_primary_light">@color/white</color>
     <color name="colordth">#FC005C</color>
+<<<<<<< HEAD
     <color name="com_facebook_blue">#1877F2</color>
     <color name="com_facebook_button_background_color">@color/com_facebook_blue</color>
     <color name="com_facebook_button_background_color_disabled">#EBEDF0</color>
@@ -461,6 +493,8 @@
     <color name="com_facebook_primary_button_pressed_text_color">#DADDE2</color>
     <color name="com_facebook_primary_button_text_color">#FFFFFF</color>
     <color name="com_smart_login_code">#3C6499</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
@@ -469,10 +503,14 @@
     <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_light_focused">#90000000</color>
     <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
+<<<<<<< HEAD
     <color name="cyan">#0CE3D0</color>
     <color name="dark_gray">#8E8E93</color>
     <color name="darkblue">#1B3FC9</color>
     <color name="darkgray">#93959A</color>
+=======
+    <color name="darkblue">#1B3FC9</color>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_default_color_primary">#3F51B5</color>
     <color name="design_default_color_primary_dark">#303F9F</color>
@@ -492,15 +530,21 @@
     <color name="ended_call_color">@color/red_phone_semi_trans</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
+<<<<<<< HEAD
     <color name="exo_edit_mode_background_color">#FFF4F3F0</color>
     <color name="exo_error_message_background_color">#AA000000</color>
     <color name="fifty_transparent_black">#802F2F2F</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="fingerprint_error">#ffffff</color>
     <color name="fingerprint_scanning">#ffffff</color>
     <color name="fingerprint_success">#ffffff</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+<<<<<<< HEAD
     <color name="graycolor">#D3D3D3</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="green_phone">#66bb6a</color>
     <color name="green_phone_70_trans">#B366BB6A</color>
     <color name="green_phone_light">#BFDBC0</color>
@@ -519,12 +563,19 @@
     <color name="incoming_call_color_1">@color/green_phone_semi_trans</color>
     <color name="incoming_call_color_2">@color/red_phone_semi_trans</color>
     <color name="incoming_call_status_text">#4ee064</color>
+<<<<<<< HEAD
     <color name="lightgraycolor">#f2f2f2</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
     <color name="material_deep_teal_200">#ff80cbc4</color>
+<<<<<<< HEAD
     <color name="material_deep_teal_500">#ff008577</color>
+=======
+    <color name="material_deep_teal_500">#ff009688</color>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="material_grey_100">#fff5f5f5</color>
     <color name="material_grey_300">#ffe0e0e0</color>
     <color name="material_grey_50">#fffafafa</color>
@@ -562,7 +613,10 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+<<<<<<< HEAD
     <color name="profile_video_back">#424242</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="recharge_in_process">#FFC107</color>
     <color name="red_phone">#ef5350</color>
     <color name="red_phone_70_trans">#B3EF5350</color>
@@ -570,9 +624,12 @@
     <color name="red_phone_semi_trans">#80EF5350</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
+<<<<<<< HEAD
     <color name="round_corner_progress_bar_background_default">#5f5f5f</color>
     <color name="round_corner_progress_bar_progress_default">#7f7f7f</color>
     <color name="round_corner_progress_bar_secondary_progress_default">@android:color/transparent</color>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
@@ -596,10 +653,15 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+<<<<<<< HEAD
     <color name="thumb_background_color">#000000</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
     <color name="transparent">#00ffffff</color>
+=======
+    <color name="tooltip_background_dark">#e6616161</color>
+    <color name="tooltip_background_light">#e6FFFFFF</color>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <color name="white">#ffffff</color>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
@@ -649,9 +711,12 @@
     <dimen name="abc_edit_text_inset_horizontal_material">4dp</dimen>
     <dimen name="abc_edit_text_inset_top_material">10dp</dimen>
     <dimen name="abc_floating_window_z">16dp</dimen>
+<<<<<<< HEAD
     <dimen name="abc_list_item_height_large_material">80dp</dimen>
     <dimen name="abc_list_item_height_material">64dp</dimen>
     <dimen name="abc_list_item_height_small_material">48dp</dimen>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <dimen name="abc_list_item_padding_horizontal_material">@dimen/abc_action_bar_content_inset_material</dimen>
     <dimen name="abc_panel_menu_list_width">296dp</dimen>
     <dimen name="abc_progress_bar_height_material">4dp</dimen>
@@ -681,10 +746,14 @@
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <dimen name="about_page_padding">10dp</dimen>
     <dimen name="action_bar_size">48dp</dimen>
+<<<<<<< HEAD
     <dimen name="add_sound_txt_width">120dp</dimen>
     <dimen name="app_bar_corner_radius">16dp</dimen>
     <dimen name="browser_actions_context_menu_max_width">500dp</dimen>
     <dimen name="browser_actions_context_menu_min_padding">20dp</dimen>
+=======
+    <dimen name="app_bar_corner_radius">16dp</dimen>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <dimen name="bubble_border_width">0.75dp</dimen>
     <dimen name="bubble_corner_radius">16dp</dimen>
     <dimen name="bubble_horizontal_padding">32dp</dimen>
@@ -694,6 +763,7 @@
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
     <dimen name="circular_progress_border">4dp</dimen>
+<<<<<<< HEAD
     <dimen name="com_facebook_auth_dialog_corner_radius">2dp</dimen>
     <dimen name="com_facebook_auth_dialog_corner_radius_oversized">4dp</dimen>
     <dimen name="com_facebook_button_corner_radius">4dp</dimen>
@@ -710,6 +780,8 @@
     <dimen name="com_facebook_profilepictureview_preset_size_large">180dp</dimen>
     <dimen name="com_facebook_profilepictureview_preset_size_normal">100dp</dimen>
     <dimen name="com_facebook_profilepictureview_preset_size_small">50dp</dimen>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
     <dimen name="compat_button_inset_vertical_material">6dp</dimen>
     <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
@@ -773,8 +845,11 @@
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
     <dimen name="divider_sides_margin">8dp</dimen>
+<<<<<<< HEAD
     <dimen name="exo_media_button_height">52dp</dimen>
     <dimen name="exo_media_button_width">71dp</dimen>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <dimen name="fab_and_bottom_padding">88dp</dimen>
     <dimen name="fab_margins">24dp</dimen>
     <dimen name="fast_scroller_bottom_left_corner_radius">44dp</dimen>
@@ -922,7 +997,10 @@
     <dimen name="subtitle_shadow_offset">2dp</dimen>
     <dimen name="subtitle_shadow_radius">2dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+<<<<<<< HEAD
     <dimen name="thumbnail_size">80dp</dimen>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
     <dimen name="tooltip_margin">8dp</dimen>
@@ -932,6 +1010,7 @@
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
     <dimen name="top_dialpad_side_padding">10dp</dimen>
+<<<<<<< HEAD
     <dimen name="touch_raise">12dp</dimen>
     <drawable name="exo_controls_fastforward">@drawable/exo_icon_fastforward</drawable>
     <drawable name="exo_controls_fullscreen_enter">@drawable/exo_icon_fullscreen_enter</drawable>
@@ -955,6 +1034,8 @@
     <drawable name="exo_notification_rewind">@drawable/exo_icon_rewind</drawable>
     <drawable name="exo_notification_small_icon">@drawable/exo_icon_circular_play</drawable>
     <drawable name="exo_notification_stop">@drawable/exo_icon_stop</drawable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="accessibility_action_clickable_span" type="id"/>
@@ -995,6 +1076,7 @@
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="dataBinding" type="id"/>
+<<<<<<< HEAD
     <item name="exo_ad_overlay" type="id"/>
     <item name="exo_artwork" type="id"/>
     <item name="exo_buffering" type="id"/>
@@ -1018,6 +1100,8 @@
     <item name="exo_shutter" type="id"/>
     <item name="exo_subtitles" type="id"/>
     <item name="exo_vr" type="id"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="glide_custom_view_target_tag" type="id"/>
@@ -1072,8 +1156,11 @@
     <integer name="config_tooltipAnimTime">150</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
     <integer name="design_tab_indicator_anim_duration_ms">300</integer>
+<<<<<<< HEAD
     <integer name="exo_media_button_opacity_percentage_disabled">33</integer>
     <integer name="exo_media_button_opacity_percentage_enabled">100</integer>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <integer name="google_play_services_version">12451000</integer>
     <integer name="hide_password_duration">320</integer>
     <integer name="mtrl_btn_anim_delay_ms">100</integer>
@@ -1090,6 +1177,21 @@
     <string name="abc_activitychooserview_choose_application">Choose an app</string>
     <string name="abc_capital_off">OFF</string>
     <string name="abc_capital_on">ON</string>
+<<<<<<< HEAD
+=======
+    <string name="abc_font_family_body_1_material">sans-serif</string>
+    <string name="abc_font_family_body_2_material">sans-serif-medium</string>
+    <string name="abc_font_family_button_material">sans-serif-medium</string>
+    <string name="abc_font_family_caption_material">sans-serif</string>
+    <string name="abc_font_family_display_1_material">sans-serif</string>
+    <string name="abc_font_family_display_2_material">sans-serif</string>
+    <string name="abc_font_family_display_3_material">sans-serif</string>
+    <string name="abc_font_family_display_4_material">sans-serif-light</string>
+    <string name="abc_font_family_headline_material">sans-serif</string>
+    <string name="abc_font_family_menu_material">sans-serif</string>
+    <string name="abc_font_family_subhead_material">sans-serif</string>
+    <string name="abc_font_family_title_material">sans-serif-medium</string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="abc_menu_alt_shortcut_label">Alt+</string>
     <string name="abc_menu_ctrl_shortcut_label">Ctrl+</string>
     <string name="abc_menu_delete_shortcut_label">delete</string>
@@ -1134,15 +1236,20 @@
     <string name="activity_about">About</string>
     <string name="activity_ongoing_call">Ongoing Call</string>
     <string name="activity_settings">Settings</string>
+<<<<<<< HEAD
     <string name="adele">Adele</string>
     <string name="after_days_membership_upgrade">  Days TTU will upgrade your membership to Premium </string>
     <string name="amazon">Amazon</string>
+=======
+    <string name="after_days_membership_upgrade">  Days TTU will upgrade your membership to Premium </string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="amp"><![CDATA[&]]></string>
     <string name="answer_timer_indicator">Answering in</string>
     <string name="app_bug_reporting_url">https://github.com/Chooloo/call_manage/issues</string>
     <string name="app_name">TingTingU</string>
     <string name="app_source_url">https://github.com/Chooloo/call_manage</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+<<<<<<< HEAD
     <string name="april">April</string>
     <string name="arg_list_id">list_id</string>
     <string name="audrey">Audrey</string>
@@ -1155,6 +1262,12 @@
     <string name="call_ttu_id_setProfile">Set as TTU Caller ID Profile</string>
     <string name="call_ttu_id_update">Change TTU Caller ID (Video/Image)</string>
     <string name="call_ttu_imp_i_v">Import Photo or Video from Gallery </string>
+=======
+    <string name="arg_list_id">list_id</string>
+    <string name="basic_membership_details">Basic Membership Details</string>
+    <string name="benefit_of_premium_membership">Benefit of Premium Membership</string>
+    <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="cancel_button">Cancel</string>
     <string name="change_language_for_ttu_application">Change Language For TTU Application</string>
     <string name="change_mobile_operator">Change Mobile Operator</string>
@@ -1166,6 +1279,7 @@
     <string name="choose_done">Done</string>
     <string name="choose_lang">Choose Language</string>
     <string name="choose_language">Choose Language / भाषा चुनें</string>
+<<<<<<< HEAD
     <string name="clarendon">Clarendon</string>
     <string name="com.crashlytics.android.build_id" ns3:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
     <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> and enter the code shown above.</string>
@@ -1191,6 +1305,9 @@
     <string name="com_facebook_smart_login_confirmation_continue_as">Continue as <ns2:g id="user name">%1$s</ns2:g></string>
     <string name="com_facebook_smart_login_confirmation_title">Confirm Login</string>
     <string name="com_facebook_tooltip_default">You\'re in control - choose what info you want to share with apps.</string>
+=======
+    <string name="com.crashlytics.android.build_id" ns3:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns2:g id="app_name">%1$s</ns2:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -1210,6 +1327,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="company">BlackCoffer</string>
+<<<<<<< HEAD
     <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
     <string name="crop_image_activity_title"/>
     <string name="crop_image_menu_crop">Crop</string>
@@ -1219,6 +1337,8 @@
     <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
     <string name="crop_image_menu_rotate_right">Rotate</string>
     <string name="cruz">Cruz</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="daily_point_credit">Daily Points Credit</string>
     <string name="date">Date</string>
     <string name="days">Days</string>
@@ -1263,6 +1383,7 @@
     <string name="empty_recents_title">No recent calls</string>
     <string name="error_column_index">Must be a valid integer</string>
     <string name="error_name">Must be a non empty string</string>
+<<<<<<< HEAD
     <string name="exo_controls_fastforward_description">Fast forward</string>
     <string name="exo_controls_fullscreen_description">Fullscreen mode</string>
     <string name="exo_controls_hide">Hide player controls</string>
@@ -1303,6 +1424,8 @@
     <string name="exo_track_surround_5_point_1">5.1 surround sound</string>
     <string name="exo_track_surround_7_point_1">7.1 surround sound</string>
     <string name="exo_track_unknown">Unknown</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="expand_button_title">Advanced</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
@@ -1328,7 +1451,10 @@
     <string name="google_app_id" translatable="false">1:302926692323:android:08927b2c7c50d084c3ead6</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBVQh2rxEfUkEhrwuBapaKAPGBexTX01X4</string>
     <string name="google_storage_bucket" translatable="false">tingtingu-38809.appspot.com</string>
+<<<<<<< HEAD
     <string name="haan">Haan</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="hint_name">Name</string>
@@ -1340,14 +1466,20 @@
     <string name="invite_friend_prepaid">Prepaid Friend-4 days  data</string>
     <string name="invite_friend_signup">Invite a friend to sign up</string>
     <string name="invite_wallet">You will get Rs.35 in you wallet and your friend will get below benifit.</string>
+<<<<<<< HEAD
     <string name="lime">Lime</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="login_btn_otp">Agree and Continue</string>
     <string name="login_mob">Your Mobile Number</string>
     <string name="login_otp_statement">We will send you a one-time password(OTP) by sms to
         verify your phone number</string>
     <string name="login_privacypolicy">By signing up you agree to the Privacy Policy and Terms of use</string>
     <string name="loging_refercode">Referral code if you have any</string>
+<<<<<<< HEAD
     <string name="mars">Mars</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="md_back_label">Back</string>
     <string name="md_cancel_label">Cancel</string>
     <string name="md_choose_label">Choose</string>
@@ -1362,8 +1494,11 @@
     <string name="membership_trail_message_two">(*If you are already a TTU member then ignore the above message)</string>
     <string name="membership_trial">Trial Member</string>
     <string name="message_for_trial_membership">Message: For Trial Membership</string>
+<<<<<<< HEAD
     <string name="messenger_send_button_text">Send</string>
     <string name="metropolis">Metropolis</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="name_unknown">Unknown</string>
     <string name="nav_app_bar_navigate_up_description">Navigate up</string>
@@ -1371,7 +1506,10 @@
     <string name="new_dth_recharge">New DTH Recharge</string>
     <string name="new_folder">New Folder</string>
     <string name="new_prepaid_recharge">New Prepaid Recharge</string>
+<<<<<<< HEAD
     <string name="oldman">OldMan</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="operator_btn">Continue</string>
     <string name="operator_change">Change Operator</string>
     <string name="operator_home_point">Points</string>
@@ -1394,7 +1532,10 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+<<<<<<< HEAD
     <string name="pick_image_intent_chooser_title">Select source</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="please_enter_a_number">Please enter a number first</string>
     <string name="points">" Points"</string>
     <string name="points_credit">Points Credit</string>
@@ -1406,7 +1547,10 @@
     <string name="pref_app_theme_default_value">light;pink</string>
     <string name="pref_app_theme_key">app_theme</string>
     <string name="pref_app_theme_title">App Theme</string>
+<<<<<<< HEAD
     <string name="pref_c_upload_date">uplodate_date</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="pref_category_call">Call</string>
     <string name="pref_category_look_and_feel">Look and Feel</string>
     <string name="pref_category_noise">Noise</string>
@@ -1416,7 +1560,10 @@
     <string name="pref_default_page_default_value">1</string>
     <string name="pref_default_page_key">default_page</string>
     <string name="pref_default_page_title">Default page</string>
+<<<<<<< HEAD
     <string name="pref_image_path">image_path</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="pref_is_biometric_key">is_biometric</string>
     <string name="pref_is_biometric_title">Use Biometrics</string>
     <string name="pref_is_first_instance_key">first_instance</string>
@@ -1443,7 +1590,10 @@
     <string name="pref_is_silent_title">Silent</string>
     <string name="pref_language_selected_key">language_selected</string>
     <string name="pref_last_version_key">last_version</string>
+<<<<<<< HEAD
     <string name="pref_profile_path">profile_path</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="pref_recharge_select_dth_operator_name">recharge_select_dth_operator</string>
     <string name="pref_recharge_select_operator_name">recharge_select_operator</string>
     <string name="pref_refer_code_key">refer_code</string>
@@ -1493,26 +1643,40 @@
     <string name="registration_congo_btn_later">Open Later</string>
     <string name="registration_congo_btn_now">Open Now</string>
     <string name="reject_timer_indicator">Call ends in</string>
+<<<<<<< HEAD
     <string name="rise">Rise</string>
     <string name="search_menu_title">Search</string>
     <string name="share_your_referral_code">Share Your Referral Code</string>
     <string name="splash_screen_bottom">VIEW ADS AND EARN MONEY \n विज्ञापन देखें और पैसा कमाएँ</string>
     <string name="starlit">Starlit</string>
+=======
+    <string name="search_menu_title">Search</string>
+    <string name="share_your_referral_code">Share Your Referral Code</string>
+    <string name="splash_screen_bottom">VIEW ADS AND EARN MONEY \n विज्ञापन देखें और पैसा कमाएँ</string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="status_call_active">Call in progress</string>
     <string name="status_call_dialing">Dialing…</string>
     <string name="status_call_disconnected">Call ended</string>
     <string name="status_call_holding">Call On Hold</string>
     <string name="status_call_incoming">Incoming Call…</string>
+<<<<<<< HEAD
     <string name="struck">Struck</string>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="summary_collapsed_preference_list"><ns2:g id="current_items">%1$s</ns2:g>, <ns2:g id="added_items">%2$s</ns2:g></string>
     <string name="support_email">aditya.dhiman@blackcoffer.com</string>
     <string name="temporary_disable_services">Temporary Disable Services</string>
     <string name="transaction_detail">Transaction Detail</string>
+<<<<<<< HEAD
     <string name="u_id">u_id</string>
     <string name="v7_preference_off">OFF</string>
     <string name="v7_preference_on">ON</string>
     <string name="whisper">Whisper</string>
+=======
+    <string name="v7_preference_off">OFF</string>
+    <string name="v7_preference_on">ON</string>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <string name="you">You</string>
     <string name="your_active_days_with_ttu">Your Active days with TTU</string>
     <string name="your_friend">Your Friend</string>
@@ -2326,6 +2490,7 @@
         <item name="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="textAppearanceListItemSecondary">@style/TextAppearance.AppCompat.Body1</item>
+<<<<<<< HEAD
         <item name="listPreferredItemHeight">@dimen/abc_list_item_height_material</item>
         <item name="listPreferredItemHeightSmall">@dimen/abc_list_item_height_small_material</item>
         <item name="listPreferredItemHeightLarge">@dimen/abc_list_item_height_large_material</item>
@@ -2333,6 +2498,13 @@
         <item name="listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
+=======
+        <item name="listPreferredItemHeight">64dp</item>
+        <item name="listPreferredItemHeightSmall">48dp</item>
+        <item name="listPreferredItemHeightLarge">80dp</item>
+        <item name="listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material</item>
+        <item name="listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <!-- Spinner styles -->
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
@@ -2370,7 +2542,10 @@
         <item name="editTextBackground">@drawable/abc_edit_text_material</item>
         <item name="editTextColor">?android:attr/textColorPrimary</item>
         <item name="autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+<<<<<<< HEAD
         <item name="android:textViewStyle">@style/Widget.AppCompat.TextView</item>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <!-- Color palette -->
         <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
@@ -2524,6 +2699,7 @@
         <item name="textAppearanceListItem">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="textAppearanceListItemSmall">@style/TextAppearance.AppCompat.Subhead</item>
         <item name="textAppearanceListItemSecondary">@style/TextAppearance.AppCompat.Body1</item>
+<<<<<<< HEAD
         <item name="listPreferredItemHeight">@dimen/abc_list_item_height_material</item>
         <item name="listPreferredItemHeightSmall">@dimen/abc_list_item_height_small_material</item>
         <item name="listPreferredItemHeightLarge">@dimen/abc_list_item_height_large_material</item>
@@ -2531,6 +2707,13 @@
         <item name="listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
+=======
+        <item name="listPreferredItemHeight">64dp</item>
+        <item name="listPreferredItemHeightSmall">48dp</item>
+        <item name="listPreferredItemHeightLarge">80dp</item>
+        <item name="listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material</item>
+        <item name="listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <!-- Spinner styles -->
         <item name="spinnerStyle">@style/Widget.AppCompat.Spinner</item>
@@ -2568,7 +2751,10 @@
         <item name="editTextBackground">@drawable/abc_edit_text_material</item>
         <item name="editTextColor">?android:attr/textColorPrimary</item>
         <item name="autoCompleteTextViewStyle">@style/Widget.AppCompat.AutoCompleteTextView</item>
+<<<<<<< HEAD
         <item name="android:textViewStyle">@style/Widget.AppCompat.TextView</item>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <!-- Color palette -->
         <item name="colorPrimaryDark">@color/primary_dark_material_light</item>
@@ -2835,12 +3021,18 @@
     <style name="Base.Widget.AppCompat.ButtonBar.AlertDialog"/>
     <style name="Base.Widget.AppCompat.CompoundButton.CheckBox" parent="android:Widget.CompoundButton.CheckBox">
         <item name="android:button">?android:attr/listChoiceIndicatorMultiple</item>
+<<<<<<< HEAD
         <item name="buttonCompat">?attr/listChoiceIndicatorMultipleAnimated</item>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <item name="android:background">?attr/controlBackground</item>
     </style>
     <style name="Base.Widget.AppCompat.CompoundButton.RadioButton" parent="android:Widget.CompoundButton.RadioButton">
         <item name="android:button">?android:attr/listChoiceIndicatorSingle</item>
+<<<<<<< HEAD
         <item name="buttonCompat">?attr/listChoiceIndicatorSingleAnimated</item>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <item name="android:background">?attr/controlBackground</item>
     </style>
     <style name="Base.Widget.AppCompat.CompoundButton.Switch" parent="android:Widget.CompoundButton">
@@ -2996,7 +3188,10 @@
     <style name="Base.Widget.AppCompat.Spinner.Underlined">
         <item name="android:background">@drawable/abc_spinner_textfield_background_material</item>
     </style>
+<<<<<<< HEAD
     <style name="Base.Widget.AppCompat.TextView" parent="android:Widget.TextView"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Widget.TextView.SpinnerItem</item>
         <item name="android:paddingLeft">8dp</item>
@@ -3168,6 +3363,7 @@
     <style name="ExitToTopAnimation">
         <item name="android:windowExitAnimation">@anim/exit_to_top</item>
     </style>
+<<<<<<< HEAD
     <style name="ExoMediaButton">
     <item name="android:background">?android:attr/selectableItemBackground</item>
     <item name="android:layout_width">@dimen/exo_media_button_width</item>
@@ -3201,6 +3397,8 @@
     <item name="android:src">@drawable/exo_controls_vr</item>
     <item name="android:contentDescription">@string/exo_controls_vr_description</item>
   </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="LeftLeftAnimation">
         <item name="android:windowEnterAnimation">@anim/enter_from_left</item>
         <item name="android:windowExitAnimation">@anim/exit_to_left</item>
@@ -3282,6 +3480,7 @@
         <item name="android:windowEnterAnimation">@anim/popup_enter</item>
         <item name="android:windowExitAnimation">@anim/popup_exit</item>
     </style>
+<<<<<<< HEAD
     <style name="MessengerButton">
     <item name="android:clickable">true</item>
   </style>
@@ -3340,6 +3539,8 @@
     <style name="MessengerButtonText.White.Small">
     <item name="android:drawableLeft">@drawable/messenger_bubble_small_blue</item>
   </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="Platform.AppCompat" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
@@ -3384,6 +3585,7 @@
         <item name="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
 
         <item name="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+<<<<<<< HEAD
         <item name="listChoiceIndicatorSingleAnimated">@drawable/abc_btn_radio_material_anim</item>
         <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
         <item name="listChoiceIndicatorMultipleAnimated">@drawable/abc_btn_check_material_anim</item>
@@ -3399,6 +3601,12 @@
         <item name="android:listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="android:listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
+=======
+        <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+
+        <item name="android:listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material</item>
+        <item name="android:listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <item name="android:actionModeCutDrawable">?actionModeCutDrawable</item>
         <item name="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
@@ -3454,6 +3662,7 @@
         <item name="android:textAppearanceSmallInverse">@style/TextAppearance.AppCompat.Small.Inverse</item>
 
         <item name="android:listChoiceIndicatorSingle">@drawable/abc_btn_radio_material</item>
+<<<<<<< HEAD
         <item name="listChoiceIndicatorSingleAnimated">@drawable/abc_btn_radio_material_anim</item>
         <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
         <item name="listChoiceIndicatorMultipleAnimated">@drawable/abc_btn_check_material_anim</item>
@@ -3469,6 +3678,12 @@
         <item name="android:listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/abc_list_item_padding_horizontal_material</item>
         <item name="android:listPreferredItemPaddingEnd">@dimen/abc_list_item_padding_horizontal_material</item>
+=======
+        <item name="android:listChoiceIndicatorMultiple">@drawable/abc_btn_check_material</item>
+
+        <item name="android:listPreferredItemPaddingLeft">@dimen/abc_list_item_padding_horizontal_material</item>
+        <item name="android:listPreferredItemPaddingRight">@dimen/abc_list_item_padding_horizontal_material</item>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
         <item name="android:actionModeCutDrawable">?actionModeCutDrawable</item>
         <item name="android:actionModeCopyDrawable">?actionModeCopyDrawable</item>
@@ -3665,9 +3880,12 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textStyle">normal</item>
     </style>
+<<<<<<< HEAD
     <style name="Progressbar_style" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/cyan</item>
     </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="RightLeftAnimation">
         <item name="android:windowEnterAnimation">@anim/enter_from_right</item>
         <item name="android:windowExitAnimation">@anim/exit_to_left</item>
@@ -3731,6 +3949,7 @@
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
+<<<<<<< HEAD
     <style name="SpinKitView">
         <item name="android:indeterminateOnly">true</item>
         <item name="android:minWidth">48dip</item>
@@ -3885,6 +4104,8 @@
     <style name="SpinKitView.Wave">
         <item name="SpinKit_Style">Wave</item>
     </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="Spinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
         <!-- Used for the bottom line when not selected / focused -->
         <item name="colorControlNormal">@color/black</item>
@@ -4208,6 +4429,7 @@
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
   </style>
+<<<<<<< HEAD
     <style name="Theme.Transparent" parent="android:Theme">
     <item name="android:windowIsTranslucent">true</item>
     <item name="android:windowBackground">@android:color/transparent</item>
@@ -4216,15 +4438,20 @@
     <item name="android:windowIsFloating">true</item>
     <item name="android:backgroundDimEnabled">false</item>
   </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
+<<<<<<< HEAD
     <style name="ThemeOverlay.AppCompat.DayNight" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="ThemeOverlay.AppCompat.DayNight.ActionBar">
         <item name="colorControlNormal">?android:attr/textColorPrimary</item>
         <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
     </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="ThemeOverlay.AppCompat.Dialog" parent="Base.ThemeOverlay.AppCompat.Dialog"/>
     <style name="ThemeOverlay.AppCompat.Dialog.Alert" parent="Base.ThemeOverlay.AppCompat.Dialog.Alert"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
@@ -4349,7 +4576,10 @@
     <style name="Widget.AppCompat.Spinner.DropDown"/>
     <style name="Widget.AppCompat.Spinner.DropDown.ActionBar"/>
     <style name="Widget.AppCompat.Spinner.Underlined" parent="Base.Widget.AppCompat.Spinner.Underlined"/>
+<<<<<<< HEAD
     <style name="Widget.AppCompat.TextView" parent="Base.Widget.AppCompat.TextView"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
@@ -4685,6 +4915,7 @@
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
     </style>
+<<<<<<< HEAD
     <style name="com_facebook_activity_theme" parent="@style/Theme.AppCompat.NoActionBar">
       <item name="android:windowIsTranslucent">true</item>
       <item name="android:windowBackground">@android:color/transparent</item>
@@ -4739,6 +4970,8 @@
         <item name="android:shadowRadius">0.25</item>
         <item name="android:shadowColor">#40000000</item>
     </style>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="ActionBar">
         <!-- The type of navigation to use. -->
         <attr name="navigationMode">
@@ -5008,12 +5241,15 @@
     <declare-styleable name="AppCompatTextView">
         <!-- Present the text in ALL CAPS. This may use a small-caps form when available. -->
         <attr format="reference|boolean" name="textAllCaps"/>
+<<<<<<< HEAD
         <!-- Set the textLocale by a comma-separated language tag string,
              for example "ja-JP,zh-CN". This attribute only takes effect on API 21 and above.
              Before API 24, only the first language tag is used. Starting from API 24,
              the string will be converted into a {@link android.os.LocaleList} and then used by
              {@link android.widget.TextView} -->
         <attr format="string" name="textLocale"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <attr name="android:textAppearance"/>
         <!-- Specify the type of auto-size. Note that this feature is not supported by EditText,
         works only for TextView. -->
@@ -5047,6 +5283,7 @@
         <!-- Distance from the bottom of the TextView to the last text baseline. If set, this
              overrides the value set for paddingBottom. -->
         <attr format="dimension" name="lastBaselineToBottomHeight"/>
+<<<<<<< HEAD
         <!-- OpenType font variation settings, available after api 26. -->
         <attr format="string" name="fontVariationSettings"/>
         <!-- Compound drawables allowing the use of vector drawable when running on older versions
@@ -5079,6 +5316,8 @@
                  result to valid color values. Saturate(S + D) -->
             <enum name="add" value="16"/>
         </attr>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     </declare-styleable>
     <declare-styleable name="AppCompatTheme">
 
@@ -5325,11 +5564,14 @@
         <!-- The preferred padding along the right edge of list items. -->
         <attr format="dimension" name="listPreferredItemPaddingRight"/>
 
+<<<<<<< HEAD
         <!-- The preferred padding along the start edge of list items. -->
         <attr format="dimension" name="listPreferredItemPaddingStart"/>
         <!-- The preferred padding along the end edge of list items. -->
         <attr format="dimension" name="listPreferredItemPaddingEnd"/>
 
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <!-- ListPopupWindow compatibility -->
         <attr format="reference" name="dropDownListViewStyle"/>
         <attr format="reference" name="listPopupWindowStyle"/>
@@ -5465,6 +5707,7 @@
         <attr format="reference|color" name="colorError"/>
 
         <attr format="string" name="viewInflaterClass"/>
+<<<<<<< HEAD
 
         <!-- ===================== -->
         <!-- Animated list choice indicators -->
@@ -5480,6 +5723,9 @@
     <declare-styleable name="AspectRatioFrameLayout">
     <attr name="resize_mode"/>
   </declare-styleable>
+=======
+    </declare-styleable>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="BackgroundStyle">
         <attr name="android:selectableItemBackground"/>
         <!-- Need a non-android: attr here so that gradle doesn't remove it -->
@@ -5521,6 +5767,7 @@
              enough space to lay them out side-by-side. -->
         <attr format="boolean" name="allowStacking"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="CameraView"><attr format="enum" name="ckFacing">
             <enum name="back" value="0"/>
             <enum name="front" value="1"/>
@@ -5553,6 +5800,8 @@
             <enum name="lowest" value="5"/>
             <enum name="qvga" value="6"/>
         </attr><attr format="boolean" name="ckCropOutput"/><attr format="integer" name="ckVideoBitRate"/><attr format="boolean" name="ckDoubleTapToToggleFacing"/><attr format="boolean" name="ckLockVideoAspectRatio"/><attr name="android:adjustViewBounds"/></declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="CardView">
         <!-- Background color for CardView. -->
         <attr format="color" name="cardBackgroundColor"/>
@@ -5665,8 +5914,11 @@
     </declare-styleable>
     <declare-styleable name="CompoundButton">
         <attr name="android:button"/>
+<<<<<<< HEAD
         <!-- Compat attr to load backported drawable types -->
         <attr format="reference" name="buttonCompat"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <!-- Tint to apply to the button drawable. -->
         <attr format="color" name="buttonTint"/>
 
@@ -5793,6 +6045,7 @@
             <flag name="all" value="0x77"/>
         </attr>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="CropImageView">
         <attr name="cropGuidelines">
             <enum name="off" value="0"/>
@@ -5854,6 +6107,8 @@
     <attr name="ad_marker_color"/>
     <attr name="played_ad_marker_color"/>
   </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="DesignTheme"><attr name="bottomSheetDialogTheme"/><attr name="bottomSheetStyle"/></declare-styleable>
     <declare-styleable name="DialogFragmentNavigator">
         <attr name="android:name"/>
@@ -5998,6 +6253,7 @@
     <declare-styleable name="FragmentNavigator">
         <attr name="android:name"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="GPUImageView">
         <attr format="enum" name="gpuimage_surface_type">
             <enum name="surface_view" value="0"/>
@@ -6144,6 +6400,8 @@
     <attr format="dimension" name="roundingBorderPadding"/>
 
   </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="GradientColor">
         <!-- Start color of the gradient. -->
         <attr name="android:startColor"/>
@@ -6188,7 +6446,10 @@
         <!-- The current color for the offset inside the gradient. -->
         <attr name="android:color"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="IconRoundCornerProgress"><attr format="integer" name="rcIconSrc"/><attr format="dimension" name="rcIconSize"/><attr format="dimension" name="rcIconWidth"/><attr format="dimension" name="rcIconHeight"/><attr format="dimension" name="rcIconPadding"/><attr format="dimension" name="rcIconPaddingLeft"/><attr format="dimension" name="rcIconPaddingRight"/><attr format="dimension" name="rcIconPaddingTop"/><attr format="dimension" name="rcIconPaddingBottom"/><attr format="color" name="rcIconBackgroundColor"/></declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="LinearConstraintLayout"><attr name="android:orientation"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat">
         <!-- Should the layout be a column or a row?  Use "horizontal"
@@ -6579,6 +6840,7 @@
         <attr name="android:id"/>
         <attr name="android:label"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="PlayerControlView">
     <attr name="show_timeout"/>
     <attr name="rewind_increment"/>
@@ -6644,6 +6906,8 @@
     <attr name="ad_marker_color"/>
     <attr name="played_ad_marker_color"/>
   </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="PopupWindow">
         <!-- Whether the popup window should overlap its anchor view. -->
         <attr format="boolean" name="overlapAnchor"/>
@@ -6654,7 +6918,11 @@
         <!-- State identifier indicating the popup will be above the anchor. -->
         <attr format="boolean" name="state_above_anchor"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="Preference"><attr name="icon"/><attr name="android:icon"/><attr format="string" name="key"/><attr name="android:key"/><attr name="title"/><attr name="android:title"/><attr format="string" name="summary"/><attr name="android:summary"/><attr format="integer" name="order"/><attr name="android:order"/><attr format="string" name="fragment"/><attr name="android:fragment"/><attr name="layout"/><attr name="android:layout"/><attr format="reference" name="widgetLayout"/><attr name="android:widgetLayout"/><attr format="boolean" name="enabled"/><attr name="android:enabled"/><attr format="boolean" name="selectable"/><attr name="android:selectable"/><attr format="string" name="dependency"/><attr name="android:dependency"/><attr format="boolean" name="persistent"/><attr name="android:persistent"/><attr format="string|boolean|integer|reference|float" name="defaultValue"/><attr name="android:defaultValue"/><attr format="boolean" name="shouldDisableView"/><attr name="android:shouldDisableView"/><attr format="boolean" name="allowDividerAbove"/><attr format="boolean" name="allowDividerBelow"/><attr format="boolean" name="singleLineTitle"/><attr name="android:singleLineTitle"/><attr format="boolean" name="iconSpaceReserved"/><attr name="android:iconSpaceReserved"/><attr format="boolean" name="isPreferenceVisible"/><attr format="boolean" name="useStockLayout"/></declare-styleable>
+=======
+    <declare-styleable name="Preference"><attr format="boolean" name="useStockLayout"/><attr name="icon"/><attr name="android:icon"/><attr format="string" name="key"/><attr name="android:key"/><attr name="title"/><attr name="android:title"/><attr format="string" name="summary"/><attr name="android:summary"/><attr format="integer" name="order"/><attr name="android:order"/><attr format="string" name="fragment"/><attr name="android:fragment"/><attr name="layout"/><attr name="android:layout"/><attr format="reference" name="widgetLayout"/><attr name="android:widgetLayout"/><attr format="boolean" name="enabled"/><attr name="android:enabled"/><attr format="boolean" name="selectable"/><attr name="android:selectable"/><attr format="string" name="dependency"/><attr name="android:dependency"/><attr format="boolean" name="persistent"/><attr name="android:persistent"/><attr format="string|boolean|integer|reference|float" name="defaultValue"/><attr name="android:defaultValue"/><attr format="boolean" name="shouldDisableView"/><attr name="android:shouldDisableView"/><attr format="boolean" name="allowDividerAbove"/><attr format="boolean" name="allowDividerBelow"/><attr format="boolean" name="singleLineTitle"/><attr name="android:singleLineTitle"/><attr format="boolean" name="iconSpaceReserved"/><attr name="android:iconSpaceReserved"/><attr format="boolean" name="isPreferenceVisible"/></declare-styleable>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="PreferenceFragment">
         <!-- The layout for the PreferenceFragment. This should rarely need to be changed. -->
         <attr name="android:layout"/>
@@ -6754,6 +7022,7 @@
         <!-- Default style for seekbar preferences. -->
         <attr format="reference" name="seekBarPreferenceStyle"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="RangeBar">
         <attr format="float" name="mrb_tickStart"/>
         <attr format="float" name="mrb_tickEnd"/>
@@ -6790,6 +7059,8 @@
         <attr format="reference" name="mrb_connectingLineColors"/>
         <attr format="boolean" name="mrb_onlyOnDrag"/>
     </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="RecycleListView">
         <!-- Bottom padding to use when no buttons are present. -->
         <attr format="dimension" name="paddingBottomNoButtons"/>
@@ -6799,7 +7070,11 @@
     <declare-styleable name="RecyclerView">
         <!-- Class name of the Layout Manager to be used.
         <p/>
+<<<<<<< HEAD
         The class must ext androidx.recyclerview.widget.RecyclerViewView$LayoutManager
+=======
+        The class must extandroidx.recyclerview.widget.RecyclerViewView$LayoutManager
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         and have either a default constructor or constructor with the signature
         (android.content.Context, android.util.AttributeSet, int, int).
          <p/>
@@ -6815,7 +7090,10 @@
 
         <attr name="android:orientation"/>
         <attr name="android:descendantFocusability"/>
+<<<<<<< HEAD
         <attr name="android:clipToPadding"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <attr format="integer" name="spanCount"/>
         <attr format="boolean" name="reverseLayout"/>
         <attr format="boolean" name="stackFromEnd"/>
@@ -6825,7 +7103,10 @@
         <attr format="reference" name="fastScrollHorizontalThumbDrawable"/>
         <attr format="reference" name="fastScrollHorizontalTrackDrawable"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="RoundCornerProgress"><attr format="boolean" name="rcReverse"/><attr format="float" name="rcProgress"/><attr format="float" name="rcMax"/><attr format="float" name="rcSecondaryProgress"/><attr format="dimension" name="rcBackgroundPadding"/><attr format="dimension" name="rcRadius"/><attr format="color" name="rcProgressColor"/><attr format="color" name="rcSecondaryProgressColor"/><attr format="color" name="rcBackgroundColor"/></declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="ScrimInsetsFrameLayout"><attr format="color|reference" name="insetForeground"/></declare-styleable>
     <declare-styleable name="ScrollingViewBehavior_Layout"><attr format="dimension" name="behavior_overlapTop"/></declare-styleable>
     <declare-styleable name="SearchView">
@@ -6882,6 +7163,7 @@
         By default, this view is VISIBLE. -->
         <attr format="boolean" name="showSeekBarValue"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="ShimmerFrameLayout">
     <attr format="boolean" name="shimmer_clip_to_children"/>
     <attr format="boolean" name="shimmer_colored"/>
@@ -6915,6 +7197,8 @@
     </attr>
     <attr format="float" name="shimmer_tilt"/>
   </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="SignInButton"><attr format="reference" name="buttonSize">
 <enum name="standard" value="0"/>
 
@@ -6934,6 +7218,7 @@
 
 <attr format="reference|string" name="scopeUris"/>
 </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="SimpleDraweeView" parent="GenericDraweeHierarchy">
 
     <!-- An image uri . -->
@@ -7047,6 +7332,10 @@
         </attr>
         <attr format="color" name="SpinKit_Color"/>
     </declare-styleable>
+=======
+    <declare-styleable name="Snackbar"><attr format="reference" name="snackbarStyle"/><attr format="reference" name="snackbarButtonStyle"/></declare-styleable>
+    <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="Spinner">
         <!-- The prompt to display when the spinner's dialog is shown. -->
         <attr name="android:prompt"/>
@@ -7236,23 +7525,32 @@
         <attr name="android:textColorHint"/>
         <attr name="android:textColorLink"/>
         <attr name="android:textStyle"/>
+<<<<<<< HEAD
         <attr name="android:textFontWeight"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <attr name="android:typeface"/>
         <attr name="android:fontFamily"/>
         <attr name="fontFamily"/>
         <attr name="textAllCaps"/>
+<<<<<<< HEAD
         <!-- Set the textLocale by a comma-separated language tag string,
              for example "ja-JP,zh-CN". This attribute only takes effect on API 21 and above.
              Before API 24, only the first language tag is used. Starting from API 24,
              the string will be converted into a {@link android.os.LocaleList} and then used by
              {@link android.widget.TextView} -->
         <attr name="textLocale"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
         <attr name="android:shadowColor"/>
         <attr name="android:shadowDy"/>
         <attr name="android:shadowDx"/>
         <attr name="android:shadowRadius"/>
+<<<<<<< HEAD
         <!-- OpenType font variation settings, available aftear api 26. -->
         <attr name="fontVariationSettings"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     </declare-styleable>
     <declare-styleable name="TextInputLayout"><attr name="android:textColorHint"/><attr name="android:hint"/><attr format="boolean" name="hintEnabled"/><attr format="boolean" name="hintAnimationEnabled"/><attr format="reference" name="hintTextAppearance"/><attr format="string" name="helperText"/><attr format="boolean" name="helperTextEnabled"/><attr format="reference" name="helperTextTextAppearance"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr format="boolean" name="passwordToggleEnabled"/><attr format="reference" name="passwordToggleDrawable"/><attr format="string" name="passwordToggleContentDescription"/><attr format="color" name="passwordToggleTint"/><attr name="passwordToggleTintMode">
       
@@ -7273,7 +7571,10 @@
       
       <enum name="outline" value="2"/>
     </attr><attr format="dimension" name="boxCollapsedPaddingTop"/><attr format="dimension" name="boxCornerRadiusTopStart"/><attr format="dimension" name="boxCornerRadiusTopEnd"/><attr format="dimension" name="boxCornerRadiusBottomStart"/><attr format="dimension" name="boxCornerRadiusBottomEnd"/><attr format="color" name="boxStrokeColor"/><attr format="color" name="boxBackgroundColor"/><attr format="dimension" name="boxStrokeWidth"/></declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="TextRoundCornerProgress"><attr format="color" name="rcTextProgressColor"/><attr format="dimension" name="rcTextProgressSize"/><attr format="dimension" name="rcTextProgressMargin"/><attr format="string" name="rcTextProgress"/></declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="ThemeEnforcement"><attr format="boolean" name="enforceMaterialTheme"/><attr format="boolean" name="enforceTextAppearance"/><attr name="android:textAppearance"/></declare-styleable>
     <declare-styleable name="Toolbar">
         <attr format="reference" name="titleTextAppearance"/>
@@ -7310,8 +7611,11 @@
         <attr name="contentInsetEndWithActions"/>
         <attr format="dimension" name="maxButtonHeight"/>
         <attr name="buttonGravity">
+<<<<<<< HEAD
             <!-- Place object in the vertical center of its container, not changing its size. -->
             <flag name="center_vertical" value="0x10"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
             <!-- Push object to the top of its container, not changing its size. -->
             <flag name="top" value="0x30"/>
             <!-- Push object to the bottom of its container, not changing its size. -->
@@ -7341,8 +7645,11 @@
         <!-- A color to apply to the subtitle string. -->
         <attr format="color" name="subtitleTextColor"/>
         <attr name="android:minHeight"/>
+<<<<<<< HEAD
         <!-- Menu resource to inflate to be shown in the toolbar -->
         <attr format="reference" name="menu"/>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     </declare-styleable>
     <declare-styleable name="View">
         <!-- Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. -->
@@ -7398,6 +7705,7 @@
         <attr name="android:inflatedId"/>
         <attr name="android:id"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="com_facebook_like_view">
         <attr format="color" name="com_facebook_foreground_color"/>
         <attr format="string" name="com_facebook_object_id"/>
@@ -7446,6 +7754,8 @@
         </attr>
         <attr format="boolean" name="com_facebook_is_cropped"/>
     </declare-styleable>
+=======
+>>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
     <declare-styleable name="stl_SmartTabLayout">
     <attr format="boolean" name="stl_indicatorAlwaysInCenter"/>
     <attr format="boolean" name="stl_indicatorWithoutPadding"/>
