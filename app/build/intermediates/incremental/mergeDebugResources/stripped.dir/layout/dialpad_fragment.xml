@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kabaladigital.tingtingu.ui.widgets.DialpadView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialpad_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".ui.fragment.DialpadFragment">
+
+    <!-- Number Input Field -->
+    <RelativeLayout
+        android:id="@+id/top_dialer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/phone_number_input_height"
+        android:orientation="horizontal">
+
+        <!-- Call Button -->
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/button_call"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_call_black_24dp"
+            android:tint="?attr/colorAccent" />
+
+        <!-- Edit Text -->
+        <com.kabaladigital.tingtingu.ui.widgets.DigitsEditText
+            android:id="@+id/digits_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:cursorVisible="true"
+            android:focusableInTouchMode="true"
+            android:freezesText="true"
+            android:gravity="center"
+            android:maxLines="1"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <!-- Delete Button -->
+
+        <ImageView
+            android:id="@+id/button_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_backspace_black_24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/white"
+            android:layout_marginEnd="10dp"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/dialpad" />
+
+</com.kabaladigital.tingtingu.ui.widgets.DialpadView>

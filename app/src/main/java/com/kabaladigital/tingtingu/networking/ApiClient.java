@@ -34,12 +34,10 @@ public class ApiClient {
                   Request newRequest  = chain.request().newBuilder()
                           .addHeader("authkey","315206Am2ZQ1M5CTt65e2e85dfP1" )
                           .build();
-
                   return chain.proceed(newRequest);
               }
           })
           .build();
-
 
 
 //    public static final String BASE_URL = "https://devapi-dot-tingtingu-285110.el.r.appspot.com/api/";

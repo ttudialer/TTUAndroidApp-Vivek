@@ -29,9 +29,7 @@ public class ActiveInactiveRepository {
     }
 
     public LiveData<ActiveInactiveModel> getProfileInfo(){
-
         final MutableLiveData<ActiveInactiveModel> responseMutableLiveData = new MutableLiveData<>();
-
         apiInterface.getUserStatusInformation()
                 .enqueue(new Callback<ActiveInactiveModel>() {
                     @Override

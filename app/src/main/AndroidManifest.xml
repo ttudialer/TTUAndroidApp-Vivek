@@ -12,7 +12,6 @@
 <!--    <uses-permission android:name="android.permission.READ_CALL_LOG" />-->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -20,7 +19,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
+    <uses-feature    android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <application
         android:name="com.kabaladigital.tingtingu.App"
         android:allowBackup="false"
@@ -31,6 +32,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize"
+        android:requestLegacyExternalStorage="true"
+        tools:replace="android:allowBackup"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity"/>
 
@@ -38,12 +41,18 @@
             android:name="com.kabaladigital.tingtingu.ui.activity.EndCallActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
-
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.MainActivity"
             android:exported="true"
             />
-
+        <activity
+            android:name="com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview"
+            android:exported="true"
+            />
+        <activity
+            android:name="com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image"
+            android:exported="true"
+            />
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.LoginActivity"
             android:label="@string/app_name"
@@ -51,7 +60,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -60,55 +68,43 @@
             <!-- For receiving intents -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:scheme="terms" />
                 <data android:scheme="privacy" />
                 <data android:mimeType="image/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND_MULTIPLE" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="image/*" />
             </intent-filter>
 
             <!-- From Google's Dialer App -->
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:mimeType="vnd.android.cursor.item/phone" />
                 <data android:mimeType="vnd.android.cursor.item/person" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="voicemail" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DIAL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -116,7 +112,6 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.CALL_BUTTON" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
@@ -128,6 +123,10 @@
             android:label="@string/activity_ongoing_call"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+        <activity android:name=".Crop.CropAndRotate_Photo"
+                  android:theme="@style/Base.Theme.AppCompat"/>
+
 
         <service
             android:name="com.kabaladigital.tingtingu.service.CallService"
@@ -182,6 +181,20 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path"/>
+        </provider>
+
+
+
     </application>
 
 </manifest>

@@ -70,6 +70,9 @@
     <string name="pref_user_user_id">user_user_id</string>
 
     <string name="pref_refer_code_key">refer_code</string>
+    <string name="pref_c_upload_date">uplodate_date</string>
+    <string name="pref_profile_path">profile_path</string>
+    <string name="pref_image_path">image_path</string>
 
     <string name="pref_is_language_selected_key">is_language_selected</string>
     <string name="pref_is_otp_verify_key">is_otp_verify</string>
@@ -266,6 +269,14 @@
 
     <string name="reg_basic_updated">Update Basic Profile</string>
     <string name="reg_optional_update">Update Optional Profile</string>
+
+    <string name="call_ttu_id_update">Change TTU Caller ID (Video/Image)</string>
+    <string name="call_ttu_choose">Choose your Caller ID Photo or Video </string>
+    <string name="call_ttu_cr_i_v">Create new Photo or Video </string>
+    <string name="call_ttu_imp_i_v">Import Photo or Video from Gallery </string>
+
+    <string name="call_ttu_id_setProfile">Set as TTU Caller ID Profile</string>
+    <string name="u_id">u_id</string>
 
 
     <array name="choose_gender">

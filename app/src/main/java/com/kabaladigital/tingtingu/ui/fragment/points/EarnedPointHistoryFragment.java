@@ -33,7 +33,6 @@ public class EarnedPointHistoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                                           @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.earned_point_history_fragment, container, false);
-
         langType = PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
 
         String[] title;
@@ -76,8 +75,6 @@ public class EarnedPointHistoryFragment extends Fragment {
                   };
         }
 
-
-        @NonNull
         @Override
         public Fragment getItem(int position) {
             return childFragments[position];

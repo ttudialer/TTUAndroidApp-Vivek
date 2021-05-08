@@ -4,7 +4,9 @@ import com.google.gson.JsonObject;
 import com.kabaladigital.tingtingu.models.ActiveInactiveModel;
 import com.kabaladigital.tingtingu.models.AllCampaignModel;
 import com.kabaladigital.tingtingu.models.Caller_Id;
+import com.kabaladigital.tingtingu.models.ContactUploadModel;
 import com.kabaladigital.tingtingu.models.GlobalVariableModel;
+import com.kabaladigital.tingtingu.models.LibraryAddModel;
 import com.kabaladigital.tingtingu.models.MemberShipTypeModel;
 import com.kabaladigital.tingtingu.models.MobileDetailModel;
 import com.kabaladigital.tingtingu.models.MobileInfoModel;
@@ -18,15 +20,20 @@ import com.kabaladigital.tingtingu.models.UpdateProfileModel;
 import com.kabaladigital.tingtingu.response_model.MobileNumberResponse;
 import com.kabaladigital.tingtingu.response_model.SmsOtpResponse;
 
+import org.json.JSONObject;
+
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -49,8 +56,7 @@ public interface ApiInterface {
 
     @Headers("Content-Type: application/json")
     @POST("user/upMobileInfo")
-    Call<MobileInfoModel> updateMobileNumber(
-                   @Body JsonObject body);
+    Call<MobileInfoModel> updateMobileNumber(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")
     @POST("user/updateProfile")
@@ -134,4 +140,13 @@ public interface ApiInterface {
 
     @POST("/api/user/updateToken")
     Call<JsonObject> updateTokenAccess (@Body JsonObject body);
+
+    @Headers("Content-Type: application/json")
+    @POST("user/addContact")
+    Call<ContactUploadModel> contactUploadDetails(@Body JsonObject body);
+
+
+    @POST("library/add")
+    Call<LibraryAddModel> LibraryAdd(@Body RequestBody body);
+
 }

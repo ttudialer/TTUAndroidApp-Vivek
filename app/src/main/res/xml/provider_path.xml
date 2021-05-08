@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="."/>
+    <external-path name="sdcard" path="."/>
+    <external-path name="my_images" path="Android/data/com.kabaladigital.tingtingu/files/TTULibrary"/>
+    <root-path name="external_files" path="/storage/" />
+    <files-path name="my_docs" path="Videos/" />
+</paths>
+
+    <!--<external-path name="my_images" path="Android/data/inv.medsave.com.medsaveinv/files/Pictures" />-->

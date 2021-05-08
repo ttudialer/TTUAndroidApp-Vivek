@@ -31,11 +31,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater,R.layout.profile_fragment, container, false);
-
         binding.viewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager()));
-
         binding.tabLayout.setupWithViewPager(binding.viewPager);
-
         return binding.getRoot();
     }
 

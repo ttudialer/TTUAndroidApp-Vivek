@@ -195,66 +195,77 @@ public class OperatorHomeFragment extends Fragment {
         langType=PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
         if (langType.equals("en")) {
             operatorHomeModelList.clear();
-            OperatorHomeModel operator = new OperatorHomeModel("0", "View Membership Details", R.drawable.ic_membership_home);
-            operatorHomeModelList.add(operator);
 
-            OperatorHomeModel operator1 = new OperatorHomeModel("1", "Invite Friend & Earn", R.drawable.share);
+            OperatorHomeModel operator0= new OperatorHomeModel("0", "Your Caller Photo/Video TTU ID", R.drawable.ic_membership_home);
+            operatorHomeModelList.add(operator0);
+
+            OperatorHomeModel operator1 = new OperatorHomeModel("1", "View Membership Details", R.drawable.ic_membership_home);
             operatorHomeModelList.add(operator1);
 
-            OperatorHomeModel operator2 = new OperatorHomeModel("2", "Earned Points History", R.drawable.icon);
+            OperatorHomeModel operator2 = new OperatorHomeModel("2", "Invite Friend & Earn", R.drawable.share);
             operatorHomeModelList.add(operator2);
 
-            OperatorHomeModel operator3 = new OperatorHomeModel("3", "Update Profile", R.drawable.user);
+            OperatorHomeModel operator3 = new OperatorHomeModel("3", "Earned Points History", R.drawable.icon);
             operatorHomeModelList.add(operator3);
 
-            OperatorHomeModel operator4 = new OperatorHomeModel("4", "Setting", R.drawable.settings);
+            OperatorHomeModel operator4 = new OperatorHomeModel("4", "Update Profile", R.drawable.user);
             operatorHomeModelList.add(operator4);
 
-            OperatorHomeModel operator5 = new OperatorHomeModel("5", "Survey", R.drawable.survey);
+            OperatorHomeModel operator5 = new OperatorHomeModel("5", "Setting", R.drawable.settings);
             operatorHomeModelList.add(operator5);
+
+            OperatorHomeModel operator6 = new OperatorHomeModel("6", "Survey", R.drawable.survey);
+            operatorHomeModelList.add(operator6);
 
         }else if (langType.equals("hi")){
             operatorHomeModelList.clear();
 
-            OperatorHomeModel operator = new OperatorHomeModel("0", "सदस्यता विवरण देखें", R.drawable.ic_membership_home);
-            operatorHomeModelList.add(operator);
+            OperatorHomeModel operator0 = new OperatorHomeModel("0", "सदस्यता विवरण देखें", R.drawable.ic_membership_home);
+            operatorHomeModelList.add(operator0);
 
-            OperatorHomeModel operator1 = new OperatorHomeModel("1", "दोस्त को आमंत्रित करें और कमाएं", R.drawable.share);
+            OperatorHomeModel operator1 = new OperatorHomeModel("1", "सदस्यता विवरण देखें", R.drawable.ic_membership_home);
             operatorHomeModelList.add(operator1);
 
-            OperatorHomeModel operator2 = new OperatorHomeModel("2", "कमाए पॉइंट्स की जानकारी", R.drawable.icon);
+            OperatorHomeModel operator2 = new OperatorHomeModel("2", "दोस्त को आमंत्रित करें और कमाएं", R.drawable.share);
             operatorHomeModelList.add(operator2);
 
-            OperatorHomeModel operator3 = new OperatorHomeModel("3", "प्रोफ़ाइल अपडेट करें", R.drawable.user);
+            OperatorHomeModel operator3 = new OperatorHomeModel("3", "कमाए पॉइंट्स की जानकारी", R.drawable.icon);
             operatorHomeModelList.add(operator3);
 
-            OperatorHomeModel operator4 = new OperatorHomeModel("4", "सेटिंग करें", R.drawable.settings);
+            OperatorHomeModel operator4 = new OperatorHomeModel("4", "प्रोफ़ाइल अपडेट करें", R.drawable.user);
             operatorHomeModelList.add(operator4);
 
-            OperatorHomeModel operator5 = new OperatorHomeModel("5", "सर्वेक्षण", R.drawable.survey);
+            OperatorHomeModel operator5 = new OperatorHomeModel("5", "सेटिंग करें", R.drawable.settings);
             operatorHomeModelList.add(operator5);
+
+            OperatorHomeModel operator6 = new OperatorHomeModel("6", "सर्वेक्षण", R.drawable.survey);
+            operatorHomeModelList.add(operator6);
         }
     }
 
     public void getInviteEarn(String pos){
         if (Utilities.isNetworkAvailable(getActivity())){
             if (pos.equals("0")){
-                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToMemberShipFragment();
+                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToViewcallerphotovideo();
                 Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
             if (pos.equals("1")){
-                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToInviteFriendFragment();
+                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToMemberShipFragment();
                 Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
             if (pos.equals("2")){
-                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToEarnedPointHistoryFragment();
+                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToInviteFriendFragment();
                 Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
             if (pos.equals("3")){
+                NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToEarnedPointHistoryFragment();
+                Navigation.findNavController(binding.getRoot()).navigate(navDirections);
+            }
+            if (pos.equals("4")){
                 NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToProfileFragment();
                 Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
-            if (pos.equals("5")){
+            if (pos.equals("6")){
                 NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToSurveyFragment();
                 Navigation.findNavController(binding.getRoot()).navigate(navDirections);
             }
@@ -262,7 +273,7 @@ public class OperatorHomeFragment extends Fragment {
             Toast.makeText(getActivity(), "Internet Required", Toast.LENGTH_SHORT).show();
         }
 
-        if (pos.equals("4")){
+        if (pos.equals("5")){
             NavDirections navDirections = OperatorHomeFragmentDirections.actionOperatorHomeFragmentToSettingFragment();
             Navigation.findNavController(binding.getRoot()).navigate(navDirections);
         }

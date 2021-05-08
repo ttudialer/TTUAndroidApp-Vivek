@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        tools:context="com.kabaladigital.tingtingu.ImageHelper.Imageview">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="top|bottom"
+                android:id="@+id/ImageView" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|center"
+            android:orientation="vertical"
+            android:layout_marginBottom="100dp"
+            android:layout_alignParentBottom="true"
+            >
+            <Button
+                android:id="@+id/btn_update_ttu_set_default_I"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center"
+
+                android:background="@xml/ovelshapegreen"
+                android:layout_alignParentBottom = "true"
+                android:text="@string/call_ttu_id_setProfile" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

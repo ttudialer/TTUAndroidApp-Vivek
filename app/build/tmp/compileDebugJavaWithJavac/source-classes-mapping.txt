@@ -1,5 +1,7 @@
 com/kabaladigital/tingtingu/database/dao/IncomingCallAdDao.java
  com.kabaladigital.tingtingu.database.dao.IncomingCallAdDao
+com/kabaladigital/tingtingu/SegmentProgress/ProgressBarListener.java
+ com.kabaladigital.tingtingu.SegmentProgress.ProgressBarListener
 com/kabaladigital/tingtingu/viewmodels/RegistrationViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RegistrationViewModel
 com/kabaladigital/tingtingu/databinding/OperatorDetailFragmentBinding.java
@@ -20,20 +22,31 @@ com/kabaladigital/tingtingu/databinding/RegistrationFragmentBinding.java
 com/kabaladigital/tingtingu/adapter/RecentRechargeAdapter.java
  com.kabaladigital.tingtingu.adapter.RecentRechargeAdapter
  com.kabaladigital.tingtingu.adapter.RecentRechargeAdapter$ViewHolder
+com/kabaladigital/tingtingu/databinding/CallerDetailsFragmentChooseImageBinding.java
+ com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseImageBinding
 com/kabaladigital/tingtingu/databinding/LayoutOperatorHomeBinding.java
  com.kabaladigital.tingtingu.databinding.LayoutOperatorHomeBinding
 com/kabaladigital/tingtingu/listener/NotificationActionReceiver.java
  com.kabaladigital.tingtingu.listener.NotificationActionReceiver
 com/kabaladigital/tingtingu/databinding/DthProcessRechargeFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.DthProcessRechargeFragmentBinding
+com/kabaladigital/tingtingu/Video_Recording/RecordingTimeRang_F.java
+ com.kabaladigital.tingtingu.Video_Recording.RecordingTimeRang_F
+ com.kabaladigital.tingtingu.Video_Recording.RecordingTimeRang_F$1
 com/kabaladigital/tingtingu/models/RecentRechargeModel.java
  com.kabaladigital.tingtingu.models.RecentRechargeModel
 com/kabaladigital/tingtingu/database/entity/CampaignAds.java
  com.kabaladigital.tingtingu.database.entity.CampaignAds
+com/kabaladigital/tingtingu/SoundLists/Discover_SoundList_F.java
+ com.kabaladigital.tingtingu.SoundLists.Discover_SoundList_F
+ com.kabaladigital.tingtingu.SoundLists.Discover_SoundList_F$1
+ com.kabaladigital.tingtingu.SoundLists.Discover_SoundList_F$2
 com/kabaladigital/tingtingu/ui/activity/MainActivity.java
  com.kabaladigital.tingtingu.ui.activity.MainActivity
  com.kabaladigital.tingtingu.ui.activity.MainActivity$1
  com.kabaladigital.tingtingu.ui.activity.MainActivity$2
+ com.kabaladigital.tingtingu.ui.activity.MainActivity$3
+ com.kabaladigital.tingtingu.ui.activity.MainActivity$4
 com/kabaladigital/tingtingu/ui/fragment/recharge/DthRechargeFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment$1
@@ -52,6 +65,16 @@ com/kabaladigital/tingtingu/databinding/OverlaySendSmsBinding.java
  com.kabaladigital.tingtingu.databinding.OverlaySendSmsBinding
 com/kabaladigital/tingtingu/models/ParentObject.java
  com.kabaladigital.tingtingu.models.ParentObject
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChoose.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$1
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$1$1
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$2
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$2$1
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$3
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$ViewPagerAdapter
+com/kabaladigital/tingtingu/models/CallerDetailsModel.java
+ com.kabaladigital.tingtingu.models.CallerDetailsModel
 com/kabaladigital/tingtingu/networking/AdDataRepository.java
  com.kabaladigital.tingtingu.networking.AdDataRepository
 com/kabaladigital/tingtingu/util/ImageVideoDownloadManager.java
@@ -72,6 +95,16 @@ com/kabaladigital/tingtingu/database/entity/RecentCall.java
  com.kabaladigital.tingtingu.database.entity.RecentCall
 com/kabaladigital/tingtingu/database/dao/CampaignAdsPlayOrderDao.java
  com.kabaladigital.tingtingu.database.dao.CampaignAdsPlayOrderDao
+com/kabaladigital/tingtingu/ui/fragment/CallerDetailsFragment.java
+ com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragment
+ com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragment$1
+ com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragment$2
+com/kabaladigital/tingtingu/Video_Recording/AnimatedGifEncoder.java
+ com.kabaladigital.tingtingu.Video_Recording.AnimatedGifEncoder
+ com.kabaladigital.tingtingu.Video_Recording.LZWEncoder
+ com.kabaladigital.tingtingu.Video_Recording.NeuQuant
+com/kabaladigital/tingtingu/Video_Recording/MovieWrapperView.java
+ com.kabaladigital.tingtingu.Video_Recording.MovieWrapperView
 com/kabaladigital/tingtingu/viewmodels/OperatorHomeViewModel.java
  com.kabaladigital.tingtingu.viewmodels.OperatorHomeViewModel
 com/kabaladigital/tingtingu/util/Utilities.java
@@ -82,10 +115,29 @@ com/kabaladigital/tingtingu/viewmodels/ProfileStep2ViewModel.java
  com.kabaladigital.tingtingu.viewmodels.ProfileStep2ViewModel
 com/kabaladigital/tingtingu/viewmodels/RechargeViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RechargeViewModel
+com/kabaladigital/tingtingu/SoundLists/FavouriteSounds/Favourite_Sound_Adapter.java
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter$CustomViewHolder
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter$CustomViewHolder$1
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter$CustomViewHolder$2
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter$CustomViewHolder$3
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_Adapter$OnItemClickListener
 com/kabaladigital/tingtingu/viewmodels/MemberShipViewModel.java
  com.kabaladigital.tingtingu.viewmodels.MemberShipViewModel
+com/kabaladigital/tingtingu/Class/FileUtils.java
+ com.kabaladigital.tingtingu.Class.FileUtils
+com/kabaladigital/tingtingu/Class/Functions.java
+ com.kabaladigital.tingtingu.Class.Functions
+ com.kabaladigital.tingtingu.Class.Functions$1
+ com.kabaladigital.tingtingu.Class.Functions$2
+ com.kabaladigital.tingtingu.Class.Functions$3
+ com.kabaladigital.tingtingu.Class.Functions$4
+com/kabaladigital/tingtingu/databinding/CallerDetailsFragmentChooseVideoBinding.java
+ com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseVideoBinding
 com/kabaladigital/tingtingu/databinding/ChooseMultiLanguageProfileFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.ChooseMultiLanguageProfileFragmentBinding
+com/kabaladigital/tingtingu/RelateToFragment_OnBack/OnBackPressListener.java
+ com.kabaladigital.tingtingu.RelateToFragment_OnBack.OnBackPressListener
 com/kabaladigital/tingtingu/ui/fragment/DialpadFragment.java
  com.kabaladigital.tingtingu.ui.fragment.DialpadFragment
  com.kabaladigital.tingtingu.ui.fragment.DialpadFragment$1
@@ -109,6 +161,8 @@ com/kabaladigital/tingtingu/databinding/EarnedPointHistoryFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.EarnedPointHistoryFragmentBinding
 com/kabaladigital/tingtingu/databinding/MemberShipFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.MemberShipFragmentBinding
+com/kabaladigital/tingtingu/viewmodels/CallerDetailsViewModel.java
+ com.kabaladigital.tingtingu.viewmodels.CallerDetailsViewModel
 com/kabaladigital/tingtingu/BuildConfig.java
  com.kabaladigital.tingtingu.BuildConfig
 com/kabaladigital/tingtingu/ui/fragment/SurveyFragment.java
@@ -126,6 +180,9 @@ com/kabaladigital/tingtingu/databinding/EnterOtFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.EnterOtFragmentBinding
 com/kabaladigital/tingtingu/database/dao/CampaignAdLogsDao.java
  com.kabaladigital.tingtingu.database.dao.CampaignAdLogsDao
+com/kabaladigital/tingtingu/SegmentProgress/CountDownTimerWithPause.java
+ com.kabaladigital.tingtingu.SegmentProgress.CountDownTimerWithPause
+ com.kabaladigital.tingtingu.SegmentProgress.CountDownTimerWithPause$1
 com/kabaladigital/tingtingu/ui/activity/OngoingCallActivity.java
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$1
@@ -160,6 +217,14 @@ com/kabaladigital/tingtingu/ui/fragment/login/ChooseMultiLanguageFragment.java
 com/kabaladigital/tingtingu/ui/fragment/profile/ProfileChooseMultiLanguageFragment.java
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileChooseMultiLanguageFragment
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileChooseMultiLanguageFragment$1
+com/kabaladigital/tingtingu/SoundLists/FavouriteSounds/Favourite_Sound_F.java
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$1
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$2
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$3
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$4
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$5
+ com.kabaladigital.tingtingu.SoundLists.FavouriteSounds.Favourite_Sound_F$6
 com/kabaladigital/tingtingu/viewmodels/InviteFriendViewModel.java
  com.kabaladigital.tingtingu.viewmodels.InviteFriendViewModel
 com/kabaladigital/tingtingu/ui/fragment/recharge/RedeemPointFragmentDirections.java
@@ -174,22 +239,50 @@ com/kabaladigital/tingtingu/models/ProfileInformationModel.java
  com.kabaladigital.tingtingu.models.ProfileInformationModel$Refer
 com/kabaladigital/tingtingu/ui/fragment/login/EnterOtpFragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.login.EnterOtpFragmentDirections
+com/kabaladigital/tingtingu/models/ServerResponse.java
+ com.kabaladigital.tingtingu.models.ServerResponse
 com/kabaladigital/tingtingu/networking/RechargeRepository.java
  com.kabaladigital.tingtingu.networking.RechargeRepository
  com.kabaladigital.tingtingu.networking.RechargeRepository$1
+com/kabaladigital/tingtingu/ImageHelper/TouchImageView.java
+ com.kabaladigital.tingtingu.ImageHelper.TouchImageView
+ com.kabaladigital.tingtingu.ImageHelper.TouchImageView$1
+ com.kabaladigital.tingtingu.ImageHelper.TouchImageView$ScaleListener
 com/kabaladigital/tingtingu/networking/MobileNumberRepository.java
  com.kabaladigital.tingtingu.networking.MobileNumberRepository
  com.kabaladigital.tingtingu.networking.MobileNumberRepository$1
+com/kabaladigital/tingtingu/Filter/Filter_Adapter.java
+ com.kabaladigital.tingtingu.Filter.Filter_Adapter
+ com.kabaladigital.tingtingu.Filter.Filter_Adapter$CustomViewHolder
+ com.kabaladigital.tingtingu.Filter.Filter_Adapter$CustomViewHolder$1
+ com.kabaladigital.tingtingu.Filter.Filter_Adapter$OnItemClickListener
+com/kabaladigital/tingtingu/Video_Recording/DraftVideos/DraftVideos_Adapter.java
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_Adapter
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_Adapter$CustomViewHolder
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_Adapter$CustomViewHolder$1
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_Adapter$CustomViewHolder$2
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_Adapter$OnItemClickListener
+com/kabaladigital/tingtingu/SegmentProgress/SegmentedProgressBar.java
+ com.kabaladigital.tingtingu.SegmentProgress.SegmentedProgressBar
+ com.kabaladigital.tingtingu.SegmentProgress.SegmentedProgressBar$1
+ com.kabaladigital.tingtingu.SegmentProgress.SegmentedProgressBar$2
 com/kabaladigital/tingtingu/ui/fragment/profile/ProfileStep2FragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileStep2FragmentDirections
 com/kabaladigital/tingtingu/ui/fragment/recharge/DthRechargeFragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragmentDirections
+com/kabaladigital/tingtingu/SoundLists/SoundList_Main_A.java
+ com.kabaladigital.tingtingu.SoundLists.SoundList_Main_A
+ com.kabaladigital.tingtingu.SoundLists.SoundList_Main_A$ViewPagerAdapter
 com/kabaladigital/tingtingu/util/ContactUtils.java
  com.kabaladigital.tingtingu.util.ContactUtils
 com/kabaladigital/tingtingu/viewmodels/RegistrationStep2ViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RegistrationStep2ViewModel
 com/kabaladigital/tingtingu/viewmodels/RechargeAmountViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RechargeAmountViewModel
+com/kabaladigital/tingtingu/databinding/VideoViewBinding.java
+ com.kabaladigital.tingtingu.databinding.VideoViewBinding
+com/kabaladigital/tingtingu/ImageHelper/ImageListAdapter.java
+ com.kabaladigital.tingtingu.ImageHelper.ImageListAdapter
 com/kabaladigital/tingtingu/database/entity/Contact.java
  com.kabaladigital.tingtingu.database.entity.Contact
 com/kabaladigital/tingtingu/models/Caller_Id.java
@@ -197,6 +290,8 @@ com/kabaladigital/tingtingu/models/Caller_Id.java
  com.kabaladigital.tingtingu.models.Caller_Id$EmployeeData
 com/kabaladigital/tingtingu/databinding/LayoutSurveyListBinding.java
  com.kabaladigital.tingtingu.databinding.LayoutSurveyListBinding
+com/kabaladigital/tingtingu/models/ContactUploadModel.java
+ com.kabaladigital.tingtingu.models.ContactUploadModel
 com/kabaladigital/tingtingu/ui/widgets/DialpadView.java
  com.kabaladigital.tingtingu.ui.widgets.DialpadView
 com/kabaladigital/tingtingu/models/ContactModel.java
@@ -244,6 +339,14 @@ com/kabaladigital/tingtingu/ui/fragment/login/RegistrationFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationFragment$4
 com/kabaladigital/tingtingu/databinding/SettingFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.SettingFragmentBinding
+com/kabaladigital/tingtingu/ImageHelper/CompressImage.java
+ com.kabaladigital.tingtingu.ImageHelper.CompressImage
+com/kabaladigital/tingtingu/ui/fragment/CallerDetailsFragmentDirections.java
+ com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragmentDirections
+com/kabaladigital/tingtingu/ImageHelper/Adapter_ImageFolder.java
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$1
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$ViewHolder
 com/kabaladigital/tingtingu/viewmodels/RedeemPointViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RedeemPointViewModel
 com/kabaladigital/tingtingu/ui/fragment/login/MembershipMessageFragmentDirections.java
@@ -288,6 +391,8 @@ com/kabaladigital/tingtingu/ui/fragment/recharge/MobileRechargeFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.MobileRechargeFragment$5
 com/kabaladigital/tingtingu/util/PreferenceUtils.java
  com.kabaladigital.tingtingu.util.PreferenceUtils
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChooseImageDirections.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseImageDirections
 com/kabaladigital/tingtingu/databinding/SplashScreenFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.SplashScreenFragmentBinding
 com/kabaladigital/tingtingu/databinding/ProfileFragmentBinding.java
@@ -326,18 +431,29 @@ com/kabaladigital/tingtingu/databinding/LoginFragmentBinding.java
 com/kabaladigital/tingtingu/networking/RechargeHistoryRepository.java
  com.kabaladigital.tingtingu.networking.RechargeHistoryRepository
  com.kabaladigital.tingtingu.networking.RechargeHistoryRepository$1
+com/kabaladigital/tingtingu/VideoHelper/Videoview.java
+ com.kabaladigital.tingtingu.VideoHelper.Videoview
+ com.kabaladigital.tingtingu.VideoHelper.Videoview$1
+ com.kabaladigital.tingtingu.VideoHelper.Videoview$1$1
 com/kabaladigital/tingtingu/networking/ApiClient.java
  com.kabaladigital.tingtingu.networking.ApiClient
  com.kabaladigital.tingtingu.networking.ApiClient$1
  com.kabaladigital.tingtingu.networking.ApiClient$2
 com/kabaladigital/tingtingu/response_model/MobileNumberResponse.java
  com.kabaladigital.tingtingu.response_model.MobileNumberResponse
+com/kabaladigital/tingtingu/util/TitleCase.java
+ com.kabaladigital.tingtingu.util.TitleCase
 com/kabaladigital/tingtingu/util/GetStateCityFromJson.java
  com.kabaladigital.tingtingu.util.GetStateCityFromJson
 com/kabaladigital/tingtingu/models/ChooseMultiLangModel.java
  com.kabaladigital.tingtingu.models.ChooseMultiLangModel
 com/kabaladigital/tingtingu/database/entity/CampaignAdsPlayOrder.java
  com.kabaladigital.tingtingu.database.entity.CampaignAdsPlayOrder
+com/kabaladigital/tingtingu/Video_Recording/DraftVideos/DraftVideos_A.java
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_A
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_A$1
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_A$2
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideos_A$3
 com/kabaladigital/tingtingu/databinding/ActivityEndCallBinding.java
  com.kabaladigital.tingtingu.databinding.ActivityEndCallBinding
 com/kabaladigital/tingtingu/ui/fragment/SettingFragment.java
@@ -358,8 +474,16 @@ com/kabaladigital/tingtingu/database/entity/CampaignLogs.java
  com.kabaladigital.tingtingu.database.entity.CampaignLogs
 com/kabaladigital/tingtingu/viewmodels/EnterOtpViewModel.java
  com.kabaladigital.tingtingu.viewmodels.EnterOtpViewModel
+com/kabaladigital/tingtingu/Class/Callback.java
+ com.kabaladigital.tingtingu.Class.Callback
+com/kabaladigital/tingtingu/Class/Variables.java
+ com.kabaladigital.tingtingu.Class.Variables
 com/kabaladigital/tingtingu/databinding/OperatorSelectFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.OperatorSelectFragmentBinding
+com/kabaladigital/tingtingu/viewmodels/Model_Video.java
+ com.kabaladigital.tingtingu.viewmodels.Model_Video
+com/kabaladigital/tingtingu/VideoHelper/Activity_galleryview.java
+ com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview
 com/kabaladigital/tingtingu/models/ActiveInactiveModel.java
  com.kabaladigital.tingtingu.models.ActiveInactiveModel
  com.kabaladigital.tingtingu.models.ActiveInactiveModel$Dailystatus
@@ -370,6 +494,8 @@ com/kabaladigital/tingtingu/ui/fragment/profile/ProfileStep1Fragment.java
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileStep1Fragment$3
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileStep1Fragment$4
  com.kabaladigital.tingtingu.ui.fragment.profile.ProfileStep1Fragment$5
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChooseVideoDirections.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseVideoDirections
 com/kabaladigital/tingtingu/adapter/OperatorHomeAdapter.java
  com.kabaladigital.tingtingu.adapter.OperatorHomeAdapter
  com.kabaladigital.tingtingu.adapter.OperatorHomeAdapter$1
@@ -387,6 +513,8 @@ com/kabaladigital/tingtingu/ui/fragment/MemberShipFragment.java
  com.kabaladigital.tingtingu.ui.fragment.MemberShipFragment
 com/kabaladigital/tingtingu/util/ShowNotificationAd.java
  com.kabaladigital.tingtingu.util.ShowNotificationAd
+com/kabaladigital/tingtingu/RelateToFragment_OnBack/RootFragment.java
+ com.kabaladigital.tingtingu.RelateToFragment_OnBack.RootFragment
 com/kabaladigital/tingtingu/databinding/InviteFriendFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.InviteFriendFragmentBinding
 com/kabaladigital/tingtingu/util/ImageManager.java
@@ -394,6 +522,10 @@ com/kabaladigital/tingtingu/util/ImageManager.java
  com.kabaladigital.tingtingu.util.ImageManager$1
  com.kabaladigital.tingtingu.util.ImageManager$2
  com.kabaladigital.tingtingu.util.ImageManager$3
+com/kabaladigital/tingtingu/ImageHelper/Imageview.java
+ com.kabaladigital.tingtingu.ImageHelper.Imageview
+ com.kabaladigital.tingtingu.ImageHelper.Imageview$1
+ com.kabaladigital.tingtingu.ImageHelper.Imageview$1$1
 com/kabaladigital/tingtingu/ui/activity/EndCallActivity.java
  com.kabaladigital.tingtingu.ui.activity.EndCallActivity
  com.kabaladigital.tingtingu.ui.activity.EndCallActivity$1
@@ -409,12 +541,16 @@ com/kabaladigital/tingtingu/viewmodels/ProfileChooseMultiLanguageViewModel.java
 com/kabaladigital/tingtingu/App.java
  com.kabaladigital.tingtingu.App
  com.kabaladigital.tingtingu.App$1
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChooseImage.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseImage
 com/kabaladigital/tingtingu/databinding/ActivityChooseProfileLanguageFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.ActivityChooseProfileLanguageFragmentBinding
 com/kabaladigital/tingtingu/networking/RewardRepository.java
  com.kabaladigital.tingtingu.networking.RewardRepository
  com.kabaladigital.tingtingu.networking.RewardRepository$1
  com.kabaladigital.tingtingu.networking.RewardRepository$2
+com/kabaladigital/tingtingu/ImageHelper/BitmapHelper.java
+ com.kabaladigital.tingtingu.ImageHelper.BitmapHelper
 com/kabaladigital/tingtingu/util/VideoManager.java
  com.kabaladigital.tingtingu.util.VideoManager
  com.kabaladigital.tingtingu.util.VideoManager$1
@@ -426,15 +562,33 @@ com/kabaladigital/tingtingu/adapter/SurveyListAdapter.java
  com.kabaladigital.tingtingu.adapter.SurveyListAdapter
  com.kabaladigital.tingtingu.adapter.SurveyListAdapter$1
  com.kabaladigital.tingtingu.adapter.SurveyListAdapter$ViewHolder
+com/kabaladigital/tingtingu/Class/Global.java
+ com.kabaladigital.tingtingu.Class.Global
+com/kabaladigital/tingtingu/SoundLists/VideoSound_A.java
+ com.kabaladigital.tingtingu.SoundLists.VideoSound_A
 com/kabaladigital/tingtingu/viewmodels/SharedDialViewModel.java
  com.kabaladigital.tingtingu.viewmodels.SharedDialViewModel
 com/kabaladigital/tingtingu/ui/fragment/login/ChooseLanguageFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.ChooseLanguageFragment
  com.kabaladigital.tingtingu.ui.fragment.login.ChooseLanguageFragment$1
+com/kabaladigital/tingtingu/adapter/ImageAdapter.java
+ com.kabaladigital.tingtingu.adapter.ImageAdapter
 com/kabaladigital/tingtingu/service/GetAdData.java
  com.kabaladigital.tingtingu.service.GetAdData
+com/kabaladigital/tingtingu/RelateToFragment_OnBack/BackPressImplimentation.java
+ com.kabaladigital.tingtingu.RelateToFragment_OnBack.BackPressImplimentation
+com/kabaladigital/tingtingu/Video_Recording/GallerySelectedVideo/GallerySelectedVideo_A.java
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A$1
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A$2
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A$2$1
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A$2$2
+ com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A$3
 com/kabaladigital/tingtingu/ui/fragment/login/RegistrationStep2FragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationStep2FragmentDirections
+com/kabaladigital/tingtingu/SoundLists/Sounds_GetSet.java
+ com.kabaladigital.tingtingu.SoundLists.Sound_catagory_Get_Set
+ com.kabaladigital.tingtingu.SoundLists.Sounds_GetSet
 com/kabaladigital/tingtingu/networking/MobileNumberUpdateRepository.java
  com.kabaladigital.tingtingu.networking.MobileNumberUpdateRepository
  com.kabaladigital.tingtingu.networking.MobileNumberUpdateRepository$1
@@ -446,6 +600,8 @@ com/kabaladigital/tingtingu/ui/fragment/CGroupsFragmentDirections.java
 com/kabaladigital/tingtingu/ui/fragment/points/EarnedPointDebitHistoryFragment.java
  com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointDebitHistoryFragment
  com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointDebitHistoryFragment$1
+com/kabaladigital/tingtingu/databinding/CallerDetailsFragmentChooseBinding.java
+ com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseBinding
 com/kabaladigital/tingtingu/database/dao/StateCityDao.java
  com.kabaladigital.tingtingu.database.dao.StateCityDao
 com/kabaladigital/tingtingu/ui/fragment/profile/ProfileStep2Fragment.java
@@ -464,21 +620,35 @@ com/kabaladigital/tingtingu/viewmodels/ChooseLanguageViewModel.java
  com.kabaladigital.tingtingu.viewmodels.ChooseLanguageViewModel
 com/kabaladigital/tingtingu/databinding/DthRechargeFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.DthRechargeFragmentBinding
+com/kabaladigital/tingtingu/databinding/ActivityMenuBinding.java
+ com.kabaladigital.tingtingu.databinding.ActivityMenuBinding
 com/kabaladigital/tingtingu/databinding/EarnedPointCreditHistoryFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.EarnedPointCreditHistoryFragmentBinding
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChooseDirections.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseDirections
 com/kabaladigital/tingtingu/networking/DeviceCheckRepository.java
  com.kabaladigital.tingtingu.networking.DeviceCheckRepository
  com.kabaladigital.tingtingu.networking.DeviceCheckRepository$1
+com/kabaladigital/tingtingu/viewmodels/CallerDetailsChooseViewModel.java
+ com.kabaladigital.tingtingu.viewmodels.CallerDetailsChooseViewModel
 com/kabaladigital/tingtingu/ui/fragment/login/LoginFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment$1
  com.kabaladigital.tingtingu.ui.fragment.login.LoginFragment$myClickableSpan
+com/kabaladigital/tingtingu/Filter/FilterType.java
+ com.kabaladigital.tingtingu.Filter.FilterType
+ com.kabaladigital.tingtingu.Filter.FilterType$1
 com/kabaladigital/tingtingu/models/ChildObject.java
  com.kabaladigital.tingtingu.models.ChildObject
 com/kabaladigital/tingtingu/databinding/ActivityMainBinding.java
  com.kabaladigital.tingtingu.databinding.ActivityMainBinding
+com/kabaladigital/tingtingu/Class/Custom_ViewPager.java
+ com.kabaladigital.tingtingu.Class.Custom_ViewPager
 com/kabaladigital/tingtingu/databinding/FragmentRechargeHistoryBinding.java
  com.kabaladigital.tingtingu.databinding.FragmentRechargeHistoryBinding
+com/kabaladigital/tingtingu/Video_Recording/Merge_Video_Audio.java
+ com.kabaladigital.tingtingu.Video_Recording.Merge_Video_Audio
+ com.kabaladigital.tingtingu.Video_Recording.Merge_Video_Audio$1
 com/kabaladigital/tingtingu/ui/fragment/login/RegistrationFragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationFragmentDirections
 com/kabaladigital/tingtingu/models/SurveyModel.java
@@ -502,6 +672,15 @@ com/kabaladigital/tingtingu/viewmodels/ProfileViewModel.java
  com.kabaladigital.tingtingu.viewmodels.ProfileViewModel
 com/kabaladigital/tingtingu/databinding/RedeemPointFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.RedeemPointFragmentBinding
+com/kabaladigital/tingtingu/Crop/CropAndRotate_Photo.java
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$1
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$2
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$3
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$3$1
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$4
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$5
+ com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo$6
 com/kabaladigital/tingtingu/adapter/ExpandEarnedPointHistoryAdapter.java
  com.kabaladigital.tingtingu.adapter.ExpandEarnedPointHistoryAdapter
 com/kabaladigital/tingtingu/database/entity/CGroup.java
@@ -510,6 +689,22 @@ com/kabaladigital/tingtingu/databinding/ItemContactBinding.java
  com.kabaladigital.tingtingu.databinding.ItemContactBinding
 com/kabaladigital/tingtingu/viewmodels/OnGoingCallViewModel.java
  com.kabaladigital.tingtingu.viewmodels.OnGoingCallViewModel
+com/kabaladigital/tingtingu/Video_Recording/Video_Recoder_A.java
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$1
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$2
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$3
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$3$1
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$3$2
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$4
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$5
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$5$1
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$6
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$6$1
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$6$2
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$7
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$8
+ com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A$9
 com/kabaladigital/tingtingu/ui/activity/SurveyWebViewActivity.java
  com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity
  com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity$1
@@ -535,12 +730,18 @@ com/kabaladigital/tingtingu/ui/fragment/login/ChooseProfileLanguageFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment$3
 com/kabaladigital/tingtingu/viewmodels/SurveyViewModel.java
  com.kabaladigital.tingtingu.viewmodels.SurveyViewModel
+com/kabaladigital/tingtingu/VideoHelper/Adapter_VideoFolder.java
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$1
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$ViewHolder
 com/kabaladigital/tingtingu/models/OperatorSelectModel.java
  com.kabaladigital.tingtingu.models.OperatorSelectModel
 com/kabaladigital/tingtingu/databinding/MobileRechargeFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.MobileRechargeFragmentBinding
 com/kabaladigital/tingtingu/util/Stopwatch.java
  com.kabaladigital.tingtingu.util.Stopwatch
+com/kabaladigital/tingtingu/Class/CompressImage.java
+ com.kabaladigital.tingtingu.Class.CompressImage
 com/kabaladigital/tingtingu/util/CallManager.java
  com.kabaladigital.tingtingu.util.CallManager
 com/kabaladigital/tingtingu/databinding/ProfileStep2FragmentBinding.java
@@ -551,6 +752,12 @@ com/kabaladigital/tingtingu/adapter/ChooseProfileMultiLangAdapter.java
  com.kabaladigital.tingtingu.adapter.ChooseProfileMultiLangAdapter$ViewHolder
 com/kabaladigital/tingtingu/models/RechargeHistoryModel.java
  com.kabaladigital.tingtingu.models.RechargeHistoryModel
+com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChooseVideo.java
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseVideo
+com/kabaladigital/tingtingu/models/LibraryAddModel.java
+ com.kabaladigital.tingtingu.models.LibraryAddModel
+com/kabaladigital/tingtingu/ImageHelper/Activity_Gallery_Image.java
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image
 com/kabaladigital/tingtingu/networking/ApiInterface.java
  com.kabaladigital.tingtingu.networking.ApiInterface
 com/kabaladigital/tingtingu/database/entity/ActiveStatus.java
@@ -577,6 +784,8 @@ com/kabaladigital/tingtingu/ui/fragment/login/OperatorDetailFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.OperatorDetailFragment$5
 com/kabaladigital/tingtingu/viewmodels/LoginViewModel.java
  com.kabaladigital.tingtingu.viewmodels.LoginViewModel
+com/kabaladigital/tingtingu/Video_Recording/DraftVideos/DraftVideo_Get_Set.java
+ com.kabaladigital.tingtingu.Video_Recording.DraftVideos.DraftVideo_Get_Set
 com/kabaladigital/tingtingu/util/BiometricUtils.java
  com.kabaladigital.tingtingu.util.BiometricUtils
  com.kabaladigital.tingtingu.util.BiometricUtils$FingerprintCallback
@@ -592,15 +801,17 @@ com/kabaladigital/tingtingu/models/IncomingCallAdData.java
  com.kabaladigital.tingtingu.models.IncomingCallAdData
 com/kabaladigital/tingtingu/viewmodels/EarnedPointDebitHistoryViewModel.java
  com.kabaladigital.tingtingu.viewmodels.EarnedPointDebitHistoryViewModel
-com/kabaladigital/tingtingu/databinding/ChooseLanguageFragmentBinding.java
- com.kabaladigital.tingtingu.databinding.ChooseLanguageFragmentBinding
 com/kabaladigital/tingtingu/databinding/ProfileStep1FragmentBinding.java
  com.kabaladigital.tingtingu.databinding.ProfileStep1FragmentBinding
+com/kabaladigital/tingtingu/databinding/ChooseLanguageFragmentBinding.java
+ com.kabaladigital.tingtingu.databinding.ChooseLanguageFragmentBinding
 com/kabaladigital/tingtingu/ui/fragment/recharge/RechargeHistoryFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment
  com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment$1
  com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment$2
  com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment$3
+com/kabaladigital/tingtingu/databinding/CallerDetailsFragmentBinding.java
+ com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentBinding
 com/kabaladigital/tingtingu/ui/fragment/points/EarnedPointCreditHistoryFragment.java
  com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointCreditHistoryFragment
  com.kabaladigital.tingtingu.ui.fragment.points.EarnedPointCreditHistoryFragment$1
@@ -608,11 +819,26 @@ com/kabaladigital/tingtingu/databinding/EndCallAdLayoutBinding.java
  com.kabaladigital.tingtingu.databinding.EndCallAdLayoutBinding
 com/kabaladigital/tingtingu/databinding/FragmentMembershipMessageBinding.java
  com.kabaladigital.tingtingu.databinding.FragmentMembershipMessageBinding
+com/kabaladigital/tingtingu/Video_Recording/Preview_Video_A.java
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$1
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$2
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$3
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$4
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$4$1
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$4$1$1
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$4$2
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$5
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$6
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$6$1
+ com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A$6$2
 com/kabaladigital/tingtingu/database/entity/StateCityModel.java
  com.kabaladigital.tingtingu.database.entity.StateCityModel
 com/kabaladigital/tingtingu/ui/fragment/recharge/DthProcessRechargeFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthProcessRechargeFragment
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthProcessRechargeFragment$1
+com/kabaladigital/tingtingu/Class/Fragment_Callback.java
+ com.kabaladigital.tingtingu.Class.Fragment_Callback
 com/kabaladigital/tingtingu/adapter/OperatorSelectAdapter.java
  com.kabaladigital.tingtingu.adapter.OperatorSelectAdapter
  com.kabaladigital.tingtingu.adapter.OperatorSelectAdapter$1
@@ -625,6 +851,17 @@ com/kabaladigital/tingtingu/ui/fragment/login/RegistrationStep2Fragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationStep2Fragment$2
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationStep2Fragment$3
  com.kabaladigital.tingtingu.ui.fragment.login.RegistrationStep2Fragment$4
+com/kabaladigital/tingtingu/SoundLists/Sounds_Adapter.java
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter$CustomViewHolder
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter$CustomViewHolder$1
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter$CustomViewHolder$2
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter$CustomViewHolder$3
+ com.kabaladigital.tingtingu.SoundLists.Sound_Items_Adapter$OnItemClickListener
+ com.kabaladigital.tingtingu.SoundLists.Sounds_Adapter
+ com.kabaladigital.tingtingu.SoundLists.Sounds_Adapter$1
+ com.kabaladigital.tingtingu.SoundLists.Sounds_Adapter$CustomViewHolder
+ com.kabaladigital.tingtingu.SoundLists.Sounds_Adapter$OnItemClickListener
 com/kabaladigital/tingtingu/databinding/OnGoingCallBinding.java
  com.kabaladigital.tingtingu.databinding.OnGoingCallBinding
 com/kabaladigital/tingtingu/ui/fragment/login/MembershipMessageFragment.java
@@ -635,6 +872,8 @@ com/kabaladigital/tingtingu/database/AppDatabase.java
  com.kabaladigital.tingtingu.database.AppDatabase$1$1
 com/kabaladigital/tingtingu/ui/fragment/base/AbsBaseFragment.java
  com.kabaladigital.tingtingu.ui.fragment.base.AbsBaseFragment
+com/kabaladigital/tingtingu/databinding/ImageViewBinding.java
+ com.kabaladigital.tingtingu.databinding.ImageViewBinding
 com/kabaladigital/tingtingu/databinding/OperatorHomeFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.OperatorHomeFragmentBinding
 com/kabaladigital/tingtingu/util/Operator.java

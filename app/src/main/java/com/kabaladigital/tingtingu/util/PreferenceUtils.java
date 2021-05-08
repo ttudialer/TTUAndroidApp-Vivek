@@ -60,6 +60,12 @@ public class PreferenceUtils {
 
         sDefaultValues.put(R.string.pref_recharge_select_operator_name, "RelianceJIO");
         sDefaultValues.put(R.string.pref_recharge_select_dth_operator_name, "TataSky");
+        sDefaultValues.put(R.string.pref_c_upload_date, "");
+
+        sDefaultValues.put(R.string.pref_profile_path, "");
+        sDefaultValues.put(R.string.u_id, "");
+
+
 
     }
 
@@ -127,6 +133,7 @@ public class PreferenceUtils {
         doCommit();
     }
 
+
     public int getInt(@StringRes int key) {
         return mPref.getInt(mContext.getString(key), (int) getDefaultValue(key));
     }
@@ -175,4 +182,8 @@ public class PreferenceUtils {
         doEdit();
         mEditor.clear().apply();
     }
+
+
+
+
 }

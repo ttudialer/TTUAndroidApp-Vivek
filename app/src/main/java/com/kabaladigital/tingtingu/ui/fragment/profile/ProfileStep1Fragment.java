@@ -88,7 +88,6 @@ public class ProfileStep1Fragment extends Fragment {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinnerAge.setAdapter(spinnerArrayAdapter);
 
-
         binding.btnUpdateBasic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,13 +132,10 @@ public class ProfileStep1Fragment extends Fragment {
                     binding.spinnerCity.setAdapter(adapterCity);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
-
         return binding.getRoot();
     }
 
@@ -182,7 +178,6 @@ public class ProfileStep1Fragment extends Fragment {
                     if (profileInformationModel.getKnownLanguages()!=null && profileInformationModel.getKnownLanguages().size()>0){
                         language.addAll(profileInformationModel.getKnownLanguages());
                     }
-
                 }
             }
         });
@@ -197,7 +192,6 @@ public class ProfileStep1Fragment extends Fragment {
             Type type = new TypeToken<ArrayList<String>>() {}.getType();
             language = gson.fromJson(json, type);
         }
-
 
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<UpdateProfileModel> call = apiInterface.updateProfile(RequestFormatter
@@ -231,7 +225,6 @@ public class ProfileStep1Fragment extends Fragment {
                 Toast.makeText(getContext(), "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private boolean validation() {

@@ -38,6 +38,10 @@
             android:id="@+id/action_operatorHomeFragment_to_surveyFragment"
             app:destination="@id/surveyFragment"
             app:popUpTo="@id/operatorHomeFragment" />
+        <action
+            android:id="@+id/action_operatorHomeFragment_to_viewcallerphotovideo"
+            app:destination="@id/viewcallerphotovideo"
+            app:popUpTo="@id/operatorHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/inviteFriendFragment"
@@ -130,6 +134,59 @@
         android:label="member_ship_fragment"
         tools:layout="@layout/member_ship_fragment" />
     <fragment
+        android:id="@+id/viewcallerphotovideo"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragment"
+        android:label="view_caller_photo_video"
+        tools:layout="@layout/caller_details_fragment" >
+        <action
+            android:id="@+id/action_viewcallerphotovideo_to_viewcalleridchoose"
+            app:destination="@id/viewcalleridchoose"
+            app:popUpTo="@id/viewcallerphotovideo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewcalleridchoose"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose"
+        android:label="view_caller_id_choose"
+        tools:layout="@layout/caller_details_fragment_choose" >
+        <action
+            android:id="@+id/action_viewcalleridchoose_to_videoview"
+            app:destination="@id/videoview"
+            app:popUpTo="@id/viewcalleridchoose" />
+        <action
+            android:id="@+id/action_viewcalleridchoose_to_viewcalleridchooseimage"
+            app:destination="@id/viewcalleridchooseimage"
+            app:popUpTo="@id/viewcalleridchoose" />
+        <action
+            android:id="@+id/action_viewcalleridchoose_to_viewcalleridchoosevideo"
+            app:destination="@id/viewcalleridchoosevideo" />
+        <action
+            android:id="@+id/action_viewcalleridchoose_to_imageview"
+            app:destination="@id/imageview"
+            app:popUpTo="@id/viewcalleridchoose" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewcalleridchooseimage"
+        android:name="com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseImage"
+        android:label="view_caller_id_choose_image"
+        tools:layout="@layout/caller_details_fragment_choose_image" >
+        <action
+            android:id="@+id/action_viewcalleridchooseimage_to_imageview"
+            app:destination="@id/imageview"
+            app:popUpTo="@id/viewcalleridchooseimage" />
+    </fragment>
+    <fragment
+    android:id="@+id/viewcalleridchoosevideo"
+    android:name="com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChooseVideo"
+    android:label="view_caller_id_choose_video"
+    tools:layout="@layout/caller_details_fragment_choose_video" >
+        <action
+            android:id="@+id/action_viewcalleridchoosevideo_to_videoview"
+            app:destination="@id/videoview"
+            app:popUpTo="@id/viewcalleridchoosevideo" />
+    </fragment>
+
+    <fragment
         android:id="@+id/rechargeHistoryFragment"
         android:name="com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragment"
         android:label="RechargeHistoryFragment" >
@@ -149,4 +206,14 @@
         android:name="com.kabaladigital.tingtingu.ui.fragment.SurveyFragment"
         android:label="fragment_survey"
         tools:layout="@layout/fragment_survey" />
+    <fragment
+        android:id="@+id/videoview"
+        android:name="com.kabaladigital.tingtingu.VideoHelper.Videoview"
+        android:label="Videoview"
+        tools:layout="@layout/video_view" />
+    <fragment
+        android:id="@+id/imageview"
+        android:name="com.kabaladigital.tingtingu.ImageHelper.Imageview"
+        android:label="Imageview"
+        tools:layout="@layout/image_view" />
 </navigation>

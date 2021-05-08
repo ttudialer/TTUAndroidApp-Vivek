@@ -43,4 +43,9 @@ public class OperatorHomeFragmentDirections {
   public static NavDirections actionOperatorHomeFragmentToSurveyFragment() {
     return new ActionOnlyNavDirections(R.id.action_operatorHomeFragment_to_surveyFragment);
   }
+
+  @NonNull
+  public static NavDirections actionOperatorHomeFragmentToViewcallerphotovideo() {
+    return new ActionOnlyNavDirections(R.id.action_operatorHomeFragment_to_viewcallerphotovideo);
+  }
 }

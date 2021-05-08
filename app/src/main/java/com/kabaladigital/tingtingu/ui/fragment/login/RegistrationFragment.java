@@ -125,9 +125,7 @@ public class RegistrationFragment extends Fragment {
                 allCityListStateWiseLists.clear();
                 allCityListStateWiseLists.add("Select District");
                 if (position != 0) {
-
                     allCityListStateWiseLists = mRepository.getCityListStateWise(binding.spinnerState.getSelectedItem().toString());
-
                     ArrayAdapter<String> adapterCity = new ArrayAdapter<String>(binding.spinnerCity.getContext(),
                             android.R.layout.simple_spinner_item, allCityListStateWiseLists);
                     adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -139,10 +137,8 @@ public class RegistrationFragment extends Fragment {
                     binding.spinnerCity.setAdapter(adapterCity);
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
 
@@ -151,12 +147,10 @@ public class RegistrationFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(RegistrationViewModel.class);
         // TODO: Use the ViewModel
     }
-
 
     private boolean validation() {
         String name=binding.etFullName.getText().toString();
@@ -253,13 +247,11 @@ public class RegistrationFragment extends Fragment {
                     Toast.makeText(getContext(), ""+response.body().getMessage(), Toast.LENGTH_SHORT).show();
                   nextFragment();
                }
-
             }
 
             @Override
             public void onFailure(Call<UpdateProfileModel> call, Throwable t) {
                 Log.d("onFailure",t.getMessage());
-
                 Toast.makeText(getContext(), "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

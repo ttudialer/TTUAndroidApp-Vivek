@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:crop="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.theartofdev.edmodo.cropper.CropImageView
+        android:id="@+id/cropImageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_rotate_right_white_24dp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:elevation="0sp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#7df1e7"
+        android:tint="#ffffff"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_rotate_left_white_24dp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:elevation="0sp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#7df1e7"
+        android:tint="#ffffff"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextStep"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/ic_done_white_24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/wait_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

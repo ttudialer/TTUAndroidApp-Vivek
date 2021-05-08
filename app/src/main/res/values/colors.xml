@@ -84,4 +84,18 @@
 
 
     <color name="ongoing_call_button_background">#545454</color>
+
+
+    <color name="black_65">#1E1F24</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="cyan">#0CE3D0</color>
+    <color name="fifty_transparent_black">#802F2F2F</color>
+    <color name="dark_gray">#8E8E93</color>
+    <color name="graycolor">#D3D3D3</color>
+    <color name="darkgray">#93959A</color>
+    <color name="black75">#15161A</color>
+    <color name="lightgraycolor">#f2f2f2</color>
+    <color name="thumb_background_color">#000000</color>
+
+    <color name="profile_video_back">#424242</color>
 </resources>

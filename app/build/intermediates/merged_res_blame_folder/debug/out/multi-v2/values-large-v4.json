@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Workspace\\D\\DialerProject\\TTUAndroidApp-Vivek\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\INDIA\\.gradle\\caches\\transforms-2\\files-2.1\\11e6eaa1138d2a46408f70340446c6ce\\material-1.0.0\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,177",
-                        "endColumns": "121,133",
-                        "endOffsets": "172,306"
-                    },
-                    "to": {
-                        "startLines": "12,13",
-                        "startColumns": "4,4",
-                        "startOffsets": "811,933",
-                        "endColumns": "121,133",
-                        "endOffsets": "928,1062"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\INDIA\\.gradle\\caches\\transforms-2\\files-2.1\\44aae3f29125dbf7134ee1142eced72b\\appcompat-1.0.2\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\dfe8f88acfd80aaf3bdd275b32c747eb\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\INDIA\\.gradle\\caches\\transforms-2\\files-2.1\\9ca76fb8a180cabafcb182db2e1b4ab3\\jetified-commons-3.0.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\9ca76fb8a180cabafcb182db2e1b4ab3\\jetified-commons-3.0.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -52,6 +35,23 @@
                         "startOffsets": "532",
                         "endColumns": "58",
                         "endOffsets": "586"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\11e6eaa1138d2a46408f70340446c6ce\\material-1.0.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,177",
+                        "endColumns": "121,133",
+                        "endOffsets": "172,306"
+                    },
+                    "to": {
+                        "startLines": "12,13",
+                        "startColumns": "4,4",
+                        "startOffsets": "811,933",
+                        "endColumns": "121,133",
+                        "endOffsets": "928,1062"
                     }
                 }
             ]

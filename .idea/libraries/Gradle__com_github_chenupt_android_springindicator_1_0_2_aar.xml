@@ -4,6 +4,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d39b1d58c2c3bdd1f5ff30b48346944/jetified-springindicator-1.0.2/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d39b1d58c2c3bdd1f5ff30b48346944/jetified-springindicator-1.0.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4d39b1d58c2c3bdd1f5ff30b48346944/jetified-springindicator-1.0.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/580907745d26eb9817ad6da2214f3ca8/jetified-springindicator-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/580907745d26eb9817ad6da2214f3ca8/jetified-springindicator-1.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/580907745d26eb9817ad6da2214f3ca8/jetified-springindicator-1.0.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.chenupt.android/springindicator/1.0.2/6818b52243a1a731a06d33fcae8bb48ddf42943d/springindicator-1.0.2-javadoc.jar!/" />

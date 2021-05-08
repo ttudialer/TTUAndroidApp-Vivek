@@ -56,4 +56,8 @@
 
     <!-- About activity -->
     <dimen name="about_page_padding">10dp</dimen>
+
+    <dimen name="add_sound_txt_width">120dp</dimen>
+    <dimen name="thumbnail_size">80dp</dimen>
+
 </resources>

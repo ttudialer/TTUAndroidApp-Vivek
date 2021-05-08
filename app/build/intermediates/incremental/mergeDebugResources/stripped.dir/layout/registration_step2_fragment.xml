@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                               
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:background="@color/colorScreenBackground"
+    tools:context=".ui.fragment.login.RegistrationStep2Fragment" android:tag="layout/registration_step2_fragment_0" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:hint="@string/reg_email"
+        android:inputType="textNoSuggestions"
+        android:layout_marginTop="5dp"/>
+
+
+    <TextView
+        android:id="@+id/et_language_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/reg_lang"
+        android:background="@drawable/spinner_selector"
+        android:clickable="true"
+        android:textSize="16sp"
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="5dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_education"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_selector"
+        android:clickable="true"
+        android:entries="@array/choose_education"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_profession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_selector"
+        android:clickable="true"
+        android:entries="@array/choose_profession"
+        android:textSize="16sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_address_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:hint="Address line 1"
+        android:inputType="textLongMessage"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/et_address_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:hint="Address line 2"
+        android:inputType="textLongMessage"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/et_address_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        android:hint="Address line 3"
+        android:inputType="textLongMessage"
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="@string/reg_regist_now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_provide_later"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="@string/reg_provide"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+         
