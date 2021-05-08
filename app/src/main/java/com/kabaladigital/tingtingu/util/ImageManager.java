@@ -1,12 +1,21 @@
 package com.kabaladigital.tingtingu.util;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -95,16 +104,44 @@ public class ImageManager {
     // Incoming Image Ad
     public static void setIncomingCallImageAd(ImageView imageView, IncomingCallAdData incomingCallAdData){
         Random rand = new Random();
+
         int []imageArray = {R.drawable.ic_image_1,R.drawable.ic_image_2,R.drawable.ic_image_3
                 ,R.drawable.ic_image_4,R.drawable.ic_image_5,R.drawable.ic_image_6};
         if (incomingCallAdData==null){
             imageView.setImageResource(R.drawable.default_incoming);
         }else {
             try {
+                Log.d("uri3",""+Uri.parse(incomingCallAdData.getUri()).toString());
                 imageView.setImageURI(Uri.parse(incomingCallAdData.getUri()));
             }catch (Exception e){
                 imageView.setImageResource(R.drawable.default_incoming);
             }
         }
     }
+
+
+    public static void setIncomingCallImageAd_2(ImageView imageView, String path, Context ctx){
+        Random rand = new Random();
+
+        int []imageArray = {R.drawable.ic_image_1,R.drawable.ic_image_2,R.drawable.ic_image_3
+                ,R.drawable.ic_image_4,R.drawable.ic_image_5,R.drawable.ic_image_6};
+
+        if (path==null){
+            imageView.setImageResource(R.drawable.default_incoming);
+        }else {
+            try {
+                //Bitmap bmp = BitmapFactory.decodeFile(path);
+                File file = new File(path);
+                Bitmap b = BitmapFactory.decodeStream(new FileInputStream(file));
+                imageView.setImageBitmap(b);
+
+            }catch (Exception e){
+                e.printStackTrace();
+                imageView.setImageResource(R.drawable.default_incoming);
+            }
+        }
+    }
+
+
+
 }

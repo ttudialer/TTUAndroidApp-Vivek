@@ -2,9 +2,12 @@ package com.kabaladigital.tingtingu.ui.activity;
 
 import android.app.AlarmManager;
 import android.app.DownloadManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,11 +15,13 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,9 +34,13 @@ import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.database.DataRepository;
 import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
+import com.kabaladigital.tingtingu.models.ProfileAdv;
+import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
+import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
+import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
 import com.kabaladigital.tingtingu.util.Installation;
@@ -40,6 +49,11 @@ import com.kabaladigital.tingtingu.util.Utilities;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Random;
 
 import okhttp3.MultipartBody;
@@ -47,6 +61,8 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,11 +74,17 @@ public class MainActivity extends AppCompatActivity {
     String mIntentType;
 
     ActivityMainBinding binding;
-    DownloadManager downloadManager;
+    DownloadManager downloadManager_2;
+    ArrayList<Long> list = new ArrayList<>();
+    private Uri Download_Uri;
+    private long refid;
+    Context ctx = MainActivity.this;
 
     public static final String MESSAGE_STATUS = "MainActivity";
 
     DataRepository repository;
+
+    private DownloadManager downloadManager;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -70,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        registerReceiver(onComplete,
+                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         Installation.id(this);
         setSupportActionBar(binding.toolbarMainActivity);
@@ -109,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
 
         //downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
-        //download();
+
+        getprofile();
 
         //Notification
 //        ShowNotificationAd.createNotification(this);
@@ -199,17 +225,83 @@ public class MainActivity extends AppCompatActivity {
                 , pendingIntent);
     }
 
-    /*private void download() {
-        Uri Download_Uri = Uri.parse("https://storage.googleapis.com/ttu-production/ProfileAdv/1619779642670-Tik-tok.mp4");
-        DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
-        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
-        request.setAllowedOverRoaming(false);
-        request.setTitle("TTUPROFILE" + "9350043415" + ".mp4");
-        request.setDescription("TTUPROFILE" + "9350043415" + ".mp4");
-        request.setVisibleInDownloadsUi(true);
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"  + "/" + "9350043415" + ".mp4");
-        long refid = downloadManager.enqueue(request);
-    }*/
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void download() {
+        //ArrayList<String>phone_no_arr = new ArrayList<>();
+
+        for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
+        {
+            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
+            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
+            //String path = String.valueOf(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE/"  + "/" + phone_no + ".mp4");
+            //String path = String.valueOf(ctx.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE"  + "/" + phone_no + ".mp4"));
+            //Log.d("path",path);
+
+           /* Download_Uri = Uri.parse(url);
+            DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+            request.setAllowedOverRoaming(false);
+            request.setTitle("TTUPROFILE" + phone_no + ".mp4");
+            request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+            request.setVisibleInDownloadsUi(true);
+            request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/"   + phone_no + ".mp4");
+            refid = downloadManager_2.enqueue(request);
+            Log.e("OUTNM", "" + refid);
+            list.add(refid);*/
+
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+    public void getprofile()
+    {
+        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
+        call.enqueue(new Callback<ProfileResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if (response.body()!= null)
+                    {
+                        SharesPreference.saveprofile(getApplicationContext(),response.body());
+                        download();
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+
+
+
 
 
 
@@ -372,6 +464,7 @@ public class MainActivity extends AppCompatActivity {
         {
             startActivity(new Intent(this, OngoingCallActivity.class));
         }
+        unregisterReceiver(onComplete);
 
     }
 
@@ -384,4 +477,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+    BroadcastReceiver onComplete = new BroadcastReceiver()
+    {
+
+        public void onReceive(Context ctxt, Intent intent) {
+            long referenceId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+            Log.e("IN", "" + referenceId);
+            list.remove(referenceId);
+            if (list.isEmpty())
+            {
+                Log.e("INSIDE", "" + referenceId);
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(MainActivity.this)
+                                .setSmallIcon(R.mipmap.ic_launcher)
+                                .setContentTitle("TTU")
+                                .setContentText("All Download completed");
+                NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.notify(455, mBuilder.build());
+            }
+        }
+    };
+
+
 }

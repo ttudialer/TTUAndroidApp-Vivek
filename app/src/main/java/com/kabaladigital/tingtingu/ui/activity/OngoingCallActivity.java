@@ -13,12 +13,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
@@ -67,6 +70,7 @@ import com.kabaladigital.tingtingu.models.Caller_Id;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.ui.fragment.DialpadFragment;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
@@ -78,6 +82,7 @@ import com.kabaladigital.tingtingu.util.VideoManager;
 import com.kabaladigital.tingtingu.viewmodels.OnGoingCallViewModel;
 import com.kabaladigital.tingtingu.viewmodels.SharedDialViewModel;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -88,6 +93,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.regex.Pattern;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -261,6 +267,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             displayInformation();
         }
 
+
+
         // Initiate PowerManager and WakeLock (turn screen on/off according to distance from face)
         try {
             field = PowerManager.class.getField("PROXIMITY_SCREEN_OFF_WAKE_LOCK").getInt(null);
@@ -343,6 +351,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //        binding.ongoingCallLayout.optionBtn.setOnClickListener(this);
         binding.ongoingCallLayout.buttonMerge.setOnClickListener(this);
         binding.ongoingCallLayout.rejectBtn.setOnClickListener(this);
+
+
+        //showAd_2();
 
     }
 
@@ -1577,6 +1588,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         
         Contact callerContact = CallManager.getDisplayContact(this);
         String callerName = callerContact.getName();
+
         Log.d("name",callerName);
 
         if (callerName.equals("")){
@@ -1727,9 +1739,36 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    private void showAd(Caller_Id callerId){
+    private void showAd(Caller_Id callerId)
+    {
 
-        CampaignAdsPlayOrder campaignAdsPlayOrderList;
+        Contact callerContact = CallManager.getDisplayContact(this);
+        //Log.d("incomingno",callerContact.getMainPhoneNumber());
+        String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
+        //Log.d("phone", phone_no);
+
+        String path_video = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".mp4";
+        String path_img = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".jpg";
+
+        File vidFile = new  File(path_video);
+        File imgFile = new  File(path_img);
+
+        if(vidFile.exists())
+        {
+            //video file to show
+            VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
+                ,this,false,path_video);
+            videoType = 1;
+        }
+        else if(imgFile.exists())
+        {
+            //image file show when incoming call
+            ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                    ,path_img,ctx);
+
+        }
+
+        /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
         // Get Ad Camp
         if (callerId == null){
             campaignAdsPlayOrderList = mRepository.getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming","4");
@@ -1762,8 +1801,72 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
             binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
             ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
-        }
+        }*/
+
     }
+
+
+
+
+
+    private void showAd_2()
+    {
+        String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
+        String path = String.valueOf(ctx.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE/"  + "/" + phone_no + ".mp4"));
+
+        File imgFile = new  File(path);
+        if(imgFile.exists()){
+            //Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            //ImageView myImage = (ImageView) findViewById(R.id.imageviewTest);
+            //myImage.setImageBitmap(myBitmap);
+            //ImageManager.setIncomingCallImageAd()
+
+            VideoManager.play43IncomingAd_2(binding.incomingCallLayout.videoPlaceholder
+                    ,this,false,path);
+            videoType = 1;
+
+        }
+
+        /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
+        // Get Ad Camp
+        if (callerId == null){
+            campaignAdsPlayOrderList = mRepository.getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming","4");
+        }else {
+            campaignAdsPlayOrderList = mRepository.getIncomingCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming Caller","4",callerId.getEmployeeData().getClientName());
+        }
+
+        if (campaignAdsPlayOrderList!=null){
+            incomingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+
+            // Show Video Ad or Full Screen Video Ad or Image Ad
+            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("4:3")){
+                VideoManager.play43IncomingAd(binding.incomingCallLayout.videoPlaceholder
+                        ,this,false,incomingCallAdData);
+                videoType = 1;
+            }
+            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("Full Screen")) {
+                VideoManager.playFullScreenIncomingAd(binding.incomingCallLayout.videoFullscreenPlaceholder
+                        ,this,false,incomingCallAdData);
+                videoType = 2;
+            }
+            if (incomingCallAdData.getAdType().equals("Image")) {
+                VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
+            }
+
+            mRepository.updatePlayCount(incomingCallAdData.getCampId());
+        } else {
+            VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
+            binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+            ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
+        }*/
+
+
+
+    }
+
+
 
     private void switchView(){
         // Stop Full Screen Video
@@ -2028,6 +2131,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     }
 
+
+
+
     public void deleteAppData() {
         try {
             // clearing app data
@@ -2038,4 +2144,25 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         } catch (Exception e) {
             e.printStackTrace();
         } }
+
+    public String phoeNumberWithOutCountryCode(String phoneNumberWithCountryCode) {
+        String str_getMOBILE = "";
+        if(phoneNumberWithCountryCode.startsWith("+"))
+        {
+            if(phoneNumberWithCountryCode.length()==13)
+            {
+              str_getMOBILE=phoneNumberWithCountryCode.substring(3);
+            }
+            else if(phoneNumberWithCountryCode.length()==14)
+            {
+              str_getMOBILE=phoneNumberWithCountryCode.substring(4);
+            }
+        }
+        return  str_getMOBILE;
+    }
+
+
+
+
+
 }

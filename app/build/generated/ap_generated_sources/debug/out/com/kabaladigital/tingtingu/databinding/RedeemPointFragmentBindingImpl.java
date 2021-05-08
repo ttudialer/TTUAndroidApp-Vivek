@@ -42,7 +42,6 @@ public class RedeemPointFragmentBindingImpl extends RedeemPointFragmentBinding  
             , (android.widget.RadioButton) bindings[3]
             , (android.widget.RadioGroup) bindings[2]
             );
-        setContainedBinding(this.layoutWb);
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);

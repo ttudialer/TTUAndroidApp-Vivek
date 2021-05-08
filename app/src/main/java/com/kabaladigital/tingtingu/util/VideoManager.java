@@ -4,6 +4,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -198,6 +199,7 @@ public class VideoManager {
             u = Uri.parse(videoFile);
         }
 
+        Log.d("uri2",""+u);
         mPlaceholderVideo.setVideoURI(u);
 
         mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -215,9 +217,52 @@ public class VideoManager {
         mPlaceholderVideo.start();
     }
 
+
+
+    public static void playFullScreenIncomingAd_2(VideoView mPlaceholderVideo
+            , Context context, boolean playSound
+            ,String path){
+
+        mediaController  = new MediaController(context);
+        mediaController.setAnchorView(mPlaceholderVideo);
+
+        Uri u;
+
+        if (path!=null){
+            try {
+                u = Uri.parse(path);
+            }catch (Exception e){
+                String videoFile = returnRandomVideoPath(1);
+                u = Uri.parse(videoFile);
+            }
+        }else {
+            String videoFile = returnRandomVideoPath(1);
+            u = Uri.parse(videoFile);
+        }
+
+        mPlaceholderVideo.setVideoURI(u);
+
+        mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                if (playSound){
+                    mp.setVolume(50, 50);
+                }else{
+                    mp.setVolume(0, 0);
+                }
+            }
+        });
+        mPlaceholderVideo.start();
+    }
+
+
+
     public static void play43IncomingAd(VideoView mPlaceholderVideo
             , Context context, boolean playSound
             ,IncomingCallAdData incomingCallAdData){
+
         mediaController  = new MediaController(context);
         mediaController.setAnchorView(mPlaceholderVideo);
 
@@ -234,6 +279,8 @@ public class VideoManager {
             u = Uri.parse(videoFile);
         }
 
+        Log.d("uri1",""+u);
+
         mPlaceholderVideo.setVideoURI(u);
         mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
@@ -248,4 +295,36 @@ public class VideoManager {
         });
         mPlaceholderVideo.start();
     }
+
+
+
+
+    public static void play43IncomingAd_2(VideoView mPlaceholderVideo
+            , Context context, boolean playSound
+            ,String path){
+
+        mediaController  = new MediaController(context);
+        mediaController.setAnchorView(mPlaceholderVideo);
+
+        Uri u;
+        u = Uri.parse(path);
+        mPlaceholderVideo.setVideoURI(u);
+        mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                if (playSound){
+                    mp.setVolume(50, 50);
+                }else{
+                    mp.setVolume(0, 0);
+                }
+            }
+        });
+        mPlaceholderVideo.start();
+    }
+
+
+
+
+
 }

@@ -30,7 +30,7 @@ import java.util.concurrent.Executors;
 
 @Database(entities = {CGroup.class, Contact.class
         , CampaignAds.class, IncomingCallAdData.class,
-         StateCityModel.class, CampaignAdsPlayOrder.class, CampaignLogs.class, ActiveStatus.class}, version = 8)
+         StateCityModel.class, CampaignAdsPlayOrder.class, CampaignLogs.class, ActiveStatus.class}, version = 10)
 
 public abstract class AppDatabase extends RoomDatabase {
 

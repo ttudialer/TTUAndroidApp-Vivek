@@ -38,6 +38,7 @@ public abstract class ActivityEndCallBinding extends ViewDataBinding {
     this.btnShare = btnShare;
     this.ivFullScreenEndCallAd = ivFullScreenEndCallAd;
     this.layoutDetails = layoutDetails;
+    setContainedBinding(this.layoutDetails);
     this.layoutEndCallAd = layoutEndCallAd;
   }
 
