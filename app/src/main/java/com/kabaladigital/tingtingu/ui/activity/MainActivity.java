@@ -32,9 +32,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
-import com.kabaladigital.tingtingu.util.PreferenceUtils;
-import com.kabaladigital.tingtingu.networking.ApiInterface;
+
+import com.kabaladigital.tingtingu.database.AppDatabase;
+import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
+import com.kabaladigital.tingtingu.networking.ApiClient2;
+import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.service.SharesPreference;
+import com.kabaladigital.tingtingu.util.CallManager;
+import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
 
 
@@ -46,25 +52,18 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.R;
-import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.database.DataRepository;
 import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
 
 import com.kabaladigital.tingtingu.models.ContactUploadModel;
 
-import com.kabaladigital.tingtingu.models.ProfileAdv;
-import com.kabaladigital.tingtingu.models.ProfileResponse;
 
-
-import com.kabaladigital.tingtingu.networking.ApiClient2;
 
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
-import com.kabaladigital.tingtingu.service.SharesPreference;
-import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
 import com.kabaladigital.tingtingu.util.Installation;
-
 import com.kabaladigital.tingtingu.util.Utilities;
+
 
 import org.json.JSONObject;
 
@@ -92,6 +91,7 @@ import static com.google.firebase.crashlytics.internal.Logger.TAG;
 
 public class MainActivity extends AppCompatActivity {
 
+    Integer _abc=0; // created by deepak
     private static final String TAG_CHANGELOG_DIALOG = "changelog";
     String jsonStr;
     JsonArray jsonArrayContact = new JsonArray();
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
     private Uri Download_Uri;
     private long refid;
     Context ctx = MainActivity.this;
+
 
 
     public static final String MESSAGE_STATUS = "MainActivity";

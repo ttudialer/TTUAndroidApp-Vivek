@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-v13/values-sw720dp-v13.xml",
+            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/1fe4851a083e5038acb364bf3d78c44e/jetified-core-3.0.0/res/values-sw720dp-v13/values-sw720dp-v13.xml",
+                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\1fe4851a083e5038acb364bf3d78c44e\\jetified-core-3.0.0\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
