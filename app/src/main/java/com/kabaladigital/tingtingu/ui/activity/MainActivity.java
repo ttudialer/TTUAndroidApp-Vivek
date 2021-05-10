@@ -4,13 +4,13 @@ import android.app.AlarmManager;
 import android.app.DownloadManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-<<<<<<< HEAD
+
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
-=======
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
 import android.os.SystemClock;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -32,6 +32,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
+import com.kabaladigital.tingtingu.util.PreferenceUtils;
+import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.networking.ApiClient;
+
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,35 +49,35 @@ import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.database.DataRepository;
 import com.kabaladigital.tingtingu.databinding.ActivityMainBinding;
-<<<<<<< HEAD
+
 import com.kabaladigital.tingtingu.models.ContactUploadModel;
-=======
+
 import com.kabaladigital.tingtingu.models.ProfileAdv;
 import com.kabaladigital.tingtingu.models.ProfileResponse;
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
-import com.kabaladigital.tingtingu.networking.ApiClient;
+
+
 import com.kabaladigital.tingtingu.networking.ApiClient2;
-import com.kabaladigital.tingtingu.networking.ApiInterface;
+
 import com.kabaladigital.tingtingu.service.MyBroadCastReceiver;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
 import com.kabaladigital.tingtingu.util.Installation;
-import com.kabaladigital.tingtingu.util.PreferenceUtils;
+
 import com.kabaladigital.tingtingu.util.Utilities;
 
 import org.json.JSONObject;
 
-<<<<<<< HEAD
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-=======
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
 import java.util.Random;
 
 import okhttp3.MultipartBody;
@@ -96,15 +101,15 @@ public class MainActivity extends AppCompatActivity {
     String mIntentType;
 
     ActivityMainBinding binding;
-<<<<<<< HEAD
-=======
+
+
     DownloadManager downloadManager_2;
     ArrayList<Long> list = new ArrayList<>();
     private Uri Download_Uri;
     private long refid;
     Context ctx = MainActivity.this;
 
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
     public static final String MESSAGE_STATUS = "MainActivity";
     DataRepository repository;
 
@@ -160,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-<<<<<<< HEAD
+
         String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
         String _DBtime=   PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
         if(_ctime.equalsIgnoreCase(_DBtime)==false) {
@@ -170,13 +175,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }).start();
         }
-=======
+
         //downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
 
         getprofile();
 
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
         //Notification
 //        ShowNotificationAd.createNotification(this);
 //        ShowNotificationAd.createImageWithCallNotification(this);
@@ -264,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
                 , pendingIntent);
     }
 
-<<<<<<< HEAD
+
     private void uploadContact(JsonObject contactListObj){
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
@@ -287,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-=======
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void download() {
         //ArrayList<String>phone_no_arr = new ArrayList<>();
@@ -367,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
 
     private void ReadContactDetailsJson() {
 

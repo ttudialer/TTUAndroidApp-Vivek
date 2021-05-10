@@ -973,7 +973,7 @@ class NeuQuant {
     }
 }
 
-//	 ==============================================================================
+//	 =
 //	 Adapted from Jef Poskanzer's Java port by way of J. M. G. Elliott.
 //	 K Weiner 12/00
 

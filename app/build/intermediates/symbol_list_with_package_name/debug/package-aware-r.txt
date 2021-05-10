@@ -2041,16 +2041,13 @@ id CropProgressBar
 id CubeGrid
 id DoubleBounce
 id FUNCTION
-<<<<<<< HEAD
 id FadingCircle
 id FoldingCube
 id Goback
-id ImageView
-id ImageView_image
-=======
 id IB_expanded_answer
 id IB_expanded_end
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+id ImageView
+id ImageView_image
 id META
 id MultiplePulse
 id MultiplePulseRing
@@ -2477,11 +2474,8 @@ id image_operator
 id image_operator_home
 id image_photo
 id image_placeholder
-<<<<<<< HEAD
-id imageview
-=======
 id image_view_expanded
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+id imageview
 id img_icon
 id img_operator
 id incoming_call_layout

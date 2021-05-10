@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-<!--    <uses-permission android:name="android.permission.READ_CALL_LOG" />-->
+    <!--    <uses-permission android:name="android.permission.READ_CALL_LOG" />-->
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -20,15 +20,15 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-<<<<<<< HEAD
+
     <uses-feature    android:name="android.hardware.camera" android:required="true" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-=======
+
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
 
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
+
     <application
         android:name="com.kabaladigital.tingtingu.App"
         android:allowBackup="false"
@@ -60,8 +60,8 @@
         <activity
             android:name="com.kabaladigital.tingtingu.ui.activity.MainActivity"
             android:exported="true"
-<<<<<<< HEAD
-            />
+
+        />
         <activity
             android:name="com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview"
             android:exported="true"
@@ -70,182 +70,182 @@
             android:name="com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image"
             android:exported="true"
             />
-=======
-            >
-
-
-
-        </activity>
-
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
-        <activity
-            android:name="com.kabaladigital.tingtingu.ui.activity.LoginActivity"
-            android:label="@string/app_name"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-
-            <!-- For receiving intents -->
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="terms" />
-                <data android:scheme="privacy" />
-                <data android:mimeType="image/*" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND_MULTIPLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="image/*" />
-            </intent-filter>
-
-            <!-- From Google's Dialer App -->
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:mimeType="vnd.android.cursor.item/phone" />
-                <data android:mimeType="vnd.android.cursor.item/person" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="voicemail" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <action android:name="android.intent.action.DIAL" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="tel" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.CALL_BUTTON" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-
-
-        </activity>
-
-        <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
-
-        <activity
-            android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
-            android:label="@string/activity_ongoing_call"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            android:allowTaskReparenting="false"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-            android:permission="android.permission.USE_SIP"
-            android:taskAffinity=""/>
-
-        <activity android:name=".Crop.CropAndRotate_Photo"
-                  android:theme="@style/Base.Theme.AppCompat"/>
-
-
-        <service
-            android:name="com.kabaladigital.tingtingu.service.CallService"
-            android:permission="android.permission.BIND_INCALL_SERVICE">
-            <meta-data
-                android:name="android.telecom.IN_CALL_SERVICE_UI"
-                android:value="true" />
-
-            <intent-filter>
-                <action android:name="android.telecom.InCallService" />
-            </intent-filter>
-        </service>
-
-        <receiver android:name="com.kabaladigital.tingtingu.listener.NotificationActionReceiver">
-            <intent-filter>
-                <action android:name="ANSWER" />
-                <action android:name="HANGUP" />
-            </intent-filter>
-        </receiver>
-
-
-        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
-
-        <receiver android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver" android:exported="true">
-
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
 
 
 
 
+
+
+
+
+    <activity
+        android:name="com.kabaladigital.tingtingu.ui.activity.LoginActivity"
+        android:label="@string/app_name"
+        android:launchMode="singleInstance"
+        android:screenOrientation="portrait">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.BROWSABLE" />
+        </intent-filter>
+
+        <!-- For receiving intents -->
+        <intent-filter>
+            <action android:name="android.intent.action.SEND" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:scheme="terms" />
+            <data android:scheme="privacy" />
+            <data android:mimeType="image/*" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.SEND" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:mimeType="text/plain" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.SEND_MULTIPLE" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <data android:mimeType="image/*" />
+        </intent-filter>
+
+        <!-- From Google's Dialer App -->
+        <intent-filter>
+            <action android:name="android.intent.action.DIAL" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:mimeType="vnd.android.cursor.item/phone" />
+            <data android:mimeType="vnd.android.cursor.item/person" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.DIAL" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="voicemail" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.DIAL" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <action android:name="android.intent.action.DIAL" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="tel" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.CALL_BUTTON" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+        </intent-filter>
+
+
+    </activity>
+
+    <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
+
+    <activity
+        android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
+        android:label="@string/activity_ongoing_call"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme"
+        android:allowTaskReparenting="false"
+        android:excludeFromRecents="true"
+        android:launchMode="singleTask"
+        android:permission="android.permission.USE_SIP"
+        android:taskAffinity=""/>
+
+    <activity android:name=".Crop.CropAndRotate_Photo"
+        android:theme="@style/Base.Theme.AppCompat"/>
+
+
+    <service
+        android:name="com.kabaladigital.tingtingu.service.CallService"
+        android:permission="android.permission.BIND_INCALL_SERVICE">
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+            android:name="android.telecom.IN_CALL_SERVICE_UI"
+            android:value="true" />
 
+        <intent-filter>
+            <action android:name="android.telecom.InCallService" />
+        </intent-filter>
+    </service>
+
+    <receiver android:name="com.kabaladigital.tingtingu.listener.NotificationActionReceiver">
+        <intent-filter>
+            <action android:name="ANSWER" />
+            <action android:name="HANGUP" />
+        </intent-filter>
+    </receiver>
+
+
+    <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
+
+    <receiver android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver" android:exported="true">
+
+        <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+        </intent-filter>
+    </receiver>
+
+
+
+
+    <meta-data
+        android:name="preloaded_fonts"
+        android:resource="@array/preloaded_fonts" />
+
+    <meta-data
+        android:name="firebase_crashlytics_collection_enabled"
+        android:value="${crashlyticsCollectionEnabled}" /> <!-- Kotlin Classes Deceleration -->
+
+
+
+    <receiver
+        android:name="com.kabaladigital.tingtingu.service.MyBroadCastReceiver"
+        android:directBootAware="true"
+        android:enabled="true"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+
+        </intent-filter>
+    </receiver>
+
+    <service
+        android:name="com.kabaladigital.tingtingu.service.MyService"
+        android:enabled="true"
+        android:exported="false"
+        android:process=":remote" />
+
+    <service
+        android:name=".service.MyFirebaseMessagingService"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
+
+
+    <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="${applicationId}.provider"
+        android:exported="false"
+        android:grantUriPermissions="true"
+        tools:replace="android:authorities">
         <meta-data
-            android:name="firebase_crashlytics_collection_enabled"
-            android:value="${crashlyticsCollectionEnabled}" /> <!-- Kotlin Classes Deceleration -->
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_path"/>
+    </provider>
 
 
 
-        <receiver
-            android:name="com.kabaladigital.tingtingu.service.MyBroadCastReceiver"
-            android:directBootAware="true"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
-
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.kabaladigital.tingtingu.service.MyService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":remote" />
-
-        <service
-            android:name=".service.MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-<<<<<<< HEAD
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true"
-            tools:replace="android:authorities">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_path"/>
-        </provider>
-=======
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd
 
 
-
-    </application>
+</application>
 
 </manifest>

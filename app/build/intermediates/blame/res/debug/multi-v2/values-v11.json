@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD:app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-v11.json
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\0ebfe6ad9e84a687ad57f8b15509e0b2\\jetified-core-3.0.0\\res\\values-v11\\values-v11.xml",
-=======
             "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
                     "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/1fe4851a083e5038acb364bf3d78c44e/jetified-core-3.0.0/res/values-v11/values-v11.xml",
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd:app/build/intermediates/blame/res/debug/multi-v2/values-v11.json
                     "from": {
                         "startLines": "2,19",
                         "startColumns": "4,4",

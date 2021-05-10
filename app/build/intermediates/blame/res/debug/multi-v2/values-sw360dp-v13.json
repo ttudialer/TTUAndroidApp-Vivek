@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD:app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sw360dp-v13.json
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw360dp-v13\\values-sw360dp-v13.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\63307c82752dfa500237ccb6e42a52d0\\preference-1.0.0\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
-=======
             "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
                     "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/fbcdfa9712177e1e559736e23e533ab7/preference-1.0.0/res/values-sw360dp-v13/values-sw360dp-v13.xml",
->>>>>>> 690f5fef70b7b9b3265bdda514b7c8ba275791dd:app/build/intermediates/blame/res/debug/multi-v2/values-sw360dp-v13.json
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

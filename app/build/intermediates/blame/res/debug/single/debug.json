@@ -12,12 +12,16 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/survey.png"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_survey_web_view.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_survey_web_view.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_menu.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_menu.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_survey_web_view.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_survey_web_view.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_end_call_ad_layout.xml.flat",
@@ -30,6 +34,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_fragment_cgroups.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/fragment_cgroups.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_bg_filter.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_bg_filter.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_two_line.xml.flat",
@@ -72,16 +80,20 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/tab_color_selector.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_overlay_answer_call_options.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/overlay_answer_call_options.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_in_from_left.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/in_from_left.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_default_popup.gif.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/default_popup.gif"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_reynold_pixsle_1.jpg.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/reynold_pixsle_1.jpg"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_default_popup.gif.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/default_popup.gif"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_overlay_answer_call_options.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/overlay_answer_call_options.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_more_vert_white_24dp.xml.flat",
@@ -104,20 +116,28 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/congo_registrartion_fragment.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_icon.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/icon.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_choose_profile_language_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_choose_profile_language_fragment.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_icon.png.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/icon.png"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_ad_banner.jpg.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_ad_banner.jpg"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_about.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_about.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_ad_banner.jpg.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_ad_banner.jpg"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_video.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_video.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_fragment_recording_time_rang.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/fragment_recording_time_rang.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_overlay_action_timer.xml.flat",
@@ -136,28 +156,52 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_gallery_videos_for_ung.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_gallery_videos_for_ung.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_list_thumbnail_item.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/list_thumbnail_item.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/xml_ovelshape.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/xml/ovelshape.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/font_google_sans_regular.ttf.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/font/google_sans_regular.ttf"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-mdpi_logo_made_by.png.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-mdpi/logo_made_by.png"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_gallery_selected_video.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_gallery_selected_video.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_missed_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_missed_black_24dp.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dialog_import_spreadsheet.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dialog_import_spreadsheet.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-mdpi_logo_made_by.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-mdpi/logo_made_by.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_arrow_drop_down_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_arrow_drop_down_black_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dialog_import_spreadsheet.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dialog_import_spreadsheet.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-mdpi_icon_full_144.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-mdpi/icon_full_144.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_d_round_gray25.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/d_round_gray25.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_circular_background_cyan.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/circular_background_cyan.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_on_going_call.xml.flat",
@@ -172,16 +216,32 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/default_outgoing.png"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_category_sound_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_category_sound_layout.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ticker_01.jpg.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ticker_01.jpg"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_recoding_no.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_recoding_no.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/navigation_nav_login.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/navigation/nav_login.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_d_round_white_background.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/d_round_white_background.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_arrow_forward_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_arrow_forward_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_adapter_videos.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/adapter_videos.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_profile_step2_fragment.xml.flat",
@@ -208,12 +268,28 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/layout_choosemultilang.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_white_cross.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_white_cross.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_star_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_star_black_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/xml_provider_path.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/xml/provider_path.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-mdpi_play.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-mdpi/play.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dialog_changelog.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dialog_changelog.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_preview_video.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_preview_video.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_sun_direct.jpg.flat",
@@ -264,6 +340,10 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/list_conference_call.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_in_from_top.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/in_from_top.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_received_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_received_black_24dp.xml"
     },
@@ -280,16 +360,24 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/earned_point_history_fragment.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_wallet.png.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_wallet.png"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/raw_merged.mp4.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/raw/merged.mp4"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_wallet.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_wallet.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_record_video.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_record_video.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_image_6.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_image_6.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_out_to_right.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/out_to_right.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
@@ -320,12 +408,20 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/font/google_sans_bolditalic.ttf"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_content_copy_blue_24dp.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_content_copy_blue_24dp.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_list_reject_message.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/list_reject_message.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_content_copy_blue_24dp.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_content_copy_blue_24dp.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_select_rectangle.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_select_rectangle.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_caller_details_fragment_choose_image.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/caller_details_fragment_choose_image.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_bsnl.png.flat",
@@ -340,12 +436,16 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_drag_handle_black_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_operator_select_fragment.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/operator_select_fragment.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_slide_up.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/slide_up.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_operator_select_fragment.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/operator_select_fragment.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_sound_list.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_sound_list.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_lv_item.xml.flat",
@@ -354,6 +454,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_background_btn_otp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/background_btn_otp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_caller_details_fragment_choose.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/caller_details_fragment_choose.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_ongoing_call.xml.flat",
@@ -384,12 +488,20 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/shadow_fade_up.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_back.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_back.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/font_google_sans_bold.ttf.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/font/google_sans_bold.ttf"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dialpad_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dialpad_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_player_controler.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_player_controler.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_list_conference_call_2.xml.flat",
@@ -404,12 +516,16 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_koli_sad.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/menu_menu_on_going_call.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/menu/menu_on_going_call.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_video_recoder.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_video_recoder.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_dot.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_dot.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/menu_menu_on_going_call.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/menu/menu_on_going_call.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_dish_tv.jpg.flat",
@@ -418,6 +534,14 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_end_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_end_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_caller_details_fragment.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/caller_details_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_adepter_image.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/adepter_image.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_image_5.jpg.flat",
@@ -480,24 +604,32 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_launcher_round.png"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_earned_point_debit_history_fragment.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/earned_point_debit_history_fragment.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_galleryview.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_galleryview.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_card_about_developer.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/card_about_developer.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_earned_point_debit_history_fragment.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/earned_point_debit_history_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_video_sound.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_video_sound.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_spinner_selector.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/spinner_selector.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_tinglogo.png.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/tinglogo.png"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_fast_scroller_container_background.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/fast_scroller_container_background.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_tinglogo.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/tinglogo.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_list_black_24dp.xml.flat",
@@ -506,6 +638,14 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_background_operator_home.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/background_operator_home.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_rotate_left_white_24dp.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-hdpi/ic_rotate_left_white_24dp.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_galleryvideo_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_galleryvideo_layout.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_spinner_enable.xml.flat",
@@ -524,8 +664,8 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/edittext_bottom_line.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_up_from_bottom.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/up_from_bottom.xml"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_gallery_videos.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_gallery_videos.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-hdpi_icon_full_144.png.flat",
@@ -536,16 +676,24 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_end_call.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_up_from_bottom.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/up_from_bottom.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_news_corona.jpg.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/news_corona.jpg"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_dialer_background.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/dialer_background.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_operator_detail_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/operator_detail_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_caller_details_fragment_choose_video.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/caller_details_fragment_choose_video.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_dialer_background.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/dialer_background.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_d2h.jpg.flat",
@@ -580,12 +728,20 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_clear_black_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_done.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_done.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dth_process_recharge_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dth_process_recharge_fragment.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_choose_multi_language_profile_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/choose_multi_language_profile_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_timer.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_timer.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/menu_main_actions.xml.flat",
@@ -596,12 +752,12 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/contact_list_fragment.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_cancel.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_cancel.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_cancel.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_cancel.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ttu_only_logo.png.flat",
@@ -614,6 +770,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_cancel_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_cancel_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/menu_poupup_menu.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/menu/poupup_menu.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_dth_airtel.jpg.flat",
@@ -672,6 +832,14 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/splash_screen_fragment.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_out_to_top.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/out_to_top.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_gallery_image.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_gallery_image.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_conference_call.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/conference_call.png"
     },
@@ -682,6 +850,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_email_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_email_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_determinant_progress_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_determinant_progress_layout.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_fragment_survey.xml.flat",
@@ -704,32 +876,52 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/earned_list_item.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_history_black_24dp.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_history_black_24dp.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_person_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_person_black_24dp.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-hdpi_logo_made_by.png.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-hdpi/logo_made_by.png"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_history_black_24dp.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_history_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_my_un_favourite.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_my_un_favourite.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/xml_preference.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/xml/preference.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-hdpi_logo_made_by.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-hdpi/logo_made_by.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_registration_fragment.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/registration_fragment.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_flash_on.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_flash_on.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_foreground.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_image_view.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/image_view.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gallery_icon.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_gallery_icon.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_green_circle.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/green_circle.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_flash_off.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_flash_off.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_news_image.jpg.flat",
@@ -750,6 +942,18 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_made_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_made_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_done_white_24dp.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-hdpi/ic_done_white_24dp.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_not_done.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_not_done.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_sound_list_main.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_sound_list_main.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_contact_editable.xml.flat",
@@ -780,8 +984,24 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_search_black_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_crop_and_rotate.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/crop_and_rotate.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_camera.jpg.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/camera.jpg"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_out_to_left.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/out_to_left.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_recoding_yes.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_recoding_yes.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_layout_survey_list.xml.flat",
@@ -790,6 +1010,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_fragment_membership_message.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/fragment_membership_message.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_in_from_bottom.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/in_from_bottom.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_tingtingu_logo.png.flat",
@@ -824,16 +1048,20 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/profile_choose_multi_language_fragment.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_layout_operator_home.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/layout_operator_home.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_appbar.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/appbar.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_layout_operator_home.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/layout_operator_home.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_image_2.jpg.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_image_2.jpg"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_black_gradient.9.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/black_gradient.9.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_notification_expanded.xml.flat",
@@ -850,6 +1078,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_dialpad.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/dialpad.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_my_favourite.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_my_favourite.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
@@ -870,6 +1102,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_stars_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_stars_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_play_icon.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_play_icon.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_contacts_black_24dp.xml.flat",
@@ -896,6 +1132,10 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_github_circle_24dp.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_indeterminant_progress_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_indeterminant_progress_layout.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_merge.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_merge.xml"
     },
@@ -920,6 +1160,10 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/fragment_recharge_history.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_rotate_cam.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_rotate_cam.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_settings_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_settings_black_24dp.xml"
     },
@@ -934,6 +1178,10 @@
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_custom_push_notification.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/custom_push_notification.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/xml_ovelshapegreen.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/xml/ovelshapegreen.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_circle.xml.flat",
@@ -952,12 +1200,16 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/fast_scroller_scroll_bar.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/raw_loginvideo.mp4.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/raw/loginvideo.mp4"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_call_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_call_black_24dp.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/raw_loginvideo.mp4.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/raw/loginvideo.mp4"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_sound_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_sound_layout.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_registration_step2_fragment.xml.flat",
@@ -972,12 +1224,24 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/choose_language_fragment.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_splash_video.PNG.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_splash_video.PNG"
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_back_cross.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_back_cross.png"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_refer_down_arrow.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_refer_down_arrow.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_splash_video.PNG.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_splash_video.PNG"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/xml_ovelshapeblue.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/xml/ovelshapeblue.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_filter_layout.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/item_filter_layout.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/navigation_nav_home.xml.flat",
@@ -988,6 +1252,14 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/card_about_support.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_out_from_bottom.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_pause_icon.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_pause_icon.png"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_voda.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/voda.png"
     },
@@ -996,8 +1268,16 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/raw/video_full_default.mp4"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xhdpi_callback.jpg.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xhdpi/callback.jpg"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_mic_black_24dp.xml.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_mic_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_video_view.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/video_view.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_item_contact.xml.flat",
@@ -1020,16 +1300,28 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/profile_fragment.xml"
     },
     {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_rotate_right_white_24dp.png.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-hdpi/ic_rotate_right_white_24dp.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_music_note_black_24dp.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable-xxhdpi/ic_music_note_black_24dp.xml"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/anim_in_from_right.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/anim/in_from_right.xml"
+    },
+    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/font_google_sans_mediumitalic.ttf.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/font/google_sans_mediumitalic.ttf"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_mobile_recharge_fragment.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/mobile_recharge_fragment.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/drawable_ic_recharge_process.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_recharge_process.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_mobile_recharge_fragment.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/mobile_recharge_fragment.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_earned_point_credit_history_fragment.xml.flat",
@@ -1044,12 +1336,12 @@
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/drawable/ic_backspace_black_24dp.xml"
     },
     {
-        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_page_empty_state.xml.flat",
-        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/page_empty_state.xml"
-    },
-    {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/layout_page_empty_state.xml.flat",
+        "source": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/page_empty_state.xml"
     },
     {
         "merged": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_foreground.png.flat",

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.fresco:nativeimagetranscoder:2.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fecfdb7796a6b6bc79a41515e315f0bf/jetified-nativeimagetranscoder-2.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fecfdb7796a6b6bc79a41515e315f0bf/jetified-nativeimagetranscoder-2.1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fecfdb7796a6b6bc79a41515e315f0bf/jetified-nativeimagetranscoder-2.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f81ebdfcf941f010b297fd7130a9e4f1/jetified-nativeimagetranscoder-2.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f81ebdfcf941f010b297fd7130a9e4f1/jetified-nativeimagetranscoder-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f81ebdfcf941f010b297fd7130a9e4f1/jetified-nativeimagetranscoder-2.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.fresco/nativeimagetranscoder/2.1.0/52034a7b806c85f7f7f80fe442ef09dc2da3b51/nativeimagetranscoder-2.1.0-javadoc.jar!/" />
