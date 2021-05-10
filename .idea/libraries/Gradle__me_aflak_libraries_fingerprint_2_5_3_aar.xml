@@ -4,9 +4,6 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/785ea0d2406332f4e9c6f45ce7816c90/jetified-fingerprint-2.5.3/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/785ea0d2406332f4e9c6f45ce7816c90/jetified-fingerprint-2.5.3/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/785ea0d2406332f4e9c6f45ce7816c90/jetified-fingerprint-2.5.3/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bfa38be4f66b30074d159eec1438566/jetified-fingerprint-2.5.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bfa38be4f66b30074d159eec1438566/jetified-fingerprint-2.5.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4bfa38be4f66b30074d159eec1438566/jetified-fingerprint-2.5.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/me.aflak.libraries/fingerprint/2.5.3/b5ac993ee201f64b1e4785d6e7f9707ab10c49fc/fingerprint-2.5.3-javadoc.jar!/" />

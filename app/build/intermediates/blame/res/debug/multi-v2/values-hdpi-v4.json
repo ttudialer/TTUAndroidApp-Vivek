@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\b860ff6b88cd4cb507bab293cde1f5d0\\appcompat-1.1.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/b860ff6b88cd4cb507bab293cde1f5d0/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

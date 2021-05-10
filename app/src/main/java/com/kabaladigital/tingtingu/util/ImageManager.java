@@ -111,8 +111,9 @@ public class ImageManager {
             imageView.setImageResource(R.drawable.default_incoming);
         }else {
             try {
-                Log.d("uri3",""+Uri.parse(incomingCallAdData.getUri()).toString());
-                imageView.setImageURI(Uri.parse(incomingCallAdData.getUri()));
+                //Log.d("uri3",""+Uri.parse(incomingCallAdData.getUri()).toString());
+                //imageView.setImageURI(Uri.parse(incomingCallAdData.getUri()));
+                imageView.setImageResource(R.drawable.default_incoming);
             }catch (Exception e){
                 imageView.setImageResource(R.drawable.default_incoming);
             }

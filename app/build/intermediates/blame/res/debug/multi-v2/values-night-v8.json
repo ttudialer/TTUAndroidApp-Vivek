@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\b860ff6b88cd4cb507bab293cde1f5d0\\appcompat-1.1.0\\res\\values-night-v8\\values-night-v8.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/b860ff6b88cd4cb507bab293cde1f5d0/appcompat-1.1.0/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
