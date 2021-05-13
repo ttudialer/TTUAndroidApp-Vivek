@@ -128,6 +128,8 @@ public class CallerDetailsChoose extends Fragment {
             }
         });
 
+        binding.simpleImageView.setVisibility(View.VISIBLE);
+        binding.VideoView1.setVisibility(View.GONE);
         String p_path=PreferenceUtils.getInstance().getString(R.string.pref_profile_path);
         File fs=new File(p_path);
         if (p_path != null) {

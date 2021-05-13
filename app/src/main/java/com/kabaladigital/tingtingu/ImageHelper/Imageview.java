@@ -91,7 +91,7 @@ public class Imageview extends Fragment {
                         .build();
 
                 ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-                Call<LibraryAddModel> call = apiInterface.LibraryAdd(requestBody);
+                Call<LibraryAddModel> call = apiInterface.LibraryAdd1(requestBody);
                 call.enqueue(new Callback<LibraryAddModel>() {
                     @Override
                     public void onResponse(Call<LibraryAddModel> call,

@@ -158,6 +158,12 @@ public interface ApiInterface {
 
 
     @POST("library/add")
-    Call<LibraryAddModel> LibraryAdd(@Body RequestBody body);
+    Call<LibraryAddModel> LibraryAdd1(@Body RequestBody body);
+
+    @Multipart
+    @POST("library/add")
+    Call<LibraryAddModel> LibraryAdd(@Part MultipartBody.Part image,
+                                     @Part("isProfile") RequestBody id);
+
 
 }

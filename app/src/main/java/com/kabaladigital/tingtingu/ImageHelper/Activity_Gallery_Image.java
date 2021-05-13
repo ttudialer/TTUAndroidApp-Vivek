@@ -45,6 +45,7 @@ public class Activity_Gallery_Image extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_image);
+        PreferenceUtils.getInstance(this,true); // Get the preferences
         init();
 
         _btn_update_ttu_set_default.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +53,7 @@ public class Activity_Gallery_Image extends Activity {
             public void onClick(View view) {
 
                 File videoFile = saveVideoToInternalStorage();
-                PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.toString());
+               // PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.toString());
                 Bundle bundle = new Bundle();
                 //File videoFile = new File(PreferenceUtils.getInstance().getString(R.string. pref_image_path));
                 RequestBody requestBody = new MultipartBody.Builder()
@@ -60,15 +61,20 @@ public class Activity_Gallery_Image extends Activity {
                         .addFormDataPart("selectedFile",  videoFile.getAbsolutePath())
                         .addFormDataPart("isProfile", "true")
                         .build();
+               // File file = new File(videoFile);
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), videoFile);
+                MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", videoFile.getAbsolutePath(), requestFile);
+                RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "true");
 
                 ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-                Call<LibraryAddModel> call = apiInterface.LibraryAdd(requestBody);
+                //Call<LibraryAddModel> call = apiInterface.LibraryAdd(requestBody);
+                Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName);
                 call.enqueue(new Callback<LibraryAddModel>() {
                     @Override
                     public void onResponse(Call<LibraryAddModel> call,
                                            Response<LibraryAddModel> response) {
                         if (response.code() == 200) {
-                            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.toString());
+                            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.getAbsolutePath());
                             Toast.makeText(Activity_Gallery_Image.this,"Success",Toast.LENGTH_SHORT).show();
                         }
                     }
