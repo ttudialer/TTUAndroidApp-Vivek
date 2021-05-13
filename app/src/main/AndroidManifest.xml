@@ -145,6 +145,7 @@
     </activity>
 
     <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
+        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A" />
 
     <activity
         android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"

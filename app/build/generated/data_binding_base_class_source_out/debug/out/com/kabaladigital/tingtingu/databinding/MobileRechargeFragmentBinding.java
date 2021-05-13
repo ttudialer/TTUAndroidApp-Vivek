@@ -55,7 +55,6 @@ public abstract class MobileRechargeFragmentBinding extends ViewDataBinding {
     this.editMobileNumberOrVcNumber = editMobileNumberOrVcNumber;
     this.imgOperator = imgOperator;
     this.layoutWb = layoutWb;
-    setContainedBinding(this.layoutWb);
     this.tvCompany = tvCompany;
     this.tvDthRechargeAmount = tvDthRechargeAmount;
     this.tvPaymentWalletText = tvPaymentWalletText;

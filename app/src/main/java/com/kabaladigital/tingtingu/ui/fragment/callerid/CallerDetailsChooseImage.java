@@ -61,8 +61,6 @@ public class CallerDetailsChooseImage extends Fragment {
         fn_image();
     }
     public void fn_image() {
-
-
         FilePathStrings1 = RetriveCapturedImagePath1();
         if(FilePathStrings1 !=null) {
             for (int i = 0; i < FilePathStrings1.length; i++) {

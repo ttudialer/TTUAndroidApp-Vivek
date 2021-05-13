@@ -50,6 +50,7 @@ public class MobileRechargeFragmentBindingImpl extends MobileRechargeFragmentBin
             , (android.widget.TextView) bindings[7]
             , (android.widget.TextView) bindings[8]
             );
+        setContainedBinding(this.layoutWb);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);

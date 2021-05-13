@@ -91,7 +91,7 @@ import static com.google.firebase.crashlytics.internal.Logger.TAG;
 
 public class MainActivity extends AppCompatActivity {
 
-    Integer _abc=0; // created by deepak
+   // Integer _abc=0; // created by deepak
     private static final String TAG_CHANGELOG_DIALOG = "changelog";
     String jsonStr;
     JsonArray jsonArrayContact = new JsonArray();

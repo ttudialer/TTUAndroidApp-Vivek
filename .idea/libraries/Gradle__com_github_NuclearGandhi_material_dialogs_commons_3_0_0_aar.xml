@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.NuclearGandhi.material-dialogs:commons:3.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/367c9df1e5f1c2189a6b7e5bcae835e8/jetified-commons-3.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/367c9df1e5f1c2189a6b7e5bcae835e8/jetified-commons-3.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/367c9df1e5f1c2189a6b7e5bcae835e8/jetified-commons-3.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72731633e9c0bef68b7a07453ba41906/jetified-commons-3.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72731633e9c0bef68b7a07453ba41906/jetified-commons-3.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/72731633e9c0bef68b7a07453ba41906/jetified-commons-3.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -37,7 +37,6 @@ public abstract class FragmentRechargeHistoryBinding extends ViewDataBinding {
     super(_bindingComponent, _root, _localFieldCount);
     this.layoutNewRecharge = layoutNewRecharge;
     this.layoutWb = layoutWb;
-    setContainedBinding(this.layoutWb);
     this.rvRecentRecharge = rvRecentRecharge;
     this.tvNewRecharge = tvNewRecharge;
     this.tvSelectOne = tvSelectOne;

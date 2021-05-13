@@ -1,6 +1,8 @@
 package com.kabaladigital.tingtingu.ui.fragment;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,6 +31,8 @@ import com.kabaladigital.tingtingu.viewmodels.ProfileStep1ViewModel;
 
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 import static com.kabaladigital.tingtingu.util.TitleCase.toTitleCase;
 
@@ -90,12 +94,36 @@ public class CallerDetailsFragment extends Fragment {
         File fs=new File(p_path);
         if (p_path != null) {
             if (fs.exists()) {
-                Uri uri = Uri.parse(p_path);
-                binding.VideoView1.setVideoURI(uri);
-                binding.VideoView1.requestFocus();
-                binding.VideoView1.start();
+
+                if (fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG")) {
+                    Bitmap bm;
+                    FileInputStream fi1 = null;
+                    BitmapFactory.Options bfOptions=new BitmapFactory.Options();
+                    try {
+                        fi1 = new FileInputStream(new File(p_path));
+
+                        if(fi1!=null) {
+                            bm= BitmapFactory.decodeFileDescriptor(fi1.getFD(), null, bfOptions);
+                            binding.simpleImageView.setImageBitmap(bm);
+                            binding.simpleImageView.setVisibility(View.VISIBLE);
+                            binding.VideoView1.setVisibility(View.GONE);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else if (fs.toString().endsWith(".mp4")||fs.toString().endsWith(".MP4")) {
+                    Uri uri = Uri.parse(p_path);
+                    binding.VideoView1.setVideoURI(uri);
+                    binding.VideoView1.requestFocus();
+                    binding.VideoView1.start();
+                    binding.VideoView1.setVisibility(View.VISIBLE);
+                    binding.simpleImageView.setVisibility(View.GONE);
+
+                }
             }
         }
+
+
     }
 
     @Override
