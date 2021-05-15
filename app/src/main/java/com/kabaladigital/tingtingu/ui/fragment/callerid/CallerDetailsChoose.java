@@ -6,12 +6,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +33,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.navigation.Navigation;
 
 
+import com.kabaladigital.tingtingu.BuildConfig;
 import com.kabaladigital.tingtingu.Class.Functions;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.Class.Variables;
@@ -40,10 +44,13 @@ import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 import com.kabaladigital.tingtingu.viewmodels.CallerDetailsChooseViewModel;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -194,29 +201,39 @@ public class CallerDetailsChoose extends Fragment {
     }
     private void VideoCapture() {
 
-        if (check_permissions()) {
+        /*if (check_permissions()) {
             Functions.make_directry(Variables.app_folder);
             Functions.make_directry(Variables.draft_app_folder);
 
             Intent intent = new Intent(getActivity(), Video_Recoder_A.class);
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
-        }
+        }*/
 
-        Video_Image_type="VIDEO";
-//        Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-//        try {
-//            pictureFile = getPictureVideo();
-//        } catch (IOException ex) {
-//            Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        if (pictureFile != null) {
-//            Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
-//            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
-//            cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
-//            startActivityForResult(cameraIntent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
-//        }
+        //comment code
+        /*Video_Image_type="VIDEO";
+        Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        try {
+            pictureFile = getPictureVideo();
+        } catch (IOException ex) {
+            Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (pictureFile != null) {
+            Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
+            cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
+            startActivityForResult(cameraIntent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
+        }*/
+        //comment code
+
+        Intent intent = new Intent(
+                Intent.ACTION_PICK,
+                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("video/*");
+        startActivityForResult(intent, 2);
+
+
     }
 
     private void ImageCapture() {
@@ -291,9 +308,11 @@ public class CallerDetailsChoose extends Fragment {
         startActivityForResult(gallery, PICK_IMAGE);
     }
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE) {
+        if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE)
+        {
             if (resultCode == RESULT_OK) {
                 PreferenceUtils.getInstance().putString(R.string.pref_image_path,pictureFile.getAbsolutePath());
                 Navigation.findNavController(binding.getRoot())
@@ -350,7 +369,6 @@ public class CallerDetailsChoose extends Fragment {
             if(Image_Video_type == "PICK_IMAGE"){
 
             }
-
             imageUri = data.getData();
            String  pictureFile1 = null;
             try {
@@ -368,6 +386,24 @@ public class CallerDetailsChoose extends Fragment {
                 out.flush();
                 out.close();
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        else if (requestCode == 2) {
+            Uri selectedImage = data.getData();
+            String[] filePath = { MediaStore.Video.Media.DATA };
+            /*Cursor c = getContentResolver().query(selectedImage, filePath,
+                    null, null, null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePath[0]);
+            String videoPath = c.getString(columnIndex);
+            c.close();*/
+            Log.d("SelectedVideoPath", selectedImage.getPath());
+
+            try {
+                //uploadVideo(videoPath);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -414,6 +450,34 @@ public class CallerDetailsChoose extends Fragment {
     }
 
 
+
+    private void savefile(URI sourceuri)
+    {
+        String sourceFilename= sourceuri.getPath();
+        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp3";
+
+        BufferedInputStream bis = null;
+        BufferedOutputStream bos = null;
+
+        try {
+            bis = new BufferedInputStream(new FileInputStream(sourceFilename));
+            bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));
+            byte[] buf = new byte[1024];
+            bis.read(buf);
+            do {
+                bos.write(buf);
+            } while(bis.read(buf) != -1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bis != null) bis.close();
+                if (bos != null) bos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
         private final Fragment[] childFragments;

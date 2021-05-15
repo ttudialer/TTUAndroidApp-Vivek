@@ -5,10 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ import com.kabaladigital.tingtingu.viewmodels.ProfileStep1ViewModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLConnection;
 
 import static com.kabaladigital.tingtingu.util.TitleCase.toTitleCase;
 
@@ -91,14 +94,30 @@ public class CallerDetailsFragment extends Fragment {
         getProfileInformation();
 
         String p_path=PreferenceUtils.getInstance().getString(R.string.pref_profile_path);
+        //Log.d("getpath",p_path);
         File fs=new File(p_path);
-        if (p_path != null) {
+        //Log.d("name",getMimeType(fs.getAbsolutePath()));
+
+        String filePath = fs.getPath();
+        //Log.d("path=>",filePath);
+        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+        binding.simpleImageView.setImageBitmap(bitmap);
+        binding.simpleImageView.setVisibility(View.VISIBLE);
+        //Log.d("end",p_path);
+
+
+
+
+        if (p_path != null)
+        {
             if (fs.exists()) {
 
-                if (fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG")) {
-                    Bitmap bm;
-                    FileInputStream fi1 = null;
-                    BitmapFactory.Options bfOptions=new BitmapFactory.Options();
+                if (/*fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG")*/isImageFile(p_path))
+                {
+                    //FileInputStream fi1 = null;
+
+
+                    /*BitmapFactory.Options bfOptions=new BitmapFactory.Options();
                     try {
                         fi1 = new FileInputStream(new File(p_path));
 
@@ -110,8 +129,10 @@ public class CallerDetailsFragment extends Fragment {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }
-                } else if (fs.toString().endsWith(".mp4")||fs.toString().endsWith(".MP4")) {
+                    }*/
+                }
+                else if (fs.toString().endsWith(".mp4")||fs.toString().endsWith(".MP4")) {
+                    Log.d("====>","elseif");
                     Uri uri = Uri.parse(p_path);
                     binding.VideoView1.setVideoURI(uri);
                     binding.VideoView1.requestFocus();
@@ -119,6 +140,9 @@ public class CallerDetailsFragment extends Fragment {
                     binding.VideoView1.setVisibility(View.VISIBLE);
                     binding.simpleImageView.setVisibility(View.GONE);
 
+                }
+                else{
+                    Log.d("====>","else");
                 }
             }
         }
@@ -132,5 +156,15 @@ public class CallerDetailsFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
         super.onResume();
+    }
+
+    public static boolean isImageFile(String path) {
+        String mimeType = URLConnection.guessContentTypeFromName(path);
+        return mimeType != null && mimeType.startsWith("image");
+    }
+
+    private static String getMimeType(String fileUrl) {
+        String extension = MimeTypeMap.getFileExtensionFromUrl(fileUrl);
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
     }
 }

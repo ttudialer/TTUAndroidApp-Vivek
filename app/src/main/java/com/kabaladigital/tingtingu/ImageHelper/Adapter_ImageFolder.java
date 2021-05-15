@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class Adapter_ImageFolder extends RecyclerView.Adapter<Adapter_ImageFolde
             @Override
             public void onClick(View view) {
                 Intent intent_gallery = new Intent(context, Activity_Gallery_Image.class);
+                //Log.d("setpath",al_image.get(position).getStr_thumb());
                 intent_gallery.putExtra("video",al_image.get(position).getStr_path());
                 activity.startActivity(intent_gallery);
 

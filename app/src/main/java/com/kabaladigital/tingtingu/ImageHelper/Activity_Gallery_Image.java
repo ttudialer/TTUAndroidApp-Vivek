@@ -53,6 +53,8 @@ public class Activity_Gallery_Image extends Activity {
             public void onClick(View view) {
 
                 File videoFile = saveVideoToInternalStorage();
+                PreferenceUtils.getInstance().putString(R.string.pref_profile_path,  videoFile.getAbsolutePath() );
+                Log.d("setpath", videoFile.getAbsolutePath()+".jpg");
                // PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.toString());
                 Bundle bundle = new Bundle();
                 //File videoFile = new File(PreferenceUtils.getInstance().getString(R.string. pref_image_path));
@@ -73,8 +75,10 @@ public class Activity_Gallery_Image extends Activity {
                     @Override
                     public void onResponse(Call<LibraryAddModel> call,
                                            Response<LibraryAddModel> response) {
+
                         if (response.code() == 200) {
-                            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  videoFile.getAbsolutePath());
+                            Log.d("code",""+ videoFile.getAbsolutePath());
+                            PreferenceUtils.getInstance().putString(R.string.pref_profile_path,  videoFile.getAbsolutePath());
                             Toast.makeText(Activity_Gallery_Image.this,"Success",Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -96,6 +100,7 @@ public class Activity_Gallery_Image extends Activity {
         _ImageView = (ImageView) findViewById(R.id.vv_Image);
         _btn_update_ttu_set_default= (Button) findViewById(R.id.btn_update_ttu_set_default);
         str_image = getIntent().getStringExtra("video");
+        Log.d("path",getIntent().getStringExtra("video"));
         BitmapFactory.Options bfOptions=new BitmapFactory.Options();
         Bitmap bm;
         FileInputStream fs = null;

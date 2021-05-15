@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="6dp">
+
+        <ImageView
+            android:id="@+id/image_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_account_circle_black_24dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:civ_border_width="0dp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_name_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/frameLayout"
+        android:layout_toStartOf="@id/iv_end"
+        android:layout_margin="2dp"
+        android:text="Aditya"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Aditya"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_toEndOf="@id/frameLayout"
+        android:layout_below="@id/tv_name_number"
+        android:layout_toStartOf="@id/iv_end" />
+
+    <ImageView
+        android:id="@+id/iv_end"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ic_call_end_black_24dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginEnd="12dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

@@ -145,7 +145,10 @@
     </activity>
 
     <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
-        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A" />
+    <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A" />
+    <activity android:name="com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A" />
+        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A" />
+
 
     <activity
         android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
@@ -160,6 +163,8 @@
 
     <activity android:name=".Crop.CropAndRotate_Photo"
         android:theme="@style/Base.Theme.AppCompat"/>
+
+
 
 
     <service

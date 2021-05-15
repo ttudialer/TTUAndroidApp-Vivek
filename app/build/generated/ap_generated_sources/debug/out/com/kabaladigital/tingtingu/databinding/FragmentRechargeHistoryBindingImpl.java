@@ -42,7 +42,6 @@ public class FragmentRechargeHistoryBindingImpl extends FragmentRechargeHistoryB
             , (android.widget.TextView) bindings[3]
             , (android.widget.TextView) bindings[4]
             );
-        setContainedBinding(this.layoutWb);
         this.mboundView0 = (android.widget.LinearLayout) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);

@@ -1,12 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.appyvet:materialrangebar:1.4.6@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c7286909124e7d105815ac1251dda92b/jetified-materialrangebar-1.4.6/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c7286909124e7d105815ac1251dda92b/jetified-materialrangebar-1.4.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c7286909124e7d105815ac1251dda92b/jetified-materialrangebar-1.4.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70cd37b59d25af0967bbfd3f2123fe59/jetified-materialrangebar-1.4.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70cd37b59d25af0967bbfd3f2123fe59/jetified-materialrangebar-1.4.6/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70cd37b59d25af0967bbfd3f2123fe59/jetified-materialrangebar-1.4.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3a590ce60998737076bd3b1f9dbb6c1/jetified-materialrangebar-1.4.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3a590ce60998737076bd3b1f9dbb6c1/jetified-materialrangebar-1.4.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3a590ce60998737076bd3b1f9dbb6c1/jetified-materialrangebar-1.4.6/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.appyvet/materialrangebar/1.4.6/eeb49a66d2ae212e98e4c3e42799a6ecdaefe98b/materialrangebar-1.4.6-javadoc.jar!/" />
