@@ -57,6 +57,7 @@ import java.util.Date;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImage;
+import static com.kabaladigital.tingtingu.Class.Global.TTULibraryVideo;
 import static com.kabaladigital.tingtingu.Class.Global.getContactBitmapFromURI;
 
 
@@ -210,30 +211,41 @@ public class CallerDetailsChoose extends Fragment {
             getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
         }*/
 
-        //comment code
-        /*Video_Image_type="VIDEO";
-        Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        try {
+
+        /*try {
             pictureFile = getPictureVideo();
         } catch (IOException ex) {
             Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
             return;
-        }
-        if (pictureFile != null) {
-            Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
-            cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
-            startActivityForResult(cameraIntent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
         }*/
+        /*if (pictureFile != null) {
+            Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
+            intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
+
+            startActivityForResult(intent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
+        }*/
+        //my code
+         Video_Image_type="VIDEO";
+         Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+         intent.setType("video/*");
+         startActivityForResult(Intent.createChooser(intent,"Select Video"),2);
         //comment code
 
-        Intent intent = new Intent(
-                Intent.ACTION_PICK,
-                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("video/*");
-        startActivityForResult(intent, 2);
+    }
 
-
+    public String getPath(Uri uri) {
+        String[] projection = { MediaStore.Video.Media.DATA };
+        Cursor cursor = getContext().getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
+            // THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } else
+            return null;
     }
 
     private void ImageCapture() {
@@ -317,6 +329,7 @@ public class CallerDetailsChoose extends Fragment {
                 PreferenceUtils.getInstance().putString(R.string.pref_image_path,pictureFile.getAbsolutePath());
                 Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcalleridchoose_to_videoview);
+
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getActivity(),
                         "User cancelled video recording", Toast.LENGTH_SHORT)
@@ -392,21 +405,13 @@ public class CallerDetailsChoose extends Fragment {
         }
 
         else if (requestCode == 2) {
-            Uri selectedImage = data.getData();
-            String[] filePath = { MediaStore.Video.Media.DATA };
-            /*Cursor c = getContentResolver().query(selectedImage, filePath,
-                    null, null, null);
-            c.moveToFirst();
-            int columnIndex = c.getColumnIndex(filePath[0]);
-            String videoPath = c.getString(columnIndex);
-            c.close();*/
-            Log.d("SelectedVideoPath", selectedImage.getPath());
-
-            try {
-                //uploadVideo(videoPath);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            /* my code*/
+            Uri selectedVideoUri = data.getData();
+            String selectedVideoPath = getPath(selectedVideoUri);
+            PreferenceUtils.getInstance().putString(R.string.pref_image_path,selectedVideoPath);
+            Navigation.findNavController(binding.getRoot())
+                    .navigate(R.id.action_viewcalleridchoose_to_videoview);
+            /* my code */
         }
     }
 
@@ -451,14 +456,13 @@ public class CallerDetailsChoose extends Fragment {
 
 
 
-    private void savefile(URI sourceuri)
-    {
+    private void savefile(Uri sourceuri) throws IOException {
         String sourceFilename= sourceuri.getPath();
-        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp3";
-
+        String  videoFile1 = null;
+        File myDir = getPictureVideo();
+        String destinationFilename = myDir+".mp4";
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
-
         try {
             bis = new BufferedInputStream(new FileInputStream(sourceFilename));
             bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));
