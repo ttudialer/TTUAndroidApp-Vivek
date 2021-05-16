@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TTUAndroidApp-Vivek.iml" filepath="$PROJECT_DIR$/.idea/modules/TTUAndroidApp-Vivek.iml" group="TTUAndroidApp-Vivek" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="TTUAndroidApp-Vivek/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TTUAndroidApp-Deepak.iml" filepath="$PROJECT_DIR$/.idea/modules/TTUAndroidApp-Deepak.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TTUAndroidApp-Deepak.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TTUAndroidApp-Deepak.app.iml" />
     </modules>
   </component>
 </project>

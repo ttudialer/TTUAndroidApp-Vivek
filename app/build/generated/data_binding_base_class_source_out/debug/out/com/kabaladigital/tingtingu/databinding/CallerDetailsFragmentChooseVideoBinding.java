@@ -15,12 +15,12 @@ import java.lang.Object;
 
 public abstract class CallerDetailsFragmentChooseVideoBinding extends ViewDataBinding {
   @NonNull
-  public final RecyclerView recyclerView;
+  public final RecyclerView recyclerViewV;
 
   protected CallerDetailsFragmentChooseVideoBinding(Object _bindingComponent, View _root,
-      int _localFieldCount, RecyclerView recyclerView) {
+      int _localFieldCount, RecyclerView recyclerViewV) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.recyclerView = recyclerView;
+    this.recyclerViewV = recyclerViewV;
   }
 
   @NonNull

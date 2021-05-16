@@ -25,6 +25,15 @@ public class Global {
         }
         return storageDir;
     }
+    public static File getVideoPath(Context mContext) throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "RAM_" + timeStamp;
+        File storageDir = Global.TTULibraryVideo(mContext) ;
+        File image = File.createTempFile(pictureFile,  "_P.mp4", storageDir);
+        return image;
+    }
+
+
     public static File TTULibraryVideo(Context mContext){
         File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Video");
         boolean success = true;

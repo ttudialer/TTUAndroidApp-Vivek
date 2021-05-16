@@ -55,7 +55,7 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_videos, parent, false);
 
         ViewHolder viewHolder1 = new ViewHolder(view);
-
+        viewHolder1.setIsRecyclable(false);
         return viewHolder1;
     }
 

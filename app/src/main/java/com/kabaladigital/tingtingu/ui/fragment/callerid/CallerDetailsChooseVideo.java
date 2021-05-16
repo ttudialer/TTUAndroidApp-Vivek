@@ -43,23 +43,21 @@ public class CallerDetailsChooseVideo extends Fragment {
     public static CallerDetailsChooseVideo newInstance() {
         return new CallerDetailsChooseVideo();
     }
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.caller_details_fragment_choose_video, container, false);
-        //   langType = PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
-
         init();
         return binding.getRoot();
     }
 
     private void init(){
-        recyclerView = binding.recyclerView;
+        recyclerView = binding.recyclerViewV;
         recyclerViewLayoutManager = new GridLayoutManager(getContext(), 2);
         recyclerView.setLayoutManager(recyclerViewLayoutManager);
         fn_video();
     }
     public void fn_video() {
-
 
 
         FilePathStrings1 = RetriveCapturedImagePath1();
@@ -72,53 +70,10 @@ public class CallerDetailsChooseVideo extends Fragment {
                 obj_model.setStr_thumb(file.getPath());
                 al_video.add(obj_model);
             }
-
-
         }
         obj_adapter = new Adapter_VideoFolder(getContext(),al_video,getActivity());
         recyclerView.setAdapter(obj_adapter);
-
-
-//        int int_position = 0;
-//        Uri uri;
-//        Cursor cursor;
-//        int column_index_data, column_index_folder_name,column_id,thum;
-//
-//        String absolutePathOfImage = null;
-//        uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-//
-//        String[] projection = {MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME,MediaStore.Video.Media._ID,MediaStore.Video.Thumbnails.DATA};
-//
-//        final String orderBy = MediaStore.Images.Media.DATE_TAKEN;
-//        cursor = getContext().getContentResolver().query(uri, projection, null, null, orderBy + " DESC");
-//
-//        column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-//        column_index_folder_name = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.BUCKET_DISPLAY_NAME);
-//        column_id = cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID);
-//        thum = cursor.getColumnIndexOrThrow(MediaStore.Video.Thumbnails.DATA);
-//
-//        while (cursor.moveToNext()) {
-//            absolutePathOfImage = cursor.getString(column_index_data);
-//            Log.e("Column", absolutePathOfImage);
-//            Log.e("Folder", cursor.getString(column_index_folder_name));
-//            Log.e("column_id", cursor.getString(column_id));
-//            Log.e("thum", cursor.getString(thum));
-//
-//            Model_Video obj_model = new Model_Video();
-//            obj_model.setBoolean_selected(false);
-//            obj_model.setStr_path(absolutePathOfImage);
-//            obj_model.setStr_thumb(cursor.getString(thum));
-//
-//            al_video.add(obj_model);
-//
-//        }
-//
-//
-//        obj_adapter = new Adapter_VideoFolder(getContext(),al_video,getActivity());
-//        recyclerView.setAdapter(obj_adapter);
-
     }
-
 
     public String[] RetriveCapturedImagePath1(){
         tFileList = new ArrayList<String>();
@@ -131,55 +86,6 @@ public class CallerDetailsChooseVideo extends Fragment {
         }
         return FilePathStrings;
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-//        listOfImagesPath = null;
-//        listOfImagesPath = RetriveCapturedImagePath();
-//        if(listOfImagesPath !=null){
-//            binding.gridVideo.setAdapter(new VideoListAdapter(getActivity(),listOfImagesPath));
-//            binding.gridVideo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-//                    PreferenceUtils.getInstance().putString(R.string.pref_image_path,new File(tFileList.get(position)).getAbsolutePath());
-//                    startActivity(new Intent(getContext(), Video_View1.class));
-//
-//                }
-//            });
-//
-//
-//        }
-    }
-
-    public ArrayList<String> RetriveCapturedImagePath(){
-         tFileList = new ArrayList<String>();
-        File f = new File( Global.TTULibraryVideo(getContext()).getAbsolutePath() );
-        if (f.exists()) {
-            File[] files = f.listFiles();
-            if (files != null) {
-                if (files.length > 0) {
-                    Arrays.sort( files );
-                    for (int i = 0; i < files.length; i++) {
-                        File file = files[i];
-                        if (file.isDirectory())
-                            continue;
-                        String filePath = file.getPath();
-                        if (filePath.endsWith( ".mp4" )) {
-                            tFileList.add( file.getPath() );
-                        }
-                    }
-                }
-            }
-        }
-        if (tFileList.isEmpty()) {
-            return null;
-        } else {
-            return tFileList;
-        }
-    }
-
-
-
 
     @Override
     public void onResume() {

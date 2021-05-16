@@ -2448,6 +2448,7 @@ id front
 id ghost_answer_button
 id ghost_view
 id glide_custom_view_target_tag
+id goToNextPage
 id gone
 id group_divider
 id groups
@@ -2674,6 +2675,7 @@ id pause_btn
 id pbar
 id percent
 id picture
+id pikPok_selectImage
 id pin
 id play_btn
 id playerview
@@ -2703,6 +2705,7 @@ id record_image
 id record_vid_bottom
 id rectangle
 id recycler_view
+id recycler_view_V
 id recycler_view_debit
 id recylerview
 id reedemPointFragment
@@ -2758,6 +2761,7 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
+id selectedImageFromGallery
 id separator_text
 id settingFragment
 id shortcut
@@ -3060,6 +3064,7 @@ layout activity_cgroup
 layout activity_choose_profile_language_fragment
 layout activity_end_call
 layout activity_gallery_image
+layout activity_gallery_image_pik
 layout activity_gallery_selected_video
 layout activity_gallery_videos
 layout activity_gallery_videos_for_ung

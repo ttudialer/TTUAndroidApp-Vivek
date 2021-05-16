@@ -14,7 +14,7 @@ public class CallerDetailsFragmentChooseVideoBindingImpl extends CallerDetailsFr
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.recycler_view, 1);
+        sViewsWithIds.put(R.id.recycler_view_V, 1);
     }
     // views
     @NonNull

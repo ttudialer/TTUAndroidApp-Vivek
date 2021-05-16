@@ -1,6 +1,7 @@
 package com.kabaladigital.tingtingu.ui.fragment.callerid;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,10 +19,12 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,7 +61,6 @@ import java.util.Date;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImage;
-import static com.kabaladigital.tingtingu.Class.Global.TTULibraryVideo;
 import static com.kabaladigital.tingtingu.Class.Global.getContactBitmapFromURI;
 
 
@@ -123,11 +126,11 @@ public class CallerDetailsChoose extends Fragment {
 //                        Toast.makeText(getContext(),"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         if(item.getTitle().equals("Video")) {
                             Image_Video_type = "PICK_VIDEO";
-                            VideoCapture();
+                            VideoOpenGallery();
                         }
                         else if(item.getTitle().equals("Image")) {
                             Image_Video_type = "PICK_IMAGE";
-                            openGallery();
+                            ImageOpenGallery();
                         }
                         return true;
                     }
@@ -167,14 +170,26 @@ public class CallerDetailsChoose extends Fragment {
                     binding.simpleImageView.setVisibility(View.GONE);
 
                 }
-
-
-//                Uri uri = Uri.parse(p_path);
-//                binding.VideoView1.setVideoURI(uri);
-//                binding.VideoView1.requestFocus();
-//                binding.VideoView1.start();
             }
         }
+        binding.VideoView1.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
+        binding.VideoView1.setOnTouchListener( new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if( ((VideoView)v).isPlaying() )
+                    ((VideoView)v).pause();
+                else
+                    ((VideoView)v).start();
+                return true;
+            }
+        });
 
         EnableRuntimePermission();
         return binding.getRoot();
@@ -202,53 +217,50 @@ public class CallerDetailsChoose extends Fragment {
     }
     private void VideoCapture() {
 
-        /*if (check_permissions()) {
+        if (check_permissions()) {
             Functions.make_directry(Variables.app_folder);
             Functions.make_directry(Variables.draft_app_folder);
 
             Intent intent = new Intent(getActivity(), Video_Recoder_A.class);
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
-        }*/
+        }
 
-
-        /*try {
+        //comment code
+        /*Video_Image_type="VIDEO";
+        Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        try {
             pictureFile = getPictureVideo();
         } catch (IOException ex) {
             Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
             return;
-        }*/
-        /*if (pictureFile != null) {
+        }
+        if (pictureFile != null) {
             Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
-            intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
-
-            startActivityForResult(intent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
+            cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
+            startActivityForResult(cameraIntent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
         }*/
-        //my code
-         Video_Image_type="VIDEO";
-         Intent intent = new Intent(Intent.ACTION_PICK,MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-         intent.setType("video/*");
-         startActivityForResult(Intent.createChooser(intent,"Select Video"),2);
         //comment code
 
-    }
 
-    public String getPath(Uri uri) {
-        String[] projection = { MediaStore.Video.Media.DATA };
-        Cursor cursor = getContext().getContentResolver().query(uri, projection, null, null, null);
-        if (cursor != null) {
-            // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
-            // THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
-            int column_index = cursor
-                    .getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } else
-            return null;
-    }
 
+    }
+    private void VideoOpenGallery(){
+        Intent intent = new Intent(
+                Intent.ACTION_PICK,
+                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("video/*");
+        startActivityForResult(intent, 2);
+
+    }
     private void ImageCapture() {
+//        if (check_permissions())
+//        {
+//            Intent intent = new Intent(getActivity(), GalleryImage.class);
+//            startActivity(intent);
+//            getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
+//        }
 
 //        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //        cameraIntent.putExtra( MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
@@ -315,13 +327,12 @@ public class CallerDetailsChoose extends Fragment {
         return image;
     }
 
-    private void openGallery() {
+    private void ImageOpenGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
     }
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)    {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE)
         {
@@ -329,7 +340,6 @@ public class CallerDetailsChoose extends Fragment {
                 PreferenceUtils.getInstance().putString(R.string.pref_image_path,pictureFile.getAbsolutePath());
                 Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcalleridchoose_to_videoview);
-
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getActivity(),
                         "User cancelled video recording", Toast.LENGTH_SHORT)
@@ -405,13 +415,21 @@ public class CallerDetailsChoose extends Fragment {
         }
 
         else if (requestCode == 2) {
-            /* my code*/
-            Uri selectedVideoUri = data.getData();
-            String selectedVideoPath = getPath(selectedVideoUri);
-            PreferenceUtils.getInstance().putString(R.string.pref_image_path,selectedVideoPath);
-            Navigation.findNavController(binding.getRoot())
-                    .navigate(R.id.action_viewcalleridchoose_to_videoview);
-            /* my code */
+            Uri selectedImage = data.getData();
+            String[] filePath = { MediaStore.Video.Media.DATA };
+            /*Cursor c = getContentResolver().query(selectedImage, filePath,
+                    null, null, null);
+            c.moveToFirst();
+            int columnIndex = c.getColumnIndex(filePath[0]);
+            String videoPath = c.getString(columnIndex);
+            c.close();*/
+            Log.d("SelectedVideoPath", selectedImage.getPath());
+
+            try {
+                //uploadVideo(videoPath);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -456,13 +474,14 @@ public class CallerDetailsChoose extends Fragment {
 
 
 
-    private void savefile(Uri sourceuri) throws IOException {
+    private void savefile(URI sourceuri)
+    {
         String sourceFilename= sourceuri.getPath();
-        String  videoFile1 = null;
-        File myDir = getPictureVideo();
-        String destinationFilename = myDir+".mp4";
+        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp3";
+
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
+
         try {
             bis = new BufferedInputStream(new FileInputStream(sourceFilename));
             bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));

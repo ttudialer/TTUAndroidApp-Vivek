@@ -1,17 +1,22 @@
 package com.kabaladigital.tingtingu.ui.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -112,12 +117,11 @@ public class CallerDetailsFragment extends Fragment {
         {
             if (fs.exists()) {
 
-                if (/*fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG")*/isImageFile(p_path))
+                if (fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG"))
                 {
-                    //FileInputStream fi1 = null;
-
-
-                    /*BitmapFactory.Options bfOptions=new BitmapFactory.Options();
+                    FileInputStream fi1 = null;
+                    Bitmap bm;
+                    BitmapFactory.Options bfOptions=new BitmapFactory.Options();
                     try {
                         fi1 = new FileInputStream(new File(p_path));
 
@@ -129,10 +133,13 @@ public class CallerDetailsFragment extends Fragment {
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
-                    }*/
+                    }
                 }
                 else if (fs.toString().endsWith(".mp4")||fs.toString().endsWith(".MP4")) {
                     Log.d("====>","elseif");
+
+
+
                     Uri uri = Uri.parse(p_path);
                     binding.VideoView1.setVideoURI(uri);
                     binding.VideoView1.requestFocus();
@@ -146,6 +153,26 @@ public class CallerDetailsFragment extends Fragment {
                 }
             }
         }
+        binding.VideoView1.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
+        binding.VideoView1.setOnTouchListener( new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if( ((VideoView)v).isPlaying() )
+                    ((VideoView)v).pause();
+                else
+                    ((VideoView)v).start();
+                return true;
+            }
+        });
+
+
 
 
     }

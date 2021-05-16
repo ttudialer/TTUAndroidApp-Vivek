@@ -32,6 +32,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoListener;
 import com.kabaladigital.tingtingu.Class.Functions;
+import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.Class.Variables;
 import com.kabaladigital.tingtingu.Filter.FilterType;
 import com.kabaladigital.tingtingu.Filter.Filter_Adapter;
@@ -63,11 +64,15 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
 
         select_postion = 0;
 
+        try {
+            Variables.output_filter_file= Global.getVideoPath(getApplicationContext()).toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Intent intent = getIntent();
         if (intent != null) {
             draft_file = intent.getStringExtra("draft_file");
         }
-
 
         if (Variables.video_flipped) {
             flipVideoHorizontal();
@@ -83,7 +88,8 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                         try {
                             Functions.copyFile(new File(Variables.outputfile2),
                                     new File(Variables.output_filter_file));
-                            Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Video saved successfully1", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
                             startActivity(intent1);
                             finish();
@@ -97,10 +103,7 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                         save_Video(Variables.outputfile2, Variables.output_filter_file);
                 }
             });
-
             set_Player(video_url);
-
-
         }
 
 

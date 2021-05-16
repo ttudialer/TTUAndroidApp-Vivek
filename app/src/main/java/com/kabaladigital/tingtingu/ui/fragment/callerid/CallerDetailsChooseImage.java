@@ -76,50 +76,6 @@ public class CallerDetailsChooseImage extends Fragment {
         }
         obj_adapter = new Adapter_ImageFolder(getContext(),al_video,getActivity());
         recyclerView.setAdapter(obj_adapter);
-
-//
-//        int int_position = 0;
-//        Uri uri;
-//        Cursor cursor;
-//        int column_index_data, column_index_folder_name,column_id,thum;
-//
-//        String absolutePathOfImage = null;
-//        uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-//       // uri =  Uri.parse("content:/"+ getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image") ;
-//        //final Uri filesUri = MediaStore.Files.getContentUri(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image");
-//
-//        String[] proj = {MediaStore.Images.Media.DATA};
-//        String[] projection = {MediaStore.MediaColumns.DATA, MediaStore.Video.Media.BUCKET_DISPLAY_NAME,MediaStore.Images.Media._ID
-//                                ,MediaStore.Images.Thumbnails.DATA};
-//
-//        final String orderBy = MediaStore.Images.Media.DATE_TAKEN;
-//        cursor = getContext().getContentResolver().query(uri, projection, null, null, orderBy + " DESC");
-//       // cursor = getActivity().getContentResolver().query(filesUri, proj, null, null, null);
-//
-//        column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-//        column_index_folder_name = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
-//        column_id = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
-//        thum = cursor.getColumnIndexOrThrow(MediaStore.Images.Thumbnails.DATA);
-//
-//        while (cursor.moveToNext()) {
-//            int columnIndex = cursor.getColumnIndex(proj[0]);
-//            absolutePathOfImage = cursor.getString(columnIndex);
-//            Log.e("Column", absolutePathOfImage);
-//            Log.e("Folder", cursor.getString(column_index_folder_name));
-//            Log.e("column_id", cursor.getString(column_id));
-//            Log.e("thum", cursor.getString(thum));
-//
-//            Model_Video obj_model = new Model_Video();
-//            obj_model.setBoolean_selected(false);
-//            obj_model.setStr_path(absolutePathOfImage);
-//            obj_model.setStr_thumb(cursor.getString(thum));
-//            al_video.add(obj_model);
-//        }
-//
-//
-//        obj_adapter = new Adapter_ImageFolder(getContext(),al_video,getActivity());
-//        recyclerView.setAdapter(obj_adapter);
-
     }
 
     public String[] RetriveCapturedImagePath1(){
@@ -132,74 +88,6 @@ public class CallerDetailsChooseImage extends Fragment {
             FilePathStrings[i] = files[i].getAbsolutePath();
         }
         return FilePathStrings;
-    }
-    public ArrayList<String>  RetriveCapturedImagePath(){
-        tFileList = new ArrayList<String>();
-        File f = new File( Global.TTULibraryImage(getContext()).getAbsolutePath() );
-        if (f.exists()) {
-            File[] files = f.listFiles();
-            if (files != null) {
-                if (files.length > 0) {
-                    Arrays.sort( files );
-                    for (int i = 0; i < files.length; i++) {
-                        File file = files[i];
-                        if (file.isDirectory())
-                            continue;
-                        String filePath = file.getPath();
-                        if (filePath.endsWith( ".jpg" )) {
-                            tFileList.add( file.getPath() );
-                        }
-                    }
-                }
-            }
-        }
-        if (tFileList.isEmpty()) {
-            return null;
-        } else {
-            return tFileList;
-        }
-//        tFileList = new ArrayList<String>();
-//        Uri uri = Uri.parse( Global.TTULibraryImage(getContext()).getAbsolutePath());
-//        Cursor cursor = getActivity().getContentResolver().query(uri , projection, null,null, null);
-//        //Cursor cursor = getActivity().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, projection, null,null, null);
-//        if(cursor == null)
-//            return  null;
-//
-//        while (cursor.moveToNext()) {
-//            String absolutePathOfImage = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
-////            ImageModel ImageModel = new ImageModel();
-////            ImageModel.setImage(absolutePathOfImage);
-////            imageList.add(ImageModel);
-//
-//            tFileList.add(absolutePathOfImage);
-//        }
-//        cursor.close();
-//
-//        if(tFileList.isEmpty()){
-//            return null;
-//        }
-//        else{
-//            return tFileList;
-//        }
-
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        listOfImagesPath = null;
-//        listOfImagesPath = RetriveCapturedImagePath();
-//        if(listOfImagesPath !=null){
-//            binding.gridImage.setAdapter(new ImageListAdapter(getActivity(),listOfImagesPath));
-//            binding.gridImage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                public void onItemClick(AdapterView<?> parent, View v, int position, long id){
-//                    PreferenceUtils.getInstance().putString(R.string.pref_image_path,new File(tFileList.get(position)).getAbsolutePath());
-//                    startActivity(new Intent(getContext(), Image_View1.class));
-//
-//                }
-//            });
-//
-//        }
     }
 
     @Override
