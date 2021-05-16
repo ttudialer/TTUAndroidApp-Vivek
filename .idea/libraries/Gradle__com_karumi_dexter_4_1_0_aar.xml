@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.karumi:dexter:4.1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2f0baaeb9cfb77611f5488163115cf4/jetified-dexter-4.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2f0baaeb9cfb77611f5488163115cf4/jetified-dexter-4.1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e2f0baaeb9cfb77611f5488163115cf4/jetified-dexter-4.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b18e322fb45f942bb9e100efab082f59/jetified-dexter-4.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b18e322fb45f942bb9e100efab082f59/jetified-dexter-4.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b18e322fb45f942bb9e100efab082f59/jetified-dexter-4.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.karumi/dexter/4.1.0/92ab6d8c9955eda1f82febfc1814fdf330f17add/dexter-4.1.0-javadoc.jar!/" />
