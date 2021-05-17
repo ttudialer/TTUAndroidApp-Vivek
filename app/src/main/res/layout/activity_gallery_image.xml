@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#000000"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black_overlay"
+    android:fitsSystemWindows="true">
 
+    <com.theartofdev.edmodo.cropper.CropImageView
 
-
-    <ImageView
+        android:id="@+id/cropImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/vv_Image"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +35,49 @@
             android:background="@xml/ovelshapegreen"
             android:layout_alignParentBottom = "true"
             android:text="@string/call_ttu_id_setProfile" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_rotate_right_white_24dp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:elevation="0sp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#7df1e7"
+        android:tint="#ffffff"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nextleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_rotate_left_white_24dp"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:elevation="0sp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="#7df1e7"
+        android:tint="#ffffff"/>
+    <RelativeLayout
+        android:id="@+id/wait_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
 
     </RelativeLayout>
 

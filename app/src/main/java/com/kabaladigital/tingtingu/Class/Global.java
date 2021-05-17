@@ -25,15 +25,6 @@ public class Global {
         }
         return storageDir;
     }
-    public static File getVideoPath(Context mContext) throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String pictureFile = "RAM_" + timeStamp;
-        File storageDir = Global.TTULibraryVideo(mContext) ;
-        File image = File.createTempFile(pictureFile,  "_P.mp4", storageDir);
-        return image;
-    }
-
-
     public static File TTULibraryVideo(Context mContext){
         File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Video");
         boolean success = true;
@@ -51,11 +42,36 @@ public class Global {
         return storageDir;
     }
 
+
+    public static File getVideoPath_filename(Context mContext) throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "RAM_" + timeStamp;
+        File storageDir = Global.TTULibraryVideo(mContext) ;
+        File image = File.createTempFile(pictureFile,  "_P.mp4", storageDir);
+        return image;
+    }
+
+    public static File getImagePath_P(Context mContext) throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "RAM_" + timeStamp;
+        File storageDir = Global.TTULibraryImage(mContext) ;
+        File image = File.createTempFile(pictureFile,  "_P.jpg", storageDir);
+        return image;
+    }
+
+
+
     public static String getPictureFilePath(Context mContext) throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String pictureFile = "RAM_" + timeStamp;
         return pictureFile;
     }
+    public static String getPictureFileName(Context mContext) throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "RAM_" + timeStamp + ".jpg";
+        return pictureFile;
+    }
+
     public static Bitmap getContactBitmapFromURI(Context context, Uri uri) {
         try {
 

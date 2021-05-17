@@ -69,7 +69,6 @@ public class CallerDetailsFragment extends Fragment {
                 Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
 
-
             }
         });
 

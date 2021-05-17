@@ -15,8 +15,10 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.FileUtils;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -42,6 +44,7 @@ import com.kabaladigital.tingtingu.Class.Functions;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.Class.Variables;
 import com.kabaladigital.tingtingu.R;
+import com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview;
 import com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A;
 import com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseBinding;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
@@ -54,6 +57,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -101,41 +108,13 @@ public class CallerDetailsChoose extends Fragment {
         binding.btnTvCrVP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(getContext(), binding.btnTvCrVP);
-                popup.getMenuInflater().inflate(R.menu.poupup_menu, popup.getMenu());
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        if(item.getTitle().equals("Video"))
-                            VideoCapture();
-                        else if(item.getTitle().equals("Image"))
-                            ImageCapture();
-                        return true;
-                    }
-                });
-                popup.show();
-
+                showPopupMenu_CR(view, true, R.style.MyPopupStyle);
             }
         });
         binding.btnTvImpVP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(getContext(), binding.btnTvCrVP);
-                popup.getMenuInflater().inflate(R.menu.poupup_menu, popup.getMenu());
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-//                        Toast.makeText(getContext(),"You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                        if(item.getTitle().equals("Video")) {
-                            Image_Video_type = "PICK_VIDEO";
-                            VideoOpenGallery();
-                        }
-                        else if(item.getTitle().equals("Image")) {
-                            Image_Video_type = "PICK_IMAGE";
-                            ImageOpenGallery();
-                        }
-                        return true;
-                    }
-                });
-                popup.show();
+                showPopupMenu_IM(view, true, R.style.MyPopupStyle);
             }
         });
 
@@ -194,6 +173,97 @@ public class CallerDetailsChoose extends Fragment {
         EnableRuntimePermission();
         return binding.getRoot();
     }
+    private void showPopupMenu_IM(View anchor, boolean isWithIcons, int style) {
+        //init the wrapper with style
+        Context wrapper = new ContextThemeWrapper(getContext(), style);
+        //init the popup
+        PopupMenu popup = new PopupMenu(wrapper, anchor);
+
+        /*  The below code in try catch is responsible to display icons*/
+        if (isWithIcons) {
+            try {
+                Field[] fields = popup.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    if ("mPopup".equals(field.getName())) {
+                        field.setAccessible(true);
+                        Object menuPopupHelper = field.get(popup);
+                        Class<?> classPopupHelper = Class.forName(menuPopupHelper.getClass().getName());
+                        Method setForceIcons = classPopupHelper.getMethod("setForceShowIcon", boolean.class);
+                        setForceIcons.invoke(menuPopupHelper, true);
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //inflate menu
+        popup.getMenuInflater().inflate(R.menu.poupup_menu, popup.getMenu());
+        //implement click events
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.image:
+                        Image_Video_type = "PICK_IMAGE";
+                        ImageOpenGallery();
+                        break;
+                    case R.id.video:
+                        Image_Video_type = "PICK_VIDEO";
+                        VideoOpenGallery();
+                        break;
+                }
+                return true;
+            }
+        });
+        popup.show();
+    }
+    private void showPopupMenu_CR(View anchor, boolean isWithIcons, int style) {
+        //init the wrapper with style
+        Context wrapper = new ContextThemeWrapper(getContext(), style);
+
+        //init the popup
+        PopupMenu popup = new PopupMenu(wrapper, anchor);
+
+        /*  The below code in try catch is responsible to display icons*/
+        if (isWithIcons) {
+            try {
+                Field[] fields = popup.getClass().getDeclaredFields();
+                for (Field field : fields) {
+                    if ("mPopup".equals(field.getName())) {
+                        field.setAccessible(true);
+                        Object menuPopupHelper = field.get(popup);
+                        Class<?> classPopupHelper = Class.forName(menuPopupHelper.getClass().getName());
+                        Method setForceIcons = classPopupHelper.getMethod("setForceShowIcon", boolean.class);
+                        setForceIcons.invoke(menuPopupHelper, true);
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //inflate menu
+        popup.getMenuInflater().inflate(R.menu.poupup_menu, popup.getMenu());
+        //implement click events
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.image:
+                        ImageCapture();
+                        break;
+                    case R.id.video:
+                        VideoCapture();
+                        break;
+                }
+                return true;
+            }
+        });
+        popup.show();
+
+    }
+
     public void EnableRuntimePermission(){
         if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                 Manifest.permission.CAMERA)) {
@@ -216,42 +286,14 @@ public class CallerDetailsChoose extends Fragment {
         }
     }
     private void VideoCapture() {
-
         if (check_permissions()) {
             Functions.make_directry(Variables.app_folder);
             Functions.make_directry(Variables.draft_app_folder);
-
             Intent intent = new Intent(getActivity(), Video_Recoder_A.class);
             startActivity(intent);
             getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
         }
 
-        //comment code
-        /*Video_Image_type="VIDEO";
-        Intent cameraIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        try {
-            pictureFile = getPictureVideo();
-        } catch (IOException ex) {
-            Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (pictureFile != null) {
-            Uri VideoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, VideoURI);
-            cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
-            startActivityForResult(cameraIntent, CAMERA_CAPTURE_VIDEO_REQUEST_CODE);
-        }*/
-        //comment code
-
-
-
-    }
-    private void VideoOpenGallery(){
-        Intent intent = new Intent(
-                Intent.ACTION_PICK,
-                android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("video/*");
-        startActivityForResult(intent, 2);
 
     }
     private void ImageCapture() {
@@ -311,33 +353,25 @@ public class CallerDetailsChoose extends Fragment {
         return true;
     }
 
-    private File getPictureFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String pictureFile = "RAM_" + timeStamp;
-        File storageDir = Global.TTULibraryImage(getContext()) ;
-        File image = File.createTempFile(pictureFile,  "_P.jpg", storageDir);
-        return image;
+    private void VideoOpenGallery(){
+        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("video/*");
+        startActivityForResult(intent, 2);
+
     }
 
-    private File getPictureVideo() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String pictureFile = "RAM_" + timeStamp;
-        File storageDir = Global.TTULibraryVideo(getContext()) ;
-        File image = File.createTempFile(pictureFile,  "_P.mp4", storageDir);
-        return image;
-    }
 
     private void ImageOpenGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        gallery.setType("image/*");
         startActivityForResult(gallery, PICK_IMAGE);
     }
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE)
-        {
+        if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                PreferenceUtils.getInstance().putString(R.string.pref_image_path,pictureFile.getAbsolutePath());
+                PreferenceUtils.getInstance().putString(R.string.pref_image_path, pictureFile.getAbsolutePath());
                 Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcalleridchoose_to_videoview);
             } else if (resultCode == RESULT_CANCELED) {
@@ -361,12 +395,12 @@ public class CallerDetailsChoose extends Fragment {
 
 //
 
-            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  photoURI.toString());
-           // Intent intent = new Intent(getContext(), CropAndRotate_Photo.class);
+//            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  photoURI.toString());
+            // Intent intent = new Intent(getContext(), CropAndRotate_Photo.class);
             //startActivity(intent);
 
-            Navigation.findNavController(binding.getRoot())
-                    .navigate(R.id.action_viewcalleridchoose_to_imageview);
+//            Navigation.findNavController(binding.getRoot())
+//                    .navigate(R.id.action_viewcalleridchoose_to_imageview);
 
             //if (imgFile.exists()) {
 
@@ -387,15 +421,11 @@ public class CallerDetailsChoose extends Fragment {
 //                    e.printStackTrace();
 //                }
             //}
-        }
-        else if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
-            if(Image_Video_type == "PICK_IMAGE"){
-
-            }
+        } else if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
             imageUri = data.getData();
-           String  pictureFile1 = null;
+            String pictureFile1 = null;
             try {
-                pictureFile1 = Global.getPictureFilePath(getContext());
+                pictureFile1 = Global.getPictureFileName(getContext());
             } catch (IOException ex) {
                 Toast.makeText(getActivity(), "Photo file can't be created, please try again", Toast.LENGTH_SHORT).show();
                 return;
@@ -408,15 +438,46 @@ public class CallerDetailsChoose extends Fragment {
                 img.compress(Bitmap.CompressFormat.JPEG, 90, out);
                 out.flush();
                 out.close();
+                Navigation.findNavController(binding.getRoot())
+                        .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-
-        else if (requestCode == 2) {
+        } else if (requestCode == 2) {
             Uri selectedImage = data.getData();
-            String[] filePath = { MediaStore.Video.Media.DATA };
+            try {
+                String[] filePath = { MediaStore.Video.Media.DATA };
+                Cursor c = getContext().getContentResolver().query(selectedImage, filePath,
+                        null, null, null);
+                c.moveToFirst();
+                int columnIndex = c.getColumnIndex(filePath[0]);
+                String videoPath = c.getString(columnIndex);
+                c.close();
+
+                File currentFile = new File(videoPath);
+                File destinationFilename = null;// android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp4";
+                try {
+                    destinationFilename = Global.getVideoPath_filename(getContext());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (currentFile.exists()) {
+                    InputStream in = new FileInputStream(currentFile);
+                    OutputStream out = new FileOutputStream(destinationFilename);
+                    FileUtils.copy(in, out);
+                    in.close();
+                    out.close();
+                    Log.v("", "Image file saved successfully.");
+                } else {
+                    Log.v("", "Image saving failed. Source file missing.");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            String[] filePath = {MediaStore.Video.Media.DATA};
             /*Cursor c = getContentResolver().query(selectedImage, filePath,
                     null, null, null);
             c.moveToFirst();
@@ -471,13 +532,9 @@ public class CallerDetailsChoose extends Fragment {
         });
         builder.show();
     }
-
-
-
-    private void savefile(URI sourceuri)
-    {
+    private void savefile(URI sourceuri)  {
         String sourceFilename= sourceuri.getPath();
-        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp3";
+        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp4";
 
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;

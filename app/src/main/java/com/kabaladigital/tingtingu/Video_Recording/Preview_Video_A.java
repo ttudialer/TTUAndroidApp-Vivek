@@ -65,7 +65,7 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
         select_postion = 0;
 
         try {
-            Variables.output_filter_file= Global.getVideoPath(getApplicationContext()).toString();
+            Variables.output_filter_file= Global.getVideoPath_filename(getApplicationContext()).toString();
         } catch (IOException e) {
             e.printStackTrace();
         }

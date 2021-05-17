@@ -1077,6 +1077,7 @@ color biometric_error_color
 color black
 color black75
 color black_65
+color black_overlay
 color blue
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
@@ -1950,6 +1951,7 @@ drawable ic_white_cross
 drawable icon
 drawable icon_full_144
 drawable idea
+drawable image1
 drawable jioicon
 drawable linear_round
 drawable logo_made_by
@@ -2024,6 +2026,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable ttu_only_logo
 drawable user
+drawable video1
 drawable vignette
 drawable voda
 font google_sans_bold
@@ -2991,7 +2994,6 @@ id viewcallerphotovideo
 id viewpager
 id visible
 id visible_removing_fragment_view_tag
-id vv_Image
 id vv_video
 id wait_spinner
 id web_view
@@ -4012,6 +4014,7 @@ style MessengerButtonText_Blue_Small
 style MessengerButtonText_White
 style MessengerButtonText_White_Large
 style MessengerButtonText_White_Small
+style MyPopupStyle
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents

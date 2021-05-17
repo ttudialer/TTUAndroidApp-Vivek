@@ -220,7 +220,7 @@ public class OperatorHomeFragment extends Fragment {
         }else if (langType.equals("hi")){
             operatorHomeModelList.clear();
 
-            OperatorHomeModel operator0 = new OperatorHomeModel("0", "सदस्यता विवरण देखें", R.drawable.ic_membership_home);
+            OperatorHomeModel operator0 = new OperatorHomeModel("0", "आपका कॉलर फोटो/वीडियो टीटीयू आईडी", R.drawable.ic_membership_home);
             operatorHomeModelList.add(operator0);
 
             OperatorHomeModel operator1 = new OperatorHomeModel("1", "सदस्यता विवरण देखें", R.drawable.ic_membership_home);

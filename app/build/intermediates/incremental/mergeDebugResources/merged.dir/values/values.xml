@@ -410,6 +410,7 @@
     <color name="black">#000000</color>
     <color name="black75">#15161A</color>
     <color name="black_65">#1E1F24</color>
+    <color name="black_overlay">#66000000</color>
     <color name="blue">#0039FF</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -3340,6 +3341,14 @@
     <style name="MessengerButtonText.White.Small">
     <item name="android:drawableLeft">@drawable/messenger_bubble_small_blue</item>
   </style>
+    <style name="MyPopupStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!-- Used for the background -->
+        <item name="android:background">@android:color/white</item>
+    </style>
     <style name="Platform.AppCompat" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>

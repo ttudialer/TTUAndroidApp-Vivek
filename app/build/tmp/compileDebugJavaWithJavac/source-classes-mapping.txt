@@ -1,5 +1,3 @@
-com/kabaladigital/tingtingu/DataBindingInfo.java
- com.kabaladigital.tingtingu.DataBindingInfo
 com/kabaladigital/tingtingu/database/dao/IncomingCallAdDao.java
  com.kabaladigital.tingtingu.database.dao.IncomingCallAdDao
 com/kabaladigital/tingtingu/SegmentProgress/ProgressBarListener.java
@@ -74,12 +72,12 @@ com/kabaladigital/tingtingu/models/ParentObject.java
 com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChoose.java
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$1
- com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$1$1
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$2
- com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$2$1
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$3
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$4
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$5
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$6
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$7
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$ViewPagerAdapter
 com/kabaladigital/tingtingu/models/CallerDetailsModel.java
  com.kabaladigital.tingtingu.models.CallerDetailsModel
@@ -480,6 +478,8 @@ com/kabaladigital/tingtingu/ui/fragment/SettingFragment.java
  com.kabaladigital.tingtingu.ui.fragment.SettingFragment$4
  com.kabaladigital.tingtingu.ui.fragment.SettingFragment$5
  com.kabaladigital.tingtingu.ui.fragment.SettingFragment$6
+com/kabaladigital/tingtingu/DataBindingTriggerClass.java
+ com.kabaladigital.tingtingu.DataBindingTriggerClass
 com/kabaladigital/tingtingu/viewmodels/SplashScreenViewModel.java
  com.kabaladigital.tingtingu.viewmodels.SplashScreenViewModel
 com/kabaladigital/tingtingu/viewmodels/DthProcessRechargeViewModel.java
@@ -778,7 +778,13 @@ com/kabaladigital/tingtingu/models/LibraryAddModel.java
 com/kabaladigital/tingtingu/ImageHelper/Activity_Gallery_Image.java
  com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image
  com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$1
- com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$1$1
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$2
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$3
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$3$1
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$3$1$1
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$4
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$5
+ com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image$6
 com/kabaladigital/tingtingu/networking/ApiInterface.java
  com.kabaladigital.tingtingu.networking.ApiInterface
 com/kabaladigital/tingtingu/database/entity/ActiveStatus.java

@@ -39,6 +39,7 @@ public class ActivityEndCallBindingImpl extends ActivityEndCallBinding  {
             , (com.kabaladigital.tingtingu.databinding.ItemContactBinding) bindings[1]
             , (android.widget.RelativeLayout) bindings[0]
             );
+        setContainedBinding(this.layoutDetails);
         this.layoutEndCallAd.setTag(null);
         setRootTag(root);
         // listeners
