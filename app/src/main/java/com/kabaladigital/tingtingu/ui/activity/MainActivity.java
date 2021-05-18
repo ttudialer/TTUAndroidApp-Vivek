@@ -173,7 +173,8 @@ public class MainActivity extends AppCompatActivity {
         if(_ctime.equalsIgnoreCase(_DBtime)==false) {
             new Thread(new Runnable() {
                 public void run() {
-                    ReadContactDetailsJson();
+
+                    //ReadContactDetailsJson();
                 }
             }).start();
         }

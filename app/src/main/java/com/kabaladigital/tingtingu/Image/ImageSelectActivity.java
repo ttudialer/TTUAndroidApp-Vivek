@@ -103,8 +103,6 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
             }
         });
 
-
-
         findViewById(R.id.Goback).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

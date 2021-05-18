@@ -32,8 +32,11 @@ public abstract class ActivityOngoingCallBinding extends ViewDataBinding {
     super(_bindingComponent, _root, _localFieldCount);
     this.frame = frame;
     this.incomingCallLayout = incomingCallLayout;
+    setContainedBinding(this.incomingCallLayout);
     this.ongoingCallLayout = ongoingCallLayout;
+    setContainedBinding(this.ongoingCallLayout);
     this.overlaySendSms = overlaySendSms;
+    setContainedBinding(this.overlaySendSms);
   }
 
   @NonNull

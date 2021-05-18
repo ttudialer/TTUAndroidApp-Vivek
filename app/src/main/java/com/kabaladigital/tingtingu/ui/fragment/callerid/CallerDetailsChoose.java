@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileUtils;
@@ -30,6 +31,7 @@ import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
@@ -366,6 +368,7 @@ public class CallerDetailsChoose extends Fragment {
         gallery.setType("image/*");
         startActivityForResult(gallery, PICK_IMAGE);
     }
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -374,6 +377,7 @@ public class CallerDetailsChoose extends Fragment {
                 PreferenceUtils.getInstance().putString(R.string.pref_image_path, pictureFile.getAbsolutePath());
                 Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcalleridchoose_to_videoview);
+
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getActivity(),
                         "User cancelled video recording", Toast.LENGTH_SHORT)
@@ -439,29 +443,32 @@ public class CallerDetailsChoose extends Fragment {
 //                }
             //}
         } else if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
+            //Log.d("Hi","IN");
             imageUri = data.getData();
             String pictureFile1 = null;
             try {
                 pictureFile1 = Global.getPictureFileName(getContext());
-            } catch (IOException ex) {
-                Toast.makeText(getActivity(), "Photo file can't be created, please try again", Toast.LENGTH_SHORT).show();
-                return;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             File myDir = TTULibraryImage(getContext());
             File file = new File(myDir, String.valueOf(pictureFile1));
             try {
                 FileOutputStream out = new FileOutputStream(file);
                 Bitmap img = getContactBitmapFromURI(getContext(), imageUri);
-                img.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                img.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
                 out.close();
-                Navigation.findNavController(binding.getRoot())
+                /*Navigation.findNavController(binding.getRoot())
                         .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
+                */
+              binding.viewPager.getAdapter().notifyDataSetChanged();
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (requestCode == 2) {
+        } else if (requestCode == 2)
+        {
             Uri selectedImage = data.getData();
             try {
                 String[] filePath = { MediaStore.Video.Media.DATA };
@@ -482,13 +489,25 @@ public class CallerDetailsChoose extends Fragment {
                 if (currentFile.exists()) {
                     InputStream in = new FileInputStream(currentFile);
                     OutputStream out = new FileOutputStream(destinationFilename);
-                    FileUtils.copy(in, out);
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+                        // Do something for lollipop and above versions
+                        FileUtils.copy(in, out);
+                    } else{
+                        // do something for phones running an SDK oreo
+                        byte[] buf = new byte[1024];
+                        int len;
+                        while ((len = in.read(buf)) > 0) {
+                            out.write(buf, 0, len);
+                        }
+                    }
                     in.close();
                     out.close();
-                    Log.v("", "Image file saved successfully.");
+                    binding.viewPager.getAdapter().notifyDataSetChanged();
+                    Log.v("", "Video file saved successfully.");
                 } else {
-                    Log.v("", "Image saving failed. Source file missing.");
+                    Log.v("", "Video saving failed. Source file missing.");
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -598,6 +617,11 @@ public class CallerDetailsChoose extends Fragment {
         @Override
         public int getCount() {
             return childFragments.length;
+        }
+
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
         }
 
         @Override
