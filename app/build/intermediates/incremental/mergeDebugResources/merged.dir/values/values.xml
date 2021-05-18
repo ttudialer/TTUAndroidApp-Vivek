@@ -1418,6 +1418,7 @@
     <string name="pref_default_page_key">default_page</string>
     <string name="pref_default_page_title">Default page</string>
     <string name="pref_image_path">image_path</string>
+    <string name="pref_image_path_Draft">draft_image_path</string>
     <string name="pref_is_biometric_key">is_biometric</string>
     <string name="pref_is_biometric_title">Use Biometrics</string>
     <string name="pref_is_first_instance_key">first_instance</string>

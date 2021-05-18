@@ -73,7 +73,10 @@
             android:name="com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image"
             android:exported="true"
             />
-
+        <activity
+            android:name="com.kabaladigital.tingtingu.Image.ImageSelectActivity"
+            android:exported="true"
+            />
 
 
 

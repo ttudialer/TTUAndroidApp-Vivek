@@ -43,6 +43,7 @@ import com.kabaladigital.tingtingu.BuildConfig;
 import com.kabaladigital.tingtingu.Class.Functions;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.Class.Variables;
+import com.kabaladigital.tingtingu.Image.ImageSelectActivity;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview;
 import com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A;
@@ -68,6 +69,7 @@ import java.util.Date;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImage;
+import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImageDraft;
 import static com.kabaladigital.tingtingu.Class.Global.getContactBitmapFromURI;
 
 
@@ -297,16 +299,14 @@ public class CallerDetailsChoose extends Fragment {
 
     }
     private void ImageCapture() {
-//        if (check_permissions())
-//        {
-//            Intent intent = new Intent(getActivity(), GalleryImage.class);
-//            startActivity(intent);
-//            getActivity().overridePendingTransition(R.anim.in_from_bottom, R.anim.out_to_top);
-//        }
+        if (check_permissions()) {
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
+            if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
 
-//        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        cameraIntent.putExtra( MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
-//        if (cameraIntent.resolveActivity( getActivity().getPackageManager()) != null) {
+                Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 5);
+            }
 //            File pictureFile = null;
 //            try {
 //                pictureFile = getPictureFile();
@@ -320,7 +320,7 @@ public class CallerDetailsChoose extends Fragment {
 //                cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT,15);
 //                startActivityForResult(cameraIntent, REQUEST_PICTURE_CAPTURE);
 //            }
-//        }
+        }
     }
 
     public boolean check_permissions() {
@@ -383,14 +383,31 @@ public class CallerDetailsChoose extends Fragment {
                         "Sorry! Failed to record video", Toast.LENGTH_SHORT)
                         .show();
             }
-        } else if (requestCode == REQUEST_PICTURE_CAPTURE && resultCode == RESULT_OK) {
-//            Bitmap bitmap ;
-//                    //(Bitmap) data.getExtras().get("data");
-//            try {
-//                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), photoURI);
-//             } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+        } else if (requestCode == 5) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+            File file = null;
+            try {
+                file =Global.getImageDraft_Image(getContext());
+                FileOutputStream out = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                out.flush();
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,file.getAbsolutePath());
+            Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
+            startActivity(intent);
+
+       }else if (requestCode == REQUEST_PICTURE_CAPTURE && resultCode == RESULT_OK) {
+            Bitmap bitmap ;
+                    //(Bitmap) data.getExtras().get("data");
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), photoURI);
+             } catch (IOException e) {
+                e.printStackTrace();
+            }
 
 
 //

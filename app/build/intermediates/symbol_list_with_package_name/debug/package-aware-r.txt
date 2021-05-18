@@ -2680,6 +2680,7 @@ id percent
 id picture
 id pikPok_selectImage
 id pin
+id place_holder_imageview
 id play_btn
 id playerview
 id profileChooseMultiLanguageFragment
@@ -2854,6 +2855,7 @@ id texture
 id texture_view
 id thumb_image
 id thumbnail
+id thumbnails
 id time
 id time_btn
 id timer_txt
@@ -3071,6 +3073,7 @@ layout activity_gallery_selected_video
 layout activity_gallery_videos
 layout activity_gallery_videos_for_ung
 layout activity_galleryview
+layout activity_image_select
 layout activity_login
 layout activity_main
 layout activity_menu
@@ -3642,6 +3645,7 @@ string pref_default_page_default_value
 string pref_default_page_key
 string pref_default_page_title
 string pref_image_path
+string pref_image_path_Draft
 string pref_is_biometric_key
 string pref_is_biometric_title
 string pref_is_first_instance_key

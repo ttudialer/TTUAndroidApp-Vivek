@@ -25,6 +25,15 @@ public class Global {
         }
         return storageDir;
     }
+    public static File TTULibraryImageDraft(Context mContext){
+        File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image/Draft");
+        boolean success = true;
+        if (storageDir.exists()==false) {
+            success = storageDir.mkdirs();
+        }
+        return storageDir;
+    }
+
     public static File TTULibraryVideo(Context mContext){
         File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Video");
         boolean success = true;
@@ -59,7 +68,13 @@ public class Global {
         return image;
     }
 
-
+    public static File getImageDraft_Image(Context mContext) throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String pictureFile = "Dr_" + timeStamp;
+        File storageDir = Global.TTULibraryImageDraft(mContext) ;
+        File image = File.createTempFile(pictureFile,  ".jpg", storageDir);
+        return image;
+    }
 
     public static String getPictureFilePath(Context mContext) throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());

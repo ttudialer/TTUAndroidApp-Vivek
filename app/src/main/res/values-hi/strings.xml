@@ -72,6 +72,7 @@
     <string name="pref_c_upload_date">uplodate_date</string>
     <string name="pref_profile_path">profile_path</string>
     <string name="pref_image_path">image_path</string>
+    <string name="pref_image_path_Draft">draft_image_path</string>
 
     <string name="pref_is_otp_verify_key">is_otp_verify</string>
     <string name="pref_is_language_selected_key">is_language_selected</string>

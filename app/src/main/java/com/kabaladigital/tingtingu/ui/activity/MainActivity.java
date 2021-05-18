@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         Installation.id(this);
         setSupportActionBar(binding.toolbarMainActivity);
         Global.TTULibraryImage(this) ;
+        Global.TTULibraryImageDraft(this) ;
         Global.TTULibraryVideo(this) ;
         Global.TTULibraryProfile(this) ;
 

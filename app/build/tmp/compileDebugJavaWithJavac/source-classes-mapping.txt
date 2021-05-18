@@ -354,6 +354,10 @@ com/kabaladigital/tingtingu/ImageHelper/CompressImage.java
  com.kabaladigital.tingtingu.ImageHelper.CompressImage
 com/kabaladigital/tingtingu/ui/fragment/CallerDetailsFragmentDirections.java
  com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragmentDirections
+com/kabaladigital/tingtingu/Image/ThumbnailsAdapter.java
+ com.kabaladigital.tingtingu.Image.ThumbnailsAdapter
+ com.kabaladigital.tingtingu.Image.ThumbnailsAdapter$1
+ com.kabaladigital.tingtingu.Image.ThumbnailsAdapter$ThumbnailsViewHolder
 com/kabaladigital/tingtingu/ImageHelper/Adapter_ImageFolder.java
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$1
@@ -416,6 +420,13 @@ com/kabaladigital/tingtingu/viewmodels/ContactListViewModel.java
 com/kabaladigital/tingtingu/service/SharesPreference.java
  com.kabaladigital.tingtingu.service.SharesPreference
  com.kabaladigital.tingtingu.service.SharesPreference$1
+com/kabaladigital/tingtingu/Image/ImageSelectActivity.java
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity$1
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity$2
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity$3
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity$4
+ com.kabaladigital.tingtingu.Image.ImageSelectActivity$5
 com/kabaladigital/tingtingu/ui/fragment/login/EnterOtpFragment.java
  com.kabaladigital.tingtingu.ui.fragment.login.EnterOtpFragment
  com.kabaladigital.tingtingu.ui.fragment.login.EnterOtpFragment$1
@@ -486,6 +497,8 @@ com/kabaladigital/tingtingu/viewmodels/DthProcessRechargeViewModel.java
  com.kabaladigital.tingtingu.viewmodels.DthProcessRechargeViewModel
 com/kabaladigital/tingtingu/database/entity/CampaignLogs.java
  com.kabaladigital.tingtingu.database.entity.CampaignLogs
+com/kabaladigital/tingtingu/Image/ThumbnailsManager.java
+ com.kabaladigital.tingtingu.Image.ThumbnailsManager
 com/kabaladigital/tingtingu/viewmodels/EnterOtpViewModel.java
  com.kabaladigital.tingtingu.viewmodels.EnterOtpViewModel
 com/kabaladigital/tingtingu/Class/Callback.java
@@ -542,6 +555,8 @@ com/kabaladigital/tingtingu/ImageHelper/Imageview.java
  com.kabaladigital.tingtingu.ImageHelper.Imageview
  com.kabaladigital.tingtingu.ImageHelper.Imageview$1
  com.kabaladigital.tingtingu.ImageHelper.Imageview$1$1
+com/kabaladigital/tingtingu/Image/ThumbnailItem.java
+ com.kabaladigital.tingtingu.Image.ThumbnailItem
 com/kabaladigital/tingtingu/ui/activity/EndCallActivity.java
  com.kabaladigital.tingtingu.ui.activity.EndCallActivity
  com.kabaladigital.tingtingu.ui.activity.EndCallActivity$1
@@ -899,6 +914,8 @@ com/kabaladigital/tingtingu/database/AppDatabase.java
  com.kabaladigital.tingtingu.database.AppDatabase
  com.kabaladigital.tingtingu.database.AppDatabase$1
  com.kabaladigital.tingtingu.database.AppDatabase$1$1
+com/kabaladigital/tingtingu/Image/ThumbnailCallback.java
+ com.kabaladigital.tingtingu.Image.ThumbnailCallback
 com/kabaladigital/tingtingu/ui/fragment/base/AbsBaseFragment.java
  com.kabaladigital.tingtingu.ui.fragment.base.AbsBaseFragment
 com/kabaladigital/tingtingu/databinding/ImageViewBinding.java

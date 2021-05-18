@@ -65,7 +65,7 @@ public class PreferenceUtils {
         sDefaultValues.put(R.string.pref_profile_path, "");
         sDefaultValues.put(R.string.u_id, "");
 
-
+        sDefaultValues.put(R.string.pref_image_path_Draft, "");
 
     }
 

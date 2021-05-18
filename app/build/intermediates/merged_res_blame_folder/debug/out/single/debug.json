@@ -448,6 +448,10 @@
         "source": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
+        "merged": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_image_select.xml.flat",
+        "source": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\src\\main\\res\\layout\\activity_image_select.xml"
+    },
+    {
         "merged": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_recents.xml.flat",
         "source": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\src\\main\\res\\layout\\fragment_recents.xml"
     },

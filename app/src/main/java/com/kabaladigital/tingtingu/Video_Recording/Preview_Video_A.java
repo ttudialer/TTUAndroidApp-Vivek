@@ -355,8 +355,6 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                     }
                 })
                 .start();
-
-
     }
 
 
@@ -421,8 +419,7 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
 
     @Override
     public void onBackPressed() {
-
-        finish();
+      finish();
         overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
 
     }
