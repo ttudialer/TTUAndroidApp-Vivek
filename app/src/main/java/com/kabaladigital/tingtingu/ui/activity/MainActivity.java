@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 public void run() {
 
-                    //ReadContactDetailsJson();
+                    ReadContactDetailsJson();
                 }
             }).start();
         }
