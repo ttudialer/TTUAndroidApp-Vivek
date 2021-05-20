@@ -1741,40 +1741,30 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     private void showAd(Caller_Id callerId)
     {
-
         Contact callerContact = CallManager.getDisplayContact(this);
         //Log.d("incomingno",callerContact.getMainPhoneNumber());
         String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
+        //String phone_no = "9461867672";
         //Log.d("phone", phone_no);
-
-        String path_video = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".mp4";
-        String path_img = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE" + "/" + phone_no + ".jpg";
-
-        File vidFile = new  File(path_video);
-        File imgFile = new  File(path_img);
-
-        if(vidFile.exists())
+        String path_video = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE/" + phone_no + ".mp4";
+        String path_img = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/TTUPROFILE/"  + phone_no + ".jpg";
+        //File vidFile = new  File(path_video);
+        //File imgFile = new  File(path_img);
+        String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileType();
+        if(file_type.equalsIgnoreCase("video"))
         {
             //video file to show
             VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
                 ,this,false,path_video);
             videoType = 1;
         }
-        else if(imgFile.exists())
+        else
         {
             //image file show when incoming call
             ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
                     ,path_img,ctx);
 
         }
-        else{
-            //default image show
-            ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
-
-        }
-
-
-
 
         /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
         // Get Ad Camp

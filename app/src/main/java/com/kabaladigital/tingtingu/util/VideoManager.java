@@ -222,39 +222,47 @@ public class VideoManager {
     public static void playFullScreenIncomingAd_2(VideoView mPlaceholderVideo
             , Context context, boolean playSound
             ,String path){
+        try{
+            mediaController  = new MediaController(context);
+            mediaController.setAnchorView(mPlaceholderVideo);
 
-        mediaController  = new MediaController(context);
-        mediaController.setAnchorView(mPlaceholderVideo);
+            Uri u;
 
-        Uri u;
-
-        if (path!=null){
-            try {
-                u = Uri.parse(path);
-            }catch (Exception e){
+            if (path!=null){
+                try {
+                    u = Uri.parse(path);
+                }catch (Exception e){
+                    String videoFile = returnRandomVideoPath(1);
+                    u = Uri.parse(videoFile);
+                }
+            }else {
                 String videoFile = returnRandomVideoPath(1);
                 u = Uri.parse(videoFile);
             }
-        }else {
-            String videoFile = returnRandomVideoPath(1);
-            u = Uri.parse(videoFile);
+
+            mPlaceholderVideo.setVideoURI(u);
+            mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.setLooping(true);
+                    if (playSound){
+                        mp.setVolume(50, 50);
+                    }else{
+                        mp.setVolume(0, 0);
+                    }
+                }
+            });
+            mPlaceholderVideo.start();
+
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+
         }
 
-        mPlaceholderVideo.setVideoURI(u);
 
-        mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-                if (playSound){
-                    mp.setVolume(50, 50);
-                }else{
-                    mp.setVolume(0, 0);
-                }
-            }
-        });
-        mPlaceholderVideo.start();
     }
 
 

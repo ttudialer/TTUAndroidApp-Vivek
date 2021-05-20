@@ -23,6 +23,7 @@ import android.os.Handler;
 
 import android.os.SystemClock;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String MESSAGE_STATUS = "MainActivity";
     DataRepository repository;
 
-    private DownloadManager downloadManager;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -173,16 +174,12 @@ public class MainActivity extends AppCompatActivity {
         if(_ctime.equalsIgnoreCase(_DBtime)==false) {
             new Thread(new Runnable() {
                 public void run() {
-
-                    ReadContactDetailsJson();
+                  ReadContactDetailsJson();
                 }
             }).start();
         }
 
-        //downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
-
-        getprofile();
 
 
         //Notification
@@ -270,6 +267,15 @@ public class MainActivity extends AppCompatActivity {
                 , SystemClock.elapsedRealtime()
                 , 15*60*1000
                 , pendingIntent);
+
+
+
+        //call download manager and load video and image
+        downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        getprofile();
+
+
+
     }
 
 
@@ -295,33 +301,69 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public static boolean delete(final Context context, final File file) {
+        final String where = MediaStore.MediaColumns.DATA + "=?";
+        final String[] selectionArgs = new String[] {
+                file.getAbsolutePath()
+        };
+        final ContentResolver contentResolver = context.getContentResolver();
+        final Uri filesUri = MediaStore.Files.getContentUri("external");
+
+        contentResolver.delete(filesUri, where, selectionArgs);
+
+        if (file.exists()) {
+
+            contentResolver.delete(filesUri, where, selectionArgs);
+        }
+        return !file.exists();
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void download() {
         //ArrayList<String>phone_no_arr = new ArrayList<>();
-
         for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
         {
             String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
+            //String phone_no = "9461867672";
             String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
-            //String path = String.valueOf(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE/"  + "/" + phone_no + ".mp4");
-            //String path = String.valueOf(ctx.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +  "/TTUPROFILE"  + "/" + phone_no + ".mp4"));
-            //Log.d("path",path);
 
-           /* Download_Uri = Uri.parse(url);
+            Download_Uri = Uri.parse(url);
             DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
             request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
             request.setAllowedOverRoaming(false);
-            request.setTitle("TTUPROFILE" + phone_no + ".mp4");
-            request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+
+            File vidFile = new  File(Environment.getExternalStoragePublicDirectory(Environment
+                    .DIRECTORY_DOWNLOADS).getAbsolutePath() + "/TTUPROFILE/" + phone_no +  ".mp4");
+            Log.d("path",Environment.getExternalStoragePublicDirectory(Environment
+                    .DIRECTORY_DOWNLOADS).getAbsolutePath() + "/TTUPROFILE/" + phone_no +  ".mp4");
+
+            if(vidFile.canRead() && !vidFile.isDirectory())
+            {
+                //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
+            }
+            else{
+                //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
+
+            }
+            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileType();
+            if(file_type.equalsIgnoreCase("video"))
+            {
+                //video type file
+                request.setTitle("TTUPROFILE" + phone_no + ".mp4");
+                request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+                request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
+
+            }
+            else{
+                //image type file
+                request.setTitle("TTUPROFILE" + phone_no + ".jpg");
+                request.setDescription("TTUPROFILE" + phone_no + ".jpg");
+                request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/"   + phone_no + ".jpg");
+            }
+
             request.setVisibleInDownloadsUi(true);
-            request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/"   + phone_no + ".mp4");
             refid = downloadManager_2.enqueue(request);
-            Log.e("OUTNM", "" + refid);
-            list.add(refid);*/
-
-
-
+            //list.add(refid);
 
         }
 
@@ -329,7 +371,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /*public static boolean isFileExists(File file) {
+        return file.exists() && !file.isDirectory();
+    }*/
 
+    public static boolean isFileExists(File file) {
+        return file.isFile();
+    }
 
 
 
@@ -361,19 +409,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
     }
-
-
-
-
-
-
 
 
 

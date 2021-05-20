@@ -393,7 +393,7 @@ public class CallerDetailsChoose extends Fragment {
             try {
                 file =Global.getImageDraft_Image(getContext());
                 FileOutputStream out = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
                 out.close();
             } catch (Exception e) {
@@ -401,6 +401,7 @@ public class CallerDetailsChoose extends Fragment {
             }
 
             PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,file.getAbsolutePath());
+
             Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
             startActivity(intent);
 
