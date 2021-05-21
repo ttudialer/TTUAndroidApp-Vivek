@@ -13,6 +13,7 @@ import com.kabaladigital.tingtingu.BuildConfig;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -228,7 +229,8 @@ public class VideoManager {
 
             Uri u;
 
-            if (path!=null){
+            if (path!=null)
+            {
                 try {
                     u = Uri.parse(path);
                 }catch (Exception e){
@@ -241,6 +243,7 @@ public class VideoManager {
             }
 
             mPlaceholderVideo.setVideoURI(u);
+
             mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
@@ -258,8 +261,13 @@ public class VideoManager {
         catch (Exception ex)
         {
             ex.printStackTrace();
+            String videoFile = returnRandomVideoPath(1);
+            Uri u = Uri.parse(videoFile);
+            mPlaceholderVideo.setVideoURI(u);
+
 
         }
+
 
 
 

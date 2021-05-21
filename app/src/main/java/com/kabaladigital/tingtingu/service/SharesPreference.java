@@ -28,13 +28,15 @@ public class SharesPreference
     }
 
     public static void saveprofile(Context mcontext, ProfileResponse mLovsDatum) {
-
         SharedPreferences.Editor prefsEditor = getInstance(mcontext).edit();
         Gson gson = new Gson();
         String json = gson.toJson(mLovsDatum);
         prefsEditor.putString("advert", json);
         prefsEditor.apply();
     }
+
+
+
 
     public static void saveArrayList(ArrayList<String> list, String key){
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);

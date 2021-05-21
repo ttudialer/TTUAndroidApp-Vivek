@@ -38,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
         Global.TTULibraryProfile(this) ;
 
 
-        //startActivity(new Intent(this, MainActivity.class));
-        //finish();
-
 
         if(CallManager.getState() == 4)
         {

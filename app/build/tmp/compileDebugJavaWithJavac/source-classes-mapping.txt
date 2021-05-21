@@ -58,6 +58,7 @@ com/kabaladigital/tingtingu/ui/activity/MainActivity.java
  com.kabaladigital.tingtingu.ui.activity.MainActivity$4
  com.kabaladigital.tingtingu.ui.activity.MainActivity$5
  com.kabaladigital.tingtingu.ui.activity.MainActivity$6
+ com.kabaladigital.tingtingu.ui.activity.MainActivity$7
 com/kabaladigital/tingtingu/models/ProfileAdv.java
  com.kabaladigital.tingtingu.models.ProfileAdv
 com/kabaladigital/tingtingu/ui/fragment/OperatorHomeFragmentDirections.java
@@ -203,6 +204,7 @@ com/kabaladigital/tingtingu/ui/activity/OngoingCallActivity.java
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$4$1
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$5
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$6
+ com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$7
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$CallTimeHandler
  com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity$Callback
 com/kabaladigital/tingtingu/models/MemberShipTypeModel.java

@@ -1,5 +1,6 @@
 package com.kabaladigital.tingtingu.ui.activity;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DownloadManager;
 import android.app.NotificationManager;
@@ -7,6 +8,7 @@ import android.app.PendingIntent;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,7 +35,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.preference.PreferenceManager;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.kabaladigital.tingtingu.database.AppDatabase;
 import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
@@ -69,6 +74,7 @@ import com.kabaladigital.tingtingu.util.Utilities;
 import org.json.JSONObject;
 
 
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -89,6 +95,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.google.firebase.crashlytics.internal.Logger.TAG;
+import static com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity.activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -109,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     private Uri Download_Uri;
     private long refid;
     Context ctx = MainActivity.this;
+    Activity activity_n = MainActivity.this;
 
 
 
@@ -321,54 +329,93 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void download() {
         //ArrayList<String>phone_no_arr = new ArrayList<>();
+        ArrayList<String> list= new ArrayList<>();
         for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
         {
             String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
-            //String phone_no = "9461867672";
-            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
-
-            Download_Uri = Uri.parse(url);
-            DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
-            request.setAllowedOverRoaming(false);
-
-            File vidFile = new  File(Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
-
-            Log.d("path",Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
-
-            if(vidFile.exists())
-            {
-                //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
-            }
-            else{
-                //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
-            }
-
             String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileType();
-            if(file_type.equalsIgnoreCase("video"))
+
+            //String phone_no="9461867672";
+            //String file_type="video";
+
+            if( getArrayList("phone_no") != null &&  getArrayList("phone_no").contains(phone_no+"@"+file_type))
             {
-                //video type file
-                request.setTitle("TTUPROFILE" + phone_no + ".mp4");
-                request.setDescription("TTUPROFILE" + phone_no + ".mp4");
-                //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
-
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/" + phone_no + ".mp4");
-
+                //file already downloaded
             }
             else{
-                //image type file
-                request.setTitle("TTUPROFILE" + phone_no + ".jpg");
-                request.setDescription("TTUPROFILE" + phone_no + ".jpg");
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"   + phone_no + ".jpg");
+                //download file
+                list.add(phone_no+"@"+file_type);
+                saveArrayList(list,"phone_no");
+
+                String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
+
+                Download_Uri = Uri.parse(url);
+                DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
+                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
+                request.setAllowedOverRoaming(false);
+
+                File vidFile = new  File(Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
+
+                Log.d("path",Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
+
+                if(vidFile.exists())
+                {
+                    //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
+                }
+
+
+                if(file_type.equalsIgnoreCase("video"))
+                {
+                    //video type file
+                    request.setTitle("TTUPROFILE" + phone_no + ".mp4");
+                    request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+                    //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
+
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/" + phone_no + ".mp4");
+
+                }
+                else{
+                    //image type file
+                    request.setTitle("TTUPROFILE" + phone_no + ".jpg");
+                    request.setDescription("TTUPROFILE" + phone_no + ".jpg");
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"   + phone_no + ".jpg");
+                }
+
+                request.setVisibleInDownloadsUi(true);
+                refid = downloadManager_2.enqueue(request);
+                //list.add(refid);
+
+
             }
 
-            request.setVisibleInDownloadsUi(true);
-            refid = downloadManager_2.enqueue(request);
-            //list.add(refid);
+            //String phone_no = "9461867672";
 
         }
 
 
+
+
+    }
+
+    public void saveArrayList(ArrayList<String> list, String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+
+
+    public ArrayList<String> getArrayList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 
 
