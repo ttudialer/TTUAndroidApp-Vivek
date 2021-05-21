@@ -105,7 +105,7 @@
 48-->[com.wonderkiln:camerakit:0.13.0] /home/piyush/.gradle/caches/transforms-2/files-2.1/5568eabe24bc94d817874113748a53d8/jetified-camerakit-0.13.0/AndroidManifest.xml:23:9-33
 49
 50    <application
-50-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:32:5-261:15
+50-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:32:5-262:15
 51        android:name="com.kabaladigital.tingtingu.App"
 51-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:33:9-55
 52        android:allowBackup="false"
@@ -131,393 +131,393 @@
 63        android:windowSoftInputMode="adjustResize" >
 63-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:41:9-51
 64        <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity" >
-64-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:45:9-54:20
-64-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:45:19-95
+64-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:46:9-55:20
+64-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:46:19-95
 65            <intent-filter>
-65-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:46:13-53:29
+65-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:13-54:29
 66                <action android:name="android.intent.action.VIEW" />
-66-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:17-68
-66-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:25-66
+66-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-68
+66-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:25-66
 67
 68                <category android:name="android.intent.category.DEFAULT" />
-68-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-68-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+68-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+68-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 69                <category android:name="android.intent.category.BROWSABLE" />
-69-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-69-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+69-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+69-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 70
 71                <data
-71-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
+71-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
 72                    android:host="https://tingtingu.page.link"
-72-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:21-63
+72-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-63
 73                    android:scheme="https" />
-73-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+73-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 74            </intent-filter>
 75        </activity>
 76        <activity
-76-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:56:9-57:58
+76-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:57:9-58:58
 77            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-77-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:56:19-82
+77-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:57:19-82
 78            android:theme="@style/Base.Theme.AppCompat" />
-78-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:57:13-56
+78-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:58:13-56
 79        <activity
-79-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:59:9-62:52
+79-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:60:9-63:52
 80            android:name="com.kabaladigital.tingtingu.ui.activity.EndCallActivity"
-80-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:60:13-83
+80-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:61:13-83
 81            android:launchMode="singleInstance"
-81-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:61:13-48
+81-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:62:13-48
 82            android:screenOrientation="portrait" />
-82-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:62:13-49
+82-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:63:13-49
 83        <activity
-83-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:63:9-67:11
+83-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:64:9-68:11
 84            android:name="com.kabaladigital.tingtingu.ui.activity.MainActivity"
-84-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:64:13-80
+84-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:65:13-80
 85            android:exported="true" />
-85-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:65:13-36
+85-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:66:13-36
 86        <activity
-86-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:68:9-71:15
+86-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:69:9-72:15
 87            android:name="com.kabaladigital.tingtingu.VideoHelper.Activity_galleryview"
-87-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:69:13-88
+87-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:70:13-88
 88            android:exported="true" />
-88-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:70:13-36
+88-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:71:13-36
 89        <activity
-89-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:72:9-75:15
+89-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:73:9-76:15
 90            android:name="com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image"
-90-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:73:13-90
+90-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:74:13-90
 91            android:exported="true" />
-91-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:74:13-36
+91-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:75:13-36
 92        <activity
-92-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:76:9-79:15
+92-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:77:9-80:15
 93            android:name="com.kabaladigital.tingtingu.Image.ImageSelectActivity"
-93-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:77:13-81
+93-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:78:13-81
 94            android:exported="true" />
-94-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:78:13-36
+94-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:79:13-36
 95        <activity
-95-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:87:5-151:16
+95-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:88:5-152:16
 96            android:name="com.kabaladigital.tingtingu.ui.activity.LoginActivity"
-96-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:88:9-77
+96-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:89:9-77
 97            android:label="@string/app_name"
-97-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:89:9-41
+97-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:90:9-41
 98            android:launchMode="singleInstance"
-98-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:90:9-44
+98-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:91:9-44
 99            android:screenOrientation="portrait" >
-99-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:91:9-45
+99-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:92:9-45
 100            <intent-filter>
-100-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:92:9-97:25
+100-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:93:9-98:25
 101                <action android:name="android.intent.action.MAIN" />
-101-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:93:13-65
-101-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:93:21-62
+101-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:94:13-65
+101-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:94:21-62
 102
 103                <category android:name="android.intent.category.DEFAULT" />
-103-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-103-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+103-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+103-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 104                <category android:name="android.intent.category.LAUNCHER" />
-104-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:95:13-73
-104-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:95:23-70
+104-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:96:13-73
+104-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:96:23-70
 105                <category android:name="android.intent.category.BROWSABLE" />
-105-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-105-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+105-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+105-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 106            </intent-filter>
 107
 108            <!-- For receiving intents -->
 109            <intent-filter>
-109-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:100:9-106:25
+109-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:101:9-107:25
 110                <action android:name="android.intent.action.SEND" />
-110-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:101:13-65
-110-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:101:21-62
+110-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:102:13-65
+110-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:102:21-62
 111
 112                <category android:name="android.intent.category.DEFAULT" />
-112-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-112-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+112-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+112-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 113
 114                <data android:scheme="terms" />
-114-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-114-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+114-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+114-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 115                <data android:scheme="privacy" />
-115-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-115-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+115-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+115-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 116                <data android:mimeType="image/*" />
-116-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-116-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:105:19-45
+116-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+116-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:106:19-45
 117            </intent-filter>
 118            <intent-filter>
-118-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:107:9-111:25
+118-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:108:9-112:25
 119                <action android:name="android.intent.action.SEND" />
-119-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:101:13-65
-119-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:101:21-62
+119-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:102:13-65
+119-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:102:21-62
 120
 121                <category android:name="android.intent.category.DEFAULT" />
-121-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-121-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+121-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+121-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 122
 123                <data android:mimeType="text/plain" />
-123-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-123-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:105:19-45
+123-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+123-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:106:19-45
 124            </intent-filter>
 125            <intent-filter>
-125-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:112:9-116:25
+125-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:113:9-117:25
 126                <action android:name="android.intent.action.SEND_MULTIPLE" />
-126-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:113:13-74
-126-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:113:21-71
+126-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:114:13-74
+126-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:114:21-71
 127
 128                <category android:name="android.intent.category.DEFAULT" />
-128-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-128-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+128-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+128-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 129
 130                <data android:mimeType="image/*" />
-130-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-130-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:105:19-45
+130-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+130-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:106:19-45
 131            </intent-filter>
 132
 133            <!-- From Google's Dialer App -->
 134            <intent-filter>
-134-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:119:9-125:25
+134-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:9-126:25
 135                <action android:name="android.intent.action.DIAL" />
-135-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:13-65
-135-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:21-62
+135-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:13-65
+135-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:21-62
 136
 137                <category android:name="android.intent.category.DEFAULT" />
-137-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-137-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+137-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+137-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 138                <category android:name="android.intent.category.BROWSABLE" />
-138-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-138-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+138-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+138-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 139
 140                <data android:mimeType="vnd.android.cursor.item/phone" />
-140-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-140-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:105:19-45
+140-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+140-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:106:19-45
 141                <data android:mimeType="vnd.android.cursor.item/person" />
-141-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-141-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:105:19-45
+141-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+141-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:106:19-45
 142            </intent-filter>
 143            <intent-filter>
-143-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:126:9-131:25
+143-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:127:9-132:25
 144                <action android:name="android.intent.action.DIAL" />
-144-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:13-65
-144-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:21-62
+144-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:13-65
+144-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:21-62
 145
 146                <category android:name="android.intent.category.DEFAULT" />
-146-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-146-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+146-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+146-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 147                <category android:name="android.intent.category.BROWSABLE" />
-147-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-147-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+147-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+147-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 148
 149                <data android:scheme="voicemail" />
-149-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-149-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+149-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+149-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 150            </intent-filter>
 151            <intent-filter>
-151-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:132:9-135:25
+151-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:133:9-136:25
 152                <action android:name="android.intent.action.DIAL" />
-152-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:13-65
-152-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:21-62
+152-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:13-65
+152-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:21-62
 153
 154                <category android:name="android.intent.category.DEFAULT" />
-154-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-154-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+154-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+154-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 155            </intent-filter>
 156            <intent-filter>
-156-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:136:9-143:25
+156-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:137:9-144:25
 157                <action android:name="android.intent.action.VIEW" />
-157-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:17-68
-157-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:25-66
+157-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-68
+157-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:25-66
 158                <action android:name="android.intent.action.DIAL" />
-158-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:13-65
-158-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:120:21-62
+158-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:13-65
+158-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:121:21-62
 159
 160                <category android:name="android.intent.category.DEFAULT" />
-160-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-160-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+160-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+160-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 161                <category android:name="android.intent.category.BROWSABLE" />
-161-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-161-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+161-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+161-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 162
 163                <data android:scheme="tel" />
-163-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
-163-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+163-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
+163-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 164            </intent-filter>
 165            <intent-filter>
-165-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:144:9-148:25
+165-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:145:9-149:25
 166                <action android:name="android.intent.action.CALL_BUTTON" />
-166-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:145:13-72
-166-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:145:21-69
+166-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:146:13-72
+166-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:146:21-69
 167
 168                <category android:name="android.intent.category.DEFAULT" />
-168-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-168-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+168-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+168-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 169                <category android:name="android.intent.category.BROWSABLE" />
-169-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-169-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+169-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+169-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 170            </intent-filter>
 171        </activity>
 172        <activity android:name="com.kabaladigital.tingtingu.ui.fragment.login.ChooseProfileLanguageFragment" />
-172-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:153:5-108
-172-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:153:15-105
+172-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:154:5-108
+172-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:154:15-105
 173        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A" />
-173-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:154:5-92
-173-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:154:15-89
+173-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:155:5-92
+173-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:155:15-89
 174        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.GallerySelectedVideo.GallerySelectedVideo_A" />
-174-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:155:5-120
-174-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:155:15-117
+174-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:156:5-120
+174-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:156:15-117
 175        <activity android:name="com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A" />
-175-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:156:9-96
-175-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:156:19-93
+175-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:157:9-96
+175-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:157:19-93
 176        <activity
-176-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:159:5-168:34
+176-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:160:5-169:34
 177            android:name="com.kabaladigital.tingtingu.ui.activity.OngoingCallActivity"
-177-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:160:9-83
+177-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:161:9-83
 178            android:allowTaskReparenting="false"
-178-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:164:9-45
+178-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:165:9-45
 179            android:excludeFromRecents="true"
-179-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:165:9-42
+179-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:166:9-42
 180            android:label="@string/activity_ongoing_call"
-180-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:161:9-54
+180-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:162:9-54
 181            android:launchMode="singleTask"
-181-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:166:9-40
+181-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:167:9-40
 182            android:permission="android.permission.USE_SIP"
-182-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:167:9-56
+182-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:168:9-56
 183            android:screenOrientation="portrait"
-183-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:162:9-45
+183-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:163:9-45
 184            android:taskAffinity=""
-184-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:168:9-32
+184-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:169:9-32
 185            android:theme="@style/AppTheme" />
-185-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:163:9-40
+185-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:164:9-40
 186        <activity
-186-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:170:5-171:54
+186-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:171:5-172:54
 187            android:name="com.kabaladigital.tingtingu.Crop.CropAndRotate_Photo"
-187-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:170:15-55
+187-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:171:15-55
 188            android:theme="@style/Base.Theme.AppCompat" />
-188-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:171:9-52
+188-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:172:9-52
 189
 190        <service
-190-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:176:5-186:15
+190-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:177:5-187:15
 191            android:name="com.kabaladigital.tingtingu.service.CallService"
-191-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:177:9-71
+191-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:178:9-71
 192            android:permission="android.permission.BIND_INCALL_SERVICE" >
-192-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:178:9-68
+192-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:179:9-68
 193            <meta-data
-193-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:179:9-181:36
+193-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:180:9-182:36
 194                android:name="android.telecom.IN_CALL_SERVICE_UI"
-194-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:180:13-62
+194-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:181:13-62
 195                android:value="true" />
-195-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:181:13-33
+195-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:182:13-33
 196
 197            <intent-filter>
-197-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:183:9-185:25
+197-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:184:9-186:25
 198                <action android:name="android.telecom.InCallService" />
-198-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:184:13-68
-198-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:184:21-65
+198-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:185:13-68
+198-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:185:21-65
 199            </intent-filter>
 200        </service>
 201
 202        <receiver android:name="com.kabaladigital.tingtingu.listener.NotificationActionReceiver" >
-202-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:188:5-193:16
-202-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:188:15-93
+202-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:189:5-194:16
+202-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:189:15-93
 203            <intent-filter>
-203-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:189:9-192:25
+203-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:190:9-193:25
 204                <action android:name="ANSWER" />
-204-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:190:13-45
-204-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:190:21-42
+204-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:191:13-45
+204-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:191:21-42
 205                <action android:name="HANGUP" />
-205-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:191:13-45
-205-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:191:21-42
+205-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:192:13-45
+205-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:192:21-42
 206            </intent-filter>
 207        </receiver>
 208
 209        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService" />
-209-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:196:5-93
-209-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:196:14-90
+209-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:197:5-93
+209-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:197:14-90
 210
 211        <receiver
-211-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:198:5-203:16
+211-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:199:5-204:16
 212            android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver"
-212-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:198:15-92
+212-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:199:15-92
 213            android:exported="true" >
-213-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:198:93-116
+213-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:199:93-116
 214            <intent-filter>
-214-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:200:9-202:25
+214-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:201:9-203:25
 215                <action android:name="com.android.vending.INSTALL_REFERRER" />
-215-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:201:13-75
-215-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:201:21-72
+215-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:202:13-75
+215-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:202:21-72
 216            </intent-filter>
 217        </receiver>
 218
 219        <meta-data
-219-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:208:5-210:53
+219-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:209:5-211:53
 220            android:name="preloaded_fonts"
-220-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:209:9-39
+220-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:210:9-39
 221            android:resource="@array/preloaded_fonts" />
-221-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:210:9-50
+221-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:211:9-50
 222        <meta-data
 223            android:name="firebase_crashlytics_collection_enabled"
-223-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:213:9-63
+223-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:214:9-63
 224            android:value="true" /> <!-- Kotlin Classes Deceleration -->
-224-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:214:9-56
+224-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:215:9-56
 225
 226        <receiver
-226-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:218:5-229:16
+226-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:219:5-230:16
 227            android:name="com.kabaladigital.tingtingu.service.MyBroadCastReceiver"
-227-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:219:9-79
+227-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:220:9-79
 228            android:directBootAware="true"
-228-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:220:9-39
+228-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:221:9-39
 229            android:enabled="true"
-229-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:221:9-31
+229-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:222:9-31
 230            android:exported="true" >
-230-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:222:9-32
+230-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:223:9-32
 231            <intent-filter>
-231-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:223:9-228:25
+231-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:224:9-229:25
 232                <action android:name="android.intent.action.BOOT_COMPLETED" />
-232-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:224:13-75
-232-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:224:21-72
+232-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:13-75
+232-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:21-72
 233                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-233-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:13-82
-233-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:21-79
+233-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:226:13-82
+233-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:226:21-79
 234                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
-234-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:226:13-78
-234-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:226:21-75
+234-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:227:13-78
+234-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:227:21-75
 235            </intent-filter>
 236        </receiver>
 237
 238        <service
-238-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:231:5-235:37
+238-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:232:5-236:37
 239            android:name="com.kabaladigital.tingtingu.service.MyService"
-239-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:232:9-69
+239-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:233:9-69
 240            android:enabled="true"
-240-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:233:9-31
+240-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:234:9-31
 241            android:exported="false"
-241-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:234:9-33
+241-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:235:9-33
 242            android:process=":remote" />
-242-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:235:9-34
+242-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:236:9-34
 243        <service
-243-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:237:5-243:15
+243-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:238:5-244:15
 244            android:name="com.kabaladigital.tingtingu.service.MyFirebaseMessagingService"
-244-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:238:9-59
+244-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:239:9-59
 245            android:exported="false" >
-245-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:239:9-33
+245-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:240:9-33
 246            <intent-filter>
-246-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:240:9-242:25
+246-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:9-243:25
 247                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-247-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:13-74
-247-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:21-71
+247-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:242:13-74
+247-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:242:21-71
 248            </intent-filter>
 249        </service>
 250
 251        <provider
 252            android:name="androidx.core.content.FileProvider"
-252-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:247:9-58
+252-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:248:9-58
 253            android:authorities="com.kabaladigital.tingtingu.provider"
-253-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:248:9-56
+253-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:249:9-56
 254            android:exported="false"
-254-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:249:9-33
+254-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:250:9-33
 255            android:grantUriPermissions="true" >
-255-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:250:9-43
+255-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:251:9-43
 256            <meta-data
-256-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:252:9-254:52
+256-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:253:9-255:52
 257                android:name="android.support.FILE_PROVIDER_PATHS"
-257-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:253:13-63
+257-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:254:13-63
 258                android:resource="@xml/provider_path" />
-258-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:254:13-50
+258-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:255:13-50
 259        </provider>
 260        <provider
 260-->[androidx.work:work-runtime:2.3.4] /home/piyush/.gradle/caches/transforms-2/files-2.1/1f51a195f4f1755e4049de159f7e1d8b/work-runtime-2.3.4/AndroidManifest.xml:31:9-37:35
@@ -665,8 +665,8 @@
 333            <intent-filter>
 333-->[androidx.work:work-runtime:2.3.4] /home/piyush/.gradle/caches/transforms-2/files-2.1/1f51a195f4f1755e4049de159f7e1d8b/work-runtime-2.3.4/AndroidManifest.xml:114:13-118:29
 334                <action android:name="android.intent.action.BOOT_COMPLETED" />
-334-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:224:13-75
-334-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:224:21-72
+334-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:13-75
+334-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:225:21-72
 335                <action android:name="android.intent.action.TIME_SET" />
 335-->[androidx.work:work-runtime:2.3.4] /home/piyush/.gradle/caches/transforms-2/files-2.1/1f51a195f4f1755e4049de159f7e1d8b/work-runtime-2.3.4/AndroidManifest.xml:116:17-73
 335-->[androidx.work:work-runtime:2.3.4] /home/piyush/.gradle/caches/transforms-2/files-2.1/1f51a195f4f1755e4049de159f7e1d8b/work-runtime-2.3.4/AndroidManifest.xml:116:25-70
@@ -713,22 +713,22 @@
 357            <intent-filter>
 357-->[com.facebook.android:facebook-common:7.0.0] /home/piyush/.gradle/caches/transforms-2/files-2.1/efdc504c6d37f8bbf5e37d30622a6226/jetified-facebook-common-7.0.0/AndroidManifest.xml:39:13-48:29
 358                <action android:name="android.intent.action.VIEW" />
-358-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:17-68
-358-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:47:25-66
+358-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-68
+358-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:25-66
 359
 360                <category android:name="android.intent.category.DEFAULT" />
-360-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:17-75
-360-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:48:27-73
+360-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-75
+360-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-73
 361                <category android:name="android.intent.category.BROWSABLE" />
-361-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:17-77
-361-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:49:27-75
+361-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-77
+361-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:27-75
 362
 363                <data
-363-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:50:17-52:45
+363-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:17-53:45
 364                    android:host="cct.com.kabaladigital.tingtingu"
-364-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:51:21-63
+364-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-63
 365                    android:scheme="fbconnect" />
-365-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:52:21-43
+365-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:53:21-43
 366            </intent-filter>
 367        </activity>
 368        <activity
@@ -811,10 +811,10 @@
 415            android:exported="false" >
 415-->[com.google.firebase:firebase-messaging:21.0.1] /home/piyush/.gradle/caches/transforms-2/files-2.1/4d17a54c33a5db0cf4c2c54a40690c6e/jetified-firebase-messaging-21.0.1/AndroidManifest.xml:31:13-37
 416            <intent-filter android:priority="-500" >
-416-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:240:9-242:25
+416-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:9-243:25
 417                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-417-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:13-74
-417-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:241:21-71
+417-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:242:13-74
+417-->/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/AndroidManifest.xml:242:21-71
 418            </intent-filter>
 419        </service>
 420        <service

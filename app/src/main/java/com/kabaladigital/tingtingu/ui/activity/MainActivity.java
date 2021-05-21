@@ -144,6 +144,12 @@ public class MainActivity extends AppCompatActivity {
             repository.updateTodayDateCount();
         }
 
+
+        //call download manager and load video and image
+        downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        getprofile();
+
+
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -180,8 +186,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
         //Notification
 //        ShowNotificationAd.createNotification(this);
 //        ShowNotificationAd.createImageWithCallNotification(this);
@@ -203,7 +207,6 @@ public class MainActivity extends AppCompatActivity {
             //do something below Q android 7,8,9
             Utilities.checkDefaultDialer_2(this);
         }
-
 
 
         // Check for intents from others apps
@@ -270,9 +273,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //call download manager and load video and image
-        downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        getprofile();
 
 
 
@@ -332,33 +332,34 @@ public class MainActivity extends AppCompatActivity {
             request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
             request.setAllowedOverRoaming(false);
 
-            File vidFile = new  File(Environment.getExternalStoragePublicDirectory(Environment
-                    .DIRECTORY_DOWNLOADS).getAbsolutePath() + "/TTUPROFILE/" + phone_no +  ".mp4");
-            Log.d("path",Environment.getExternalStoragePublicDirectory(Environment
-                    .DIRECTORY_DOWNLOADS).getAbsolutePath() + "/TTUPROFILE/" + phone_no +  ".mp4");
+            File vidFile = new  File(Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
 
-            if(vidFile.canRead() && !vidFile.isDirectory())
+            Log.d("path",Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
+
+            if(vidFile.exists())
             {
                 //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
             }
             else{
                 //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
-
             }
+
             String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileType();
             if(file_type.equalsIgnoreCase("video"))
             {
                 //video type file
                 request.setTitle("TTUPROFILE" + phone_no + ".mp4");
                 request.setDescription("TTUPROFILE" + phone_no + ".mp4");
-                request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
+                //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
+
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/" + phone_no + ".mp4");
 
             }
             else{
                 //image type file
                 request.setTitle("TTUPROFILE" + phone_no + ".jpg");
                 request.setDescription("TTUPROFILE" + phone_no + ".jpg");
-                request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/"   + phone_no + ".jpg");
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"   + phone_no + ".jpg");
             }
 
             request.setVisibleInDownloadsUi(true);

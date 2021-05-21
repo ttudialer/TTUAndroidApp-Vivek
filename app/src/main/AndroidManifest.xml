@@ -41,6 +41,7 @@
         android:windowSoftInputMode="adjustResize"
         android:requestLegacyExternalStorage="true"
         tools:replace="android:allowBackup"
+
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <activity android:name="com.kabaladigital.tingtingu.ui.activity.SurveyWebViewActivity">
             <intent-filter>

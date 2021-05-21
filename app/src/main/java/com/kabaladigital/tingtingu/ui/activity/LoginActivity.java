@@ -42,11 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         //finish();
 
 
-
-        //Log.d("state$$$", ""+CallManager.getState());
-
-
-
         if(CallManager.getState() == 4)
         {
             startActivity(new Intent(this, OngoingCallActivity.class));
