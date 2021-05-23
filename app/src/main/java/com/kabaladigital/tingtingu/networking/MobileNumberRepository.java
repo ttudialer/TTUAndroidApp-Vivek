@@ -1,6 +1,7 @@
 package com.kabaladigital.tingtingu.networking;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -30,15 +31,13 @@ public class MobileNumberRepository {
 
     public LiveData<MobileNumberResponse> getMobileNumber(JsonObject jsonObject){
          final MutableLiveData<MobileNumberResponse> responseMutableLiveData = new MutableLiveData<>();
-
            apiInterface.mobileRegister(jsonObject).enqueue(new Callback<MobileNumberResponse>() {
                @Override
                public void onResponse(Call<MobileNumberResponse> call,
                                       Response<MobileNumberResponse> response) {
                    if (response.code() == 200){
                        responseMutableLiveData.setValue(response.body());
-                   }
-                   if (response.code() == 201){
+                   }else   if (response.code() == 201){
                        responseMutableLiveData.setValue(response.body());
                    }
 

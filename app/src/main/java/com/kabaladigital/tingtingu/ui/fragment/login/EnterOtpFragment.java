@@ -234,7 +234,7 @@ public class EnterOtpFragment extends Fragment{
         mViewModel.saveMobileNumber(RequestFormatter.jsonObjectLogin(mobileNumber,
                                                                 1,
                                                                 "",
-                Installation.id(getActivity())));
+        Installation.id(getActivity())));
         getMobileNumber();
     }
 
@@ -242,25 +242,19 @@ public class EnterOtpFragment extends Fragment{
         mViewModel.getMobileNumberResponseLiveData().observe(this,
                 mobileNumberResponse -> {
                     if (mobileNumberResponse != null){
-
                         if (mobileNumberResponse.getHaveProfile().equals(false)) {
-
                             PreferenceUtils.getInstance().putBoolean(R.string.pref_is_otp_verify_key, true);
                             PreferenceUtils.getInstance().putString(R.string.pref_user_token_value
                                                , mobileNumberResponse.getToken());
                             nextFragment();
-
                         }else if (mobileNumberResponse.getHaveProfile().equals(true)) {
-
                             PreferenceUtils.getInstance().putBoolean(R.string.pref_is_otp_verify_key, true);
                             PreferenceUtils.getInstance().putString(R.string.pref_user_token_value
                                     , mobileNumberResponse.getToken());
                             PreferenceUtils.getInstance().putBoolean(
                                     R.string.pref_is_operator_detail_filled_key,true);
-
                             fillUserInformation();
                         }
-
                     }
                });
     }

@@ -50,7 +50,6 @@ public class CallerDetailsChooseImage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.caller_details_fragment_choose_image, container, false);
-
         init();
         return binding.getRoot();
     }
@@ -62,6 +61,7 @@ public class CallerDetailsChooseImage extends Fragment {
     }
     public void fn_image() {
         FilePathStrings1 = RetriveCapturedImagePath1();
+        al_video = new ArrayList<>();
         if(FilePathStrings1 !=null) {
             for (int i = 0; i < FilePathStrings1.length; i++) {
                 File file = new File(FilePathStrings1[i]);
@@ -71,8 +71,6 @@ public class CallerDetailsChooseImage extends Fragment {
                 obj_model.setStr_thumb(file.getPath());
                 al_video.add(obj_model);
             }
-
-
         }
         obj_adapter = new Adapter_ImageFolder(getContext(),al_video,getActivity());
         recyclerView.setAdapter(obj_adapter);

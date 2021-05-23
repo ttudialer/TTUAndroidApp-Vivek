@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         Global.TTULibraryImageDraft(this) ;
         Global.TTULibraryVideo(this) ;
         Global.TTULibraryProfile(this) ;
+        Global.TTULibraryTTUPROFILE(this) ;
 
 
         PreferenceUtils.getInstance(this,true); // Get the preferences
@@ -278,12 +279,6 @@ public class MainActivity extends AppCompatActivity {
                 , SystemClock.elapsedRealtime()
                 , 15*60*1000
                 , pendingIntent);
-
-
-
-
-
-
     }
 
 
@@ -330,65 +325,60 @@ public class MainActivity extends AppCompatActivity {
     private void download() {
         //ArrayList<String>phone_no_arr = new ArrayList<>();
         ArrayList<String> list= new ArrayList<>();
+       // clearArrayList("phone_no");
+
         for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
         {
-            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getMobileNumber();
-            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileType();
+            Toast.makeText(MainActivity.this, ""+SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, ""+SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber(), Toast.LENGTH_SHORT).show();
 
-            //String phone_no="9461867672";
-            //String file_type="video";
+            //Log.d("path:",SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber());
 
-            if( getArrayList("phone_no") != null &&  getArrayList("phone_no").contains(phone_no+"@"+file_type))
-            {
-                //file already downloaded
-            }
-            else{
+            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
+            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
+
+//
+//            if( getArrayList("phone_no") != null &&  getArrayList("phone_no").contains(phone_no+"@"+file_type))
+//            {
+//                Toast.makeText(MainActivity.this, "aaaaaa", Toast.LENGTH_SHORT).show();
+//            }
+//            else
+                {
                 //download file
                 list.add(phone_no+"@"+file_type);
                 saveArrayList(list,"phone_no");
 
-                String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(0).getFileUrl();
+                String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
+
+                Toast.makeText(MainActivity.this, ""+url, Toast.LENGTH_SHORT).show();
 
                 Download_Uri = Uri.parse(url);
                 DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
                 request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
                 request.setAllowedOverRoaming(false);
 
-                File vidFile = new  File(Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
+                File vidFile = new  File(Global.TTULibraryTTUPROFILE(getApplicationContext()) + "/"+ phone_no +  ".mp4");
+                Log.d("path",Global.TTULibraryTTUPROFILE(getApplicationContext()) + "/"+  phone_no +  ".mp4");
+                Toast.makeText(MainActivity.this,"file_type : " + (Global.TTULibraryTTUPROFILE(getApplicationContext()).toString() + File.separator + phone_no + ".mp4"),Toast.LENGTH_SHORT).show();
 
-                Log.d("path",Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
-
-                if(vidFile.exists())
-                {
-                    //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
+                if(file_type!=null) {
+                    if (file_type.equalsIgnoreCase("video")) {
+                        //video type file
+                        request.setTitle("TTUPROFILE" + phone_no + ".mp4");
+                        request.setDescription("TTUPROFILE" + phone_no + ".mp4");
+                        // request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
+                        request.setDestinationInExternalPublicDir(Global.TTULibraryTTUPROFILE_path(getApplicationContext()).toString() , File.separator + phone_no + ".mp4");
+                    } else if (file_type.equalsIgnoreCase("image")) {
+                        //image type file
+                        request.setTitle("TTUPROFILE" + phone_no + ".jpg");
+                        request.setDescription("TTUPROFILE" + phone_no + ".jpg");
+                        request.setDestinationInExternalPublicDir(Global.TTULibraryTTUPROFILE_path(getApplicationContext()).toString() ,File.separator + phone_no + ".jpg");
+                        //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" +phone_no + ".jpg");
+                    }
+                    request.setVisibleInDownloadsUi(true);
+                    refid = downloadManager_2.enqueue(request);
+                    //list.add(refid);
                 }
-                else{
-                    //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
-                }
-
-
-                if(file_type.equalsIgnoreCase("video"))
-                {
-                    //video type file
-                    request.setTitle("TTUPROFILE" + phone_no + ".mp4");
-                    request.setDescription("TTUPROFILE" + phone_no + ".mp4");
-                    //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
-
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/" + phone_no + ".mp4");
-
-                }
-                else{
-                    //image type file
-                    request.setTitle("TTUPROFILE" + phone_no + ".jpg");
-                    request.setDescription("TTUPROFILE" + phone_no + ".jpg");
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"   + phone_no + ".jpg");
-                }
-
-                request.setVisibleInDownloadsUi(true);
-                refid = downloadManager_2.enqueue(request);
-                //list.add(refid);
-
-
             }
 
             //String phone_no = "9461867672";
@@ -399,6 +389,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    public void clearArrayList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(null);
+        editor.clear().putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+
 
     public void saveArrayList(ArrayList<String> list, String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -449,17 +450,15 @@ public class MainActivity extends AppCompatActivity {
                     {
                         Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                     }
-
                 }
             }
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-
-
 
     private void ReadContactDetailsJson() {
 
@@ -638,7 +637,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -648,7 +646,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
     @Override
     protected void onPause() {

@@ -37,7 +37,6 @@ public class SharesPreference
 
 
 
-
     public static void saveArrayList(ArrayList<String> list, String key){
         //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
         SharedPreferences.Editor editor = getInstance(mcontext).edit();

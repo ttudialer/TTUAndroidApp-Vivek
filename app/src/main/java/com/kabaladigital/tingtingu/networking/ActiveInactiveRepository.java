@@ -39,11 +39,9 @@ public class ActiveInactiveRepository {
                             responseMutableLiveData.setValue(response.body());
                         }
                     }
-
                     @Override
                     public void onFailure(Call<ActiveInactiveModel> call, Throwable t) {
                         Log.d("Error", "onFailure: "+t.getMessage());
-
                     }
                 });
         return responseMutableLiveData;

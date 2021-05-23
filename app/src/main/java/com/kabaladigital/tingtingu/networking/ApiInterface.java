@@ -7,10 +7,10 @@ import com.kabaladigital.tingtingu.models.Caller_Id;
 import com.kabaladigital.tingtingu.models.ContactUploadModel;
 import com.kabaladigital.tingtingu.models.GlobalVariableModel;
 import com.kabaladigital.tingtingu.models.LibraryAddModel;
+import com.kabaladigital.tingtingu.models.LibraryGetModel;
 import com.kabaladigital.tingtingu.models.MemberShipTypeModel;
 import com.kabaladigital.tingtingu.models.MobileDetailModel;
 import com.kabaladigital.tingtingu.models.MobileInfoModel;
-import com.kabaladigital.tingtingu.models.ProfileAdv;
 import com.kabaladigital.tingtingu.models.ProfileInformationModel;
 import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.models.RechargeHistoryModel;
@@ -22,8 +22,6 @@ import com.kabaladigital.tingtingu.models.UpdateProfileModel;
 import com.kabaladigital.tingtingu.response_model.MobileNumberResponse;
 import com.kabaladigital.tingtingu.response_model.SmsOtpResponse;
 
-import org.json.JSONObject;
-
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -31,8 +29,8 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -83,7 +81,6 @@ public interface ApiInterface {
     @Headers("Content-Type: application/json")
     @GET("user/adv")
     Call<List<AllCampaignModel>> getAdData();
-
 
     @Headers("Content-Type: application/json")
     @GET("user/adv")
@@ -156,7 +153,6 @@ public interface ApiInterface {
     @POST("user/addContact")
     Call<ContactUploadModel> contactUploadDetails(@Body JsonObject body);
 
-
     @POST("library/add")
     Call<LibraryAddModel> LibraryAdd1(@Body RequestBody body);
 
@@ -164,6 +160,14 @@ public interface ApiInterface {
     @POST("library/add")
     Call<LibraryAddModel> LibraryAdd(@Part MultipartBody.Part image,
                                      @Part("isProfile") RequestBody id);
+
+    @Headers("Content-Type: application/json")
+    @GET("library/get")
+    Call<List<LibraryGetModel>> getLibraryGet();
+
+    @Headers("Content-Type: application/json")
+    @POST("library/createCamp/{campId}")
+    Call<ResponseBody> setcreateCamp(@Path("campId") String campId);
 
 
 }

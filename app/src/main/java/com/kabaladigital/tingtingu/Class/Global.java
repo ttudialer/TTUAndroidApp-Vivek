@@ -17,6 +17,28 @@ import java.util.Date;
 
 public class Global {
 
+
+    public static File TTULibraryTTUPROFILE(Context mContext){
+        File storageDir = new File( mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/TTUPROFILE");
+        boolean success = true;
+        if (storageDir.exists()==false) {
+            success = storageDir.mkdirs();
+        }
+        return storageDir;
+    }
+
+    public static String TTULibraryTTUPROFILE_path(Context mContext){
+        String _path=mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/TTUPROFILE";
+        File storageDir = new File( _path);
+        boolean success = true;
+        if (storageDir.exists()==false) {
+            success = storageDir.mkdirs();
+        }
+        return _path;
+    }
+
+
+
     public static File TTULibraryImage(Context mContext){
         File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image");
         boolean success = true;
@@ -26,7 +48,7 @@ public class Global {
         return storageDir;
     }
     public static File TTULibraryImageDraft(Context mContext){
-        File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image/Draft");
+        File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Draft");
         boolean success = true;
         if (storageDir.exists()==false) {
             success = storageDir.mkdirs();

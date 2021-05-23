@@ -9,20 +9,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentBinding;
 import com.kabaladigital.tingtingu.models.LibraryAddModel;
+import com.kabaladigital.tingtingu.models.LibraryGetModel;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
-import com.kabaladigital.tingtingu.ui.fragment.CallerDetailsFragment;
-import com.kabaladigital.tingtingu.ui.fragment.OperatorHomeFragmentDirections;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -30,12 +25,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +42,7 @@ public class Activity_Gallery_Image extends AppCompatActivity {
     private View mWaitSpinner;
     public static Bitmap croppedImage;
     private CallerDetailsFragmentBinding binding;
+    private Object LibraryGetModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +52,7 @@ public class Activity_Gallery_Image extends AppCompatActivity {
         _btn_update_ttu_set_default= (Button) findViewById(R.id.btn_update_ttu_set_default);
         mWaitSpinner = findViewById(R.id.wait_spinner);
 
-
+       // Get_Profile_Capminion_ID();
 
 
         str_image = getIntent().getStringExtra("video");
@@ -113,13 +109,7 @@ public class Activity_Gallery_Image extends AppCompatActivity {
 
                                     Upload_File(videoFile);
 
-                                    waitSpinnerInvisible();
-//                                    Fragment fragment = new CallerDetailsFragment();
-//                                    getSupportFragmentManager().beginTransaction()
-//                                            .replace(R.id.action_viewcallerphotovideo_to_viewcalleridchoose, fragment, fragment.getClass().getSimpleName()).addToBackStack(null).commit();
 
-
-                                    finish();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -142,11 +132,11 @@ public class Activity_Gallery_Image extends AppCompatActivity {
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("selectedFile",  _videoFile.getAbsolutePath())
-                .addFormDataPart("isProfile", "true")
+                .addFormDataPart("isProfile", "false")
                 .build();
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), _videoFile);
         MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", _videoFile.getAbsolutePath(), requestFile);
-        RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "true");
+        RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "false");
 
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName);
@@ -157,7 +147,12 @@ public class Activity_Gallery_Image extends AppCompatActivity {
                 if (response.code() == 200) {
                     Log.d("code",""+ _videoFile.getAbsolutePath());
                     PreferenceUtils.getInstance().putString(R.string.pref_profile_path,  _videoFile.getAbsolutePath());
+
+                    Get_Profile_Capminion_ID();
+
                     Toast.makeText(Activity_Gallery_Image.this,"Profile Successfully upload...",Toast.LENGTH_SHORT).show();
+                    finish();
+
                 }
             }
             @Override
@@ -175,7 +170,6 @@ public class Activity_Gallery_Image extends AppCompatActivity {
             }
         });
     }
-
     public void waitSpinnerInvisible() {
         runOnUiThread(new Runnable() {
             @Override
@@ -185,38 +179,57 @@ public class Activity_Gallery_Image extends AppCompatActivity {
         });
     }
 
-    private File  saveVideoToInternalStorage () {
-        File newfile=null;
+    private void Get_Profile_Capminion_ID() {
         try {
-            File currentFile = new File(str_image);
-            String fileName = currentFile.getName();
+            ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
+            Call<List<LibraryGetModel>> call = apiInterface.getLibraryGet();
+            call.enqueue(new Callback<List<LibraryGetModel>>() {
+                @Override
+                public void onResponse(Call<List<LibraryGetModel>> call,
+                                       Response<List<LibraryGetModel>> response) {
+                    if (response.code() == 200) {
+                        int i=response.body().size()-1;
+                            String isProfile = response.body().get(i).getIsProfile().toString();
+                            String _id =  response.body().get(i).getId().toString();
 
-            File directory = Global.TTULibraryProfile(Activity_Gallery_Image.this) ;
-            newfile = new File(directory, fileName);
-            if(currentFile.exists()){
+                            Set_Profile_Capminion(_id);
 
-                InputStream in = new FileInputStream(currentFile);
-                OutputStream out = new FileOutputStream(newfile);
+                            waitSpinnerInvisible();
 
-                // Copy the bits from instream to outstream
-                byte[] buf = new byte[1024];
-                int len;
-
-                while ((len = in.read(buf)) > 0) {
-                    out.write(buf, 0, len);
+                        Log.d("result::: ", "onResult::: "+response.body().toString() );
+                    }
                 }
-                in.close();
-                out.close();
-                Log.v("", "Image file saved successfully.");
-            }else{
-                Log.v("", "Image saving failed. Source file missing.");
-            }
-            //PreferenceUtils.getInstance().putString(R.string.pref_profile_path,newfile.toString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
+                @Override
+                public void onFailure(Call<List<LibraryGetModel>> call, Throwable t) {
+                    Toast.makeText(Activity_Gallery_Image.this, "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception ex) {
+            Toast.makeText(Activity_Gallery_Image.this, "onFailure= "+ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        return newfile;
+    }
+    private void Set_Profile_Capminion(String _cid) {
+        try {
+            ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
+            Call<ResponseBody> call = apiInterface.setcreateCamp(_cid);
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call,
+                                       Response<ResponseBody> response) {
+                    if (response.code() == 200) {
+                        Log.d("result::: ", "onResult::: "+response.body().toString() );
+                        Toast.makeText(Activity_Gallery_Image.this,"Profile Campion Successfully upload...",Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    Toast.makeText(Activity_Gallery_Image.this, "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch (Exception ex) {
+            Toast.makeText(Activity_Gallery_Image.this, "onFailure= "+ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private File  saveVideoToInternalStorage_profile (Bitmap _cimg) {

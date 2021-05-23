@@ -29,9 +29,7 @@ public class ProfileInformationRepository {
     }
 
     public LiveData<ProfileInformationModel> getProfileInfo(){
-
         final MutableLiveData<ProfileInformationModel> responseMutableLiveData = new MutableLiveData<>();
-
         apiInterface.getUserProfileInformation()
                 .enqueue(new Callback<ProfileInformationModel>() {
             @Override

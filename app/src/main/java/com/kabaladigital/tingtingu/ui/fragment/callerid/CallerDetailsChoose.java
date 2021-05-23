@@ -76,13 +76,10 @@ import static com.kabaladigital.tingtingu.Class.Global.getContactBitmapFromURI;
 
 
 public class CallerDetailsChoose extends Fragment {
-    private static final int PICK_IMAGE = 100;
     Uri imageUri;
     private String pictureFilePath;
-    static final int REQUEST_PICTURE_CAPTURE = 1;
     String Video_Image_type;
     private int SELECT_FILE = 1;
-    private static final int CAMERA_CAPTURE_VIDEO_REQUEST_CODE = 200;
     private CallerDetailsChooseViewModel mViewModel;
     private CallerDetailsFragmentChooseBinding binding;
     private static String Image_Video_type="";
@@ -209,11 +206,9 @@ public class CallerDetailsChoose extends Fragment {
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.image:
-                        Image_Video_type = "PICK_IMAGE";
                         ImageOpenGallery();
                         break;
                     case R.id.video:
-                        Image_Video_type = "PICK_VIDEO";
                         VideoOpenGallery();
                         break;
                 }
@@ -362,32 +357,16 @@ public class CallerDetailsChoose extends Fragment {
 
     }
 
-
     private void ImageOpenGallery() {
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         gallery.setType("image/*");
-        startActivityForResult(gallery, PICK_IMAGE);
+        startActivityForResult(gallery, 1);
     }
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_CAPTURE_VIDEO_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                PreferenceUtils.getInstance().putString(R.string.pref_image_path, pictureFile.getAbsolutePath());
-                Navigation.findNavController(binding.getRoot())
-                        .navigate(R.id.action_viewcalleridchoose_to_videoview);
-
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(getActivity(),
-                        "User cancelled video recording", Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                Toast.makeText(getActivity(),
-                        "Sorry! Failed to record video", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        } else if (requestCode == 5) {
+        if (requestCode == 5) {
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             File file = null;
             try {
@@ -401,49 +380,10 @@ public class CallerDetailsChoose extends Fragment {
             }
 
             PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,file.getAbsolutePath());
-
             Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
             startActivity(intent);
 
-       }else if (requestCode == REQUEST_PICTURE_CAPTURE && resultCode == RESULT_OK) {
-            Bitmap bitmap ;
-                    //(Bitmap) data.getExtras().get("data");
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), photoURI);
-             } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-//
-
-//            PreferenceUtils.getInstance().putString(R.string.pref_image_path,  photoURI.toString());
-            // Intent intent = new Intent(getContext(), CropAndRotate_Photo.class);
-            //startActivity(intent);
-
-//            Navigation.findNavController(binding.getRoot())
-//                    .navigate(R.id.action_viewcalleridchoose_to_imageview);
-
-            //if (imgFile.exists()) {
-
-//                PreferenceUtils.getInstance().putString(R.string.pref_image_path,pictureFile.getAbsolutePath());
-//                Navigation.findNavController(binding.getRoot())
-//                        .navigate(R.id.action_viewcalleridchoose_to_imageview);
-
-//                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-//                Bitmap bitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), bmOptions);
-//                File myDir = TTULibraryImage(getContext());
-//                File file = new File(myDir, String.valueOf(pictureFile));
-//                try {
-//                    FileOutputStream out = new FileOutputStream(file);
-//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-//                    out.flush();
-//                    out.close();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-            //}
-        } else if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
+       }else if (resultCode == RESULT_OK && requestCode == 1) {
             //Log.d("Hi","IN");
             imageUri = data.getData();
             String pictureFile1 = null;
@@ -460,11 +400,7 @@ public class CallerDetailsChoose extends Fragment {
                 img.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
                 out.close();
-                /*Navigation.findNavController(binding.getRoot())
-                        .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
-                */
-              binding.viewPager.getAdapter().notifyDataSetChanged();
-
+            binding.viewPager.getAdapter().notifyDataSetChanged();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -503,7 +439,7 @@ public class CallerDetailsChoose extends Fragment {
                     }
                     in.close();
                     out.close();
-                    binding.viewPager.getAdapter().notifyDataSetChanged();
+                //    binding.viewPager.getAdapter().notifyDataSetChanged();
                     Log.v("", "Video file saved successfully.");
                 } else {
                     Log.v("", "Video saving failed. Source file missing.");

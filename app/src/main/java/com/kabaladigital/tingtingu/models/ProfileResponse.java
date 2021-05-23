@@ -18,9 +18,12 @@ public class ProfileResponse {
     @SerializedName("inprogressAdvs")
     @Expose
     private List<IncomingCallAdData> inprogressAdvs = null;
+
     @SerializedName("profileAdvs")
     @Expose
     private List<ProfileAdv> profileAdvs = null;
+
+
 
     public List<IncomingCallAdData> getIncCallAdvs() {
         return incCallAdvs;
@@ -62,4 +65,6 @@ public class ProfileResponse {
         this.profileAdvs = profileAdvs;
     }
 
+
 }
+
