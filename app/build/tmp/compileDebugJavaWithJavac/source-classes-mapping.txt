@@ -47,11 +47,13 @@ com/kabaladigital/tingtingu/ui/activity/MainActivity.java
  com.kabaladigital.tingtingu.ui.activity.MainActivity
  com.kabaladigital.tingtingu.ui.activity.MainActivity$1
  com.kabaladigital.tingtingu.ui.activity.MainActivity$2
+ com.kabaladigital.tingtingu.ui.activity.MainActivity$2$1
  com.kabaladigital.tingtingu.ui.activity.MainActivity$3
  com.kabaladigital.tingtingu.ui.activity.MainActivity$4
  com.kabaladigital.tingtingu.ui.activity.MainActivity$5
  com.kabaladigital.tingtingu.ui.activity.MainActivity$6
  com.kabaladigital.tingtingu.ui.activity.MainActivity$7
+ com.kabaladigital.tingtingu.ui.activity.MainActivity$8
 com/kabaladigital/tingtingu/ui/fragment/recharge/DthRechargeFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment$1

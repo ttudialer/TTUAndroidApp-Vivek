@@ -37,6 +37,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Streaming;
+import retrofit2.http.Url;
 
 public interface ApiInterface {
     @Headers("Content-Type: application/json")
@@ -168,6 +170,10 @@ public interface ApiInterface {
     @Headers("Content-Type: application/json")
     @POST("library/createCamp/{campId}")
     Call<ResponseBody> setcreateCamp(@Path("campId") String campId);
+
+    @Streaming
+    @GET
+    Call<ResponseBody> downloadFileWithDynamicUrlSync(@Url String fileUrl);
 
 
 }

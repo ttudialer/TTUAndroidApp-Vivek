@@ -13,6 +13,7 @@ import com.kabaladigital.tingtingu.BuildConfig;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class VideoManager {
     public static void playVideo(VideoView mPlaceholderVideo
             , Context context, boolean playSound
             , AudioManager mAudioManager
-    ,List<IncomingCallAdData> incomingCallAdData){
+            ,List<IncomingCallAdData> incomingCallAdData){
         mediaController  = new MediaController(context);
         mediaController.setAnchorView(mPlaceholderVideo);
 
@@ -223,52 +224,49 @@ public class VideoManager {
     public static void playFullScreenIncomingAd_2(VideoView mPlaceholderVideo
             , Context context, boolean playSound
             ,String path){
-        try{
-            mediaController  = new MediaController(context);
-            mediaController.setAnchorView(mPlaceholderVideo);
+        mediaController  = new MediaController(context);
+        mediaController.setAnchorView(mPlaceholderVideo);
 
-            Uri u;
+        Uri u;
 
-            if (path!=null)
-            {
-                try {
-                    u = Uri.parse(path);
-                }catch (Exception e){
+        if (path!=null)
+        {
+            try {
+                File filePath = new File(path);
+                if (!filePath.exists())
+                {
                     String videoFile = returnRandomVideoPath(1);
                     u = Uri.parse(videoFile);
                 }
-            }else {
+                else{
+                    u = Uri.parse(path);
+                }
+                mPlaceholderVideo.setVideoURI(u);
+            }
+            catch (Exception e){
                 String videoFile = returnRandomVideoPath(1);
                 u = Uri.parse(videoFile);
+                mPlaceholderVideo.setVideoURI(u);
             }
-
-            mPlaceholderVideo.setVideoURI(u);
-
-            mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    mp.setLooping(true);
-                    if (playSound){
-                        mp.setVolume(50, 50);
-                    }else{
-                        mp.setVolume(0, 0);
-                    }
-                }
-            });
-            mPlaceholderVideo.start();
-
         }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
+        else {
             String videoFile = returnRandomVideoPath(1);
-            Uri u = Uri.parse(videoFile);
+            u = Uri.parse(videoFile);
             mPlaceholderVideo.setVideoURI(u);
-
-
         }
 
-
+        mPlaceholderVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+                if (playSound){
+                    mp.setVolume(50, 50);
+                }else{
+                    mp.setVolume(0, 0);
+                }
+            }
+        });
+        mPlaceholderVideo.start();
 
 
     }
