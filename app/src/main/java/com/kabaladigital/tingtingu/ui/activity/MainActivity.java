@@ -116,10 +116,8 @@ public class MainActivity extends AppCompatActivity {
     Activity activity_n = MainActivity.this;
 
 
-
     public static final String MESSAGE_STATUS = "MainActivity";
     DataRepository repository;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -127,44 +125,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
         registerReceiver(onComplete,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 
         Installation.id(this);
         setSupportActionBar(binding.toolbarMainActivity);
-        Global.TTULibraryImage(this) ;
-        Global.TTULibraryImageDraft(this) ;
-        Global.TTULibraryVideo(this) ;
-        Global.TTULibraryProfile(this) ;
-        Global.TTULibraryTTUPROFILE(this) ;
+        Global.TTULibraryImage(this);
+        Global.TTULibraryImageDraft(this);
+        Global.TTULibraryVideo(this);
+        Global.TTULibraryProfile(this);
+        Global.TTULibraryTTUPROFILE(this);
 
-//        File newfile=null;
-//        String path_img = Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator +"9350043415.mp4";
-//       // newfile = new File("/Download/storage/emulated/0/Android/data/com.kabaladigital.tingtingu/files/Pictures/TTULibrary/TTUPROFILE/9350043415.mp4");
-//        newfile = new File(path_img);
-//        if(newfile.exists()){
-//            newfile.delete();
-//        }
-
-//        String path_img = Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-
-
-
-        PreferenceUtils.getInstance(this,true); // Get the preferences
+        PreferenceUtils.getInstance(this, true); // Get the preferences
         Utilities.setUpLocale(this);
 
         repository = DataRepository
                 .getInstance(AppDatabase.getDatabase(this));
-        if (!DateUtility.getDateFormatted().equals(repository.getTodayDayFromPlayOrder())){
+        if (!DateUtility.getDateFormatted().equals(repository.getTodayDayFromPlayOrder())) {
             repository.updateTodayDateCount();
         }
 
 
         //call download manager and load video and image
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        getprofile();
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -176,22 +161,20 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                         String token = task.getResult();
-                        JSONObject jsonObject=new JSONObject();
+                        JSONObject jsonObject = new JSONObject();
                         try {
 
-                            jsonObject.put("token",token);
-                        }catch (Exception e){
+                            jsonObject.put("token", token);
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         JsonParser jsonParser = new JsonParser();
-                        JsonObject gsonObject = (JsonObject)jsonParser.parse(jsonObject.toString());
+                        JsonObject gsonObject = (JsonObject) jsonParser.parse(jsonObject.toString());
 
                         updateToken(gsonObject);
                         Log.d("Firebase_token", token);
                     }
                 });
-
-
 
 
         //Notification
@@ -210,8 +193,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             //Do something for android Q  and above versions
             Utilities.checkDefaultDialer(this);
-        }
-        else{
+        } else {
             //do something below Q android 7,8,9
             Utilities.checkDefaultDialer_2(this);
         }
@@ -273,13 +255,13 @@ public class MainActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(this, MyBroadCastReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP
                 , SystemClock.elapsedRealtime()
-                , 15*60*1000
+                , 15 * 60 * 1000
                 , pendingIntent);
 
-
+        getprofile();
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
@@ -287,8 +269,8 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 //Do something after 100ms
                 String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                String _DBtime=   PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
-                if(_ctime.equalsIgnoreCase(_DBtime)==false) {
+                String _DBtime = PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
+                if (_ctime.equalsIgnoreCase(_DBtime) == false) {
                     new Thread(new Runnable() {
                         public void run() {
                             ReadContactDetailsJson();
@@ -300,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void uploadContact(JsonObject contactListObj){
+    private void uploadContact(JsonObject contactListObj) {
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
         // retrofit2.Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
@@ -309,14 +291,15 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ContactUploadModel> call,
                                    Response<ContactUploadModel> response) {
                 if (response.code() == 200) {
-                    Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                    PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date,timeStamp);
+                    PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date, timeStamp);
                 }
             }
+
             @Override
             public void onFailure(Call<ContactUploadModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "onFailure= " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -324,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean delete(final Context context, final File file) {
         final String where = MediaStore.MediaColumns.DATA + "=?";
-        final String[] selectionArgs = new String[] {
+        final String[] selectionArgs = new String[]{
                 file.getAbsolutePath()
         };
         final ContentResolver contentResolver = context.getContentResolver();
@@ -349,12 +332,12 @@ public class MainActivity extends AppCompatActivity {
             //download file
             list.add(phone_no + "@" + file_type);
             saveArrayList(list, "phone_no");
-
-
             String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
+
             if (file_type != null) {
                 ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
                 Call<ResponseBody> call = apiInterface.downloadFileWithDynamicUrlSync(url);
+                String finalFile_type = file_type;
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -363,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (response.code() == 200) {
                             Log.d(TAG, "server contacted and has file");
-                            boolean writtenToDisk = writeResponseBodyToDisk(response.body(), file_type, phone_no);
+                            boolean writtenToDisk = writeResponseBodyToDisk(response.body(), finalFile_type, phone_no);
                             Log.d(TAG, "file download was a success? " + writtenToDisk);
                         } else {
                             Log.d(TAG, response.code() + " : server contact failed");
@@ -378,23 +361,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    private boolean writeResponseBodyToDisk(ResponseBody body,String _fType,String _phone_no) {
+
+    private boolean writeResponseBodyToDisk(ResponseBody body, String _fType, String _phone_no) {
         try {
             // todo change the file location/name according to your needs
 
-            File futureStudioIconFile =null;
+            File futureStudioIconFile = null;
             if (_fType.equalsIgnoreCase("video")) {
-                futureStudioIconFile=  new File( Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + _phone_no + ".mp4");
+                futureStudioIconFile = new File(Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + _phone_no + ".mp4");
             } else if (_fType.equalsIgnoreCase("image")) {
-                futureStudioIconFile=  new File( Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + _phone_no + ".jpg");
+                futureStudioIconFile = new File(Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + _phone_no + ".jpg");
             }
 
-            if(futureStudioIconFile.exists()){
+            if (futureStudioIconFile.exists()) {
                 futureStudioIconFile.delete();
             }
-            Log.d("delete:",futureStudioIconFile.getAbsolutePath());
-
-
+            Log.d("delete:", futureStudioIconFile.getAbsolutePath());
 
 
             InputStream inputStream = null;
@@ -431,6 +413,24 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void download_Profile2() {
+        removeArrayList("phone_no");
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
+            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
+            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
+            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
+
+            if (file_type == null) {
+                file_type = "Image";
+            }
+            list.add(phone_no + "@" + file_type + "@" + url);
+            saveArrayList(list, "phone_no");
+        }
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void download_Profile() {
@@ -557,7 +557,7 @@ public class MainActivity extends AppCompatActivity {
                     if (response.body()!= null)
                     {
                         SharesPreference.saveprofile(getApplicationContext(),response.body());
-                        download_Profile1();
+                        download_Profile2();
 
                     }
                     else

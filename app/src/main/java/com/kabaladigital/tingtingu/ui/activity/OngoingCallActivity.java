@@ -668,10 +668,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         if (CallManager.sCalls.size()==0){
             endCall();
         }
-
-
         if (CallManager.sCalls.size()>1){
-
             for (int i=0;i<CallManager.sCalls.size();i++){
                 if (CallManager.sCalls.get(i).getState() == Call.STATE_RINGING || CallManager.sCalls.get(i).getState() == Call.STATE_DIALING){
                     isRinging = true;
@@ -686,7 +683,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 CallManager.sCalls.get(1).disconnect();
                 UpdateScreenElements(Call.STATE_ACTIVE);
             }
-
         }else {
             CallManager.reject();
         }
@@ -1227,8 +1223,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    public void showConference()
-    {
+    public void showConference()   {
         if (CallManager.sCalls.size()>1 )
         {
             calls = new ArrayList<>();
@@ -1306,8 +1301,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             }
         }
     }
-
-
 
 
 
@@ -1745,8 +1738,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    private void showAd(Caller_Id callerId)
-    {
+    private void showAd(Caller_Id callerId) {
         CampaignAdsPlayOrder campaignAdsPlayOrderList;
         // Get Ad Camp
         if (callerId == null){
@@ -1758,42 +1750,10 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         Contact callerContact = CallManager.getDisplayContact(this);
         String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
         boolean is_match=false;
-       //phone_no="9350043415";
-        ArrayList<String>list_no = getArrayList("phone_no");
-        for(int i=0;i<list_no.size();i++)
-        {
-            String str_list = list_no.get(i);
-            String[] strdate_arr_2 = str_list.split("@");
-            String phone_no_str = strdate_arr_2[0];
-            String type_str = strdate_arr_2[1];
+       // phone_no="9350043415";
 
-            if(phone_no_str.equalsIgnoreCase(phone_no))
-            {
-                is_match=true;
-                if(type_str.equalsIgnoreCase("video"))
-                {
-                    // video show
-                    String path_video = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-                    Log.d("video",path_video);
-                    VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
-                            ,this,false,path_video);
-                        /*VideoManager.playFullScreenIncomingAd(binding.incomingCallLayout.videoFullscreenPlaceholder
-                                ,this,false,incomingCallAdData);*/
-                    videoType = 1;
+        is_match=  Match_Mobile_No(phone_no);
 
-                }
-                else
-                {
-                    //image file show when incoming call
-                    VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
-                    String path_img = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-                    Log.d("img",path_img);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                            ,path_img,ctx);
-                }
-                break;
-            }
-        }
         if(!is_match) {
             if (campaignAdsPlayOrderList != null) {
                 incomingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
@@ -1820,48 +1780,42 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
             }
         }
-
-
-        //String phone_no = "9461867672";
-        //Log.d("phone", phone_no);
-        /*CampaignAdsPlayOrder campaignAdsPlayOrderList;
-        // Get Ad Camp
-        if (callerId == null){
-            campaignAdsPlayOrderList = mRepository.getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming","4");
-        }else {
-            campaignAdsPlayOrderList = mRepository.getIncomingCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong(),"Incoming Caller","4",callerId.getEmployeeData().getClientName());
-        }
-
-        if (campaignAdsPlayOrderList!=null){
-            incomingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
-
-            // Show Video Ad or Full Screen Video Ad or Image Ad
-            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("4:3")){
-                VideoManager.play43IncomingAd(binding.incomingCallLayout.videoPlaceholder
-                        ,this,false,incomingCallAdData);
-                videoType = 1;
-            }
-            if (incomingCallAdData.getAdType().equals("Video") && incomingCallAdData.getVideoSize().equals("Full Screen")) {
-                VideoManager.playFullScreenIncomingAd(binding.incomingCallLayout.videoFullscreenPlaceholder
-                        ,this,false,incomingCallAdData);
-                videoType = 2;
-            }
-            if (incomingCallAdData.getAdType().equals("Image")) {
-                VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
-            }
-
-            mRepository.updatePlayCount(incomingCallAdData.getCampId());
-        } else {
-            VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
-            binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-            ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, null);
-        }*/
-
     }
 
 
+    public boolean   Match_Mobile_No(String phone_no){
+        Boolean is_match=false;
+        ArrayList<String>list_no = getArrayList("phone_no");
+        for(int i=0;i<list_no.size();i++)
+        {
+            String str_list = list_no.get(i);
+            String[] strdate_arr_2 = str_list.split("@");
+            String phone_no_str = strdate_arr_2[0];
+            String type_str = strdate_arr_2[1];
+            String type_url = strdate_arr_2[2];
+
+            if(phone_no_str.equalsIgnoreCase(phone_no))
+            {
+                is_match=true;
+                if(type_str.equalsIgnoreCase("video"))
+                {
+                    Log.d("video",type_url);
+                    VideoManager.playFullScreenIncomingAd_P(binding.incomingCallLayout.videoPlaceholder
+                            ,this,false,type_url);
+                    videoType = 1;
+                }
+                else
+                {
+                    VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
+                    Log.d("img",type_url);
+                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                            ,type_url,ctx);
+                }
+                break;
+            }
+        }
+        return is_match;
+    }
 
 
     public ArrayList<String> getArrayList(String key){
@@ -1890,71 +1844,35 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
                             ,"Outgoing","4");
 
-            if (campaignAdsPlayOrderList!=null)
-            {
+            if (campaignAdsPlayOrderList!=null) {
                 outgoingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
-
-                // Show Video Ad or Full Screen Video Ad or Image Ad
-                /*if (outgoingCallAdData.getAdType().equals("Video"))
-                {
-                    VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
-                            ,this,false,outgoingCallAdData);
-
-                }
-
-                if (outgoingCallAdData.getAdType().equals("Image")) {
-                    VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                    ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
-                            , outgoingCallAdData);
-                }*/
-
-                // Custom Video Ad or Full Screen Video Ad or Image Ad
                 Contact callerContact = CallManager.getDisplayContact(this);
                 String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
 
-                String path_img =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-                String path_video =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-
-                File vidFile = new  File(path_video);
-                File imgFile = new  File(path_img);
-
-                if(vidFile.exists())
-                {
-                    //video file to show
-                    VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
-                            ,this,false,path_video);
-                    videoType = 1;
+                Boolean is_match=false;
+                is_match=  Match_Mobile_No(phone_no);
+                if(!is_match) {
+                    outgoingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+                    // Show Video Ad or Full Screen Video Ad or Image Ad
+                    if (outgoingCallAdData.getAdType().equals("Video")){
+                        VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
+                                ,this,false,outgoingCallAdData);
+                    }
+                    if (outgoingCallAdData.getAdType().equals("Image")) {
+                        VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                        binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                        ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
+                                , outgoingCallAdData);
+                    }
+                    mRepository.updatePlayCount(outgoingCallAdData.getCampId());
                 }
-                else if(imgFile.exists())
-                {
-                    //image file show when incoming call
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                            ,path_img,ctx);
-
-                }
-                else{
-                    //default image show
-                    //ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                            ,path_img,ctx);
-
-                }
-                mRepository.updatePlayCount(outgoingCallAdData.getCampId());
-
             }else {
-                Contact callerContact = CallManager.getDisplayContact(this);
-                String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
-                String path_img =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-
                 binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
 
                 //Set Image Ad
                 binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                /*ImageManager.setImageAd(binding
-                        .ongoingCallLayout.adImagePlaceholder);*/
-                ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                        ,path_img,ctx);
+                ImageManager.setImageAd(binding
+                        .ongoingCallLayout.adImagePlaceholder);
             }
         }
     }
@@ -1965,103 +1883,60 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             CampaignAdsPlayOrder campaignAdsPlayOrderList = mRepository
                     .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
                             ,"InProgress","4");
-            if (campaignAdsPlayOrderList!=null) {
-                inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+            Contact callerContact = CallManager.getDisplayContact(this);
+            String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
 
-                InProgressCampStartTime = sdf.format(new Date());
+            Boolean is_match=false;
+            is_match=  Match_Mobile_No(phone_no);
+            if(!is_match) {
+                if (campaignAdsPlayOrderList!=null) {
+                    inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+                    InProgressCampStartTime = sdf.format(new Date());
 
-                // Show Video Ad or Full Screen Video Ad or Image Ad
-                /*if (inProgressCallAdData.getAdType().equals("Video"))
-                {
-
-
-                    try {
+                    // Show Video Ad or Full Screen Video Ad or Image Ad
+                    if (inProgressCallAdData.getAdType().equals("Video")){
                         binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
                         binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
 
                         VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
-                                , this, false, inProgressCallAdData);
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.printStackTrace();
+                                ,this,false,inProgressCallAdData);
                     }
 
+                    if (inProgressCallAdData.getAdType().equals("Image")) {
+                        binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+                        binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
 
-                }
+                        VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                        ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
+                                , inProgressCallAdData);
+                    }
 
-                if (inProgressCallAdData.getAdType().equals("Image")) {
+                    inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            Log.i("Time", String.valueOf(millisUntilFinished));
+                        }
+                        @Override
+                        public void onFinish() {
+                            InProgressCampEndTime = sdf.format(new Date());
+                            addInProgressLog();
+                            changeAd();
+                        }
+                    };
+                    inProgressCounter.start();
+
+                    mRepository.updatePlayCount(inProgressCallAdData.getCampId());
+
+                }else {
                     binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+
+                    //Set Image Ad
                     binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-
-                    VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                    ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
-                            , inProgressCallAdData);
-                }*/
-
-                //Custom Code Video Ad or Full Screen Video Ad or Image Ad
-                Contact callerContact = CallManager.getDisplayContact(this);
-                String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
-
-                String path_img =Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-                String path_video =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-
-                File vidFile = new  File(path_video);
-                File imgFile = new  File(path_img);
-
-                if(vidFile.exists())
-                {
-                    //video file to show
-                    VideoManager.playFullScreenIncomingAd_2(binding.incomingCallLayout.videoPlaceholder
-                            ,this,false,path_video);
-                    videoType = 1;
+                    ImageManager.setImageAd(binding
+                            .ongoingCallLayout.adImagePlaceholder);
                 }
-                else if(imgFile.exists())
-                {
-                    //image file show when incoming call
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                            ,path_img,ctx);
-
-                }
-                else{
-                    //default image show
-                    //ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                            ,path_img,ctx);
-
-                }
-                inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        Log.i("Time", String.valueOf(millisUntilFinished));
-                    }
-                    @Override
-                    public void onFinish() {
-                        InProgressCampEndTime = sdf.format(new Date());
-                        addInProgressLog();
-                        changeAd();
-                    }
-                };
-                inProgressCounter.start();
-                mRepository.updatePlayCount(inProgressCallAdData.getCampId());
-
-            }else {
-                binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-
-                //Set Image Ad
-                /*binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                ImageManager.setImageAd(binding
-                        .ongoingCallLayout.adImagePlaceholder);*/
-
-                Contact callerContact = CallManager.getDisplayContact(this);
-                String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
-                String path_img = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-
-                ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
-                        ,path_img,ctx);
 
             }
-
         }
         catch (Exception ex)
         {

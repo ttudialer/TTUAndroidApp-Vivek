@@ -171,6 +171,7 @@ public interface ApiInterface {
     @POST("library/createCamp/{campId}")
     Call<ResponseBody> setcreateCamp(@Path("campId") String campId);
 
+    @Headers("Cache-Control: max-age=640000")
     @Streaming
     @GET
     Call<ResponseBody> downloadFileWithDynamicUrlSync(@Url String fileUrl);

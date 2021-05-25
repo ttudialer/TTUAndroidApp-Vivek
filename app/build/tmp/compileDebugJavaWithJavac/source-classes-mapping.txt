@@ -603,6 +603,7 @@ com/kabaladigital/tingtingu/util/VideoManager.java
  com.kabaladigital.tingtingu.util.VideoManager$5
  com.kabaladigital.tingtingu.util.VideoManager$6
  com.kabaladigital.tingtingu.util.VideoManager$7
+ com.kabaladigital.tingtingu.util.VideoManager$8
 com/kabaladigital/tingtingu/adapter/SurveyListAdapter.java
  com.kabaladigital.tingtingu.adapter.SurveyListAdapter
  com.kabaladigital.tingtingu.adapter.SurveyListAdapter$1
