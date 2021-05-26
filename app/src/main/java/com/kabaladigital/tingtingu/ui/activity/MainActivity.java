@@ -42,8 +42,10 @@ import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
+import com.kabaladigital.tingtingu.util.ImageVideoDownloadManager;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
 
@@ -147,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             repository.updateTodayDateCount();
         }
 
+        getprofile();
 
         //call download manager and load video and image
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -261,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
                 , 15 * 60 * 1000
                 , pendingIntent);
 
-        getprofile();
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
@@ -418,15 +420,36 @@ public class MainActivity extends AppCompatActivity {
     private void download_Profile2() {
         removeArrayList("phone_no");
         ArrayList<String> list = new ArrayList<>();
+        Toast.makeText(MainActivity.this, ""+SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
         for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
             String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
             String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
             String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
 
+            Toast.makeText(MainActivity.this, ""+phone_no, Toast.LENGTH_SHORT).show();
+
             if (file_type == null) {
                 file_type = "Image";
             }
-            list.add(phone_no + "@" + file_type + "@" + url);
+            String _savepath="";
+            if (file_type.equalsIgnoreCase("video")) {
+                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
+            } else if (file_type.equalsIgnoreCase("image")) {
+                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
+            }
+
+            File futureStudioIconFile = null;
+            futureStudioIconFile = new File(_savepath);
+            if (futureStudioIconFile.exists()) {
+                futureStudioIconFile.delete();
+            }
+            //Toast.makeText(MainActivity.this, ""+00, Toast.LENGTH_SHORT).show();
+
+            new ImageVideoDownload(getApplicationContext(),url,_savepath,file_type);
+
+            //Toast.makeText(MainActivity.this, ""+11, Toast.LENGTH_SHORT).show();
+
+            list.add(phone_no + "@" + file_type + "@" + _savepath);
             saveArrayList(list, "phone_no");
         }
     }
@@ -554,11 +577,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 if(response.isSuccessful())
                 {
+                    //Toast.makeText(MainActivity.this, "hiiiiiiiiiiiii", Toast.LENGTH_SHORT).show();
                     if (response.body()!= null)
                     {
                         SharesPreference.saveprofile(getApplicationContext(),response.body());
                         download_Profile2();
-
                     }
                     else
                     {
@@ -583,7 +606,6 @@ public class MainActivity extends AppCompatActivity {
                 null, null, null, null);
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur != null && cur.moveToNext()) {
-
                 JsonObject contactobj = new JsonObject();
                 String id = cur.getString(
                         cur.getColumnIndex(ContactsContract.Contacts._ID));

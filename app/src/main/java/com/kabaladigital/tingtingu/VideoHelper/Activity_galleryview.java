@@ -63,9 +63,11 @@ public class Activity_galleryview extends Activity {
                 RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), videoFile);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", videoFile.getAbsolutePath(), requestFile);
                 RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "false");
+                RequestBody fileType =  RequestBody.create(MediaType.parse("multipart/form-data"), "video");
+
 
                 ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-                Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName);
+                Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName,fileType);
                 call.enqueue(new Callback<LibraryAddModel>() {
                     @Override
                     public void onResponse(Call<LibraryAddModel> call,
@@ -83,6 +85,7 @@ public class Activity_galleryview extends Activity {
                     @Override
                     public void onFailure(Call<LibraryAddModel> call, Throwable t) {
                         Toast.makeText(Activity_galleryview.this, "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                        waitSpinnerInvisible();
                     }
                 });
             }

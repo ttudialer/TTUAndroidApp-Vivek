@@ -2,6 +2,8 @@ package com.kabaladigital.tingtingu.networking;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.kabaladigital.tingtingu.R;
+import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -25,6 +27,8 @@ public class ApiClient2 {
     private static ApiInterface apiWorkInterface;
 
     public static ApiInterface getProfile_new(){
+        final String token= PreferenceUtils.getInstance().getString(R.string.pref_user_token_value);
+
         if (retrofit == null)
         {
             Gson gson = new GsonBuilder().setLenient().create();

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.kabaladigital.tingtingu.R;
@@ -135,7 +136,7 @@ public class ImageManager {
                 File file = new File(path);
                 Bitmap b = BitmapFactory.decodeStream(new FileInputStream(file));
                 imageView.setImageBitmap(b);
-
+                imageView.setVisibility(View.VISIBLE);
             }catch (Exception e){
                 e.printStackTrace();
                 imageView.setImageResource(R.drawable.default_incoming);

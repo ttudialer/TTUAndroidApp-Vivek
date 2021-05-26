@@ -127,19 +127,23 @@ public class Activity_Gallery_Image extends AppCompatActivity {
     }
 
     public void Upload_File(File _videoFile) {
-        Log.d("setpath", _videoFile.getAbsolutePath()+".jpg");
+        Log.d("setpath", _videoFile.getAbsolutePath());
         Bundle bundle = new Bundle();
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("selectedFile",  _videoFile.getAbsolutePath())
                 .addFormDataPart("isProfile", "false")
+                .addFormDataPart("fileType", "image")
                 .build();
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), _videoFile);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", _videoFile.getAbsolutePath(), requestFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", _videoFile.getName(), requestFile);
         RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "false");
+        RequestBody fileType =  RequestBody.create(MediaType.parse("multipart/form-data"), "image");
+
+
 
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-        Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName);
+        Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName,fileType);
         call.enqueue(new Callback<LibraryAddModel>() {
             @Override
             public void onResponse(Call<LibraryAddModel> call,
@@ -158,6 +162,9 @@ public class Activity_Gallery_Image extends AppCompatActivity {
             @Override
             public void onFailure(Call<LibraryAddModel> call, Throwable t) {
                 Toast.makeText(Activity_Gallery_Image.this, "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("code",""+ t.getMessage());
+                Log.d("code",""+ _videoFile.getName());
+                waitSpinnerInvisible();
             }
         });
     }

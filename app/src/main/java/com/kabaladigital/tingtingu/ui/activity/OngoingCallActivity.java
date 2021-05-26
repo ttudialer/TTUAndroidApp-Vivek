@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.KeyguardManager;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,20 +13,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.media.AudioManager;
-import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import android.os.PowerManager;
-import android.os.RemoteException;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.VideoProfile;
@@ -59,7 +53,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.adapter.ConferenceCallAdapter;
 import com.kabaladigital.tingtingu.adapter.RejectCallMessagesAdapter;
@@ -75,7 +68,6 @@ import com.kabaladigital.tingtingu.models.Caller_Id;
 import com.kabaladigital.tingtingu.models.IncomingCallAdData;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
-import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.ui.fragment.DialpadFragment;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.DateUtility;
@@ -87,19 +79,14 @@ import com.kabaladigital.tingtingu.util.VideoManager;
 import com.kabaladigital.tingtingu.viewmodels.OnGoingCallViewModel;
 import com.kabaladigital.tingtingu.viewmodels.SharedDialViewModel;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.regex.Pattern;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -983,7 +970,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 //              11  = Call.STATE_PULLING_CALL
 //              12  = Call.STATE_END_ALL
     private void UpdateScreenElements(int state) {
-
         if (state == 12){
             endCall();
         }
@@ -1750,9 +1736,9 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         Contact callerContact = CallManager.getDisplayContact(this);
         String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
         boolean is_match=false;
-       // phone_no="9350043415";
+        //phone_no="9599904682";
 
-        is_match=  Match_Mobile_No(phone_no);
+        is_match=  Match_Mobile_No_Incoming(phone_no);
 
         if(!is_match) {
             if (campaignAdsPlayOrderList != null) {
@@ -1783,7 +1769,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     }
 
 
-    public boolean   Match_Mobile_No(String phone_no){
+    public boolean Match_Mobile_No_outCall(String phone_no){
         Boolean is_match=false;
         ArrayList<String>list_no = getArrayList("phone_no");
         for(int i=0;i<list_no.size();i++)
@@ -1793,22 +1779,27 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             String phone_no_str = strdate_arr_2[0];
             String type_str = strdate_arr_2[1];
             String type_url = strdate_arr_2[2];
-
+            String lastFourDigits;
             if(phone_no_str.equalsIgnoreCase(phone_no))
             {
                 is_match=true;
-                if(type_str.equalsIgnoreCase("video"))
+                if (type_url.length() > 4)
+                    lastFourDigits = type_url.substring(type_url.length() - 4);
+                else
+                    lastFourDigits = type_url;
+
+                if(lastFourDigits.equalsIgnoreCase(".mp4"))
                 {
                     Log.d("video",type_url);
-                    VideoManager.playFullScreenIncomingAd_P(binding.incomingCallLayout.videoPlaceholder
+                    VideoManager.playFullScreenIncomingAd_P(binding.ongoingCallLayout.videoPlaceholder
                             ,this,false,type_url);
                     videoType = 1;
                 }
-                else
+                else if(lastFourDigits.equalsIgnoreCase(".jpg"))
                 {
-                    VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
-                    Log.d("img",type_url);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                    VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                    Log.d("img1",type_url);
+                    ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.adImagePlaceholder
                             ,type_url,ctx);
                 }
                 break;
@@ -1816,6 +1807,65 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         }
         return is_match;
     }
+
+
+
+    public boolean   Match_Mobile_No_Incoming(String phone_no){
+        Boolean is_match=false;
+        ArrayList<String>list_no = getArrayList("phone_no");
+        for(int i=0;i<list_no.size();i++)
+        {
+            String str_list = list_no.get(i);
+            String[] strdate_arr_2 = str_list.split("@");
+            String phone_no_str = strdate_arr_2[0];
+            String type_str = strdate_arr_2[1];
+            String type_url = strdate_arr_2[2];
+            String lastFourDigits;
+            if(phone_no_str.equalsIgnoreCase(phone_no))
+            {
+                is_match=true;
+                if (type_url.length() > 4)
+                    lastFourDigits = type_url.substring(type_url.length() - 4);
+                else
+                    lastFourDigits = type_url;
+
+                if(lastFourDigits.equalsIgnoreCase(".mp4"))
+                {
+                    Log.d("video",type_url);
+                    VideoManager.playFullScreenIncomingAd_P(binding.incomingCallLayout.videoPlaceholder
+                            ,this,false,type_url);
+                    videoType = 1;
+                }
+                else if(lastFourDigits.equalsIgnoreCase(".jpg"))
+                {
+                    VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
+                    Log.d("img1",type_url);
+                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                            ,type_url,ctx);
+                }
+
+//                if(type_str.equalsIgnoreCase("video"))
+//                {
+//                    Log.d("video",type_url);
+//                    VideoManager.playFullScreenIncomingAd_P(binding.incomingCallLayout.videoPlaceholder
+//                            ,this,false,type_url);
+//                    videoType = 1;
+//                }
+//                else if(type_str.equalsIgnoreCase("image"))
+//                {
+//                    VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
+//                    Log.d("img",type_url);
+//                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+//                            ,type_url,ctx);
+//                }
+                break;
+            }
+        }
+        return is_match;
+    }
+
+
+
 
 
     public ArrayList<String> getArrayList(String key){
@@ -1844,19 +1894,18 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
                             ,"Outgoing","4");
 
-            if (campaignAdsPlayOrderList!=null) {
-                outgoingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
-                Contact callerContact = CallManager.getDisplayContact(this);
-                String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
-
-                Boolean is_match=false;
-                is_match=  Match_Mobile_No(phone_no);
-                if(!is_match) {
+            Contact callerContact = CallManager.getDisplayContact(this);
+            String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
+            Boolean is_match=false;
+            is_match=  Match_Mobile_No_outCall(phone_no);
+            if(!is_match) {
+                if (campaignAdsPlayOrderList != null) {
+                    outgoingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
                     outgoingCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
                     // Show Video Ad or Full Screen Video Ad or Image Ad
-                    if (outgoingCallAdData.getAdType().equals("Video")){
+                    if (outgoingCallAdData.getAdType().equals("Video")) {
                         VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
-                                ,this,false,outgoingCallAdData);
+                                , this, false, outgoingCallAdData);
                     }
                     if (outgoingCallAdData.getAdType().equals("Image")) {
                         VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
@@ -1865,14 +1914,14 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                                 , outgoingCallAdData);
                     }
                     mRepository.updatePlayCount(outgoingCallAdData.getCampId());
-                }
-            }else {
-                binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+                } else {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
 
-                //Set Image Ad
-                binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                ImageManager.setImageAd(binding
-                        .ongoingCallLayout.adImagePlaceholder);
+                    //Set Image Ad
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                    ImageManager.setImageAd(binding
+                            .ongoingCallLayout.adImagePlaceholder);
+                }
             }
         }
     }
@@ -1887,7 +1936,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
 
             Boolean is_match=false;
-            is_match=  Match_Mobile_No(phone_no);
+            is_match=  Match_Mobile_No_outCall(phone_no);
             if(!is_match) {
                 if (campaignAdsPlayOrderList!=null) {
                     inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
@@ -2111,6 +2160,11 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
             {
                 str_getMOBILE=phoneNumberWithCountryCode.substring(4);
             }
+        } else{
+            if(phoneNumberWithCountryCode.length()>10) {
+                phoneNumberWithCountryCode=phoneNumberWithCountryCode.substring(phoneNumberWithCountryCode.length() - 10);
+            }
+            str_getMOBILE=phoneNumberWithCountryCode;
         }
         return  str_getMOBILE;
     }
