@@ -12,6 +12,8 @@
         android:background="@color/black"
         tools:context=".ui.activity.OngoingCallActivity">
 
+
+
         <TextView
             android:id="@+id/text_status"
             android:layout_width="wrap_content"
@@ -137,8 +139,22 @@
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
             app:layout_constraintTop_toBottomOf="@+id/rv_calls"
-
             app:layout_constraintBottom_toTopOf="@+id/button_hold"/>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/image_fullscreen_placeholder_ongoing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
 
         <ImageView
             android:visibility="gone"
@@ -149,7 +165,7 @@
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@+id/button_hold"
-            app:layout_constraintTop_toBottomOf="@+id/text_caller_number" />
+             app:layout_constraintTop_toBottomOf="@+id/text_caller_number" />
 
 
         <ImageView

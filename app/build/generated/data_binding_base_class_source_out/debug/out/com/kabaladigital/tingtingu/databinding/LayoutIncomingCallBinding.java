@@ -33,6 +33,9 @@ public abstract class LayoutIncomingCallBinding extends ViewDataBinding {
   public final FrameLayout frameLayout;
 
   @NonNull
+  public final ImageView imageFullscreenPlaceholder;
+
+  @NonNull
   public final CircleImageView imagePhoto;
 
   @NonNull
@@ -58,14 +61,16 @@ public abstract class LayoutIncomingCallBinding extends ViewDataBinding {
 
   protected LayoutIncomingCallBinding(Object _bindingComponent, View _root, int _localFieldCount,
       ImageView adImagePlaceholder, FloatingActionButton btnAnswer, FloatingActionButton btnReject,
-      FrameLayout frameLayout, CircleImageView imagePhoto, ImageView imagePlaceholder,
-      ConstraintLayout incomingCallLayout, TextView tvCallerName, TextView tvCallerNumber,
-      TextView tvStatus, VideoView videoFullscreenPlaceholder, VideoView videoPlaceholder) {
+      FrameLayout frameLayout, ImageView imageFullscreenPlaceholder, CircleImageView imagePhoto,
+      ImageView imagePlaceholder, ConstraintLayout incomingCallLayout, TextView tvCallerName,
+      TextView tvCallerNumber, TextView tvStatus, VideoView videoFullscreenPlaceholder,
+      VideoView videoPlaceholder) {
     super(_bindingComponent, _root, _localFieldCount);
     this.adImagePlaceholder = adImagePlaceholder;
     this.btnAnswer = btnAnswer;
     this.btnReject = btnReject;
     this.frameLayout = frameLayout;
+    this.imageFullscreenPlaceholder = imageFullscreenPlaceholder;
     this.imagePhoto = imagePhoto;
     this.imagePlaceholder = imagePlaceholder;
     this.incomingCallLayout = incomingCallLayout;

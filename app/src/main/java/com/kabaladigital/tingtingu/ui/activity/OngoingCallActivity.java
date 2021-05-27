@@ -1757,7 +1757,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 if (incomingCallAdData.getAdType().equals("Image")) {
                     VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
                     binding.incomingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                    ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
+                   ImageManager.setIncomingCallImageAd(binding.incomingCallLayout.adImagePlaceholder, incomingCallAdData);
+
                 }
                 mRepository.updatePlayCount(incomingCallAdData.getCampId());
             } else {
@@ -1790,17 +1791,23 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
                 if(lastFourDigits.equalsIgnoreCase(".mp4"))
                 {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
+                    binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing.setVisibility(View.GONE);
                     Log.d("video",type_url);
                     VideoManager.playFullScreenIncomingAd_P(binding.ongoingCallLayout.videoPlaceholder
                             ,this,false,type_url);
                     videoType = 1;
                 }
-                else if(lastFourDigits.equalsIgnoreCase(".jpg"))
-                {
+                else if(lastFourDigits.equalsIgnoreCase(".jpg")) {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+                    //binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                    binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing.setVisibility(View.VISIBLE);
+
                     VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                    Log.d("img1",type_url);
-                    ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.adImagePlaceholder
-                            ,type_url,ctx);
+                    Log.d("img1", type_url);
+                    ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing
+                            , type_url, ctx);
                 }
                 break;
             }
@@ -1840,7 +1847,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 {
                     VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
                     Log.d("img1",type_url);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
+                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.imageFullscreenPlaceholder
                             ,type_url,ctx);
                 }
 

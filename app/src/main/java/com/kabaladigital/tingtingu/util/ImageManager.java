@@ -132,11 +132,9 @@ public class ImageManager {
             imageView.setImageResource(R.drawable.default_incoming);
         }else {
             try {
-                //Bitmap bmp = BitmapFactory.decodeFile(path);
                 File file = new File(path);
                 Bitmap b = BitmapFactory.decodeStream(new FileInputStream(file));
                 imageView.setImageBitmap(b);
-                imageView.setVisibility(View.VISIBLE);
             }catch (Exception e){
                 e.printStackTrace();
                 imageView.setImageResource(R.drawable.default_incoming);

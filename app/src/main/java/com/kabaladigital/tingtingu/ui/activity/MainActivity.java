@@ -71,6 +71,7 @@ import com.kabaladigital.tingtingu.util.Installation;
 import com.kabaladigital.tingtingu.util.Utilities;
 
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -85,7 +86,9 @@ import java.util.Date;
 import java.io.File;
 import java.util.ArrayList;
 
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -593,20 +596,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
                 Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
 
 
     private void ReadContactDetailsJson() {
-
+        JsonObject contactobj = null;
         ContentResolver cr = getApplicationContext().getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur != null && cur.moveToNext()) {
-                JsonObject contactobj = new JsonObject();
+
                 String id = cur.getString(
                         cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(
@@ -620,28 +622,28 @@ public class MainActivity extends AppCompatActivity {
                             ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
                             new String[]{id}, null);
                     String phoneNo = "";
+                    int _i=0;
+                    int _total=0;
+                    _total=pCur.getCount();
                     while (pCur.moveToNext()) {
+                        contactobj = new JsonObject();
                         phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         Log.i(TAG, "Name: " + name);
                         Log.i(TAG, "Phone Number: " + phoneNo);
+                        contactobj.addProperty("name" , name);
+                        String lastFourDigits = "";     //substring containing last 4 characters
+                        if (phoneNo.length() > 10) {
+                            lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
+                        } else {
+                            lastFourDigits = phoneNo;
+                        }
+                        contactobj.addProperty("number", lastFourDigits);
+                        jsonArrayContact.add(contactobj);
                     }
-
-                    contactobj.addProperty("name", name);
-                    String lastFourDigits = "";     //substring containing last 4 characters
-
-                    if (phoneNo.length() > 10)
-                    {
-                        lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
-                    }
-                    else
-                    {
-                        lastFourDigits = phoneNo;
-                    }
-                    contactobj.addProperty("number",  lastFourDigits);
                     pCur.close();
                 }
 
-                jsonArrayContact.add(contactobj);
+
 
             }
         }
@@ -652,6 +654,7 @@ public class MainActivity extends AppCompatActivity {
         JsonObject  contactListObj = new JsonObject();
         contactListObj.add("contactList", jsonArrayContact);
         // jsonStr = contactListObj.toString();
+         //   Toast.makeText(getApplicationContext(), String.valueOf(jsonArrayContact.size()), Toast.LENGTH_SHORT).show();
 
         uploadContact(contactListObj);
     }
