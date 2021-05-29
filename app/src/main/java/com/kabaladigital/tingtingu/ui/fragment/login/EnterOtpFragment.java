@@ -112,14 +112,21 @@ public class EnterOtpFragment extends Fragment{
         generateMsg91SmsOTP();
     }
 
-    private void generateMsg91SmsOTP() {
+    private void generateMsg91SmsOTP()
+    {
         generatedMobileOTP = mViewModel.generateOtp();
 //        Toast.makeText(getActivity(), ""+generatedMobileOTP, Toast.LENGTH_SHORT).show();
         Timber.i(generatedMobileOTP);
         smsOTP = "Dear User,your mobile OTP is "+ generatedMobileOTP + " for Registration in Ting Ting U ";
+
         mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
                 "KABALA","4","91",
-                smsOTP , mobileNumber));
+                smsOTP , mobileNumber,"1307161052355142862"));
+
+
+        /*mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
+                "KABALA","4","91",
+                smsOTP , mobileNumber));*/
 
         sendOTPtoMobile();
     }
@@ -129,7 +136,11 @@ public class EnterOtpFragment extends Fragment{
         smsOTP = "Dear User,your mobile OTP is "+ generatedMobileOTP + " for Registration in Ting Ting U ";
         mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
                 "KABALA","4","91",
-                smsOTP , mobileNumber));
+                smsOTP , mobileNumber, "1307161052355142862"));
+
+        /*mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
+                "KABALA","4","91",
+                smsOTP , mobileNumber));*/
 
         sendOTPtoMobile();
     }

@@ -30,11 +30,13 @@ public class RequestFormatter {
     /* todo 2. sms OTP */
      public static JsonObject jsonObjectSmsOtp (String sender,String route,
                                                 String country,String message,
-                                                String mobileNumber) {
+                                                String mobileNumber
+                                                ,String DLT_TE_ID) {
          JsonObject jsonObject = new JsonObject();
          try {
              jsonObject.addProperty("sender",sender);
              jsonObject.addProperty("route",route);
+             jsonObject.addProperty("DLT_TE_ID",DLT_TE_ID);
              jsonObject.addProperty("country",country);
 
              JsonArray jsonArray = new JsonArray();

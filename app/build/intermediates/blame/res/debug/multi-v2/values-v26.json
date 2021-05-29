@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\ea1a41cc7220317b0e219cbc9487e28a\\appcompat-1.1.0\\res\\values-v26\\values-v26.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/ea1a41cc7220317b0e219cbc9487e28a/appcompat-1.1.0/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

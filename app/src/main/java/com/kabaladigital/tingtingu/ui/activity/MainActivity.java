@@ -33,7 +33,15 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.work.BackoffPolicy;
+import androidx.work.Constraints;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.NetworkType;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +50,7 @@ import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.service.GetAdData;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
@@ -84,6 +93,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -203,55 +213,54 @@ public class MainActivity extends AppCompatActivity {
         checkIncomingIntent();
 
         // Create Network constraint
-//        Constraints constraints = new Constraints.Builder()
-//                .setRequiredNetworkType(NetworkType.CONNECTED)
-//                .build();
+        Constraints constraints = new Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build();
 
-//        PeriodicWorkRequest.Builder myWorkBuilder =
-//                new PeriodicWorkRequest.Builder(GetAdData.class, 15, TimeUnit.MINUTES);
-//
-//        PeriodicWorkRequest myWork = myWorkBuilder.build();
-//        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
-//        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
-//                ,myWork);
+        //Block 1 of work manager
 
-//        WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
-//        manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));
+        /*WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest.Builder myWorkBuilder =
+                new PeriodicWorkRequest.Builder(GetAdData.class, 15, TimeUnit.MINUTES);
+
+        PeriodicWorkRequest myWork = myWorkBuilder.build();
+         WorkManager mWorkManager = WorkManager.getInstance(ctx);
+        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
+                ,myWork);
+
+        manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));*/
 
 
-//
-//        PeriodicWorkRequest periodicSyncDataWork =
-//                new PeriodicWorkRequest.Builder(GetAdData.class, 15, TimeUnit.MINUTES)
-//                        .addTag("TAG_SYNC_DATA")
-//                        .setConstraints(constraints)
-//                        // setting a backoff on case the work needs to retry
-//                        .setBackoffCriteria(BackoffPolicy.LINEAR, PeriodicWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
-//                        .build();
-//
-//        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
-//
-//        mWorkManager.enqueueUniquePeriodicWork(
-//                "SYNC_DATA_WORK_NAME",
-//                ExistingPeriodicWorkPolicy.KEEP, //Existing Periodic Work policy
-//                periodicSyncDataWork //work request
-//        );
+        //Block 2 of work manager
 
-//        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
-//
-//        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(GetAdData.class
-//                , 15, TimeUnit.MINUTES).build();
-//
-//        mWorkManager.getWorkInfoByIdLiveData(workRequest.getId()).observe(this, new Observer<WorkInfo>() {
-//            @Override
-//            public void onChanged(@Nullable WorkInfo workInfo) {
-//                if (workInfo != null) {
-//                    WorkInfo.State state = workInfo.getState();
-//                    Log.i("SyncChnage", state.toString() + "\n");
-//                }
-//            }
-//        });
-//
-//        mWorkManager.enqueue(workRequest);
+     /*   WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest periodicSyncDataWork =
+                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES)
+                        .addTag("TAG_SYNC_DATA")
+                        .setConstraints(constraints)
+                        // setting a backoff on case the work needs to retry
+                        .setBackoffCriteria(BackoffPolicy.LINEAR, PeriodicWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
+                        .build();
+        mWorkManager.enqueueUniquePeriodicWork(
+                "SYNC_DATA_WORK_NAME",
+                ExistingPeriodicWorkPolicy.KEEP, //Existing Periodic Work policy
+                periodicSyncDataWork //work request
+        );*/
+
+      // //Block 3 of work manager
+        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(GetAdData.class
+                , 10, TimeUnit.SECONDS).build();
+        mWorkManager.getWorkInfoByIdLiveData(workRequest.getId()).observe(this, new Observer<WorkInfo>() {
+            @Override
+            public void onChanged(@Nullable WorkInfo workInfo) {
+                if (workInfo != null) {
+                    WorkInfo.State state = workInfo.getState();
+                    Log.i("SyncChnage", state.toString() + "\n");
+                }
+            }
+        });
+        mWorkManager.enqueue(workRequest);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         Intent intent = new Intent(this, MyBroadCastReceiver.class);
@@ -261,7 +270,10 @@ public class MainActivity extends AppCompatActivity {
                 , 15 * 60 * 1000
                 , pendingIntent);
 
-        getprofile();
+
+        //comment code due to work manager
+
+        //getprofile();
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
@@ -558,7 +570,6 @@ public class MainActivity extends AppCompatActivity {
                     {
                         SharesPreference.saveprofile(getApplicationContext(),response.body());
                         download_Profile2();
-
                     }
                     else
                     {

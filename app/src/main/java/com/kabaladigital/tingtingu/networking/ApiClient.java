@@ -32,7 +32,7 @@ public class ApiClient {
               @Override
               public Response intercept(Chain chain) throws IOException {
                   Request newRequest  = chain.request().newBuilder()
-                          .addHeader("authkey","315206Am2ZQ1M5CTt65e2e85dfP1" )
+                          .addHeader("authkey","315206A0HI8Th3vB2C60ae37e5P1" )
                           .build();
                   return chain.proceed(newRequest);
               }
@@ -44,6 +44,7 @@ public class ApiClient {
     public static final String BASE_URL = "https://ttuproduction.el.r.appspot.com/api/";
     public static final String URL = "https://ttuproduction.el.r.appspot.com/";
     public static final String BASE_URL_SMS_OTP = "https://api.msg91.com/api/v2/";
+
     public static final String URL1 = "https://productionadmin-dot-ttuproduction.el.r.appspot.com/";
     public static final String VP_URL = "http://virtualpages.in/tingtingu.com/global-controller/Webservice_c/";
 

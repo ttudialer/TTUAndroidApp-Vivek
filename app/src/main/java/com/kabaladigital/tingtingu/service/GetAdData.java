@@ -5,17 +5,30 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.preference.PreferenceManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.google.gson.Gson;
 import com.kabaladigital.tingtingu.R;
+import com.kabaladigital.tingtingu.models.ProfileResponse;
+import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GetAdData extends Worker {
 
@@ -51,6 +64,70 @@ public class GetAdData extends Worker {
     @NonNull
     @Override
     public Result doWork() {
+        Log.d("call----->","method");
+        //getprofile();
+
+        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
+        call.enqueue(new Callback<ProfileResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if (response.body()!= null)
+                    {
+                        SharesPreference.saveprofile(getApplicationContext(),response.body());
+                        //download_Profile2();
+
+                        Log.d("download","profile2");
+                        //removeArrayList("phone_no");
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.remove("phone_no");
+                        editor.apply();
+
+
+
+                        ArrayList<String> list = new ArrayList<>();
+                        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
+                            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
+                            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
+                            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
+
+                            if (file_type == null) {
+                                file_type = "Image";
+                            }
+                            Log.d("mobile",phone_no + "@" + file_type + "@" + url);
+                            list.add(phone_no + "@" + file_type + "@" + url);
+
+                            //saveArrayList(list, "phone_no");
+
+                            SharedPreferences prefs_n = PreferenceManager.getDefaultSharedPreferences(context);
+                            SharedPreferences.Editor editor_n = prefs_n.edit();
+                            Gson gson = new Gson();
+                            String json = gson.toJson(list);
+                            editor_n.putString("phone_no", json);
+                            editor_n.apply();     // This line is IMPORTANT !!!
+                        }
+
+                    }
+                    else
+                    {
+                        //Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                //Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
 //        DataRepository repository = DataRepository
 //                .getInstance(AppDatabase.getDatabase(context));
 //        PreferenceUtils.getInstance(context,true);
@@ -175,5 +252,69 @@ public class GetAdData extends Worker {
         Log.i(TAG, "OnStopped called for this worker");
     }
 
-    
+    public void getprofile()
+    {
+        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
+        call.enqueue(new Callback<ProfileResponse>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                if(response.isSuccessful())
+                {
+                    if (response.body()!= null)
+                    {
+                        SharesPreference.saveprofile(getApplicationContext(),response.body());
+                        download_Profile2();
+                    }
+                    else
+                    {
+                        //Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                //Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+    private void download_Profile2() {
+        Log.d("download","profile2");
+        removeArrayList("phone_no");
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
+            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
+            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
+            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
+
+            if (file_type == null) {
+                file_type = "Image";
+            }
+            Log.d("mobile",phone_no + "@" + file_type + "@" + url);
+            list.add(phone_no + "@" + file_type + "@" + url);
+            saveArrayList(list, "phone_no");
+        }
+    }
+
+    public void saveArrayList(ArrayList<String> list, String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+    public void removeArrayList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(key);
+        editor.apply();
+    }
+
+
+
 }

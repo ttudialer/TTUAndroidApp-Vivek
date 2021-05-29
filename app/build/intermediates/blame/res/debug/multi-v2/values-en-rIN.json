@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Project\\Android\\TTUAndroidApp-Deepak\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
+            "outputFile": "/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\15e831160918ec907cd4a515ecc2d63a\\biometric-1.0.0-alpha04\\res\\values-en-rIN\\values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,174,264,383,512,650,768,899",
-                        "endColumns": "118,89,118,128,137,117,130,99",
-                        "endOffsets": "169,259,378,507,645,763,894,994"
-                    },
-                    "to": {
-                        "startLines": "29,30,72,73,74,75,76,77",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "2762,2881,5719,5838,5967,6105,6223,6354",
-                        "endColumns": "118,89,118,128,137,117,130,99",
-                        "endOffsets": "2876,2966,5833,5962,6100,6218,6349,6449"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\d9bfda1f99bb47f202e4176794fd0f44\\preference-1.0.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/d9bfda1f99bb47f202e4176794fd0f44/preference-1.0.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\ea1a41cc7220317b0e219cbc9487e28a\\appcompat-1.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/ea1a41cc7220317b0e219cbc9487e28a/appcompat-1.1.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\3b5b6504256c046f88ddd7b6e8a18155\\jetified-exoplayer-ui-2.11.1\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/3b5b6504256c046f88ddd7b6e8a18155/jetified-exoplayer-ui-2.11.1/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -72,24 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\7b4cc5dab6a31cde0532e4095f202736\\core-1.1.0\\res\\values-en-rIN\\values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "81",
-                        "startColumns": "4",
-                        "startOffsets": "6759",
-                        "endColumns": "100",
-                        "endOffsets": "6855"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\deepa\\.gradle\\caches\\transforms-2\\files-2.1\\0e59882fb5adf5f78ec46b2fbc5d7bb3\\navigation-ui-2.2.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/0e59882fb5adf5f78ec46b2fbc5d7bb3/navigation-ui-2.2.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -103,6 +69,40 @@
                         "startOffsets": "6454,6560",
                         "endColumns": "105,116",
                         "endOffsets": "6555,6672"
+                    }
+                },
+                {
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/15e831160918ec907cd4a515ecc2d63a/biometric-1.0.0-alpha04/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,174,264,383,512,650,768,899",
+                        "endColumns": "118,89,118,128,137,117,130,99",
+                        "endOffsets": "169,259,378,507,645,763,894,994"
+                    },
+                    "to": {
+                        "startLines": "29,30,72,73,74,75,76,77",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "2762,2881,5719,5838,5967,6105,6223,6354",
+                        "endColumns": "118,89,118,128,137,117,130,99",
+                        "endOffsets": "2876,2966,5833,5962,6100,6218,6349,6449"
+                    }
+                },
+                {
+                    "source": "/home/piyush/.gradle/caches/transforms-2/files-2.1/7b4cc5dab6a31cde0532e4095f202736/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "81",
+                        "startColumns": "4",
+                        "startOffsets": "6759",
+                        "endColumns": "100",
+                        "endOffsets": "6855"
                     }
                 }
             ]
