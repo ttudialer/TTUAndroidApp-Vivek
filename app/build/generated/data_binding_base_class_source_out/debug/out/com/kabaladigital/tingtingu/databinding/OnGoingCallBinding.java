@@ -59,9 +59,6 @@ public abstract class OnGoingCallBinding extends ViewDataBinding {
   public final FrameLayout frameLayout;
 
   @NonNull
-  public final ImageView imageFullscreenPlaceholderOngoing;
-
-  @NonNull
   public final CircleImageView imagePhoto;
 
   @NonNull
@@ -95,8 +92,7 @@ public abstract class OnGoingCallBinding extends ViewDataBinding {
       ImageView adImageBannerPlaceholder, ImageView adImagePlaceholder, ImageView buttonAddCall,
       ImageView buttonHold, ImageView buttonKeypad, ImageView buttonMerge, ImageView buttonMute,
       ImageView buttonSpeaker, ImageView buttonSwap, FrameLayout dialerFragment,
-      LinearLayout dialerLayout, FrameLayout frameLayout,
-      ImageView imageFullscreenPlaceholderOngoing, CircleImageView imagePhoto,
+      LinearLayout dialerLayout, FrameLayout frameLayout, CircleImageView imagePhoto,
       ImageView imagePlaceholder, ConstraintLayout ongoingCallLayout,
       FloatingActionButton rejectBtn, RecyclerView rvCalls, TextView textCaller,
       TextView textCallerNumber, TextView textStatus, TextView textStopwatch,
@@ -114,7 +110,6 @@ public abstract class OnGoingCallBinding extends ViewDataBinding {
     this.dialerFragment = dialerFragment;
     this.dialerLayout = dialerLayout;
     this.frameLayout = frameLayout;
-    this.imageFullscreenPlaceholderOngoing = imageFullscreenPlaceholderOngoing;
     this.imagePhoto = imagePhoto;
     this.imagePlaceholder = imagePlaceholder;
     this.ongoingCallLayout = ongoingCallLayout;

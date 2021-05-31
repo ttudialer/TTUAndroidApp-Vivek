@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class RequestFormatter {
 
-  /* todo 1. LoginMobileNumber  */
-     public static JsonObject jsonObjectLogin (String mobileNumber,
-                                               int isOtpVerified,
-                                               String referralCode,
-                                               String deviceId){
+    /* todo 1. LoginMobileNumber  */
+    public static JsonObject jsonObjectLogin (String mobileNumber,
+                                              int isOtpVerified,
+                                              String referralCode,
+                                              String deviceId){
 
         JsonObject jsonObject = new JsonObject();
         try {
@@ -28,34 +28,36 @@ public class RequestFormatter {
     }
 
     /* todo 2. sms OTP */
-     public static JsonObject jsonObjectSmsOtp (String sender,String route,
-                                                String country,String message,
-                                                String mobileNumber) {
-         JsonObject jsonObject = new JsonObject();
-         try {
-             jsonObject.addProperty("sender",sender);
-             jsonObject.addProperty("route",route);
-             jsonObject.addProperty("country",country);
+    public static JsonObject jsonObjectSmsOtp (String sender,String route,
+                                               String country,String message,
+                                               String mobileNumber
+            ,String DLT_TE_ID) {
+        JsonObject jsonObject = new JsonObject();
+        try {
+            jsonObject.addProperty("sender",sender);
+            jsonObject.addProperty("route",route);
+            jsonObject.addProperty("DLT_TE_ID",DLT_TE_ID);
+            jsonObject.addProperty("country",country);
 
-             JsonArray jsonArray = new JsonArray();
+            JsonArray jsonArray = new JsonArray();
 
-             JsonObject jsonObject2 = new JsonObject();
-             jsonObject2.addProperty("message",message);
+            JsonObject jsonObject2 = new JsonObject();
+            jsonObject2.addProperty("message",message);
 
-             JsonArray jsonArray2 = new JsonArray();
-             jsonArray2.add(mobileNumber);
+            JsonArray jsonArray2 = new JsonArray();
+            jsonArray2.add(mobileNumber);
 
-             jsonObject2.add("to",jsonArray2);
+            jsonObject2.add("to",jsonArray2);
 
-             jsonArray.add(jsonObject2);
+            jsonArray.add(jsonObject2);
 
-             jsonObject.add("sms",jsonArray);
+            jsonObject.add("sms",jsonArray);
 
-         }catch (Exception e){
-             e.printStackTrace();
-         }
-         return jsonObject;
-     }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
 
 
 
@@ -88,10 +90,10 @@ public class RequestFormatter {
 
         try {
             for (int i = 0;i<knownLanguage.size();i++){
-              //  JsonObject jsonObject2 = new JsonObject();
-               // jsonObject2.addProperty("id",i+1);
+                //  JsonObject jsonObject2 = new JsonObject();
+                // jsonObject2.addProperty("id",i+1);
                 jsonArray.add(knownLanguage.get(i));
-               // jsonArray.add(jsonObject2);
+                // jsonArray.add(jsonObject2);
             }
 
             jsonObject.addProperty("email",email);
@@ -104,7 +106,7 @@ public class RequestFormatter {
             jsonObject.add("knownLanguages",jsonArray);
             jsonObject.addProperty("profession",profession);
             jsonObject.addProperty("education",education);
-           
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,10 +116,10 @@ public class RequestFormatter {
 
     /* Todo 5. UpdateProfile */
     public static JsonObject jsonUpdateProfile2 (String email, String fullName,
-                                                int age, int gender, String state,
-                                                String city, String pincode,
-                                                ArrayList<String> knownLanguage,
-                                                String profession, String education,
+                                                 int age, int gender, String state,
+                                                 String city, String pincode,
+                                                 ArrayList<String> knownLanguage,
+                                                 String profession, String education,
                                                  String address1, String address2,String address3){
 
         JsonObject jsonObject = new JsonObject();
@@ -160,7 +162,7 @@ public class RequestFormatter {
 
 
     public static JsonObject jsonObjectLogs (String startTime
-    ,String endTime,String callType,String callResponse){
+            ,String endTime,String callType,String callResponse){
 
         JsonObject jsonObject = new JsonObject();
         try {

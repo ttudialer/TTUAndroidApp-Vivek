@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kabaladigital.tingtingu.Class.Functions;
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.Class.Variables;
@@ -44,30 +48,69 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
     private View mWaitSpinner;
     String imageUri;
     Bitmap bitmap;
-    Bitmap bitmap1;
+    Bitmap bitmap_new;
+    int height;
+    int width;
+    int finalHeight;
+    int finalWidth;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_select);
-
         activity = this;
-        imageUri =    PreferenceUtils.getInstance().getString(R.string.pref_image_path_Draft);
-        bitmap = BitmapFactory.decodeFile(imageUri);
         initUIWidgets();
 
-        findViewById(R.id.next_btn).setOnClickListener(new View.OnClickListener() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+      int  maxHeight = displayMetrics.heightPixels;
+        int  maxWidth = displayMetrics.widthPixels;
+
+//        double ASPECT_RATIO = 4.0 / 3.0;
+//        if (width > height * ASPECT_RATIO) {
+//            width = (int) (height * ASPECT_RATIO + 0.5);
+//        } else {
+//            height = (int) (width / ASPECT_RATIO + 0.5);
+//        }
+
+        waitSpinnerVisible();
+        imageUri =    PreferenceUtils.getInstance().getString(R.string.pref_image_path_Draft);
+        bitmap = BitmapFactory.decodeFile(imageUri);
+
+         width = bitmap.getWidth();
+         height = bitmap.getHeight();
+        float ratioBitmap = (float) width / (float) height;
+        float ratioMax = (float) maxWidth / (float) maxHeight;
+
+         finalWidth = maxWidth;
+         finalHeight = maxHeight;
+        if (ratioMax > ratioBitmap) {
+            finalWidth = (int) ((float)maxHeight * ratioBitmap);
+        } else {
+            finalHeight = (int) ((float)maxWidth / ratioBitmap);
+        }
+
+
+        Toast.makeText(getApplicationContext(),finalWidth + " :  " + finalHeight,     Toast.LENGTH_LONG).show();
+        bitmap= Bitmap.createScaledBitmap(bitmap,finalWidth,finalHeight,true);
+        placeHolderImageView.setImageBitmap(bitmap);
+        bitmap_new=bitmap;
+        waitSpinnerInvisible();
+
+
+          findViewById(R.id.next_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 waitSpinnerVisible();
                 File newfile=null;
                 try {
-
                     newfile = Global.getImagePath_P(ImageSelectActivity.this) ;
                     if(newfile.exists()){
                         newfile.delete();
                     }
                     try (FileOutputStream out = new FileOutputStream(newfile)) {
-                        bitmap1.compress(Bitmap.CompressFormat.JPEG, 100, out); // bmp is your Bitmap instance
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out); // bmp is your Bitmap instance
                         Toast.makeText(getApplicationContext(),"Image saved in TTU library",     Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -81,25 +124,6 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
                 }
                 waitSpinnerInvisible();
                 finish();
-
-
-//                if (select_postion == 0) {
-//                    try {
-//                        Functions.copyFile(new File(Variables.outputfile2),
-//                                new File(Variables.output_filter_file));
-//                        Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(context, "Video saved successfully1", Toast.LENGTH_SHORT).show();
-//                        Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
-//                        startActivity(intent1);
-//                        finish();
-//                        //gotopostScreen();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                        Log.d(Variables.tag, e.toString());
-//                        save_Video(Variables.outputfile2, Variables.output_filter_file);
-//                    }
-//                } else
-//                    save_Video(Variables.outputfile2, Variables.output_filter_file);
             }
         });
 
@@ -108,6 +132,7 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
             public void onClick(View v) {
                 finish();
                 overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+
             }
         });
     }
@@ -115,8 +140,6 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
     private void initUIWidgets() {
         thumbListView = (RecyclerView) findViewById(R.id.thumbnails);
         placeHolderImageView = (ImageView) findViewById(R.id.place_holder_imageview);
-        //placeHolderImageView.setImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getApplicationContext().getResources(), drawable), 640, 840, false));
-        placeHolderImageView.setImageBitmap(bitmap);
         mWaitSpinner = findViewById(R.id.wait_spinner);
 
         initHorizontalList();
@@ -136,10 +159,8 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
         Handler handler = new Handler();
         Runnable r = new Runnable() {
             public void run() {
-                //Bitmap thumbImage = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(context.getResources(), drawable), 640, 640, false);
                 ThumbnailsManager.clearThumbs();
                 List<Filter> filters = FilterPack.getFilterPack(getApplicationContext());
-
                 for (Filter filter : filters) {
                     ThumbnailItem thumbnailItem = new ThumbnailItem();
                     //thumbnailItem.image = thumbImage;
@@ -158,14 +179,17 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
 
     @Override
     public void onThumbnailClick(Filter filter) {
-        File sd = Environment.getExternalStorageDirectory();
-        File image = new File(sd+imageUri, "imageName");
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bitmap1 = BitmapFactory.decodeFile(image.getAbsolutePath(),bmOptions);
-        //bitmap1 = Bitmap.createScaledBitmap(bitmap,640,840,true);
+        //File sd = Environment.getExternalStorageDirectory();
+        //File image = new File(sd+imageUri, "imageName");
+        //BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        //bitmap = BitmapFactory.decodeFile(image.getAbsolutePath(),bmOptions);
+
+
+       // bitmap= Bitmap.createScaledBitmap(bitmap_new,width,height,true);
+        bitmap= Bitmap.createScaledBitmap(bitmap_new,finalWidth,finalHeight,true);
         //placeHolderImageView.setImageBitmap(filter.processFilter(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(this.getApplicationContext().getResources(), imageUri), 640, 840, false)));
-        bitmap1=filter.processFilter(bitmap1);
-        placeHolderImageView.setImageBitmap(bitmap1);
+        bitmap=filter.processFilter(bitmap);
+        placeHolderImageView.setImageBitmap(bitmap);
 
     }
 

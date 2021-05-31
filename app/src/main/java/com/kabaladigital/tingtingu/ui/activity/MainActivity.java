@@ -33,7 +33,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.work.BackoffPolicy;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -43,6 +50,7 @@ import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
+import com.kabaladigital.tingtingu.service.GetAdData;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
 import com.kabaladigital.tingtingu.util.ImageVideoDownloadManager;
@@ -89,6 +97,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -142,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
         Global.TTULibraryVideo(this);
         Global.TTULibraryProfile(this);
         Global.TTULibraryTTUPROFILE(this);
+        Global.TTUFOLDER(this);
+        Global.TTUFOLDERDraft(this);
+
 
         PreferenceUtils.getInstance(this, true); // Get the preferences
         Utilities.setUpLocale(this);
@@ -152,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
             repository.updateTodayDateCount();
         }
 
-        getprofile();
+      //  getprofile();
 
         //call download manager and load video and image
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -207,6 +219,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Check for intents from others apps
         checkIncomingIntent();
+
+        //Block 1 of work manager
+
+        WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest.Builder myWorkBuilder =
+                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES);
+
+        PeriodicWorkRequest myWork = myWorkBuilder.build();
+         WorkManager mWorkManager = WorkManager.getInstance(ctx);
+        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
+                ,myWork);
+
+        manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));
+
+
+        //Block 2 of work manager
+
+//     WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+//        PeriodicWorkRequest periodicSyncDataWork =
+//                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES)
+//                        .addTag("TAG_SYNC_DATA")
+//                        .setConstraints(constraints)
+//                        // setting a backoff on case the work needs to retry
+//                        .setBackoffCriteria(BackoffPolicy.LINEAR, PeriodicWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
+//                        .build();
+//        mWorkManager.enqueueUniquePeriodicWork(
+//                "SYNC_DATA_WORK_NAME",
+//                ExistingPeriodicWorkPolicy.KEEP, //Existing Periodic Work policy
+//                periodicSyncDataWork //work request
+//        );
+
+//        // //Block 3 of work manager
+//        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+//        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(GetAdData.class , 10, TimeUnit.SECONDS).build();
+//        mWorkManager.getWorkInfoByIdLiveData(workRequest.getId()).observe(this, new Observer<WorkInfo>() {
+//            @Override
+//            public void onChanged(@Nullable WorkInfo workInfo) {
+//                if (workInfo != null) {
+//                    WorkInfo.State state = workInfo.getState();
+//                    Log.i("SyncChnage", state.toString() + "\n");
+//                }
+//            }
+//        });
+//        mWorkManager.enqueue(workRequest);
+
+
+
 
         // Create Network constraint
 //        Constraints constraints = new Constraints.Builder()

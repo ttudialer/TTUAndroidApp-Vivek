@@ -101,6 +101,10 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         camera_options = findViewById(R.id.camera_options);
         upload_layout = findViewById(R.id.upload_layout);
 
+
+
+
+
         record_image = findViewById(R.id.record_image);
 
         findViewById(R.id.upload_layout).setOnClickListener(this);
@@ -146,7 +150,6 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         countdown_timer_txt = findViewById(R.id.countdown_timer_txt);
 
         initlize_Video_progress();
-
 
     }
 
@@ -237,15 +240,18 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
     }
 
     public void check_done_btn_enable() {
-        if (sec_passed > (Variables.min_time_recording / 1000)) {
-            done_btn.setBackgroundResource(R.drawable.ic_done);
-            done_btn.setEnabled(true);
-            Log.e(TAG, "Check_done_btn_enable: done");
+//        if (sec_passed > (Variables.min_time_recording / 1000)) {
+//            done_btn.setBackgroundResource(R.drawable.ic_done);
+//            done_btn.setEnabled(true);
+//            Log.e(TAG, "Check_done_btn_enable: done");
+//
+//        } else {
+//            done_btn.setBackgroundResource(R.drawable.ic_not_done);
+//            done_btn.setEnabled(false);
+//        }
+        done_btn.setBackgroundResource(R.drawable.ic_done);
+        done_btn.setEnabled(true);
 
-        } else {
-            done_btn.setBackgroundResource(R.drawable.ic_not_done);
-            done_btn.setEnabled(false);
-        }
     }
 
 
@@ -258,11 +264,8 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         new Thread(new Runnable() {
             @Override
             public void run() {
-
-
                 runOnUiThread(new Runnable() {
                     public void run() {
-
                         progressDialog.setMessage("Please wait..");
                         progressDialog.show();
                     }

@@ -25,6 +25,7 @@ import android.os.PowerManager;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.VideoProfile;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -211,6 +212,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
     public static Activity activity ;
 
     Context ctx = OngoingCallActivity.this;
+    int height;
+    int width;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,6 +237,19 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         }
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
+
+        double ASPECT_RATIO = 4.0 / 3.0;
+        if (width > height * ASPECT_RATIO) {
+            width = (int) (height * ASPECT_RATIO + 0.5);
+        } else {
+            height = (int) (width / ASPECT_RATIO + 0.5);
+        }
+
 
         sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.getDefault());
 
@@ -1793,20 +1809,23 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 {
                     binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
                     binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
-                    binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing.setVisibility(View.GONE);
                     Log.d("video",type_url);
+                    binding.ongoingCallLayout.videoPlaceholder.getLayoutParams().height = height;
+                    binding.ongoingCallLayout.videoPlaceholder.getLayoutParams().width = width;
+
                     VideoManager.playFullScreenIncomingAd_P(binding.ongoingCallLayout.videoPlaceholder
                             ,this,false,type_url);
                     videoType = 1;
                 }
                 else if(lastFourDigits.equalsIgnoreCase(".jpg")) {
                     binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-                    //binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                    binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing.setVisibility(View.VISIBLE);
-
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
                     VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
                     Log.d("img1", type_url);
-                    ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.imageFullscreenPlaceholderOngoing
+                    binding.ongoingCallLayout.adImagePlaceholder.getLayoutParams().height = height;
+                    binding.ongoingCallLayout.adImagePlaceholder.getLayoutParams().width = width;
+
+                    ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.adImagePlaceholder
                             , type_url, ctx);
                 }
                 break;
@@ -1819,6 +1838,7 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
 
     public boolean   Match_Mobile_No_Incoming(String phone_no){
         Boolean is_match=false;
+        //phone_no="9958678989";
         ArrayList<String>list_no = getArrayList("phone_no");
         for(int i=0;i<list_no.size();i++)
         {
@@ -1839,6 +1859,8 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 if(lastFourDigits.equalsIgnoreCase(".mp4"))
                 {
                     Log.d("video",type_url);
+                    binding.incomingCallLayout.videoPlaceholder.getLayoutParams().height = height;
+                    binding.incomingCallLayout.videoPlaceholder.getLayoutParams().width = width;
                     VideoManager.playFullScreenIncomingAd_P(binding.incomingCallLayout.videoPlaceholder
                             ,this,false,type_url);
                     videoType = 1;
@@ -1847,7 +1869,10 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                 {
                     VideoManager.stopVideo(binding.incomingCallLayout.videoPlaceholder);
                     Log.d("img1",type_url);
-                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.imageFullscreenPlaceholder
+                    binding.incomingCallLayout.adImagePlaceholder.getLayoutParams().height = height;
+                    binding.incomingCallLayout.adImagePlaceholder.getLayoutParams().width = width;
+
+                    ImageManager.setIncomingCallImageAd_2(binding.incomingCallLayout.adImagePlaceholder
                             ,type_url,ctx);
                 }
 
@@ -1933,69 +1958,63 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
         }
     }
 
-    private void changeAd(){
-        try{
+    private void changeAd() {
+        try {
 
             CampaignAdsPlayOrder campaignAdsPlayOrderList = mRepository
                     .getAllCampaignAdsOrderByCount(DateUtility.getCurrentDateInLong()
-                            ,"InProgress","4");
+                            , "InProgress", "4");
             Contact callerContact = CallManager.getDisplayContact(this);
             String phone_no = phoeNumberWithOutCountryCode(callerContact.getMainPhoneNumber());
 
-            Boolean is_match=false;
-            is_match=  Match_Mobile_No_outCall(phone_no);
-            if(!is_match) {
-                if (campaignAdsPlayOrderList!=null) {
-                    inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
-                    InProgressCampStartTime = sdf.format(new Date());
+            if (campaignAdsPlayOrderList != null) {
+                inProgressCallAdData = mRepository.getAdByCampId(campaignAdsPlayOrderList.getCampId());
+                InProgressCampStartTime = sdf.format(new Date());
 
-                    // Show Video Ad or Full Screen Video Ad or Image Ad
-                    if (inProgressCallAdData.getAdType().equals("Video")){
-                        binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
-                        binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
+                // Show Video Ad or Full Screen Video Ad or Image Ad
+                if (inProgressCallAdData.getAdType().equals("Video")) {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.VISIBLE);
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.GONE);
 
-                        VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
-                                ,this,false,inProgressCallAdData);
-                    }
-
-                    if (inProgressCallAdData.getAdType().equals("Image")) {
-                        binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-                        binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-
-                        VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
-                        ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
-                                , inProgressCallAdData);
-                    }
-
-                    inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
-                        @Override
-                        public void onTick(long millisUntilFinished) {
-                            Log.i("Time", String.valueOf(millisUntilFinished));
-                        }
-                        @Override
-                        public void onFinish() {
-                            InProgressCampEndTime = sdf.format(new Date());
-                            addInProgressLog();
-                            changeAd();
-                        }
-                    };
-                    inProgressCounter.start();
-
-                    mRepository.updatePlayCount(inProgressCallAdData.getCampId());
-
-                }else {
-                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
-
-                    //Set Image Ad
-                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
-                    ImageManager.setImageAd(binding
-                            .ongoingCallLayout.adImagePlaceholder);
+                    VideoManager.play43IncomingAd(binding.ongoingCallLayout.videoPlaceholder
+                            , this, false, inProgressCallAdData);
                 }
 
+                if (inProgressCallAdData.getAdType().equals("Image")) {
+                    binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+                    binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+
+                    VideoManager.stopVideo(binding.ongoingCallLayout.videoPlaceholder);
+                    ImageManager.setIncomingCallImageAd(binding.ongoingCallLayout.adImagePlaceholder
+                            , inProgressCallAdData);
+                }
+
+                inProgressCounter = new CountDownTimer(inProgressCallAdData.getAdPlayDurForEachPlay() * 1000, 1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        Log.i("Time", String.valueOf(millisUntilFinished));
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        InProgressCampEndTime = sdf.format(new Date());
+                        addInProgressLog();
+                        changeAd();
+                    }
+                };
+                inProgressCounter.start();
+
+                mRepository.updatePlayCount(inProgressCallAdData.getCampId());
+
+            } else {
+                binding.ongoingCallLayout.videoPlaceholder.setVisibility(View.GONE);
+
+                //Set Image Ad
+                binding.ongoingCallLayout.adImagePlaceholder.setVisibility(View.VISIBLE);
+                ImageManager.setImageAd(binding
+                        .ongoingCallLayout.adImagePlaceholder);
             }
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

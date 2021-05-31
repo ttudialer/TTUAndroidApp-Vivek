@@ -25,17 +25,16 @@ public class OnGoingCallBindingImpl extends OnGoingCallBinding  {
         sViewsWithIds.put(R.id.dialer_layout, 9);
         sViewsWithIds.put(R.id.dialer_fragment, 10);
         sViewsWithIds.put(R.id.video_placeholder, 11);
-        sViewsWithIds.put(R.id.image_fullscreen_placeholder_ongoing, 12);
-        sViewsWithIds.put(R.id.ad_image_placeholder, 13);
-        sViewsWithIds.put(R.id.button_hold, 14);
-        sViewsWithIds.put(R.id.button_swap, 15);
-        sViewsWithIds.put(R.id.button_keypad, 16);
-        sViewsWithIds.put(R.id.button_mute, 17);
-        sViewsWithIds.put(R.id.button_add_call, 18);
-        sViewsWithIds.put(R.id.button_speaker, 19);
-        sViewsWithIds.put(R.id.button_merge, 20);
-        sViewsWithIds.put(R.id.reject_btn, 21);
-        sViewsWithIds.put(R.id.ad_image_banner_placeholder, 22);
+        sViewsWithIds.put(R.id.ad_image_placeholder, 12);
+        sViewsWithIds.put(R.id.button_hold, 13);
+        sViewsWithIds.put(R.id.button_swap, 14);
+        sViewsWithIds.put(R.id.button_keypad, 15);
+        sViewsWithIds.put(R.id.button_mute, 16);
+        sViewsWithIds.put(R.id.button_add_call, 17);
+        sViewsWithIds.put(R.id.button_speaker, 18);
+        sViewsWithIds.put(R.id.button_merge, 19);
+        sViewsWithIds.put(R.id.reject_btn, 20);
+        sViewsWithIds.put(R.id.ad_image_banner_placeholder, 21);
     }
     // views
     // variables
@@ -44,27 +43,26 @@ public class OnGoingCallBindingImpl extends OnGoingCallBinding  {
     // Inverse Binding Event Handlers
 
     public OnGoingCallBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 23, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 22, sIncludes, sViewsWithIds));
     }
     private OnGoingCallBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageView) bindings[22]
+            , (android.widget.ImageView) bindings[21]
+            , (android.widget.ImageView) bindings[12]
+            , (android.widget.ImageView) bindings[17]
             , (android.widget.ImageView) bindings[13]
+            , (android.widget.ImageView) bindings[15]
+            , (android.widget.ImageView) bindings[19]
+            , (android.widget.ImageView) bindings[16]
             , (android.widget.ImageView) bindings[18]
             , (android.widget.ImageView) bindings[14]
-            , (android.widget.ImageView) bindings[16]
-            , (android.widget.ImageView) bindings[20]
-            , (android.widget.ImageView) bindings[17]
-            , (android.widget.ImageView) bindings[19]
-            , (android.widget.ImageView) bindings[15]
             , (android.widget.FrameLayout) bindings[10]
             , (android.widget.LinearLayout) bindings[9]
             , (android.widget.FrameLayout) bindings[6]
-            , (android.widget.ImageView) bindings[12]
             , (de.hdodenhof.circleimageview.CircleImageView) bindings[8]
             , (android.widget.ImageView) bindings[7]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
-            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[21]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[20]
             , (androidx.recyclerview.widget.RecyclerView) bindings[2]
             , (android.widget.TextView) bindings[4]
             , (android.widget.TextView) bindings[5]

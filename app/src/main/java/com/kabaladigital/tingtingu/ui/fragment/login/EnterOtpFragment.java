@@ -69,18 +69,18 @@ public class EnterOtpFragment extends Fragment{
         binding.floatBtnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 otpNumber = binding.edOtp1.getText().toString().concat(binding.edOtp2.getText().toString())
+                otpNumber = binding.edOtp1.getText().toString().concat(binding.edOtp2.getText().toString())
                         .concat(binding.edOtp3.getText().toString()).concat(binding.edOtp4.getText().toString());
-                 if (generatedMobileOTP.equals(otpNumber) ||  otpNumber.equals("0000")){
-                     sendMobileNumber();
-                 }else {
-                     if (otpNumber.length()!=4){
-                         Toast.makeText(getActivity(), "Please Enter OTP", Toast.LENGTH_SHORT).show();
-                     }
-                     if (!generatedMobileOTP.equals(otpNumber)){
-                         Toast.makeText(getActivity(), "Please Enter Correct OTP", Toast.LENGTH_SHORT).show();
-                     }
-                 }
+                if (generatedMobileOTP.equals(otpNumber) ||  otpNumber.equals("0000")){
+                    sendMobileNumber();
+                }else {
+                    if (otpNumber.length()!=4){
+                        Toast.makeText(getActivity(), "Please Enter OTP", Toast.LENGTH_SHORT).show();
+                    }
+                    if (!generatedMobileOTP.equals(otpNumber)){
+                        Toast.makeText(getActivity(), "Please Enter Correct OTP", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
             }
         });
@@ -112,14 +112,21 @@ public class EnterOtpFragment extends Fragment{
         generateMsg91SmsOTP();
     }
 
-    private void generateMsg91SmsOTP() {
+    private void generateMsg91SmsOTP()
+    {
         generatedMobileOTP = mViewModel.generateOtp();
 //        Toast.makeText(getActivity(), ""+generatedMobileOTP, Toast.LENGTH_SHORT).show();
         Timber.i(generatedMobileOTP);
         smsOTP = "Dear User,your mobile OTP is "+ generatedMobileOTP + " for Registration in Ting Ting U ";
+
         mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
                 "KABALA","4","91",
-                smsOTP , mobileNumber));
+                smsOTP , mobileNumber,"1307161052355142862"));
+
+
+        /*mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
+                "KABALA","4","91",
+                smsOTP , mobileNumber));*/
 
         sendOTPtoMobile();
     }
@@ -129,7 +136,11 @@ public class EnterOtpFragment extends Fragment{
         smsOTP = "Dear User,your mobile OTP is "+ generatedMobileOTP + " for Registration in Ting Ting U ";
         mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
                 "KABALA","4","91",
-                smsOTP , mobileNumber));
+                smsOTP , mobileNumber, "1307161052355142862"));
+
+        /*mViewModel.sendSmsOtp(RequestFormatter.jsonObjectSmsOtp(
+                "KABALA","4","91",
+                smsOTP , mobileNumber));*/
 
         sendOTPtoMobile();
     }
@@ -138,10 +149,10 @@ public class EnterOtpFragment extends Fragment{
         mViewModel.getSmsOtpResponseLiveData().observe(getActivity(), new Observer<SmsOtpResponse>() {
             @Override
             public void onChanged(SmsOtpResponse smsOtpResponse) {
-                   if (smsOtpResponse != null){
+                if (smsOtpResponse != null){
 //                       Toast.makeText(getActivity(), "OTP "+smsOtpResponse.getType()+"fully Sent", Toast.LENGTH_SHORT).show();
 
-                   }
+                }
             }
         });
     }
@@ -232,9 +243,9 @@ public class EnterOtpFragment extends Fragment{
     private void sendMobileNumber() {
         // 0 - false or 1 - true
         mViewModel.saveMobileNumber(RequestFormatter.jsonObjectLogin(mobileNumber,
-                                                                1,
-                                                                "",
-        Installation.id(getActivity())));
+                1,
+                "",
+                Installation.id(getActivity())));
         getMobileNumber();
     }
 
@@ -245,7 +256,7 @@ public class EnterOtpFragment extends Fragment{
                         if (mobileNumberResponse.getHaveProfile().equals(false)) {
                             PreferenceUtils.getInstance().putBoolean(R.string.pref_is_otp_verify_key, true);
                             PreferenceUtils.getInstance().putString(R.string.pref_user_token_value
-                                               , mobileNumberResponse.getToken());
+                                    , mobileNumberResponse.getToken());
                             nextFragment();
                         }else if (mobileNumberResponse.getHaveProfile().equals(true)) {
                             PreferenceUtils.getInstance().putBoolean(R.string.pref_is_otp_verify_key, true);
@@ -256,7 +267,7 @@ public class EnterOtpFragment extends Fragment{
                             fillUserInformation();
                         }
                     }
-               });
+                });
     }
 
     private void fillUserInformation(){

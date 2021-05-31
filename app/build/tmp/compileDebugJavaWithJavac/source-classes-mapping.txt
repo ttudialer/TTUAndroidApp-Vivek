@@ -87,6 +87,7 @@ com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChoose.java
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$5
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$6
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$7
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$8
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$ViewPagerAdapter
 com/kabaladigital/tingtingu/models/CallerDetailsModel.java
  com.kabaladigital.tingtingu.models.CallerDetailsModel
@@ -625,6 +626,8 @@ com/kabaladigital/tingtingu/adapter/ImageAdapter.java
  com.kabaladigital.tingtingu.adapter.ImageAdapter
 com/kabaladigital/tingtingu/service/GetAdData.java
  com.kabaladigital.tingtingu.service.GetAdData
+ com.kabaladigital.tingtingu.service.GetAdData$1
+ com.kabaladigital.tingtingu.service.GetAdData$2
 com/kabaladigital/tingtingu/RelateToFragment_OnBack/BackPressImplimentation.java
  com.kabaladigital.tingtingu.RelateToFragment_OnBack.BackPressImplimentation
 com/kabaladigital/tingtingu/Video_Recording/GallerySelectedVideo/GallerySelectedVideo_A.java

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+                                                       
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorScreenBackground"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".ui.fragment.recharge.RechargeAmountFragment" android:tag="layout/recharge_amount_fragment_0" xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorScreenBackground"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/redeem_available_wallet_balance"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_wallet_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/redeem_rs_symbol"
+                android:textAlignment="textEnd"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp">
+
+            <ImageView
+                android:id="@+id/image_operator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/mtnl" />
+
+
+                <TextView
+                    android:id="@+id/tv_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="99999999999"
+                    android:maxLength="10"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_change_operator_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_mobile_number"
+                    android:text="Change Operator"
+                    android:gravity="center"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    tools:ignore="ObsoleteLayoutParam" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <TextView
+                android:id="@+id/tv_offers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Now avail 121 mode for you offers"
+                android:textSize="12dp"/>
+
+            <TextView
+                android:id="@+id/tv_browse_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tv_offers"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:text="Browse Plans"
+                android:textSize="12dp"/>
+
+            <EditText
+                android:id="@+id/et_enter_recharge_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bottom_line"
+                android:layout_below="@+id/tv_browse_plan"
+                android:hint="/u20B9 Amount"
+                android:maxLength="5"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment from your wallet"
+                android:layout_below="@+id/et_enter_recharge_amount"
+                android:layout_marginTop="2dp"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_redeem_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_btn_otp"
+            android:textColor="@color/white"
+            android:layout_gravity="bottom"
+            android:textSize="18sp"
+            android:layout_marginTop="25dp"
+            android:text="@string/proceed_to_recharge" />
+
+    </LinearLayout>
+         

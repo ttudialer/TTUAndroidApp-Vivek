@@ -2473,8 +2473,6 @@ id ifRoom
 id image
 id imageView_toolbar_logo
 id image_bigimage_notification
-id image_fullscreen_placeholder
-id image_fullscreen_placeholder_ongoing
 id image_gif
 id image_operator
 id image_operator_home

@@ -23,9 +23,8 @@ public class LayoutIncomingCallBindingImpl extends LayoutIncomingCallBinding  {
         sViewsWithIds.put(R.id.video_fullscreen_placeholder, 7);
         sViewsWithIds.put(R.id.video_placeholder, 8);
         sViewsWithIds.put(R.id.ad_image_placeholder, 9);
-        sViewsWithIds.put(R.id.image_fullscreen_placeholder, 10);
-        sViewsWithIds.put(R.id.btn_answer, 11);
-        sViewsWithIds.put(R.id.btn_reject, 12);
+        sViewsWithIds.put(R.id.btn_answer, 10);
+        sViewsWithIds.put(R.id.btn_reject, 11);
     }
     // views
     // variables
@@ -34,15 +33,14 @@ public class LayoutIncomingCallBindingImpl extends LayoutIncomingCallBinding  {
     // Inverse Binding Event Handlers
 
     public LayoutIncomingCallBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 13, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 12, sIncludes, sViewsWithIds));
     }
     private LayoutIncomingCallBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.ImageView) bindings[9]
+            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[10]
             , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[11]
-            , (com.google.android.material.floatingactionbutton.FloatingActionButton) bindings[12]
             , (android.widget.FrameLayout) bindings[4]
-            , (android.widget.ImageView) bindings[10]
             , (de.hdodenhof.circleimageview.CircleImageView) bindings[6]
             , (android.widget.ImageView) bindings[5]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]

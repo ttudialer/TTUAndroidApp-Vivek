@@ -37,7 +37,22 @@ public class Global {
         return _path;
     }
 
-
+    public static File TTUFOLDER(Context mContext){
+        File storageDir = new File(Variables.app_folder);
+        boolean success = true;
+        if (storageDir.exists()==false) {
+            success = storageDir.mkdirs();
+        }
+        return storageDir;
+    }
+    public static File TTUFOLDERDraft(Context mContext){
+        File storageDir = new File(Variables.draft_app_folder);
+        boolean success = true;
+        if (storageDir.exists()==false) {
+            success = storageDir.mkdirs();
+        }
+        return storageDir;
+    }
 
     public static File TTULibraryImage(Context mContext){
         File storageDir = new File(mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES) +"/TTULibrary/Image");

@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -51,7 +52,8 @@ public class CallerDetailsFragment extends Fragment {
     private String langType;
     private TextView tv_name;
     private TextView tv_mobile;
-
+    int height ;
+    int width;
     public static ProfileStep1Fragment newInstance() {
         return new ProfileStep1Fragment();
     }
@@ -59,7 +61,6 @@ public class CallerDetailsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.caller_details_fragment, container, false);
         langType = PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
-
 
 
         binding.btnUpdateTtuId.setOnClickListener(new View.OnClickListener() {
@@ -98,24 +99,29 @@ public class CallerDetailsFragment extends Fragment {
         getProfileInformation();
 
         String p_path=PreferenceUtils.getInstance().getString(R.string.pref_profile_path);
-        //Log.d("getpath",p_path);
         File fs=new File(p_path);
-        //Log.d("name",getMimeType(fs.getAbsolutePath()));
-
         String filePath = fs.getPath();
-        //Log.d("path=>",filePath);
         Bitmap bitmap = BitmapFactory.decodeFile(filePath);
         binding.simpleImageView.setImageBitmap(bitmap);
         binding.simpleImageView.setVisibility(View.VISIBLE);
         //Log.d("end",p_path);
 
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+         width = displayMetrics.widthPixels;
 
+        double ASPECT_RATIO = 4.0 / 3.0;
+        if (width > height * ASPECT_RATIO) {
+            width = (int) (height * ASPECT_RATIO + 0.5);
+        } else {
+            height = (int) (width / ASPECT_RATIO + 0.5);
+        }
 
 
         if (p_path != null)
         {
             if (fs.exists()) {
-
                 if (fs.toString().endsWith(".jpg") || fs.toString().endsWith(".JPG"))
                 {
                     FileInputStream fi1 = null;
@@ -123,12 +129,17 @@ public class CallerDetailsFragment extends Fragment {
                     BitmapFactory.Options bfOptions=new BitmapFactory.Options();
                     try {
                         fi1 = new FileInputStream(new File(p_path));
-
                         if(fi1!=null) {
                             bm= BitmapFactory.decodeFileDescriptor(fi1.getFD(), null, bfOptions);
+                            binding.simpleImageView.getLayoutParams().height = height;
+                            binding.simpleImageView.getLayoutParams().width = width;
+                           // binding.simpleImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+
                             binding.simpleImageView.setImageBitmap(bm);
                             binding.simpleImageView.setVisibility(View.VISIBLE);
                             binding.VideoView1.setVisibility(View.GONE);
+
+
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -136,10 +147,12 @@ public class CallerDetailsFragment extends Fragment {
                 }
                 else if (fs.toString().endsWith(".mp4")||fs.toString().endsWith(".MP4")) {
                     Log.d("====>","elseif");
-
-
-
                     Uri uri = Uri.parse(p_path);
+
+                    binding.VideoView1.getLayoutParams().height = height;
+                    binding.VideoView1.getLayoutParams().width = width;
+
+
                     binding.VideoView1.setVideoURI(uri);
                     binding.VideoView1.requestFocus();
                     binding.VideoView1.start();
@@ -149,6 +162,9 @@ public class CallerDetailsFragment extends Fragment {
                 }
                 else{
                     Log.d("====>","else");
+                    binding.simpleImageView.setImageResource(R.drawable.callback);
+                    binding.simpleImageView.setVisibility(View.VISIBLE);
+
                 }
             }
         }
@@ -156,6 +172,7 @@ public class CallerDetailsFragment extends Fragment {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);
+                mp.setVolume(0, 0);
             }
         });
 

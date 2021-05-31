@@ -88,8 +88,8 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                         try {
                             Functions.copyFile(new File(Variables.outputfile2),
                                     new File(Variables.output_filter_file));
-                            Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
-                            Toast.makeText(context, "Video saved successfully1", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
                             Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
                             startActivity(intent1);
                             finish();

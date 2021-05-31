@@ -124,10 +124,8 @@ public class ImageManager {
 
     public static void setIncomingCallImageAd_2(ImageView imageView, String path, Context ctx){
         Random rand = new Random();
-
         int []imageArray = {R.drawable.ic_image_1,R.drawable.ic_image_2,R.drawable.ic_image_3
                 ,R.drawable.ic_image_4,R.drawable.ic_image_5,R.drawable.ic_image_6};
-
         if (path==null){
             imageView.setImageResource(R.drawable.default_incoming);
         }else {
@@ -141,7 +139,4 @@ public class ImageManager {
             }
         }
     }
-
-
-
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+                                                                   
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:background="@color/colorScreenBackground"
+        tools:context=".ui.fragment.login.OperatorDetailFragment" android:tag="layout/operator_detail_fragment_0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:id="@+id/tv_change_operator_title"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/operator_statement"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_operator_mobile"
+            android:layout_below="@id/tv_change_operator_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91 9716412114"
+            android:textSize="18sp"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_text_operator_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_operator_mobile"
+            android:text="MTNL"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/grey_400" />
+
+        <TextView
+            android:id="@+id/btn_change_operator"
+            android:layout_below="@id/tv_text_operator_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/operator_change"
+            android:textColor="@color/blue"
+            android:elevation="0dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginTop="5dp" />
+
+
+        <ImageView
+            android:id="@+id/img_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@id/radio_group_prepaid_postpaid"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/mtnl"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group_prepaid_postpaid"
+            android:layout_below="@id/btn_change_operator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radiobutton_prepaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/operator_prepaid"
+                android:enabled="true"/>
+
+            <RadioButton
+                android:id="@+id/radiobutton_postpaid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/operator_postpaid"
+                android:layout_marginStart="16dp"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/blue"
+            android:background="@drawable/background_btn_otp"
+            android:text="@string/operator_btn"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+         

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                   
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context="com.kabaladigital.tingtingu.ui.fragment.login.ChooseMultiLanguageFragment" android:tag="layout/choose_multi_language_fragment_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+<!--        <RadioGroup-->
+<!--            android:id="@+id/radio_group_language"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+            <LinearLayout
+                android:id="@+id/linear_radio_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/check_hindi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/darkblue"
+                        android:text="Hindi"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:text="हिंदी"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+
+                <CheckBox
+                    android:id="@+id/check_eng"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/darkblue"
+                    android:text="English"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+<!--        </RadioGroup>-->
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_below="@id/linear_radio_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/grey_dark" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_multi_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/view_line"
+            android:orientation="horizontal" />
+
+        <Button
+            android:id="@+id/btn_multi_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/darkblue"
+            android:gravity="bottom"
+            android:text="Done"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+         
