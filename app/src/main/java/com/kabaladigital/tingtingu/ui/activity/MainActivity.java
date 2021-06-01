@@ -36,14 +36,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.work.BackoffPolicy;
-<<<<<<< HEAD
+
 import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
-=======
+
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
@@ -55,10 +55,10 @@ import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
-<<<<<<< HEAD
-=======
+
+
 import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
 import com.kabaladigital.tingtingu.service.GetAdData;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
@@ -105,10 +105,10 @@ import java.util.ArrayList;
 
 import java.util.HashSet;
 import java.util.Random;
-<<<<<<< HEAD
-=======
+
+
 import java.util.Set;
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
@@ -232,18 +232,6 @@ public class MainActivity extends AppCompatActivity {
         // Check for intents from others apps
         checkIncomingIntent();
 
-        //Block 1 of work manager
-
-        WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
-        PeriodicWorkRequest.Builder myWorkBuilder =
-                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES);
-
-        PeriodicWorkRequest myWork = myWorkBuilder.build();
-         WorkManager mWorkManager = WorkManager.getInstance(ctx);
-        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
-                ,myWork);
-
-        manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));
 
 
         //Block 2 of work manager
@@ -315,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
         );*/
 
       // //Block 3 of work manager
-        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+        WorkManager mWorkManager = WorkManager.getInstance();
         PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(GetAdData.class
                 , 10, TimeUnit.SECONDS).build();
         mWorkManager.getWorkInfoByIdLiveData(workRequest.getId()).observe(this, new Observer<WorkInfo>() {
@@ -337,13 +325,13 @@ public class MainActivity extends AppCompatActivity {
                 , 15 * 60 * 1000
                 , pendingIntent);
 
-<<<<<<< HEAD
+
 
         //comment code due to work manager
 
         //getprofile();
-=======
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
+
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/colorLightGrey" android:tag="layout/layout_operator_home_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_list_operator_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/image_operator_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/share" />
+
+            <TextView
+                android:id="@+id/tv_operator_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/image_operator_home"
+                android:text="Invite"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+         
+
+
+<!--    android:background="@drawable/background_operator_home"-->

@@ -19,13 +19,13 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import com.google.gson.Gson;
-<<<<<<< HEAD
+
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 
-=======
+
 import com.kabaladigital.tingtingu.Class.Global;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.models.ProfileResponse;
@@ -34,7 +34,7 @@ import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 
 import java.io.File;
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -74,7 +74,7 @@ public class GetAdData extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        Log.d("call----->","method");
+        Log.d("call----->", "method");
         //getprofile();
 
         Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
@@ -82,18 +82,16 @@ public class GetAdData extends Worker {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                if(response.isSuccessful())
-                {
-                    if (response.body()!= null)
-                    {
-<<<<<<< HEAD
-                        SharesPreference.saveprofile(getApplicationContext(),response.body());
-=======
-                        SharesPreference.saveprofile(context,response.body());
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+
+                        SharesPreference.saveprofile(getApplicationContext(), response.body());
+
+                        SharesPreference.saveprofile(context, response.body());
+
                         //download_Profile2();
 
-                        Log.d("download","profile2");
+                        Log.d("download", "profile2");
                         //removeArrayList("phone_no");
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -102,86 +100,73 @@ public class GetAdData extends Worker {
                         editor.apply();
 
 
-<<<<<<< HEAD
-
                         ArrayList<String> list = new ArrayList<>();
                         for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
                             String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
                             String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
                             String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
-=======
-                        Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
 
-                        ArrayList<String> list = new ArrayList<>();
-                        for (int i = 0; i < SharesPreference.getprofile(context).getProfileAdvs().size(); i++) {
-                            String phone_no = SharesPreference.getprofile(context).getProfileAdvs().get(i).getMobileNumber();
-                            String file_type = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileType();
-                            String url = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileUrl();
+                            Toast.makeText(context, "" + SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
 
-                            Toast.makeText(context, "M : "+phone_no, Toast.LENGTH_SHORT).show();
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
 
-                            if (file_type == null) {
-                                file_type = "Image";
+
+                                Toast.makeText(context, "M : " + phone_no, Toast.LENGTH_SHORT).show();
+
+
+                                if (file_type == null) {
+                                    file_type = "Image";
+                                }
+
+                                Log.d("mobile", phone_no + "@" + file_type + "@" + url);
+                                list.add(phone_no + "@" + file_type + "@" + url);
+
+                                //saveArrayList(list, "phone_no");
+
+                                String _savepath = "";
+                                if (file_type.equalsIgnoreCase("video")) {
+                                    _savepath = Global.TTULibraryTTUPROFILE_path(context) + File.separator + phone_no + ".mp4";
+                                } else if (file_type.equalsIgnoreCase("image")) {
+                                    _savepath = Global.TTULibraryTTUPROFILE_path(context) + File.separator + phone_no + ".jpg";
+                                }
+
+                                File futureStudioIconFile = null;
+                                futureStudioIconFile = new File(_savepath);
+                                if (futureStudioIconFile.exists()) {
+                                    futureStudioIconFile.delete();
+                                }
+
+                                new ImageVideoDownload(context, url, _savepath, file_type);
+
+                                Log.d("mobile", phone_no + "@" + file_type + "@" + _savepath);
+                                list.add(phone_no + "@" + file_type + "@" + _savepath);
+
+
+                                SharedPreferences prefs_n = PreferenceManager.getDefaultSharedPreferences(context);
+                                SharedPreferences.Editor editor_n = prefs_n.edit();
+                                Gson gson = new Gson();
+                                String json = gson.toJson(list);
+                                editor_n.putString("phone_no", json);
+                                editor_n.apply();     // This line is IMPORTANT !!!
+
                             }
-<<<<<<< HEAD
-                            Log.d("mobile",phone_no + "@" + file_type + "@" + url);
-                            list.add(phone_no + "@" + file_type + "@" + url);
 
-                            //saveArrayList(list, "phone_no");
-=======
-                            String _savepath="";
-                            if (file_type.equalsIgnoreCase("video")) {
-                                _savepath = Global.TTULibraryTTUPROFILE_path(context) + File.separator + phone_no + ".mp4";
-                            } else if (file_type.equalsIgnoreCase("image")) {
-                                _savepath = Global.TTULibraryTTUPROFILE_path(context)+ File.separator + phone_no + ".jpg";
-                            }
 
-                            File futureStudioIconFile = null;
-                            futureStudioIconFile = new File(_savepath);
-                            if (futureStudioIconFile.exists()) {
-                                futureStudioIconFile.delete();
-                            }
-
-                            new ImageVideoDownload(context,url,_savepath,file_type);
-
-                            Log.d("mobile",phone_no + "@" + file_type + "@" + _savepath);
-                            list.add(phone_no + "@" + file_type + "@" + _savepath);
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-
-                            SharedPreferences prefs_n = PreferenceManager.getDefaultSharedPreferences(context);
-                            SharedPreferences.Editor editor_n = prefs_n.edit();
-                            Gson gson = new Gson();
-                            String json = gson.toJson(list);
-                            editor_n.putString("phone_no", json);
-                            editor_n.apply();     // This line is IMPORTANT !!!
-<<<<<<< HEAD
                         }
 
-=======
-
-                        }
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-                    }
-                    else
-                    {
+                    } else {
                         //Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
                     }
-<<<<<<< HEAD
 
-=======
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
                 }
-            }
+
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                //Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
 
-=======
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
             }
         });
+
+
 
 
 
@@ -308,110 +293,6 @@ public class GetAdData extends Worker {
         super.onStopped();
         Log.i(TAG, "OnStopped called for this worker");
     }
-
-<<<<<<< HEAD
-    public void getprofile()
-    {
-=======
-    public void getprofile()    {
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
-        call.enqueue(new Callback<ProfileResponse>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                if(response.isSuccessful())
-                {
-                    if (response.body()!= null)
-                    {
-<<<<<<< HEAD
-                        SharesPreference.saveprofile(getApplicationContext(),response.body());
-=======
-                        SharesPreference.saveprofile(context,response.body());
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-                        download_Profile2();
-                    }
-                    else
-                    {
-                        //Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            }
-            @Override
-            public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                //Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-
-
-    private void download_Profile2() {
-        Log.d("download","profile2");
-        removeArrayList("phone_no");
-        ArrayList<String> list = new ArrayList<>();
-<<<<<<< HEAD
-        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
-            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
-            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
-            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
-=======
-        Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
-        for (int i = 0; i < SharesPreference.getprofile(context).getProfileAdvs().size(); i++) {
-            String phone_no = SharesPreference.getprofile(context).getProfileAdvs().get(i).getMobileNumber();
-            String file_type = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileType();
-            String url = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileUrl();
-
-            Toast.makeText(context, ""+phone_no, Toast.LENGTH_SHORT).show();
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-
-            if (file_type == null) {
-                file_type = "Image";
-            }
-<<<<<<< HEAD
-            Log.d("mobile",phone_no + "@" + file_type + "@" + url);
-            list.add(phone_no + "@" + file_type + "@" + url);
-=======
-            String _savepath="";
-            if (file_type.equalsIgnoreCase("video")) {
-                _savepath = Global.TTULibraryTTUPROFILE_path(context) + File.separator + phone_no + ".mp4";
-            } else if (file_type.equalsIgnoreCase("image")) {
-                _savepath = Global.TTULibraryTTUPROFILE_path(context)+ File.separator + phone_no + ".jpg";
-            }
-
-            File futureStudioIconFile = null;
-            futureStudioIconFile = new File(_savepath);
-            if (futureStudioIconFile.exists()) {
-                futureStudioIconFile.delete();
-            }
-            //Toast.makeText(MainActivity.this, ""+00, Toast.LENGTH_SHORT).show();
-
-            new ImageVideoDownload(context,url,_savepath,file_type);
-
-            //Toast.makeText(MainActivity.this, ""+11, Toast.LENGTH_SHORT).show();
-
-            list.add(phone_no + "@" + file_type + "@" + _savepath);
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
-            saveArrayList(list, "phone_no");
-        }
-    }
-
-    public void saveArrayList(ArrayList<String> list, String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
-        SharedPreferences.Editor editor = prefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(list);
-        editor.putString(key, json);
-        editor.apply();     // This line is IMPORTANT !!!
-    }
-    public void removeArrayList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.context);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.remove(key);
-        editor.apply();
-    }
-
 
 
 }

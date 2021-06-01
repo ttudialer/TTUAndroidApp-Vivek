@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+        
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" android:tag="layout/earned_point_debit_items_0">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_debit_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9999999999"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_debit_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_debit_mobile"
+                android:text="Today at 12:43"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_debit_points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@+id/tv_debit_date"
+                android:text="25"
+                android:textAlignment="textEnd"
+                android:textColor="@color/blue"
+                android:textSize="24dp"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+         

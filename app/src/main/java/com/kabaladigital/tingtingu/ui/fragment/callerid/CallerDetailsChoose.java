@@ -326,15 +326,12 @@ public class CallerDetailsChoose extends Fragment {
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri1);
                 intent.putExtra("aspectX", 1);
                 intent.putExtra("aspectY", 1);
-//                intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, 0);
-//                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 100*100);
-
-
+                intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, 0);
+                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 100*100);
                 startActivityForResult(intent, 5);
 
 
             //Camera.Parameters params = mCamera.getParameters();
-
 //            if (pictureFile != null) {
 //                photoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
 //                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -431,14 +428,19 @@ public class CallerDetailsChoose extends Fragment {
                 fos.flush();
                 fos.close();
                 imageUri1= Uri.fromFile(file);
+                PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,imageUri1.getPath());
+                Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
+                startActivity(intent);
+
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,imageUri1.getPath());
-            Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
-            startActivity(intent);
-       }else if (resultCode == RESULT_OK && requestCode == 1) {
+
+       }
+        else if (resultCode == RESULT_OK && requestCode == 1) {
             imageUri = data.getData();
             String pictureFile1 = null;
             try {
@@ -454,7 +456,10 @@ public class CallerDetailsChoose extends Fragment {
                 img.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
                 out.close();
-            binding.viewPager.getAdapter().notifyDataSetChanged();
+
+                //code for refresh adapter
+                binding.viewPager.getAdapter().notifyDataSetChanged();
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -103,14 +103,14 @@
 
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
-<<<<<<< HEAD
+
             android:layout_margin="10dp"
 
-=======
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_centerInParent="true"
->>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
+
             app:layout_constraintTop_toBottomOf="@+id/tv_caller_number"
             app:layout_constraintBottom_toTopOf="@+id/btn_answer"/>
 

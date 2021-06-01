@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -90,8 +91,11 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                                     new File(Variables.output_filter_file));
                             //Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
                             Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
+
                             Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
                             startActivity(intent1);
+
+
                             finish();
                             //gotopostScreen();
                         } catch (IOException e) {

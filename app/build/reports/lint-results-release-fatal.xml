@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 4.0.1">
+
+    <issue
+        id="NotSibling"
+        severity="Fatal"
+        message="`@+id/recylerview` is not a sibling in the same `RelativeLayout`"
+        category="Correctness"
+        priority="6"
+        summary="Invalid Constraints"
+        explanation="Layout constraints in a given `ConstraintLayout` or `RelativeLayout` should reference other views within the same relative layout (but not itself!)"
+        errorLine1="            android:layout_above=&quot;@+id/recylerview&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_gallery_selected_video.xml"
+            line="78"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="NotSibling"
+        severity="Fatal"
+        message="`@+id/timer_txt` is not a sibling in the same `RelativeLayout`"
+        category="Correctness"
+        priority="6"
+        summary="Invalid Constraints"
+        explanation="Layout constraints in a given `ConstraintLayout` or `RelativeLayout` should reference other views within the same relative layout (but not itself!)"
+        errorLine1="                android:layout_toLeftOf=&quot;@+id/timer_txt&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/home/piyush/AndroidStudioProjects/DialerProject/TTUAndroidApp-Vivek/app/src/main/res/layout/activity_video_recoder.xml"
+            line="38"
+            column="17"/>
+    </issue>
+
+</issues>
