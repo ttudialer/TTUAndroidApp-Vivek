@@ -6,15 +6,25 @@
     android:layout_height="match_parent"
     android:background="@color/thumb_background_color"
     tools:context=".Image.ImageSelectActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="130dp"
+        android:background="#41000000"
+        >
 
     <ImageView
         android:id="@+id/place_holder_imageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:background="@color/black_overlay"
-        android:scaleType="fitXY" />
-
+        android:layout_gravity="center"
+        android:scaleType="center"
+        />
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp">
@@ -88,4 +98,7 @@
             android:indeterminate="true" />
 
     </RelativeLayout>
+
+
+
 </RelativeLayout>

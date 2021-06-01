@@ -57,7 +57,6 @@ public class ImageVideoDownloadManager {
     }
 
     private void downloadImage(IncomingCallAdData incomingCallAdData){
-
         Glide.with(mContext)
                 .asBitmap()
                 .load(incomingCallAdData.getUploadFile())

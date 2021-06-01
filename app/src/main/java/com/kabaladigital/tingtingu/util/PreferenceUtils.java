@@ -2,6 +2,7 @@ package com.kabaladigital.tingtingu.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.util.SparseArray;
 
@@ -132,6 +133,8 @@ public class PreferenceUtils {
         mEditor.putLong(mContext.getString(key), value);
         doCommit();
     }
+
+
 
 
     public int getInt(@StringRes int key) {

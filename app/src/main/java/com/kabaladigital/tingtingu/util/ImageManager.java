@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.kabaladigital.tingtingu.R;
@@ -123,26 +124,19 @@ public class ImageManager {
 
     public static void setIncomingCallImageAd_2(ImageView imageView, String path, Context ctx){
         Random rand = new Random();
-
         int []imageArray = {R.drawable.ic_image_1,R.drawable.ic_image_2,R.drawable.ic_image_3
                 ,R.drawable.ic_image_4,R.drawable.ic_image_5,R.drawable.ic_image_6};
-
         if (path==null){
             imageView.setImageResource(R.drawable.default_incoming);
         }else {
             try {
-                //Bitmap bmp = BitmapFactory.decodeFile(path);
                 File file = new File(path);
                 Bitmap b = BitmapFactory.decodeStream(new FileInputStream(file));
                 imageView.setImageBitmap(b);
-
             }catch (Exception e){
                 e.printStackTrace();
                 imageView.setImageResource(R.drawable.default_incoming);
             }
         }
     }
-
-
-
 }

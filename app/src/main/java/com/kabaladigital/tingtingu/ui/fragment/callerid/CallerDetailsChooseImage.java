@@ -2,6 +2,8 @@ package com.kabaladigital.tingtingu.ui.fragment.callerid;
 
 import android.content.ContentUris;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -80,12 +82,35 @@ public class CallerDetailsChooseImage extends Fragment {
         tFileList = new ArrayList<String>();
         File f = new File( Global.TTULibraryImage(getContext()).getAbsolutePath() );
         File[] files  = f.listFiles();
-        FilePathStrings = new String[files.length];
+         String[]        FilePathStrings_temp;
+
+        FilePathStrings_temp = new String[files.length];
+        int z=0;
         for (int i = 0; i < files.length; i++)
         {
-            FilePathStrings[i] = files[i].getAbsolutePath();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            Bitmap bitmap = BitmapFactory.decodeFile(files[i].getAbsolutePath(), options);
+            if (options.outWidth != -1 && options.outHeight != -1) {
+                FilePathStrings_temp[z] = files[i].getAbsolutePath();
+                z=z+1;
+            }
+            else {
+                // This is not an image file.
+            }
+
+
         }
-        return FilePathStrings;
+        FilePathStrings=new String[z];
+        for (int i = 0; i < z; i++) {
+            FilePathStrings[i] = FilePathStrings_temp[i];
+
+
+        }
+
+
+
+            return FilePathStrings;
     }
 
     @Override

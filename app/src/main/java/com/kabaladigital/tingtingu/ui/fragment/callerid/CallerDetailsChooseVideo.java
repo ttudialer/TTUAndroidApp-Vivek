@@ -1,6 +1,7 @@
 package com.kabaladigital.tingtingu.ui.fragment.callerid;
 
 import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,7 @@ import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 import com.kabaladigital.tingtingu.viewmodels.Model_Video;
 
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -78,11 +81,32 @@ public class CallerDetailsChooseVideo extends Fragment {
         tFileList = new ArrayList<String>();
         File f = new File( Global.TTULibraryVideo(getContext()).getAbsolutePath() );
         File[] files  = f.listFiles();
-        FilePathStrings = new String[files.length];
+        String[]        FilePathStrings_temp;
+        FilePathStrings_temp = new String[files.length];
+        int z=0;
         for (int i = 0; i < files.length; i++)
         {
-            FilePathStrings[i] = files[i].getAbsolutePath();
+            try {
+                MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+                retriever.setDataSource(getContext(), Uri.fromFile(new File(files[i].getAbsolutePath().toString())));
+                String hasVideo = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_HAS_VIDEO);
+                boolean isVideo = "yes".equals(hasVideo);
+
+                FilePathStrings_temp[z] = files[i].getAbsolutePath();
+                z=z+1;
+            }
+            catch (Exception ex){}
         }
+        FilePathStrings=new String[z];
+        for (int i = 0; i < z; i++) {
+            FilePathStrings[i] = FilePathStrings_temp[i];
+
+
+        }
+
+
+
+
         return FilePathStrings;
     }
 

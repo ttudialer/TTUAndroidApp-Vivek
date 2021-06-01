@@ -36,9 +36,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.work.BackoffPolicy;
+<<<<<<< HEAD
 import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
+=======
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+>>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
@@ -50,9 +55,14 @@ import com.kabaladigital.tingtingu.models.ProfileResponse;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+<<<<<<< HEAD
+=======
+import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
+>>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
 import com.kabaladigital.tingtingu.service.GetAdData;
 import com.kabaladigital.tingtingu.service.SharesPreference;
 import com.kabaladigital.tingtingu.util.CallManager;
+import com.kabaladigital.tingtingu.util.ImageVideoDownloadManager;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
 
@@ -78,6 +88,7 @@ import com.kabaladigital.tingtingu.util.Installation;
 import com.kabaladigital.tingtingu.util.Utilities;
 
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -92,7 +103,12 @@ import java.util.Date;
 import java.io.File;
 import java.util.ArrayList;
 
+import java.util.HashSet;
 import java.util.Random;
+<<<<<<< HEAD
+=======
+import java.util.Set;
+>>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
@@ -147,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
         Global.TTULibraryVideo(this);
         Global.TTULibraryProfile(this);
         Global.TTULibraryTTUPROFILE(this);
+        Global.TTUFOLDER(this);
+        Global.TTUFOLDERDraft(this);
+
 
         PreferenceUtils.getInstance(this, true); // Get the preferences
         Utilities.setUpLocale(this);
@@ -157,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             repository.updateTodayDateCount();
         }
 
+      //  getprofile();
 
         //call download manager and load video and image
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -211,6 +231,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Check for intents from others apps
         checkIncomingIntent();
+
+        //Block 1 of work manager
+
+        WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest.Builder myWorkBuilder =
+                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES);
+
+        PeriodicWorkRequest myWork = myWorkBuilder.build();
+         WorkManager mWorkManager = WorkManager.getInstance(ctx);
+        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
+                ,myWork);
+
+        manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));
+
+
+        //Block 2 of work manager
+
+//     WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+//        PeriodicWorkRequest periodicSyncDataWork =
+//                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES)
+//                        .addTag("TAG_SYNC_DATA")
+//                        .setConstraints(constraints)
+//                        // setting a backoff on case the work needs to retry
+//                        .setBackoffCriteria(BackoffPolicy.LINEAR, PeriodicWorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
+//                        .build();
+//        mWorkManager.enqueueUniquePeriodicWork(
+//                "SYNC_DATA_WORK_NAME",
+//                ExistingPeriodicWorkPolicy.KEEP, //Existing Periodic Work policy
+//                periodicSyncDataWork //work request
+//        );
+
+//        // //Block 3 of work manager
+//        WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
+//        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(GetAdData.class , 10, TimeUnit.SECONDS).build();
+//        mWorkManager.getWorkInfoByIdLiveData(workRequest.getId()).observe(this, new Observer<WorkInfo>() {
+//            @Override
+//            public void onChanged(@Nullable WorkInfo workInfo) {
+//                if (workInfo != null) {
+//                    WorkInfo.State state = workInfo.getState();
+//                    Log.i("SyncChnage", state.toString() + "\n");
+//                }
+//            }
+//        });
+//        mWorkManager.enqueue(workRequest);
+
+
+
 
         // Create Network constraint
         Constraints constraints = new Constraints.Builder()
@@ -270,10 +337,13 @@ public class MainActivity extends AppCompatActivity {
                 , 15 * 60 * 1000
                 , pendingIntent);
 
+<<<<<<< HEAD
 
         //comment code due to work manager
 
         //getprofile();
+=======
+>>>>>>> ee8cab7ffab88267b3e2f341ba62855161884f51
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
@@ -430,15 +500,36 @@ public class MainActivity extends AppCompatActivity {
     private void download_Profile2() {
         removeArrayList("phone_no");
         ArrayList<String> list = new ArrayList<>();
+        Toast.makeText(MainActivity.this, ""+SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
         for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
             String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
             String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
             String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
 
+            Toast.makeText(MainActivity.this, ""+phone_no, Toast.LENGTH_SHORT).show();
+
             if (file_type == null) {
                 file_type = "Image";
             }
-            list.add(phone_no + "@" + file_type + "@" + url);
+            String _savepath="";
+            if (file_type.equalsIgnoreCase("video")) {
+                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
+            } else if (file_type.equalsIgnoreCase("image")) {
+                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
+            }
+
+            File futureStudioIconFile = null;
+            futureStudioIconFile = new File(_savepath);
+            if (futureStudioIconFile.exists()) {
+                futureStudioIconFile.delete();
+            }
+            //Toast.makeText(MainActivity.this, ""+00, Toast.LENGTH_SHORT).show();
+
+            new ImageVideoDownload(getApplicationContext(),url,_savepath,file_type);
+
+            //Toast.makeText(MainActivity.this, ""+11, Toast.LENGTH_SHORT).show();
+
+            list.add(phone_no + "@" + file_type + "@" + _savepath);
             saveArrayList(list, "phone_no");
         }
     }
@@ -566,6 +657,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 if(response.isSuccessful())
                 {
+                    //Toast.makeText(MainActivity.this, "hiiiiiiiiiiiii", Toast.LENGTH_SHORT).show();
                     if (response.body()!= null)
                     {
                         SharesPreference.saveprofile(getApplicationContext(),response.body());
@@ -581,21 +673,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ProfileResponse> call, Throwable t) {
                 Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
 
 
     private void ReadContactDetailsJson() {
-
+        JsonObject contactobj = null;
         ContentResolver cr = getApplicationContext().getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
         if ((cur != null ? cur.getCount() : 0) > 0) {
             while (cur != null && cur.moveToNext()) {
 
-                JsonObject contactobj = new JsonObject();
                 String id = cur.getString(
                         cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(
@@ -609,28 +699,28 @@ public class MainActivity extends AppCompatActivity {
                             ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
                             new String[]{id}, null);
                     String phoneNo = "";
+                    int _i=0;
+                    int _total=0;
+                    _total=pCur.getCount();
                     while (pCur.moveToNext()) {
+                        contactobj = new JsonObject();
                         phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                         Log.i(TAG, "Name: " + name);
                         Log.i(TAG, "Phone Number: " + phoneNo);
+                        contactobj.addProperty("name" , name);
+                        String lastFourDigits = "";     //substring containing last 4 characters
+                        if (phoneNo.length() > 10) {
+                            lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
+                        } else {
+                            lastFourDigits = phoneNo;
+                        }
+                        contactobj.addProperty("number", lastFourDigits);
+                        jsonArrayContact.add(contactobj);
                     }
-
-                    contactobj.addProperty("name", name);
-                    String lastFourDigits = "";     //substring containing last 4 characters
-
-                    if (phoneNo.length() > 10)
-                    {
-                        lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
-                    }
-                    else
-                    {
-                        lastFourDigits = phoneNo;
-                    }
-                    contactobj.addProperty("number",  lastFourDigits);
                     pCur.close();
                 }
 
-                jsonArrayContact.add(contactobj);
+
 
             }
         }
@@ -641,6 +731,7 @@ public class MainActivity extends AppCompatActivity {
         JsonObject  contactListObj = new JsonObject();
         contactListObj.add("contactList", jsonArrayContact);
         // jsonStr = contactListObj.toString();
+         //   Toast.makeText(getApplicationContext(), String.valueOf(jsonArrayContact.size()), Toast.LENGTH_SHORT).show();
 
         uploadContact(contactListObj);
     }

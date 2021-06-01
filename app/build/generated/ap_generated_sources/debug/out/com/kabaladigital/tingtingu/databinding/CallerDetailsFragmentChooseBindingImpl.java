@@ -20,8 +20,9 @@ public class CallerDetailsFragmentChooseBindingImpl extends CallerDetailsFragmen
         sViewsWithIds.put(R.id.btn_tv_imp_v_p, 4);
         sViewsWithIds.put(R.id.simpleImageView, 5);
         sViewsWithIds.put(R.id.VideoView1, 6);
-        sViewsWithIds.put(R.id.tab_layout, 7);
-        sViewsWithIds.put(R.id.view_pager, 8);
+        sViewsWithIds.put(R.id.wait_spinner, 7);
+        sViewsWithIds.put(R.id.tab_layout, 8);
+        sViewsWithIds.put(R.id.view_pager, 9);
     }
     // views
     @NonNull
@@ -32,7 +33,7 @@ public class CallerDetailsFragmentChooseBindingImpl extends CallerDetailsFragmen
     // Inverse Binding Event Handlers
 
     public CallerDetailsFragmentChooseBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 9, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
     }
     private CallerDetailsFragmentChooseBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -41,9 +42,10 @@ public class CallerDetailsFragmentChooseBindingImpl extends CallerDetailsFragmen
             , (android.widget.Button) bindings[4]
             , (android.widget.LinearLayout) bindings[1]
             , (android.widget.ImageView) bindings[5]
-            , (com.google.android.material.tabs.TabLayout) bindings[7]
+            , (com.google.android.material.tabs.TabLayout) bindings[8]
             , (android.widget.TextView) bindings[2]
-            , (androidx.viewpager.widget.ViewPager) bindings[8]
+            , (androidx.viewpager.widget.ViewPager) bindings[9]
+            , (android.widget.RelativeLayout) bindings[7]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

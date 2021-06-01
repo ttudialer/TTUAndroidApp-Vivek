@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 import androidx.annotation.NonNull;
@@ -44,10 +45,13 @@ public abstract class CallerDetailsFragmentChooseBinding extends ViewDataBinding
   @NonNull
   public final ViewPager viewPager;
 
+  @NonNull
+  public final RelativeLayout waitSpinner;
+
   protected CallerDetailsFragmentChooseBinding(Object _bindingComponent, View _root,
       int _localFieldCount, VideoView VideoView1, Button btnTvCrVP, Button btnTvImpVP,
       LinearLayout llCaller, ImageView simpleImageView, TabLayout tabLayout, TextView tvTopName,
-      ViewPager viewPager) {
+      ViewPager viewPager, RelativeLayout waitSpinner) {
     super(_bindingComponent, _root, _localFieldCount);
     this.VideoView1 = VideoView1;
     this.btnTvCrVP = btnTvCrVP;
@@ -57,6 +61,7 @@ public abstract class CallerDetailsFragmentChooseBinding extends ViewDataBinding
     this.tabLayout = tabLayout;
     this.tvTopName = tvTopName;
     this.viewPager = viewPager;
+    this.waitSpinner = waitSpinner;
   }
 
   @NonNull

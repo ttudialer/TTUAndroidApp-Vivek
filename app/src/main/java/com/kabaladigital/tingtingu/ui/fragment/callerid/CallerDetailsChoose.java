@@ -11,6 +11,9 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.hardware.Camera;
+import android.media.ExifInterface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -56,6 +59,7 @@ import com.kabaladigital.tingtingu.viewmodels.CallerDetailsChooseViewModel;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -70,6 +74,7 @@ import java.util.Date;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.rotateImage;
 import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImage;
 import static com.kabaladigital.tingtingu.Class.Global.TTULibraryImageDraft;
 import static com.kabaladigital.tingtingu.Class.Global.getContactBitmapFromURI;
@@ -87,6 +92,8 @@ public class CallerDetailsChoose extends Fragment {
     File pictureFile;
     private  Uri photoURI;
     private String langType;
+    private Uri imageUri1;
+    private View mWaitSpinner;
     public static CallerDetailsChoose newInstance() {
         return new CallerDetailsChoose();
     }
@@ -149,6 +156,8 @@ public class CallerDetailsChoose extends Fragment {
                     binding.VideoView1.setVisibility(View.VISIBLE);
                     binding.simpleImageView.setVisibility(View.GONE);
 
+
+
                 }
             }
         }
@@ -156,6 +165,8 @@ public class CallerDetailsChoose extends Fragment {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 mp.setLooping(true);
+                mp.setVolume(0, 0);
+
             }
         });
 
@@ -297,20 +308,33 @@ public class CallerDetailsChoose extends Fragment {
     }
     private void ImageCapture() {
         if (check_permissions()) {
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
-            if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+//            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//            cameraIntent.putExtra(MediaStore.EXTRA_FINISH_ON_COMPLETION, true);
+            //if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+//                File  file = null;
+//                try {
+//                    file = Global.getImageDraft_Image(getContext());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+               // FileOutputStream out = new FileOutputStream(file);
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                File file = new File(Environment.getExternalStorageDirectory(), "/ttu/a" + "/photo_" + timeStamp + ".jpg");
 
+                imageUri1 = FileProvider.getUriForFile(getContext(),BuildConfig.APPLICATION_ID + ".provider", file);
                 Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri1);
+                intent.putExtra("aspectX", 1);
+                intent.putExtra("aspectY", 1);
+//                intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, 0);
+//                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 100*100);
+
+
                 startActivityForResult(intent, 5);
-            }
-//            File pictureFile = null;
-//            try {
-//                pictureFile = getPictureFile();
-//            } catch (IOException ex) {
-//                Toast.makeText(getActivity(),"Photo file can't be created, please try again",Toast.LENGTH_SHORT).show();
-//                return;
-//            }
+
+
+            //Camera.Parameters params = mCamera.getParameters();
+
 //            if (pictureFile != null) {
 //                photoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
 //                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -321,7 +345,6 @@ public class CallerDetailsChoose extends Fragment {
     }
 
     public boolean check_permissions() {
-
         String[] PERMISSIONS = {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -362,29 +385,60 @@ public class CallerDetailsChoose extends Fragment {
         gallery.setType("image/*");
         startActivityForResult(gallery, 1);
     }
+
+    private static Bitmap rotateImageIfRequired(Bitmap img, Uri selectedImage) throws IOException {
+        ExifInterface ei = new ExifInterface(selectedImage.getPath());
+        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return rotateImage(img, 90);
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return rotateImage(img, 180);
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return rotateImage(img, 270);
+            default:
+                return img;
+        }
+    }
+
+    private static Bitmap rotateImage(Bitmap img, int degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
+        img.recycle();
+        return rotatedImg;
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 5) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            File file = null;
             try {
-                file =Global.getImageDraft_Image(getContext());
-                FileOutputStream out = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
-                out.flush();
-                out.close();
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), imageUri1);
+                thumbnail = rotateImageIfRequired(thumbnail, imageUri1);
+
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                File file = new File(Environment.getExternalStorageDirectory(), "/ttu/a" + "/photo_" + timeStamp + ".jpg");
+
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+
+                byte[] bitmapData = bytes.toByteArray();
+                FileOutputStream fos = new FileOutputStream(file);
+                fos.write(bitmapData);
+                fos.flush();
+                fos.close();
+                imageUri1= Uri.fromFile(file);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,file.getAbsolutePath());
+            PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,imageUri1.getPath());
             Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
             startActivity(intent);
-
        }else if (resultCode == RESULT_OK && requestCode == 1) {
-            //Log.d("Hi","IN");
             imageUri = data.getData();
             String pictureFile1 = null;
             try {
@@ -448,88 +502,27 @@ public class CallerDetailsChoose extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-            String[] filePath = {MediaStore.Video.Media.DATA};
-            /*Cursor c = getContentResolver().query(selectedImage, filePath,
-                    null, null, null);
-            c.moveToFirst();
-            int columnIndex = c.getColumnIndex(filePath[0]);
-            String videoPath = c.getString(columnIndex);
-            c.close();*/
             Log.d("SelectedVideoPath", selectedImage.getPath());
-
             try {
-                //uploadVideo(videoPath);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
+
+
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
-
     @Override
     public void onResume() {
         getActivity().setTitle("Caller Details");
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
         super.onResume();
-    }
-
-
-
-    private void selectImage() {
-        final CharSequence[] items = { "Take Video", "Choose from Library", "Cancel" };
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setIcon(R.drawable.camera);
-        builder.setTitle("Add Video!");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                if (items[item].equals("Take Video")) {
-                    //recordVideo();
-
-                } else if (items[item].equals("Choose from Library")) {
-                    Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intent.setType("video/*");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent,"Select Video"),SELECT_FILE);
-                } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
-                }
-            }
-        });
-        builder.show();
-    }
-    private void savefile(URI sourceuri)  {
-        String sourceFilename= sourceuri.getPath();
-        String destinationFilename = android.os.Environment.getExternalStorageDirectory().getPath()+File.separatorChar+"abc.mp4";
-
-        BufferedInputStream bis = null;
-        BufferedOutputStream bos = null;
-
-        try {
-            bis = new BufferedInputStream(new FileInputStream(sourceFilename));
-            bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));
-            byte[] buf = new byte[1024];
-            bis.read(buf);
-            do {
-                bos.write(buf);
-            } while(bis.read(buf) != -1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bis != null) bis.close();
-                if (bos != null) bos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -569,5 +562,22 @@ public class CallerDetailsChoose extends Fragment {
 
     }
 
+    public void waitSpinnerVisible() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                binding.waitSpinner.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void waitSpinnerInvisible() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                binding.waitSpinner.setVisibility(View.GONE);
+            }
+        });
+    }
 
 }

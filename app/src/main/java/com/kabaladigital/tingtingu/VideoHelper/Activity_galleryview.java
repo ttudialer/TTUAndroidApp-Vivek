@@ -1,6 +1,7 @@
 package com.kabaladigital.tingtingu.VideoHelper;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import androidx.annotation.RequiresApi;
 import androidx.room.util.FileUtil;
 
 import com.kabaladigital.tingtingu.Class.Global;
@@ -63,9 +65,11 @@ public class Activity_galleryview extends Activity {
                 RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), videoFile);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("selectedFile", videoFile.getAbsolutePath(), requestFile);
                 RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "false");
+                RequestBody fileType =  RequestBody.create(MediaType.parse("multipart/form-data"), "video");
+
 
                 ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-                Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName);
+                Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName,fileType);
                 call.enqueue(new Callback<LibraryAddModel>() {
                     @Override
                     public void onResponse(Call<LibraryAddModel> call,
@@ -83,6 +87,7 @@ public class Activity_galleryview extends Activity {
                     @Override
                     public void onFailure(Call<LibraryAddModel> call, Throwable t) {
                         Toast.makeText(Activity_galleryview.this, "onFailure= "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                        waitSpinnerInvisible();
                     }
                 });
             }
@@ -174,7 +179,7 @@ public class Activity_galleryview extends Activity {
         });
     }
 
-
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private File  saveVideoToInternalStorage () {
         File newfile=null;
         try {
@@ -187,7 +192,20 @@ public class Activity_galleryview extends Activity {
 
                 InputStream in = new FileInputStream(currentFile);
                 OutputStream out = new FileOutputStream(newfile);
-                FileUtils.copy(in,out);
+
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+                    // Do something for lollipop and above versions
+                    FileUtils.copy(in, out);
+                } else{
+                    // do something for phones running an SDK oreo
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
+                    }
+                }
+                in.close();
+                out.close();
 
                 in.close();
                 out.close();

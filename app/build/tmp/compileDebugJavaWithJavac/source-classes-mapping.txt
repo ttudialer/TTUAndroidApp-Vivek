@@ -6,6 +6,10 @@ com/kabaladigital/tingtingu/SegmentProgress/ProgressBarListener.java
  com.kabaladigital.tingtingu.SegmentProgress.ProgressBarListener
 com/kabaladigital/tingtingu/viewmodels/RegistrationViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RegistrationViewModel
+com/kabaladigital/tingtingu/networking/ImageVideoDownload.java
+ com.kabaladigital.tingtingu.networking.ImageVideoDownload
+ com.kabaladigital.tingtingu.networking.ImageVideoDownload$1
+ com.kabaladigital.tingtingu.networking.ImageVideoDownload$DownloadVideoFile
 com/kabaladigital/tingtingu/databinding/OperatorDetailFragmentBinding.java
  com.kabaladigital.tingtingu.databinding.OperatorDetailFragmentBinding
 com/kabaladigital/tingtingu/databinding/ActivityLoginBinding.java
@@ -84,6 +88,7 @@ com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChoose.java
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$5
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$6
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$7
+ com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$8
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$ViewPagerAdapter
 com/kabaladigital/tingtingu/models/CallerDetailsModel.java
  com.kabaladigital.tingtingu.models.CallerDetailsModel

@@ -161,7 +161,8 @@ public interface ApiInterface {
     @Multipart
     @POST("library/add")
     Call<LibraryAddModel> LibraryAdd(@Part MultipartBody.Part image,
-                                     @Part("isProfile") RequestBody id);
+                                     @Part("isProfile") RequestBody id,
+                                     @Part("fileType") RequestBody filetype);
 
     @Headers("Content-Type: application/json")
     @GET("library/get")
