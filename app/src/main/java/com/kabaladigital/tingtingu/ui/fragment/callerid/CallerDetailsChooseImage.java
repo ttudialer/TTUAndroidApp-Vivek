@@ -40,7 +40,7 @@ public class CallerDetailsChooseImage extends Fragment {
     private String[]        FilePathStrings1;
     public List<String> listOfImagesPath;
     Adapter_ImageFolder obj_adapter;
-    ArrayList<Model_Video> al_video = new ArrayList<>();
+    ArrayList<Model_Video> al_video ;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager recyclerViewLayoutManager;
     private CallerDetailsFragmentChooseImageBinding binding;
