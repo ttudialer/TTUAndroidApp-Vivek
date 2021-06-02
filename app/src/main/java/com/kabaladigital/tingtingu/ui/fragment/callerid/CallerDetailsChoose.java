@@ -87,6 +87,7 @@ public class CallerDetailsChoose extends Fragment {
     private int SELECT_FILE = 1;
     private CallerDetailsChooseViewModel mViewModel;
     private CallerDetailsFragmentChooseBinding binding;
+    public static CallerDetailsFragmentChooseBinding binding_choseIV;
     private static String Image_Video_type="";
     public static final int RequestPermissionCode = 1;
     File pictureFile;
@@ -103,7 +104,7 @@ public class CallerDetailsChoose extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.caller_details_fragment_choose, container, false);
         langType = PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
-
+        binding_choseIV=binding;
         String[] title ;
         if (langType.equals("hi")){
             title = new String[]{"तस्वीर", "वीडियो"};
@@ -374,16 +375,20 @@ public class CallerDetailsChoose extends Fragment {
     }
 
     private void VideoOpenGallery(){
-        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("video/*");
-        startActivityForResult(intent, 2);
-
+        if (check_permissions()) {
+            Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("video/*");
+            startActivityForResult(intent, 2);
+        }
     }
 
     private void ImageOpenGallery() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        gallery.setType("image/*");
-        startActivityForResult(gallery, 1);
+        if (check_permissions()) {
+            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            gallery.setType("image/*");
+            startActivityForResult(gallery, 1);
+        }
+
     }
 
     private static Bitmap rotateImageIfRequired(Bitmap img, Uri selectedImage) throws IOException {
@@ -431,6 +436,8 @@ public class CallerDetailsChoose extends Fragment {
                 fos.flush();
                 fos.close();
                 imageUri1= Uri.fromFile(file);
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -480,20 +487,14 @@ public class CallerDetailsChoose extends Fragment {
                 if (currentFile.exists()) {
                     InputStream in = new FileInputStream(currentFile);
                     OutputStream out = new FileOutputStream(destinationFilename);
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
-                        // Do something for lollipop and above versions
-                        FileUtils.copy(in, out);
-                    } else{
-                        // do something for phones running an SDK oreo
-                        byte[] buf = new byte[1024];
-                        int len;
-                        while ((len = in.read(buf)) > 0) {
-                            out.write(buf, 0, len);
-                        }
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
                     }
                     in.close();
                     out.close();
-                //    binding.viewPager.getAdapter().notifyDataSetChanged();
+                  binding.viewPager.getAdapter().notifyDataSetChanged();
                     Log.v("", "Video file saved successfully.");
                 } else {
                     Log.v("", "Video saving failed. Source file missing.");
@@ -533,7 +534,7 @@ public class CallerDetailsChoose extends Fragment {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.title = title;
             childFragments = new Fragment[] {
-                   new CallerDetailsChooseImage(),
+                    new CallerDetailsChooseImage(),
                     new CallerDetailsChooseVideo(),
             };
         }
@@ -562,22 +563,5 @@ public class CallerDetailsChoose extends Fragment {
 
     }
 
-    public void waitSpinnerVisible() {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                binding.waitSpinner.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-
-    public void waitSpinnerInvisible() {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                binding.waitSpinner.setVisibility(View.GONE);
-            }
-        });
-    }
 
 }

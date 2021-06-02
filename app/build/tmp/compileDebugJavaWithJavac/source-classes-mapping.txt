@@ -86,8 +86,6 @@ com/kabaladigital/tingtingu/ui/fragment/callerid/CallerDetailsChoose.java
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$4
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$5
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$6
- com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$7
- com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$8
  com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose$ViewPagerAdapter
 com/kabaladigital/tingtingu/models/CallerDetailsModel.java
  com.kabaladigital.tingtingu.models.CallerDetailsModel
@@ -351,6 +349,8 @@ com/kabaladigital/tingtingu/ui/fragment/recharge/RechargeHistoryFragmentDirectio
  com.kabaladigital.tingtingu.ui.fragment.recharge.RechargeHistoryFragmentDirections
 com/kabaladigital/tingtingu/google/RecentsCursorLoader.java
  com.kabaladigital.tingtingu.google.RecentsCursorLoader
+com/kabaladigital/tingtingu/viewmodels/Model_Image.java
+ com.kabaladigital.tingtingu.viewmodels.Model_Image
 com/kabaladigital/tingtingu/models/ListHolderModel.java
  com.kabaladigital.tingtingu.models.ListHolderModel
 com/kabaladigital/tingtingu/ui/fragment/ContactsFragmentDirections.java

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.kabaladigital.tingtingu.Class.Global;
@@ -155,7 +156,6 @@ public class Activity_Gallery_Image extends AppCompatActivity {
                     Get_Profile_Capminion_ID();
 
                     Toast.makeText(Activity_Gallery_Image.this,"Profile Successfully upload...",Toast.LENGTH_SHORT).show();
-                    finish();
 
                 }
             }
@@ -226,6 +226,11 @@ public class Activity_Gallery_Image extends AppCompatActivity {
                     if (response.code() == 200) {
                         Log.d("result::: ", "onResult::: "+response.body().toString() );
                         Toast.makeText(Activity_Gallery_Image.this,"Profile Campion Successfully upload...",Toast.LENGTH_SHORT).show();
+
+                        Navigation.findNavController(binding.getRoot())
+                                .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
+
+                        finish();
 
                     }
                 }

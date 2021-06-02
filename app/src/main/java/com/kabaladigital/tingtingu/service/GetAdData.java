@@ -90,7 +90,7 @@ public class GetAdData extends Worker {
                         editor.apply();
 
 
-                        Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
 
                         ArrayList<String> list = new ArrayList<>();
                         for (int i = 0; i < SharesPreference.getprofile(context).getProfileAdvs().size(); i++) {
@@ -98,7 +98,7 @@ public class GetAdData extends Worker {
                             String file_type = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileType();
                             String url = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileUrl();
 
-                            Toast.makeText(context, "M : "+phone_no, Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "M : "+phone_no, Toast.LENGTH_SHORT).show();
 
                             if (file_type == null) {
                                 file_type = "Image";
@@ -301,13 +301,13 @@ public class GetAdData extends Worker {
         Log.d("download","profile2");
         removeArrayList("phone_no");
         ArrayList<String> list = new ArrayList<>();
-        Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context, ""+SharesPreference.getprofile(context).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
         for (int i = 0; i < SharesPreference.getprofile(context).getProfileAdvs().size(); i++) {
             String phone_no = SharesPreference.getprofile(context).getProfileAdvs().get(i).getMobileNumber();
             String file_type = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileType();
             String url = SharesPreference.getprofile(context).getProfileAdvs().get(i).getFileUrl();
 
-            Toast.makeText(context, ""+phone_no, Toast.LENGTH_SHORT).show();
+         //   Toast.makeText(context, ""+phone_no, Toast.LENGTH_SHORT).show();
 
             if (file_type == null) {
                 file_type = "Image";

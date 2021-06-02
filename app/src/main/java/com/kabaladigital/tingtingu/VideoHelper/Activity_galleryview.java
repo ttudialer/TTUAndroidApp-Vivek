@@ -179,7 +179,6 @@ public class Activity_galleryview extends Activity {
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.Q)
     private File  saveVideoToInternalStorage () {
         File newfile=null;
         try {
@@ -204,9 +203,6 @@ public class Activity_galleryview extends Activity {
                         out.write(buf, 0, len);
                     }
                 }
-                in.close();
-                out.close();
-
                 in.close();
                 out.close();
                 Log.v("", "Image file saved successfully.");

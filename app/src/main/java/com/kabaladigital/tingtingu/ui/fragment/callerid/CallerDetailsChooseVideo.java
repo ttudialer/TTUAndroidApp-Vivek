@@ -100,12 +100,7 @@ public class CallerDetailsChooseVideo extends Fragment {
         FilePathStrings=new String[z];
         for (int i = 0; i < z; i++) {
             FilePathStrings[i] = FilePathStrings_temp[i];
-
-
         }
-
-
-
 
         return FilePathStrings;
     }

@@ -16,52 +16,43 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.kabaladigital.tingtingu.R;
 
+import com.kabaladigital.tingtingu.viewmodels.Model_Image;
 import com.kabaladigital.tingtingu.viewmodels.Model_Video;
 
 import java.util.ArrayList;
 
 public class Adapter_ImageFolder extends RecyclerView.Adapter<Adapter_ImageFolder.ViewHolder> {
 
-    ArrayList<Model_Video> al_image;
+    ArrayList<Model_Image> al_image;
     Context context;
     Activity activity;
 
 
-    public Adapter_ImageFolder(Context context, ArrayList<Model_Video> al_video, Activity activity) {
-
+    public Adapter_ImageFolder(Context context, ArrayList<Model_Image> al_video, Activity activity) {
         this.al_image = al_video;
         this.context = context;
         this.activity = activity;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         public ImageView iv_image;
         RelativeLayout rl_select_image;
         public ViewHolder(View v) {
-
             super(v);
-
             iv_image = (ImageView) v.findViewById(R.id.iv_image);
             rl_select_image = (RelativeLayout) v.findViewById(R.id.rl_select_image);
-
-
         }
     }
 
     @Override
     public Adapter_ImageFolder.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adepter_image, parent, false);
-
         Adapter_ImageFolder.ViewHolder viewHolder1 = new Adapter_ImageFolder.ViewHolder(view);
-
         return viewHolder1;
     }
 
     @Override
     public void onBindViewHolder(final Adapter_ImageFolder.ViewHolder Vholder, final int position) {
-
         Glide.with(context).load("file://" + al_image.get(position).getStr_thumb())
                 .skipMemoryCache(false)
                 .into(Vholder.iv_image);

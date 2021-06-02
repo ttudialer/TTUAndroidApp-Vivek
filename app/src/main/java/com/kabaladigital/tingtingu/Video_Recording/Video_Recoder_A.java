@@ -3,6 +3,7 @@ package com.kabaladigital.tingtingu.Video_Recording;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -59,7 +60,7 @@ import java.util.List;
 
 public class Video_Recoder_A extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "Video_Recoder_A";
-
+    public static Context  _VideoRecorder_context;
 
     CameraView cameraView;
     int number = 0;
@@ -102,7 +103,7 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         upload_layout = findViewById(R.id.upload_layout);
 
 
-
+        _VideoRecorder_context=this;
 
 
         record_image = findViewById(R.id.record_image);
@@ -858,6 +859,7 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         Intent intent = new Intent(this, Preview_Video_A.class);
         startActivity(intent);
         overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+
     }
 
 
@@ -887,14 +889,11 @@ public class Video_Recoder_A extends AppCompatActivity implements View.OnClickLi
         }
 
         for (int i = 0; i <= 12; i++) {
-
             File file = new File(Variables.app_folder + "myvideo" + (i) + ".mp4");
             if (file.exists()) {
                 file.delete();
             }
         }
-
-
     }
 
 
