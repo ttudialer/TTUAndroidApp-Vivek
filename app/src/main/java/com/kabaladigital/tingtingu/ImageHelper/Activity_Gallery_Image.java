@@ -1,5 +1,6 @@
 package com.kabaladigital.tingtingu.ImageHelper;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import com.kabaladigital.tingtingu.models.LibraryAddModel;
 import com.kabaladigital.tingtingu.models.LibraryGetModel;
 import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
+import com.kabaladigital.tingtingu.service.ContactUpload;
+import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -36,6 +39,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose.binding_choseIV;
+
 public class Activity_Gallery_Image extends AppCompatActivity {
     String str_image;
     CropImageView _ImageView;
@@ -43,7 +48,8 @@ public class Activity_Gallery_Image extends AppCompatActivity {
     private View mWaitSpinner;
     public static Bitmap croppedImage;
     private CallerDetailsFragmentBinding binding;
-    private Object LibraryGetModel;
+
+    private Context _Contaxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +61,7 @@ public class Activity_Gallery_Image extends AppCompatActivity {
 
        // Get_Profile_Capminion_ID();
 
-
+        _Contaxt=this;
         str_image = getIntent().getStringExtra("video");
         Log.d("path",getIntent().getStringExtra("video"));
         BitmapFactory.Options bfOptions=new BitmapFactory.Options();
@@ -141,8 +147,6 @@ public class Activity_Gallery_Image extends AppCompatActivity {
         RequestBody fullName =  RequestBody.create(MediaType.parse("multipart/form-data"), "false");
         RequestBody fileType =  RequestBody.create(MediaType.parse("multipart/form-data"), "image");
 
-
-
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
         Call<LibraryAddModel> call = apiInterface.LibraryAdd(body,fullName,fileType);
         call.enqueue(new Callback<LibraryAddModel>() {
@@ -153,8 +157,22 @@ public class Activity_Gallery_Image extends AppCompatActivity {
                     Log.d("code",""+ _videoFile.getAbsolutePath());
                     PreferenceUtils.getInstance().putString(R.string.pref_profile_path,  _videoFile.getAbsolutePath());
 
-                    Get_Profile_Capminion_ID();
+                    Bitmap bm;
+                    FileInputStream fi1 = null;
+                    BitmapFactory.Options bfOptions=new BitmapFactory.Options();
+                    try {
+                        fi1 = new FileInputStream(new File(_videoFile.getAbsolutePath()));
+                        if(fi1!=null) {
+                            bm= BitmapFactory.decodeFileDescriptor(fi1.getFD(), null, bfOptions);
+                            binding_choseIV.simpleImageView.setImageBitmap(bm);
+                            binding_choseIV.simpleImageView.setVisibility(View.VISIBLE);
+                            binding_choseIV.VideoView1.setVisibility(View.GONE);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
+                    Get_Profile_Capminion_ID();
                     Toast.makeText(Activity_Gallery_Image.this,"Profile Successfully upload...",Toast.LENGTH_SHORT).show();
 
                 }
@@ -225,10 +243,13 @@ public class Activity_Gallery_Image extends AppCompatActivity {
                                        Response<ResponseBody> response) {
                     if (response.code() == 200) {
                         Log.d("result::: ", "onResult::: "+response.body().toString() );
-                        Toast.makeText(Activity_Gallery_Image.this,"Profile Campion Successfully upload...",Toast.LENGTH_SHORT).show();
+                        new Thread(new Runnable() {
+                            public void run() {
+                                ContactUpload _cu=new ContactUpload(_Contaxt);
+                                _cu.ContactUpload(_Contaxt,"main_Image");
+                            }
+                        }).start();
 
-                        Navigation.findNavController(binding.getRoot())
-                                .navigate(R.id.action_viewcallerphotovideo_to_viewcalleridchoose);
 
                         finish();
 

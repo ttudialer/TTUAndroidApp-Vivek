@@ -38,6 +38,9 @@ public class ActivityOngoingCallBindingImpl extends ActivityOngoingCallBinding  
             , (com.kabaladigital.tingtingu.databinding.OverlaySendSmsBinding) bindings[3]
             );
         this.frame.setTag(null);
+        setContainedBinding(this.incomingCallLayout);
+        setContainedBinding(this.ongoingCallLayout);
+        setContainedBinding(this.overlaySendSms);
         setRootTag(root);
         // listeners
         invalidateAll();

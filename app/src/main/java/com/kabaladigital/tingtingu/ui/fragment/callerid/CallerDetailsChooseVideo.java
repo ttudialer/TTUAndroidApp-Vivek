@@ -61,7 +61,7 @@ public class CallerDetailsChooseVideo extends Fragment {
         fn_video();
     }
     public void fn_video() {
-
+        al_video = new ArrayList<>();
         FilePathStrings1 = RetriveCapturedImagePath1();
         if(FilePathStrings1 !=null) {
             for (int i = 0; i < FilePathStrings1.length; i++) {

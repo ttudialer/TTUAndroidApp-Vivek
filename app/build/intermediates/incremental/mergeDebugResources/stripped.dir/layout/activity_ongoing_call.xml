@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                                   
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" android:tag="layout/activity_ongoing_call_0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <include
+            android:id="@+id/ongoing_call_layout"
+            layout="@layout/on_going_call" />
+
+        <include
+            android:id="@+id/incoming_call_layout"
+            layout="@layout/layout_incoming_call" />
+
+        <include
+            android:id="@+id/overlay_send_sms"
+            layout="@layout/overlay_send_sms" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+         

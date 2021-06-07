@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- A layout representing a single key in the dialpad -->
+<com.kabaladigital.tingtingu.ui.widgets.DialpadKeyButton xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/DialpadKey">
+
+    <LinearLayout style="@style/DialpadKeyInnerLayout">
+
+        <TextView
+            android:id="@+id/dialpad_key_number"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            style="@style/DialpadKeyNumber"
+            android:text="n" />
+
+        <TextView
+            android:id="@+id/dialpad_key_letters"
+            android:textColor="@color/white"
+            style="@style/DialpadKeyLetters"
+            android:text="number" />
+
+    </LinearLayout>
+
+</com.kabaladigital.tingtingu.ui.widgets.DialpadKeyButton>

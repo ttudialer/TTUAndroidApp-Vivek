@@ -527,27 +527,28 @@ public class CallerDetailsChoose extends Fragment {
     }
 
     public class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final Fragment[] childFragments;
-        private final String[] title;
-
-        public ViewPagerAdapter(@NonNull FragmentManager fm, String[] title) {
+        public ViewPagerAdapter(@NonNull FragmentManager fm, String[] title)
+        {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            this.title = title;
-            childFragments = new Fragment[] {
-                    new CallerDetailsChooseImage(),
-                    new CallerDetailsChooseVideo(),
-            };
         }
-
 
         @Override
         public Fragment getItem(int position) {
-            return childFragments[position];
+            Fragment childFragments = null;
+            if(position == 0)
+            {
+                childFragments =  new CallerDetailsChooseImage();
+            }
+            else if(position == 1)
+            {
+                childFragments =  new CallerDetailsChooseVideo();
+            }
+            return childFragments;
         }
 
         @Override
         public int getCount() {
-            return childFragments.length;
+            return 2;
         }
 
 
@@ -557,11 +558,52 @@ public class CallerDetailsChoose extends Fragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return title[position];
+            String title = null;
+            if (position == 0)
+                title = "IMAGE";
+            else if (position == 1)
+                title = "VIDEO";
+
+            return title;
         }
 
 
     }
+
+
+
+//        private final Fragment[] childFragments;
+//        private final String[] title;
+
+//        public ViewPagerAdapter(@NonNull FragmentManager fm, String[] title) {
+//            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//            this.title = title;
+//            childFragments = new Fragment[] {
+//                    new CallerDetailsChooseImage(),
+//                    new CallerDetailsChooseVideo(),
+//            };
+//        }
+//
+//
+//        @Override
+//        public Fragment getItem(int position) {
+//            return childFragments[position];
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return childFragments.length;
+//        }
+//
+//
+//        public int getItemPosition(Object object) {
+//            return POSITION_NONE;
+//        }
+//
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            return title[position];
+//        }
 
 
 }

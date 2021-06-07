@@ -36,7 +36,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.work.BackoffPolicy;
+import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
@@ -50,10 +52,11 @@ import com.kabaladigital.tingtingu.networking.ApiClient;
 import com.kabaladigital.tingtingu.networking.ApiClient2;
 import com.kabaladigital.tingtingu.networking.ApiInterface;
 import com.kabaladigital.tingtingu.networking.ImageVideoDownload;
+import com.kabaladigital.tingtingu.service.ContactUpload;
 import com.kabaladigital.tingtingu.service.GetAdData;
 import com.kabaladigital.tingtingu.service.SharesPreference;
+import com.kabaladigital.tingtingu.service.UploadContactService;
 import com.kabaladigital.tingtingu.util.CallManager;
-import com.kabaladigital.tingtingu.util.ImageVideoDownloadManager;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 
 
@@ -89,14 +92,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import java.io.File;
 import java.util.ArrayList;
 
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.MultipartBody;
@@ -109,7 +113,6 @@ import retrofit2.Response;
 import static com.google.firebase.crashlytics.internal.Logger.TAG;
 
 public class MainActivity extends AppCompatActivity {
-
     // Integer _abc=0; // created by deepak
     private static final String TAG_CHANGELOG_DIALOG = "changelog";
     String jsonStr;
@@ -121,17 +124,17 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
 
-
     DownloadManager downloadManager_2;
     ArrayList<Long> list = new ArrayList<>();
     private Uri Download_Uri;
     private long refid;
     Context ctx = MainActivity.this;
-    Activity activity_n = MainActivity.this;
-
+    public static Activity activity_n;
 
     public static final String MESSAGE_STATUS = "MainActivity";
     DataRepository repository;
+
+    public Context _mainContaxt;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -155,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
         Global.TTUFOLDERDraft(this);
 
 
+        _mainContaxt=this;
+
         PreferenceUtils.getInstance(this, true); // Get the preferences
         Utilities.setUpLocale(this);
 
@@ -164,11 +169,8 @@ public class MainActivity extends AppCompatActivity {
             repository.updateTodayDateCount();
         }
 
-      //  getprofile();
-
         //call download manager and load video and image
         downloadManager_2 = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -206,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         boolean isFirstInstance = PreferenceUtils.getInstance().getBoolean(R.string.pref_is_first_instance_key);
         if (!isFirstInstance) checkVersion();
 
-
         // Check whether this app was set as the default dialer
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             //Do something for android Q  and above versions
@@ -216,6 +217,10 @@ public class MainActivity extends AppCompatActivity {
             Utilities.checkDefaultDialer_2(this);
         }
 
+//        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+//        Toast.makeText(getApplicationContext(), timeStamp, Toast.LENGTH_SHORT).show();
+//        String date1 = "20170717141000";
+//        String date2 = "20170719175500";
 
         // Check for intents from others apps
         checkIncomingIntent();
@@ -223,19 +228,22 @@ public class MainActivity extends AppCompatActivity {
         //Block 1 of work manager
 
         WorkManager manualWorkManager = WorkManager.getInstance(getApplicationContext());
-        PeriodicWorkRequest.Builder myWorkBuilder =
-                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES);
-
+        PeriodicWorkRequest.Builder myWorkBuilder = new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES);
         PeriodicWorkRequest myWork = myWorkBuilder.build();
-         WorkManager mWorkManager = WorkManager.getInstance(ctx);
-        mWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP
-                ,myWork);
+        manualWorkManager.getInstance(this).enqueue(myWork);
 
+        WorkManager mWorkManager = WorkManager.getInstance(ctx);
+        manualWorkManager.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP,myWork);
         manualWorkManager.enqueue(OneTimeWorkRequest.from(GetAdData.class));
 
+        WorkManager manualWorkManager_contact = WorkManager.getInstance(getApplicationContext());
+        PeriodicWorkRequest.Builder myWorkBuilder_contact = new PeriodicWorkRequest.Builder(UploadContactService.class, 1, TimeUnit.MINUTES);
+        PeriodicWorkRequest myWork_contact = myWorkBuilder_contact.build();
+        manualWorkManager_contact.getInstance(this).enqueue(myWork_contact);
+        manualWorkManager_contact.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP,myWork);
+        manualWorkManager_contact.enqueue(OneTimeWorkRequest.from(UploadContactService.class));
 
         //Block 2 of work manager
-
 //     WorkManager mWorkManager = WorkManager.getInstance(getApplicationContext());
 //        PeriodicWorkRequest periodicSyncDataWork =
 //                new PeriodicWorkRequest.Builder(GetAdData.class, 1, TimeUnit.MINUTES)
@@ -263,8 +271,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //        mWorkManager.enqueue(workRequest);
-
-
 
 
         // Create Network constraint
@@ -327,24 +333,24 @@ public class MainActivity extends AppCompatActivity {
                 , pendingIntent);
 
 
+
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Do something after 100ms
                 String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
                 String _DBtime = PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
                 if (_ctime.equalsIgnoreCase(_DBtime) == false) {
                     new Thread(new Runnable() {
                         public void run() {
-                            ReadContactDetailsJson();
+                            ContactUpload _cu=new ContactUpload(_mainContaxt);
+                            _cu.ContactUpload(_mainContaxt,"main_C");
                         }
                     }).start();
                 }
             }
         }, 5000);
     }
-
 
     private void uploadContact(JsonObject contactListObj) {
         ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
@@ -358,6 +364,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
                     String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
                     PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date, timeStamp);
+
                 }
             }
 
@@ -517,93 +524,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void download_Profile() {
-        removeArrayList("phone_no");
-
-        //ArrayList<String>phone_no_arr = new ArrayList<>();
-        ArrayList<String> list= new ArrayList<>();
-        for(int i = 0; i<SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size();i++)
-        {
-            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
-            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
-
-//            String path_img = Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-//            String path_video = Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-
-            String path_img =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-            String path_video =  Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-
-
-//            File newfile=null;
-//            newfile = new File("Download/storage/emulated/0/Android/data/com.kabaladigital.tingtingu/files/Pictures/TTULibrary/TTUPROFILE/9350043415.mp4");
-//
-//
-//
-//            if(newfile.exists()){
-//                newfile.delete();
-//            }
-//            Log.d("delete:",path_video);
-
-//            Toast.makeText(MainActivity.this, ""+path_img, Toast.LENGTH_SHORT).show();
-
-//            if( getArrayList("phone_no") != null &&  getArrayList("phone_no").contains(phone_no+"@"+file_type))
-//            {
-//                //file already downloaded
-//            }
-//            else
-                {
-                //download file
-                list.add(phone_no + "@" + file_type);
-                saveArrayList(list, "phone_no");
-
-
-                String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
-                Download_Uri = Uri.parse(url);
-                DownloadManager.Request request = new DownloadManager.Request(Download_Uri);
-                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
-                request.setAllowedOverRoaming(false);
-
-                  //  Toast.makeText(MainActivity.this, ""+url, Toast.LENGTH_SHORT).show();
-
-                    //Toast.makeText(MainActivity.this,"file_type : " + (Global.TTULibraryTTUPROFILE(getApplicationContext()).toString() + File.separator + phone_no + ".mp4"),Toast.LENGTH_SHORT).show();
-
-                /*File vidFile = new  File(Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
-                Log.d("path",Environment.DIRECTORY_DOWNLOADS + "/TTUPROFILE/" + phone_no +  ".mp4");
-                if(vidFile.exists())
-                {
-                    //Toast.makeText(ctx,"exist",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //Toast.makeText(ctx,"not exist",Toast.LENGTH_SHORT).show();
-                }*/
-
-                if (file_type != null) {
-                    if (file_type.equalsIgnoreCase("video")) {
-                        //video type file
-                        request.setTitle("TTUPROFILE" + phone_no + ".mp4");
-                        request.setDescription("TTUPROFILE" + phone_no + ".mp4");
-                        //request.setDestinationInExternalPublicDir(Environment.getExternalStorageDirectory().getAbsolutePath(), "/TTUPROFILE/" + phone_no + ".mp4");
-                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4");
-                        Log.d("path_video", Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4");
-                    } else if (file_type.equalsIgnoreCase("image")) {
-                        //image type file
-                        request.setTitle("TTUPROFILE" + phone_no + ".jpg");
-                        request.setDescription("TTUPROFILE" + phone_no + ".jpg");
-                        //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/TTUPROFILE/"   + phone_no + ".jpg");
-                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg");
-                        Log.d("path_img", Environment.DIRECTORY_DOWNLOADS + Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg");
-
-                    }
-                    request.setVisibleInDownloadsUi(true);
-                    refid = downloadManager_2.enqueue(request);
-                    //list.add(refid);
-                }
-            }
-            //String phone_no = "9461867672";
-        }
-    }
-
     public void saveArrayList(ArrayList<String> list, String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
         SharedPreferences.Editor editor = prefs.edit();
@@ -630,39 +550,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void getprofile()
-    {
-        Call<ProfileResponse> call = ApiClient2.getProfile_new().getProfile_new();
-        call.enqueue(new Callback<ProfileResponse>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
-                if(response.isSuccessful())
-                {
-                    //Toast.makeText(MainActivity.this, "hiiiiiiiiiiiii", Toast.LENGTH_SHORT).show();
-                    if (response.body()!= null)
-                    {
-                        SharesPreference.saveprofile(getApplicationContext(),response.body());
-                        download_Profile2();
-                    }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, ""+response.message(), Toast.LENGTH_SHORT).show();
-                    }
 
-                }
-            }
-            @Override
-            public void onFailure(Call<ProfileResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    private void ReadContactDetailsJson() {
+    public void ReadContactDetailsJson(String _val) {
         JsonObject contactobj = null;
-        ContentResolver cr = getApplicationContext().getContentResolver();
+        ContentResolver cr = MainActivity.this.getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
         if ((cur != null ? cur.getCount() : 0) > 0) {
@@ -687,8 +578,10 @@ public class MainActivity extends AppCompatActivity {
                     while (pCur.moveToNext()) {
                         contactobj = new JsonObject();
                         phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                        Log.i(TAG, "Name: " + name);
-                        Log.i(TAG, "Phone Number: " + phoneNo);
+                        phoneNo = phoneNo.replaceAll("\\s", "");
+
+//                        Log.i(TAG, "Name: " + name);
+//                        Log.i(TAG, "Phone Number: " + phoneNo);
                         contactobj.addProperty("name" , name);
                         String lastFourDigits = "";     //substring containing last 4 characters
                         if (phoneNo.length() > 10) {
@@ -714,9 +607,11 @@ public class MainActivity extends AppCompatActivity {
         contactListObj.add("contactList", jsonArrayContact);
         // jsonStr = contactListObj.toString();
          //   Toast.makeText(getApplicationContext(), String.valueOf(jsonArrayContact.size()), Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(MainActivity.this, ""+_val, Toast.LENGTH_SHORT).show();
         uploadContact(contactListObj);
     }
+
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

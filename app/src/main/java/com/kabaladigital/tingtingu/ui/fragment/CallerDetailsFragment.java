@@ -101,9 +101,9 @@ public class CallerDetailsFragment extends Fragment {
         String p_path=PreferenceUtils.getInstance().getString(R.string.pref_profile_path);
         File fs=new File(p_path);
         String filePath = fs.getPath();
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-        binding.simpleImageView.setImageBitmap(bitmap);
-        binding.simpleImageView.setVisibility(View.VISIBLE);
+        //Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+        //binding.simpleImageView.setImageBitmap(bitmap);
+      //  binding.simpleImageView.setVisibility(View.VISIBLE);
         //Log.d("end",p_path);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();

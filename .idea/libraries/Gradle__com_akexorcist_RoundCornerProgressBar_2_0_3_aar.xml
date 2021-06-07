@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.akexorcist:RoundCornerProgressBar:2.0.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/086446efbb4c56a0fb6dfd26ec95f6ef/jetified-RoundCornerProgressBar-2.0.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/086446efbb4c56a0fb6dfd26ec95f6ef/jetified-RoundCornerProgressBar-2.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/086446efbb4c56a0fb6dfd26ec95f6ef/jetified-RoundCornerProgressBar-2.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/13895ebcb6a1ed449207a2f8e87c4eca/jetified-RoundCornerProgressBar-2.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/13895ebcb6a1ed449207a2f8e87c4eca/jetified-RoundCornerProgressBar-2.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/13895ebcb6a1ed449207a2f8e87c4eca/jetified-RoundCornerProgressBar-2.0.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.akexorcist/RoundCornerProgressBar/2.0.3/e46731bf64d37531bdbda04f61eb4a4454dd0a70/RoundCornerProgressBar-2.0.3-javadoc.jar!/" />
