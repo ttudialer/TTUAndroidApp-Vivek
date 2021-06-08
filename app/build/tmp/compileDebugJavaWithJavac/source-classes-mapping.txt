@@ -49,12 +49,8 @@ com/kabaladigital/tingtingu/ui/activity/MainActivity.java
  com.kabaladigital.tingtingu.ui.activity.MainActivity
  com.kabaladigital.tingtingu.ui.activity.MainActivity$1
  com.kabaladigital.tingtingu.ui.activity.MainActivity$2
- com.kabaladigital.tingtingu.ui.activity.MainActivity$2$1
  com.kabaladigital.tingtingu.ui.activity.MainActivity$3
  com.kabaladigital.tingtingu.ui.activity.MainActivity$4
- com.kabaladigital.tingtingu.ui.activity.MainActivity$5
- com.kabaladigital.tingtingu.ui.activity.MainActivity$6
- com.kabaladigital.tingtingu.ui.activity.MainActivity$7
 com/kabaladigital/tingtingu/ui/fragment/recharge/DthRechargeFragment.java
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment
  com.kabaladigital.tingtingu.ui.fragment.recharge.DthRechargeFragment$1
@@ -372,8 +368,9 @@ com/kabaladigital/tingtingu/ImageHelper/Adapter_ImageFolder.java
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$1
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$2
- com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$2$1
- com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$2$2
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$3
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$3$1
+ com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$3$2
  com.kabaladigital.tingtingu.ImageHelper.Adapter_ImageFolder$ViewHolder
 com/kabaladigital/tingtingu/viewmodels/RedeemPointViewModel.java
  com.kabaladigital.tingtingu.viewmodels.RedeemPointViewModel
@@ -798,8 +795,9 @@ com/kabaladigital/tingtingu/VideoHelper/Adapter_VideoFolder.java
  com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder
  com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$1
  com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$2
- com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$2$1
- com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$2$2
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$3
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$3$1
+ com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$3$2
  com.kabaladigital.tingtingu.VideoHelper.Adapter_VideoFolder$ViewHolder
 com/kabaladigital/tingtingu/models/OperatorSelectModel.java
  com.kabaladigital.tingtingu.models.OperatorSelectModel

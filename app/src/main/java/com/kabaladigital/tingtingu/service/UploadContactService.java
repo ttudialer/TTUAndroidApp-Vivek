@@ -3,6 +3,8 @@ package com.kabaladigital.tingtingu.service;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.work.ListenableWorker;
@@ -32,24 +34,29 @@ public class UploadContactService extends Worker {
         public ListenableWorker.Result doWork() {
             Log.d("call----->","method");
             String _DBtime = PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
+            Log.d("call----->","_DBtime : " + String.valueOf(_DBtime));
                 if(_DBtime ==null){
                     ContactUpload _cu = new ContactUpload(context);
                     _cu.ContactUpload(context, "main_C");
                 }
 
+            Log.d("call----->","_DBtime : " + String.valueOf(android.os.Build.VERSION.SDK_INT));
+            Log.d("call----->","_DBtime : " + String.valueOf(android.os.Build.VERSION_CODES.O));
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 long _hour=           Hours_Details();
+                Log.d("call----->","_hour : " + String.valueOf(_hour));
                 if(_hour>24){
                     ContactUpload _cu = new ContactUpload(context);
                     _cu.ContactUpload(context, "main_C");
                 }
-            } else {
-                String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                if (_ctime.equalsIgnoreCase(_DBtime) == false) {
-                    ContactUpload _cu = new ContactUpload(context);
-                    _cu.ContactUpload(context, "main_C");
-                }
             }
+//            else {
+//                String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
+//                if (_ctime.equalsIgnoreCase(_DBtime) == false) {
+//                    ContactUpload _cu = new ContactUpload(context);
+//                   // _cu.ContactUpload(context, "main_C");
+//                }
+//            }
 
             return ListenableWorker.Result.success();
         }

@@ -112,7 +112,7 @@ public class ContactUpload {
             public void onResponse(Call<ContactUploadModel> call,
                                    Response<ContactUploadModel> response) {
                 if (response.code() == 200) {
-                    //  Toast.makeText(_context, "Contact Upload Successfully", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(_context, "Contact Upload Successfully", Toast.LENGTH_SHORT).show();
                     String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
                     PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date, timeStamp);
 

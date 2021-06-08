@@ -240,7 +240,8 @@ public class MainActivity extends AppCompatActivity {
         PeriodicWorkRequest.Builder myWorkBuilder_contact = new PeriodicWorkRequest.Builder(UploadContactService.class, 1, TimeUnit.MINUTES);
         PeriodicWorkRequest myWork_contact = myWorkBuilder_contact.build();
         manualWorkManager_contact.getInstance(this).enqueue(myWork_contact);
-        manualWorkManager_contact.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP,myWork);
+
+        manualWorkManager_contact.enqueueUniquePeriodicWork("Sync", ExistingPeriodicWorkPolicy.KEEP,myWork_contact);
         manualWorkManager_contact.enqueue(OneTimeWorkRequest.from(UploadContactService.class));
 
         //Block 2 of work manager
@@ -334,45 +335,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        final Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                String _DBtime = PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
-                if (_ctime.equalsIgnoreCase(_DBtime) == false) {
-                    new Thread(new Runnable() {
-                        public void run() {
-                            ContactUpload _cu=new ContactUpload(_mainContaxt);
-                            _cu.ContactUpload(_mainContaxt,"main_C");
-                        }
-                    }).start();
-                }
-            }
-        }, 5000);
-    }
-
-    private void uploadContact(JsonObject contactListObj) {
-        ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-        Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
-        // retrofit2.Call<ContactUploadModel> call = apiInterface.contactUploadDetails(contactListObj);
-        call.enqueue(new Callback<ContactUploadModel>() {
-            @Override
-            public void onResponse(Call<ContactUploadModel> call,
-                                   Response<ContactUploadModel> response) {
-                if (response.code() == 200) {
-                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-                    String timeStamp = new SimpleDateFormat("yyyyMMdd").format(new Date());
-                    PreferenceUtils.getInstance().putString(R.string.pref_c_upload_date, timeStamp);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ContactUploadModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "onFailure= " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        final Handler handler = new Handler(Looper.getMainLooper());
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                String _ctime = new SimpleDateFormat("yyyyMMdd").format(new Date());
+//                String _DBtime = PreferenceUtils.getInstance().getString(R.string.pref_c_upload_date);
+//                if (_ctime.equalsIgnoreCase(_DBtime) == false) {
+//                    new Thread(new Runnable() {
+//                        public void run() {
+//                            ContactUpload _cu=new ContactUpload(_mainContaxt);
+//                            _cu.ContactUpload(_mainContaxt,"main_C");
+//                        }
+//                    }).start();
+//                }
+//            }
+//        }, 5000);
     }
 
 
@@ -391,46 +369,6 @@ public class MainActivity extends AppCompatActivity {
             contentResolver.delete(filesUri, where, selectionArgs);
         }
         return !file.exists();
-    }
-
-    private void download_Profile1() {
-        removeArrayList("phone_no");
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
-            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
-            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
-
-            //download file
-            list.add(phone_no + "@" + file_type);
-            saveArrayList(list, "phone_no");
-            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
-
-            if (file_type != null) {
-                ApiInterface apiInterface = ApiClient.createService(ApiInterface.class);
-                Call<ResponseBody> call = apiInterface.downloadFileWithDynamicUrlSync(url);
-                String finalFile_type = file_type;
-                call.enqueue(new Callback<ResponseBody>() {
-                    @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Log.d(TAG, " server :" + response.code());
-                        Log.d(TAG, " server :" + url);
-
-                        if (response.code() == 200) {
-                            Log.d(TAG, "server contacted and has file");
-                            boolean writtenToDisk = writeResponseBodyToDisk(response.body(), finalFile_type, phone_no);
-                            Log.d(TAG, "file download was a success? " + writtenToDisk);
-                        } else {
-                            Log.d(TAG, response.code() + " : server contact failed");
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.e(TAG, "error");
-                    }
-                });
-            }
-        }
     }
 
     private boolean writeResponseBodyToDisk(ResponseBody body, String _fType, String _phone_no) {
@@ -485,43 +423,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void download_Profile2() {
-        removeArrayList("phone_no");
-        ArrayList<String> list = new ArrayList<>();
-        Toast.makeText(MainActivity.this, ""+SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(), Toast.LENGTH_SHORT).show();
-        for (int i = 0; i < SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().size(); i++) {
-            String phone_no = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getMobileNumber();
-            String file_type = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileType();
-            String url = SharesPreference.getprofile(getApplicationContext()).getProfileAdvs().get(i).getFileUrl();
-
-            Toast.makeText(MainActivity.this, ""+phone_no, Toast.LENGTH_SHORT).show();
-
-            if (file_type == null) {
-                file_type = "Image";
-            }
-            String _savepath="";
-            if (file_type.equalsIgnoreCase("video")) {
-                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".mp4";
-            } else if (file_type.equalsIgnoreCase("image")) {
-                _savepath = Global.TTULibraryTTUPROFILE_path(getApplicationContext()) + File.separator + phone_no + ".jpg";
-            }
-
-            File futureStudioIconFile = null;
-            futureStudioIconFile = new File(_savepath);
-            if (futureStudioIconFile.exists()) {
-                futureStudioIconFile.delete();
-            }
-            //Toast.makeText(MainActivity.this, ""+00, Toast.LENGTH_SHORT).show();
-
-            new ImageVideoDownload(getApplicationContext(),url,_savepath,file_type);
-
-            //Toast.makeText(MainActivity.this, ""+11, Toast.LENGTH_SHORT).show();
-
-            list.add(phone_no + "@" + file_type + "@" + _savepath);
-            saveArrayList(list, "phone_no");
-        }
-    }
 
 
     public void saveArrayList(ArrayList<String> list, String key){
@@ -551,65 +452,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void ReadContactDetailsJson(String _val) {
-        JsonObject contactobj = null;
-        ContentResolver cr = MainActivity.this.getContentResolver();
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
-                null, null, null, null);
-        if ((cur != null ? cur.getCount() : 0) > 0) {
-            while (cur != null && cur.moveToNext()) {
 
-                String id = cur.getString(
-                        cur.getColumnIndex(ContactsContract.Contacts._ID));
-                String name = cur.getString(cur.getColumnIndex(
-                        ContactsContract.Contacts.DISPLAY_NAME));
-
-                if (cur.getInt(cur.getColumnIndex(
-                        ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0) {
-                    Cursor pCur = cr.query(
-                            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                            null,
-                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
-                            new String[]{id}, null);
-                    String phoneNo = "";
-                    int _i=0;
-                    int _total=0;
-                    _total=pCur.getCount();
-                    while (pCur.moveToNext()) {
-                        contactobj = new JsonObject();
-                        phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                        phoneNo = phoneNo.replaceAll("\\s", "");
-
-//                        Log.i(TAG, "Name: " + name);
-//                        Log.i(TAG, "Phone Number: " + phoneNo);
-                        contactobj.addProperty("name" , name);
-                        String lastFourDigits = "";     //substring containing last 4 characters
-                        if (phoneNo.length() > 10) {
-                            lastFourDigits = phoneNo.substring(phoneNo.length() - 10);
-                        } else {
-                            lastFourDigits = phoneNo;
-                        }
-                        contactobj.addProperty("number", lastFourDigits);
-                        jsonArrayContact.add(contactobj);
-                    }
-                    pCur.close();
-                }
-
-
-
-            }
-        }
-        if (cur != null) {
-            cur.close();
-        }
-
-        JsonObject  contactListObj = new JsonObject();
-        contactListObj.add("contactList", jsonArrayContact);
-        // jsonStr = contactListObj.toString();
-         //   Toast.makeText(getApplicationContext(), String.valueOf(jsonArrayContact.size()), Toast.LENGTH_SHORT).show();
-        Toast.makeText(MainActivity.this, ""+_val, Toast.LENGTH_SHORT).show();
-        uploadContact(contactListObj);
-    }
 
 
     @Override
