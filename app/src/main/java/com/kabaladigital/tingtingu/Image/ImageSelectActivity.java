@@ -27,7 +27,9 @@ import com.kabaladigital.tingtingu.Class.Variables;
 import com.kabaladigital.tingtingu.ImageHelper.Activity_Gallery_Image;
 import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.Video_Recording.Preview_Video_A;
+import com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseBinding;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
+import com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
 import com.zomato.photofilters.FilterPack;
 import com.zomato.photofilters.imageprocessors.Filter;
@@ -53,7 +55,6 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
     int width;
     int finalHeight;
     int finalWidth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
         }
 
 
-        Toast.makeText(getApplicationContext(),finalWidth + " :  " + finalHeight,     Toast.LENGTH_LONG).show();
+    //    Toast.makeText(getApplicationContext(),finalWidth + " :  " + finalHeight,     Toast.LENGTH_LONG).show();
         bitmap= Bitmap.createScaledBitmap(bitmap,finalWidth,finalHeight,true);
         placeHolderImageView.setImageBitmap(bitmap);
         bitmap_new=bitmap;
@@ -112,6 +113,7 @@ public class ImageSelectActivity extends AppCompatActivity implements ThumbnailC
                     try (FileOutputStream out = new FileOutputStream(newfile)) {
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out); // bmp is your Bitmap instance
                         Toast.makeText(getApplicationContext(),"Image saved in TTU library",     Toast.LENGTH_LONG).show();
+                        CallerDetailsChoose.binding_choseIV.viewPager.getAdapter().notifyDataSetChanged();
                     } catch (IOException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(),"Error in Image saved in TTU library",     Toast.LENGTH_LONG).show();

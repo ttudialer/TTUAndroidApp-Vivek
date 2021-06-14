@@ -36,7 +36,7 @@ public class CallerDetailsChooseVideo extends Fragment {
     Adapter_VideoFolder obj_adapter;
     private String[]        FilePathStrings;
     private String[]        FilePathStrings1;
-    ArrayList<Model_Video> al_video ;
+    ArrayList<Model_Video> al_video = new ArrayList<>();
     public ArrayList<String> tFileList;
     public List<String> listOfImagesPath;
     RecyclerView recyclerView;
@@ -61,13 +61,10 @@ public class CallerDetailsChooseVideo extends Fragment {
         fn_video();
     }
     public void fn_video() {
-
-        FilePathStrings1 = RetriveCapturedImagePath1();
         al_video = new ArrayList<>();
-
+        FilePathStrings1 = RetriveCapturedImagePath1();
         if(FilePathStrings1 !=null) {
-            for (int i = 0; i < FilePathStrings1.length; i++)
-            {
+            for (int i = 0; i < FilePathStrings1.length; i++) {
                 File file = new File(FilePathStrings1[i]);
                 Model_Video obj_model = new Model_Video();
                 obj_model.setBoolean_selected(false);
@@ -81,11 +78,8 @@ public class CallerDetailsChooseVideo extends Fragment {
     }
 
     public String[] RetriveCapturedImagePath1(){
-
         tFileList = new ArrayList<String>();
-
         File f = new File( Global.TTULibraryVideo(getContext()).getAbsolutePath() );
-
         File[] files  = f.listFiles();
         String[]        FilePathStrings_temp;
         FilePathStrings_temp = new String[files.length];
@@ -104,14 +98,9 @@ public class CallerDetailsChooseVideo extends Fragment {
             catch (Exception ex){}
         }
         FilePathStrings=new String[z];
-
-
         for (int i = 0; i < z; i++) {
             FilePathStrings[i] = FilePathStrings_temp[i];
         }
-
-
-
 
         return FilePathStrings;
     }

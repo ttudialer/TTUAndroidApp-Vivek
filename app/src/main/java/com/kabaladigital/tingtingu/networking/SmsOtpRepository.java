@@ -27,8 +27,7 @@ public class SmsOtpRepository {
          apiInterface = ApiClient.createSMSOTPService(ApiInterface.class);
     }
 
-   public LiveData<SmsOtpResponse>getSmsOtpResponse(JsonObject jsonObject)
-   {
+   public LiveData<SmsOtpResponse>getSmsOtpResponse(JsonObject jsonObject){
        MutableLiveData<SmsOtpResponse> smsOtpResponseMutableLiveData = new MutableLiveData<>();
 
        apiInterface.smsOtpResponse(jsonObject).enqueue(new Callback<SmsOtpResponse>() {

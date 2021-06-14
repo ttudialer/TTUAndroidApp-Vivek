@@ -17,6 +17,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.FileUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 import java.util.Arrays;
 import java.util.Random;
@@ -662,6 +665,33 @@ public class Functions {
             }
         }
     }
+
+
+    public static void copyFile_new(File sourceFile, File destFile) throws IOException {
+        if (!destFile.getParentFile().exists())
+            destFile.getParentFile().mkdirs();
+
+        if (!destFile.exists()) {
+            destFile.createNewFile();
+        }
+        InputStream in = null;
+        OutputStream out = null;
+        try {
+
+            in = new FileInputStream(sourceFile);
+            out = new FileOutputStream(destFile);
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = in.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+        } finally {
+            in.close();
+            out.close();
+        }
+    }
+
+
 
     public static Bitmap addStampToImage(Context context, Bitmap originalBitmap, String username) {
 

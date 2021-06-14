@@ -1828,7 +1828,6 @@ public class OngoingCallActivity extends AppCompatActivity implements DialpadFra
                     ImageManager.setIncomingCallImageAd_2(binding.ongoingCallLayout.adImagePlaceholder
                             , type_url, ctx);
                 }
-
                 break;
             }
         }

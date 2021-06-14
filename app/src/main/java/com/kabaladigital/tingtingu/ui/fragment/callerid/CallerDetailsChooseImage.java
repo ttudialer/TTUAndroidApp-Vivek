@@ -27,7 +27,8 @@ import com.kabaladigital.tingtingu.R;
 import com.kabaladigital.tingtingu.databinding.CallerDetailsFragmentChooseImageBinding;
 import com.kabaladigital.tingtingu.ui.activity.MainActivity;
 import com.kabaladigital.tingtingu.util.PreferenceUtils;
-import com.kabaladigital.tingtingu.viewmodels.Model_Video;
+import com.kabaladigital.tingtingu.viewmodels.Model_Image;
+
 
 import java.io.File;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class CallerDetailsChooseImage extends Fragment {
     private String[]        FilePathStrings1;
     public List<String> listOfImagesPath;
     Adapter_ImageFolder obj_adapter;
-    ArrayList<Model_Video> al_video ;
+    ArrayList<Model_Image> al_video = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.LayoutManager recyclerViewLayoutManager;
     private CallerDetailsFragmentChooseImageBinding binding;
@@ -67,7 +68,7 @@ public class CallerDetailsChooseImage extends Fragment {
         if(FilePathStrings1 !=null) {
             for (int i = 0; i < FilePathStrings1.length; i++) {
                 File file = new File(FilePathStrings1[i]);
-                Model_Video obj_model = new Model_Video();
+                Model_Image obj_model = new Model_Image();
                 obj_model.setBoolean_selected(false);
                 obj_model.setStr_path(file.getPath());
                 obj_model.setStr_thumb(file.getPath());
@@ -82,7 +83,7 @@ public class CallerDetailsChooseImage extends Fragment {
         tFileList = new ArrayList<String>();
         File f = new File( Global.TTULibraryImage(getContext()).getAbsolutePath() );
         File[] files  = f.listFiles();
-         String[]        FilePathStrings_temp;
+        String[]        FilePathStrings_temp;
 
         FilePathStrings_temp = new String[files.length];
         int z=0;
@@ -95,22 +96,13 @@ public class CallerDetailsChooseImage extends Fragment {
                 FilePathStrings_temp[z] = files[i].getAbsolutePath();
                 z=z+1;
             }
-            else {
-                // This is not an image file.
-            }
-
-
         }
         FilePathStrings=new String[z];
         for (int i = 0; i < z; i++) {
             FilePathStrings[i] = FilePathStrings_temp[i];
-
-
         }
 
-
-
-            return FilePathStrings;
+        return FilePathStrings;
     }
 
     @Override

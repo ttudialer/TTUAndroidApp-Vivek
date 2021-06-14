@@ -1,12 +1,25 @@
 <component name="libraryTable">
   <library name="Gradle: com.wonderkiln:camerakit:0.13.0@aar">
     <ANNOTATIONS>
+<<<<<<< HEAD
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f62bd32e1fb4e4f0f8ef3e587c7847e8/jetified-camerakit-0.13.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f62bd32e1fb4e4f0f8ef3e587c7847e8/jetified-camerakit-0.13.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f62bd32e1fb4e4f0f8ef3e587c7847e8/jetified-camerakit-0.13.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f62bd32e1fb4e4f0f8ef3e587c7847e8/jetified-camerakit-0.13.0/res" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5568eabe24bc94d817874113748a53d8/jetified-camerakit-0.13.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26398b6d0b1e47118d7735f6978b679f/jetified-camerakit-0.13.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5568eabe24bc94d817874113748a53d8/jetified-camerakit-0.13.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5568eabe24bc94d817874113748a53d8/jetified-camerakit-0.13.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5568eabe24bc94d817874113748a53d8/jetified-camerakit-0.13.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26398b6d0b1e47118d7735f6978b679f/jetified-camerakit-0.13.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26398b6d0b1e47118d7735f6978b679f/jetified-camerakit-0.13.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/26398b6d0b1e47118d7735f6978b679f/jetified-camerakit-0.13.0/jars/classes.jar!/" />
+>>>>>>> db199b2a52820a821aaf2154eba152085a272e83
     </CLASSES>
     <JAVADOC />
     <SOURCES />

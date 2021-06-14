@@ -5,8 +5,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
-public class RequestFormatter
-{
+public class RequestFormatter {
 
     /* todo 1. LoginMobileNumber  */
     public static JsonObject jsonObjectLogin (String mobileNumber,
@@ -29,9 +28,6 @@ public class RequestFormatter
     }
 
     /* todo 2. sms OTP */
-
-
-
     public static JsonObject jsonObjectSmsOtp (String sender,String route,
                                                String country,String message,
                                                String mobileNumber
@@ -42,7 +38,6 @@ public class RequestFormatter
             jsonObject.addProperty("route",route);
             jsonObject.addProperty("DLT_TE_ID",DLT_TE_ID);
             jsonObject.addProperty("country",country);
-
 
             JsonArray jsonArray = new JsonArray();
 
@@ -204,8 +199,7 @@ public class RequestFormatter
     }
 
     public static JsonObject jsonObjectOutgoingLogs (String startTime
-            ,String endTime,String callType,String callResponse)
-             {
+            ,String endTime,String callType,String callResponse){
 
         JsonObject jsonObject = new JsonObject();
         try {
@@ -257,8 +251,7 @@ public class RequestFormatter
         return jsonObject;
     }
 
-    public static JsonObject jsonObjectCheckDeviceID(String deviceId)
-             {
+    public static JsonObject jsonObjectCheckDeviceID(String deviceId){
         JsonObject jsonObject = new JsonObject();
         try {
             jsonObject.addProperty("deviceId",deviceId);
@@ -268,5 +261,4 @@ public class RequestFormatter
         }
         return jsonObject;
     }
-
-     }
+}

@@ -1,5 +1,6 @@
 package com.kabaladigital.tingtingu.Video_Recording;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,12 +38,14 @@ import com.kabaladigital.tingtingu.Class.Variables;
 import com.kabaladigital.tingtingu.Filter.FilterType;
 import com.kabaladigital.tingtingu.Filter.Filter_Adapter;
 import com.kabaladigital.tingtingu.R;
-import com.kabaladigital.tingtingu.ui.activity.MainActivity;
+import com.kabaladigital.tingtingu.ui.fragment.callerid.CallerDetailsChoose;
 
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import static com.kabaladigital.tingtingu.Video_Recording.Video_Recoder_A._VideoRecorder_context;
 
 public class Preview_Video_A extends AppCompatActivity implements Player.EventListener {
 
@@ -87,16 +89,17 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
 
                     if (select_postion == 0) {
                         try {
-                            Functions.copyFile(new File(Variables.outputfile2),
-                                    new File(Variables.output_filter_file));
+                            Functions.copyFile_new(new File(Variables.outputfile2),  new File(Variables.output_filter_file));
                             //Toast.makeText(context, Variables.output_filter_file, Toast.LENGTH_SHORT).show();
                             Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
-
-                            Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
-                            startActivity(intent1);
+                            CallerDetailsChoose.binding_choseIV.viewPager.getAdapter().notifyDataSetChanged();
 
 
+//                            Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
+//                            startActivity(intent1);
+                            ((Activity)_VideoRecorder_context).finish();
                             finish();
+
                             //gotopostScreen();
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -115,6 +118,7 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
             @Override
             public void onClick(View v) {
                 finish();
+
                 overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
             }
         });
@@ -126,7 +130,6 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
             public void onItemClick(View view, int postion, FilterType item) {
                 select_postion = postion;
                 gpuPlayerView.setGlFilter(FilterType.createGlFilter(filterTypes.get(postion), getApplicationContext()));
-
                 adapter.notifyDataSetChanged();
             }
         });
@@ -135,7 +138,6 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
     }
 
     private void flipVideoHorizontal() {
-
         Functions.show_determinent_loader(this, false, false);
         new GPUMp4Composer(Variables.outputfile2, Variables.outputflipped2)
                 .flipHorizontal(true)
@@ -169,9 +171,12 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                                                         new File(Variables.output_filter_file));
                                                 //gotopostScreen();
                                                 Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
-                                                Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
-                                                startActivity(intent1);
+//                                                Intent intent1 = new Intent(Preview_Video_A.this, MainActivity.class);
+//                                                startActivity(intent1);
+                                                CallerDetailsChoose.binding_choseIV.viewPager.getAdapter().notifyDataSetChanged();
+                                                ((Activity)_VideoRecorder_context).finish();
                                                 finish();
+
                                             } catch (IOException e) {
                                                 e.printStackTrace();
                                                 Log.d(Variables.tag, e.toString());
@@ -310,7 +315,6 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
 
                         Log.d("resp", "" + (int) (progress * 100));
                         Functions.show_loading_progress((int) (progress * 100));
-
                     }
 
                     @Override
@@ -323,8 +327,11 @@ public class Preview_Video_A extends AppCompatActivity implements Player.EventLi
                                 Functions.cancel_determinent_loader();
                                 Toast.makeText(context, "Video saved successfully", Toast.LENGTH_SHORT).show();
                                 //gotopostScreen();
-                                Intent intent1 = new Intent(Preview_Video_A.this,MainActivity.class);
-                                startActivity(intent1);
+//                                Intent intent1 = new Intent(Preview_Video_A.this,MainActivity.class);
+//                                startActivity(intent1);
+                                CallerDetailsChoose.binding_choseIV.viewPager.getAdapter().notifyDataSetChanged();
+
+                                ((Activity)_VideoRecorder_context).finish();
                                 finish();
 
                             }

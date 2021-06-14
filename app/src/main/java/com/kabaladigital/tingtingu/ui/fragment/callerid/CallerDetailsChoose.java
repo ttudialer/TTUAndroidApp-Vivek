@@ -87,6 +87,7 @@ public class CallerDetailsChoose extends Fragment {
     private int SELECT_FILE = 1;
     private CallerDetailsChooseViewModel mViewModel;
     private CallerDetailsFragmentChooseBinding binding;
+    public static CallerDetailsFragmentChooseBinding binding_choseIV;
     private static String Image_Video_type="";
     public static final int RequestPermissionCode = 1;
     File pictureFile;
@@ -103,7 +104,7 @@ public class CallerDetailsChoose extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.caller_details_fragment_choose, container, false);
         langType = PreferenceUtils.getInstance().getString(R.string.pref_user_selected_language_key);
-
+        binding_choseIV=binding;
         String[] title ;
         if (langType.equals("hi")){
             title = new String[]{"तस्वीर", "वीडियो"};
@@ -326,12 +327,15 @@ public class CallerDetailsChoose extends Fragment {
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri1);
                 intent.putExtra("aspectX", 1);
                 intent.putExtra("aspectY", 1);
-                intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, 0);
-                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 100*100);
+//                intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, 0);
+//                intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, 100*100);
+
+
                 startActivityForResult(intent, 5);
 
 
             //Camera.Parameters params = mCamera.getParameters();
+
 //            if (pictureFile != null) {
 //                photoURI = FileProvider.getUriForFile(getActivity(), BuildConfig.APPLICATION_ID + ".provider",pictureFile);
 //                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -371,16 +375,20 @@ public class CallerDetailsChoose extends Fragment {
     }
 
     private void VideoOpenGallery(){
-        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("video/*");
-        startActivityForResult(intent, 2);
-
+        if (check_permissions()) {
+            Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("video/*");
+            startActivityForResult(intent, 2);
+        }
     }
 
     private void ImageOpenGallery() {
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        gallery.setType("image/*");
-        startActivityForResult(gallery, 1);
+        if (check_permissions()) {
+            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            gallery.setType("image/*");
+            startActivityForResult(gallery, 1);
+        }
+
     }
 
     private static Bitmap rotateImageIfRequired(Bitmap img, Uri selectedImage) throws IOException {
@@ -428,20 +436,16 @@ public class CallerDetailsChoose extends Fragment {
                 fos.flush();
                 fos.close();
                 imageUri1= Uri.fromFile(file);
-                PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,imageUri1.getPath());
-                Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
-                startActivity(intent);
-
 
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-
-       }
-        else if (resultCode == RESULT_OK && requestCode == 1)
-        {
+            PreferenceUtils.getInstance().putString(R.string.pref_image_path_Draft,imageUri1.getPath());
+            Intent intent = new Intent(getActivity(), ImageSelectActivity.class);
+            startActivity(intent);
+       }else if (resultCode == RESULT_OK && requestCode == 1) {
             imageUri = data.getData();
             String pictureFile1 = null;
             try {
@@ -457,10 +461,7 @@ public class CallerDetailsChoose extends Fragment {
                 img.compress(Bitmap.CompressFormat.JPEG, 100, out);
                 out.flush();
                 out.close();
-
-                //code for refresh adapter
-                binding.viewPager.getAdapter().notifyDataSetChanged();
-
+            binding.viewPager.getAdapter().notifyDataSetChanged();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -486,23 +487,14 @@ public class CallerDetailsChoose extends Fragment {
                 if (currentFile.exists()) {
                     InputStream in = new FileInputStream(currentFile);
                     OutputStream out = new FileOutputStream(destinationFilename);
-                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
-                        // Do something for lollipop and above versions
-                        FileUtils.copy(in, out);
-                    } else{
-                        // do something for phones running an SDK oreo
-                        byte[] buf = new byte[1024];
-                        int len;
-                        while ((len = in.read(buf)) > 0) {
-                            out.write(buf, 0, len);
-                        }
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
                     }
                     in.close();
                     out.close();
-
-                    binding.viewPager.getAdapter().notifyDataSetChanged();
-
-
+                  binding.viewPager.getAdapter().notifyDataSetChanged();
                     Log.v("", "Video file saved successfully.");
                 } else {
                     Log.v("", "Video saving failed. Source file missing.");
@@ -534,27 +526,14 @@ public class CallerDetailsChoose extends Fragment {
         super.onResume();
     }
 
-    public class ViewPagerAdapter extends FragmentPagerAdapter
-    {
-        //private final Fragment[] childFragments;
-        //private final String[] title;
-
+    public class ViewPagerAdapter extends FragmentPagerAdapter {
         public ViewPagerAdapter(@NonNull FragmentManager fm, String[] title)
         {
-            /*super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            this.title = title;
-            childFragments = new Fragment[]
-            {
-                   new CallerDetailsChooseImage(),
-                   new CallerDetailsChooseVideo(),
-            };*/
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
-
         @Override
         public Fragment getItem(int position) {
-
             Fragment childFragments = null;
             if(position == 0)
             {
@@ -564,13 +543,11 @@ public class CallerDetailsChoose extends Fragment {
             {
                 childFragments =  new CallerDetailsChooseVideo();
             }
-
             return childFragments;
         }
 
         @Override
         public int getCount() {
-
             return 2;
         }
 
@@ -595,24 +572,38 @@ public class CallerDetailsChoose extends Fragment {
 
 
 
+//        private final Fragment[] childFragments;
+//        private final String[] title;
 
+//        public ViewPagerAdapter(@NonNull FragmentManager fm, String[] title) {
+//            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+//            this.title = title;
+//            childFragments = new Fragment[] {
+//                    new CallerDetailsChooseImage(),
+//                    new CallerDetailsChooseVideo(),
+//            };
+//        }
+//
+//
+//        @Override
+//        public Fragment getItem(int position) {
+//            return childFragments[position];
+//        }
+//
+//        @Override
+//        public int getCount() {
+//            return childFragments.length;
+//        }
+//
+//
+//        public int getItemPosition(Object object) {
+//            return POSITION_NONE;
+//        }
+//
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            return title[position];
+//        }
 
-    public void waitSpinnerVisible() {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                binding.waitSpinner.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-
-    public void waitSpinnerInvisible() {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                binding.waitSpinner.setVisibility(View.GONE);
-            }
-        });
-    }
 
 }
